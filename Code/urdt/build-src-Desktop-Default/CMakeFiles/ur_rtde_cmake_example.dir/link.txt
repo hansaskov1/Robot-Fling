@@ -1,1 +1,0 @@
-/usr/bin/g++-7     CMakeFiles/ur_rtde_cmake_example.dir/main.cpp.o  -o ur_rtde_cmake_example /usr/lib/x86_64-linux-gnu/librtde.so.1.2.6 /usr/lib/x86_64-linux-gnu/libboost_system.so /usr/lib/x86_64-linux-gnu/libboost_thread.so -lpthread 
