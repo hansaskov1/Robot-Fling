@@ -1,0 +1,155 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>FormManuelStyring</class>
+ <widget class="QWidget" name="FormManuelStyring">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>492</width>
+    <height>445</height>
+   </rect>
+  </property>
+  <property name="windowTitle">
+   <string>Manuel Styring</string>
+  </property>
+  <layout class="QVBoxLayout" name="verticalLayout">
+   <item>
+    <widget class="QWidget" name="widget" native="true">
+     <widget class="QPushButton" name="posetivX">
+      <property name="geometry">
+       <rect>
+        <x>170</x>
+        <y>130</y>
+        <width>80</width>
+        <height>71</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string>Højre</string>
+      </property>
+     </widget>
+     <widget class="QPushButton" name="negativX">
+      <property name="geometry">
+       <rect>
+        <x>10</x>
+        <y>130</y>
+        <width>80</width>
+        <height>71</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string>Venstre</string>
+      </property>
+     </widget>
+     <widget class="QPushButton" name="posetivY">
+      <property name="geometry">
+       <rect>
+        <x>90</x>
+        <y>60</y>
+        <width>80</width>
+        <height>71</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string>Frem</string>
+      </property>
+     </widget>
+     <widget class="QPushButton" name="negativY">
+      <property name="geometry">
+       <rect>
+        <x>90</x>
+        <y>200</y>
+        <width>80</width>
+        <height>71</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string>Tilbage</string>
+      </property>
+     </widget>
+     <widget class="QPushButton" name="openGriber">
+      <property name="geometry">
+       <rect>
+        <x>310</x>
+        <y>140</y>
+        <width>80</width>
+        <height>25</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string>Åben Griber</string>
+      </property>
+     </widget>
+     <widget class="QPushButton" name="closeGriber">
+      <property name="geometry">
+       <rect>
+        <x>310</x>
+        <y>170</y>
+        <width>80</width>
+        <height>25</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string>Luk Griber</string>
+      </property>
+     </widget>
+     <widget class="QPushButton" name="holdGrib">
+      <property name="geometry">
+       <rect>
+        <x>300</x>
+        <y>370</y>
+        <width>80</width>
+        <height>25</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string>Hold</string>
+      </property>
+     </widget>
+     <widget class="QPushButton" name="ilde">
+      <property name="geometry">
+       <rect>
+        <x>210</x>
+        <y>370</y>
+        <width>80</width>
+        <height>25</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string>Ilde</string>
+      </property>
+     </widget>
+     <widget class="QPushButton" name="pushButton_9">
+      <property name="geometry">
+       <rect>
+        <x>310</x>
+        <y>60</y>
+        <width>80</width>
+        <height>71</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string>Op</string>
+      </property>
+     </widget>
+     <widget class="QPushButton" name="negativZ">
+      <property name="geometry">
+       <rect>
+        <x>310</x>
+        <y>200</y>
+        <width>80</width>
+        <height>71</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string>Ned</string>
+      </property>
+     </widget>
+    </widget>
+   </item>
+  </layout>
+ </widget>
+ <resources/>
+ <connections/>
+</ui>

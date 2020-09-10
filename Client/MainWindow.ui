@@ -1,0 +1,233 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>MainWindow</class>
+ <widget class="QMainWindow" name="MainWindow">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>582</width>
+    <height>433</height>
+   </rect>
+  </property>
+  <property name="windowTitle">
+   <string>Kontrolcenter</string>
+  </property>
+  <widget class="QWidget" name="centralwidget">
+   <layout class="QVBoxLayout" name="verticalLayout_2">
+    <item>
+     <widget class="QWidget" name="widget" native="true">
+      <layout class="QHBoxLayout" name="horizontalLayout">
+       <item>
+        <widget class="QWidget" name="widget_4" native="true">
+         <layout class="QGridLayout" name="gridLayout">
+          <item row="7" column="1">
+           <spacer name="verticalSpacer">
+            <property name="orientation">
+             <enum>Qt::Vertical</enum>
+            </property>
+            <property name="sizeHint" stdset="0">
+             <size>
+              <width>20</width>
+              <height>40</height>
+             </size>
+            </property>
+           </spacer>
+          </item>
+          <item row="2" column="1">
+           <widget class="QLineEdit" name="lineEdit_8"/>
+          </item>
+          <item row="1" column="1">
+           <widget class="QLineEdit" name="lineEdit_4"/>
+          </item>
+          <item row="1" column="0">
+           <widget class="QLabel" name="label">
+            <property name="text">
+             <string>Hastighed</string>
+            </property>
+           </widget>
+          </item>
+          <item row="3" column="1">
+           <widget class="QPushButton" name="bSend">
+            <property name="text">
+             <string>Apply</string>
+            </property>
+           </widget>
+          </item>
+          <item row="2" column="0">
+           <widget class="QLabel" name="label_10">
+            <property name="text">
+             <string>Gribekraft</string>
+            </property>
+           </widget>
+          </item>
+          <item row="0" column="1">
+           <widget class="QLineEdit" name="lineEdit_3"/>
+          </item>
+          <item row="0" column="0">
+           <widget class="QLabel" name="label_2">
+            <property name="text">
+             <string>Størrelse</string>
+            </property>
+           </widget>
+          </item>
+         </layout>
+        </widget>
+       </item>
+       <item>
+        <spacer name="horizontalSpacer_2">
+         <property name="orientation">
+          <enum>Qt::Horizontal</enum>
+         </property>
+         <property name="sizeHint" stdset="0">
+          <size>
+           <width>40</width>
+           <height>20</height>
+          </size>
+         </property>
+        </spacer>
+       </item>
+       <item>
+        <widget class="QWidget" name="widget_2" native="true">
+         <layout class="QVBoxLayout" name="verticalLayout">
+          <item>
+           <widget class="QLabel" name="label_7">
+            <property name="text">
+             <string>Manuel Styring</string>
+            </property>
+           </widget>
+          </item>
+          <item>
+           <widget class="QPushButton" name="bOpenGrip">
+            <property name="text">
+             <string>Open Gripper</string>
+            </property>
+           </widget>
+          </item>
+          <item>
+           <widget class="QPushButton" name="bCloseGrip">
+            <property name="text">
+             <string>Close Gripper</string>
+            </property>
+           </widget>
+          </item>
+          <item>
+           <widget class="QPushButton" name="bCalibrate">
+            <property name="text">
+             <string>Calibrate Gripper</string>
+            </property>
+           </widget>
+          </item>
+          <item>
+           <spacer name="verticalSpacer_2">
+            <property name="orientation">
+             <enum>Qt::Vertical</enum>
+            </property>
+            <property name="sizeHint" stdset="0">
+             <size>
+              <width>20</width>
+              <height>40</height>
+             </size>
+            </property>
+           </spacer>
+          </item>
+         </layout>
+        </widget>
+       </item>
+      </layout>
+     </widget>
+    </item>
+    <item>
+     <widget class="QWidget" name="widget_3" native="true">
+      <layout class="QGridLayout" name="gridLayout_3">
+       <property name="topMargin">
+        <number>9</number>
+       </property>
+       <property name="bottomMargin">
+        <number>9</number>
+       </property>
+       <item row="1" column="2">
+        <widget class="QPushButton" name="bDisconnect">
+         <property name="text">
+          <string> Disconnect fra Server </string>
+         </property>
+        </widget>
+       </item>
+       <item row="0" column="2">
+        <widget class="QPushButton" name="bSaveConnect">
+         <property name="text">
+          <string>Gem og Connect til Server</string>
+         </property>
+        </widget>
+       </item>
+       <item row="0" column="0" rowspan="2">
+        <widget class="QWidget" name="widget_5" native="true">
+         <layout class="QGridLayout" name="gridLayout_2">
+          <item row="2" column="2">
+           <spacer name="horizontalSpacer">
+            <property name="orientation">
+             <enum>Qt::Horizontal</enum>
+            </property>
+            <property name="sizeHint" stdset="0">
+             <size>
+              <width>40</width>
+              <height>20</height>
+             </size>
+            </property>
+           </spacer>
+          </item>
+          <item row="2" column="0">
+           <widget class="QLabel" name="label_5">
+            <property name="text">
+             <string>Set Port</string>
+            </property>
+           </widget>
+          </item>
+          <item row="2" column="1">
+           <widget class="QLineEdit" name="lineEdit_2"/>
+          </item>
+          <item row="1" column="1">
+           <widget class="QLineEdit" name="lineEdit"/>
+          </item>
+          <item row="1" column="0">
+           <widget class="QLabel" name="label_6">
+            <property name="text">
+             <string>Set IP</string>
+            </property>
+           </widget>
+          </item>
+         </layout>
+        </widget>
+       </item>
+      </layout>
+     </widget>
+    </item>
+   </layout>
+  </widget>
+  <widget class="QMenuBar" name="menubar">
+   <property name="geometry">
+    <rect>
+     <x>0</x>
+     <y>0</y>
+     <width>582</width>
+     <height>21</height>
+    </rect>
+   </property>
+  </widget>
+  <widget class="QStatusBar" name="statusbar"/>
+ </widget>
+ <tabstops>
+  <tabstop>lineEdit_3</tabstop>
+  <tabstop>lineEdit_4</tabstop>
+  <tabstop>lineEdit_8</tabstop>
+  <tabstop>lineEdit</tabstop>
+  <tabstop>lineEdit_2</tabstop>
+  <tabstop>bSaveConnect</tabstop>
+  <tabstop>bSend</tabstop>
+  <tabstop>bDisconnect</tabstop>
+  <tabstop>bOpenGrip</tabstop>
+  <tabstop>bCloseGrip</tabstop>
+ </tabstops>
+ <resources/>
+ <connections/>
+</ui>
