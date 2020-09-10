@@ -1,0 +1,34 @@
+Quick Install with Ubuntu 18.06
+
+If you are on Linux (Ubuntu), you can install ur_rtde with:
+
+If this does not work visit website:
+https://sdurobotics.gitlab.io/ur_rtde/installation/installation.html
+
+
+
+1. Install boost
+sudo apt-get install libboost-all-dev
+
+2. Install ur_rtde
+sudo add-apt-repository ppa:sdurobotics/ur-rtde
+sudo apt-get update
+sudo apt install librtde librtde-dev
+
+3. Build
+git clone https://gitlab.com/sdurobotics/ur_rtde.git
+cmake -DPYTHON_BINDINGS:BOOL=OFF ..
+cd ur_rtde
+git submodule update --init --recursive
+mkdir build
+cd build
+cmake ..
+make
+sudo make install
+
+
+
+
+
+
+
