@@ -17,6 +17,12 @@ ur_rtde/rtde.h
 -
 ur_rtde/rtde_receive_interface.h
 -
+vector
+-
+chrono
+-
+thread
+-
 
 /usr/local/include/ur_rtde/rtde.h
 ur_rtde/rtde_export.h
