@@ -6,14 +6,10 @@
 
 #IncludeRegexTransform: 
 
-/home/hans/GithubCode/Robot-Fling/Code/urdt/src/example.cpp
+/home/hans/GithubCode/Robot-Fling/Code/calibration/src/calibration.cpp
 stdio.h
 -
 iostream
--
-ur_rtde/rtde_control_interface.h
--
-ur_rtde/rtde.h
 -
 ur_rtde/rtde_receive_interface.h
 -
@@ -23,33 +19,7 @@ chrono
 -
 thread
 -
-
-/usr/local/include/ur_rtde/rtde.h
-ur_rtde/rtde_export.h
--
-boost/asio/io_service.hpp
--
-boost/asio/ip/tcp.hpp
--
-cstdint
--
-functional
--
-memory
--
 string
--
-unordered_map
--
-utility
--
-vector
--
-
-/usr/local/include/ur_rtde/rtde_control_interface.h
-ur_rtde/rtde_export.h
--
-ur_rtde/rtde.h
 -
 
 /usr/local/include/ur_rtde/rtde_export.h

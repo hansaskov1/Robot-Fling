@@ -1,0 +1,22 @@
+#IncludeRegexLine: ^[ 	]*[#%][ 	]*(include|import)[ 	]*[<"]([^">]+)([">])
+
+#IncludeRegexScan: ^.*$
+
+#IncludeRegexComplain: ^$
+
+#IncludeRegexTransform: 
+
+/home/hans/GithubCode/Robot-Fling/Code/calibration/src/calibration.cpp
+stdio.h
+-
+iostream
+-
+ur_rtde/rtde_receive_interface.h
+-
+vector
+-
+thread
+-
+string
+-
+

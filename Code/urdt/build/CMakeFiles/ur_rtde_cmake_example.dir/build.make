@@ -57,38 +57,38 @@ include CMakeFiles/ur_rtde_cmake_example.dir/progress.make
 # Include the compile flags for this target's objects.
 include CMakeFiles/ur_rtde_cmake_example.dir/flags.make
 
-CMakeFiles/ur_rtde_cmake_example.dir/main.cpp.o: CMakeFiles/ur_rtde_cmake_example.dir/flags.make
-CMakeFiles/ur_rtde_cmake_example.dir/main.cpp.o: /home/hans/GithubCode/Robot-Fling/Code/urdt/src/main.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/hans/GithubCode/Robot-Fling/Code/urdt/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Building CXX object CMakeFiles/ur_rtde_cmake_example.dir/main.cpp.o"
-	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/ur_rtde_cmake_example.dir/main.cpp.o -c /home/hans/GithubCode/Robot-Fling/Code/urdt/src/main.cpp
+CMakeFiles/ur_rtde_cmake_example.dir/example.cpp.o: CMakeFiles/ur_rtde_cmake_example.dir/flags.make
+CMakeFiles/ur_rtde_cmake_example.dir/example.cpp.o: /home/hans/GithubCode/Robot-Fling/Code/urdt/src/example.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/hans/GithubCode/Robot-Fling/Code/urdt/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Building CXX object CMakeFiles/ur_rtde_cmake_example.dir/example.cpp.o"
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/ur_rtde_cmake_example.dir/example.cpp.o -c /home/hans/GithubCode/Robot-Fling/Code/urdt/src/example.cpp
 
-CMakeFiles/ur_rtde_cmake_example.dir/main.cpp.i: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/ur_rtde_cmake_example.dir/main.cpp.i"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/hans/GithubCode/Robot-Fling/Code/urdt/src/main.cpp > CMakeFiles/ur_rtde_cmake_example.dir/main.cpp.i
+CMakeFiles/ur_rtde_cmake_example.dir/example.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/ur_rtde_cmake_example.dir/example.cpp.i"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/hans/GithubCode/Robot-Fling/Code/urdt/src/example.cpp > CMakeFiles/ur_rtde_cmake_example.dir/example.cpp.i
 
-CMakeFiles/ur_rtde_cmake_example.dir/main.cpp.s: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/ur_rtde_cmake_example.dir/main.cpp.s"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/hans/GithubCode/Robot-Fling/Code/urdt/src/main.cpp -o CMakeFiles/ur_rtde_cmake_example.dir/main.cpp.s
+CMakeFiles/ur_rtde_cmake_example.dir/example.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/ur_rtde_cmake_example.dir/example.cpp.s"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/hans/GithubCode/Robot-Fling/Code/urdt/src/example.cpp -o CMakeFiles/ur_rtde_cmake_example.dir/example.cpp.s
 
-CMakeFiles/ur_rtde_cmake_example.dir/main.cpp.o.requires:
+CMakeFiles/ur_rtde_cmake_example.dir/example.cpp.o.requires:
 
-.PHONY : CMakeFiles/ur_rtde_cmake_example.dir/main.cpp.o.requires
+.PHONY : CMakeFiles/ur_rtde_cmake_example.dir/example.cpp.o.requires
 
-CMakeFiles/ur_rtde_cmake_example.dir/main.cpp.o.provides: CMakeFiles/ur_rtde_cmake_example.dir/main.cpp.o.requires
-	$(MAKE) -f CMakeFiles/ur_rtde_cmake_example.dir/build.make CMakeFiles/ur_rtde_cmake_example.dir/main.cpp.o.provides.build
-.PHONY : CMakeFiles/ur_rtde_cmake_example.dir/main.cpp.o.provides
+CMakeFiles/ur_rtde_cmake_example.dir/example.cpp.o.provides: CMakeFiles/ur_rtde_cmake_example.dir/example.cpp.o.requires
+	$(MAKE) -f CMakeFiles/ur_rtde_cmake_example.dir/build.make CMakeFiles/ur_rtde_cmake_example.dir/example.cpp.o.provides.build
+.PHONY : CMakeFiles/ur_rtde_cmake_example.dir/example.cpp.o.provides
 
-CMakeFiles/ur_rtde_cmake_example.dir/main.cpp.o.provides.build: CMakeFiles/ur_rtde_cmake_example.dir/main.cpp.o
+CMakeFiles/ur_rtde_cmake_example.dir/example.cpp.o.provides.build: CMakeFiles/ur_rtde_cmake_example.dir/example.cpp.o
 
 
 # Object files for target ur_rtde_cmake_example
 ur_rtde_cmake_example_OBJECTS = \
-"CMakeFiles/ur_rtde_cmake_example.dir/main.cpp.o"
+"CMakeFiles/ur_rtde_cmake_example.dir/example.cpp.o"
 
 # External object files for target ur_rtde_cmake_example
 ur_rtde_cmake_example_EXTERNAL_OBJECTS =
 
-ur_rtde_cmake_example: CMakeFiles/ur_rtde_cmake_example.dir/main.cpp.o
+ur_rtde_cmake_example: CMakeFiles/ur_rtde_cmake_example.dir/example.cpp.o
 ur_rtde_cmake_example: CMakeFiles/ur_rtde_cmake_example.dir/build.make
 ur_rtde_cmake_example: /usr/local/lib/librtde.so.1.3.1
 ur_rtde_cmake_example: /usr/lib/x86_64-linux-gnu/libboost_system.so
@@ -102,7 +102,7 @@ CMakeFiles/ur_rtde_cmake_example.dir/build: ur_rtde_cmake_example
 
 .PHONY : CMakeFiles/ur_rtde_cmake_example.dir/build
 
-CMakeFiles/ur_rtde_cmake_example.dir/requires: CMakeFiles/ur_rtde_cmake_example.dir/main.cpp.o.requires
+CMakeFiles/ur_rtde_cmake_example.dir/requires: CMakeFiles/ur_rtde_cmake_example.dir/example.cpp.o.requires
 
 .PHONY : CMakeFiles/ur_rtde_cmake_example.dir/requires
 

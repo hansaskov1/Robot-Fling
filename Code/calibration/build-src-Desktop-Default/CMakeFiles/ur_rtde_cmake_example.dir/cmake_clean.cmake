@@ -1,5 +1,5 @@
 file(REMOVE_RECURSE
-  "CMakeFiles/ur_rtde_cmake_example.dir/example.cpp.o"
+  "CMakeFiles/ur_rtde_cmake_example.dir/calibration.cpp.o"
   "ur_rtde_cmake_example.pdb"
   "ur_rtde_cmake_example"
 )
