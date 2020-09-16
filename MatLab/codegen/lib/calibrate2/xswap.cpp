@@ -11,8 +11,7 @@
 
 // Include files
 #include "xswap.h"
-#include "calibrateGribber.h"
-#include "rt_nonfinite.h"
+#include "calibrate2.h"
 
 // Function Definitions
 void xswap(double x[9], int ix0, int iy0)

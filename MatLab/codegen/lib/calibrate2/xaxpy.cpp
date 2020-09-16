@@ -11,13 +11,12 @@
 
 // Include files
 #include "xaxpy.h"
-#include "calibrateGribber.h"
-#include "rt_nonfinite.h"
+#include "calibrate2.h"
 
 // Function Definitions
 void b_xaxpy(int n, double a, const double x[9], int ix0, double y[3], int iy0)
 {
-  if (!(a == 0.0)) {
+  if (a != 0.0) {
     int ix;
     int iy;
     int i;
@@ -34,7 +33,7 @@ void b_xaxpy(int n, double a, const double x[9], int ix0, double y[3], int iy0)
 
 void c_xaxpy(int n, double a, const double x[3], int ix0, double y[9], int iy0)
 {
-  if (!(a == 0.0)) {
+  if (a != 0.0) {
     int ix;
     int iy;
     int i;
@@ -51,7 +50,7 @@ void c_xaxpy(int n, double a, const double x[3], int ix0, double y[9], int iy0)
 
 void xaxpy(int n, double a, int ix0, double y[9], int iy0)
 {
-  if (!(a == 0.0)) {
+  if (a != 0.0) {
     int ix;
     int iy;
     int i;

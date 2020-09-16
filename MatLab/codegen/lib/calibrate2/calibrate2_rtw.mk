@@ -2,7 +2,7 @@
 ## Makefile generated for MATLAB file/project 'calibrate2'. 
 ## 
 ## Makefile     : calibrate2_rtw.mk
-## Generated on : Wed Sep 16 12:31:38 2020
+## Generated on : Wed Sep 16 22:46:21 2020
 ## MATLAB Coder version: 5.0 (R2020a)
 ## 
 ## Build Info:
@@ -172,7 +172,7 @@ DEFINES = $(DEFINES_CUSTOM) $(DEFINES_STANDARD)
 ## SOURCE FILES
 ###########################################################################
 
-SRCS = $(START_DIR)/rt_nonfinite.cpp $(START_DIR)/rtGetNaN.cpp $(START_DIR)/rtGetInf.cpp $(START_DIR)/calibrateGribber.cpp $(START_DIR)/svd.cpp $(START_DIR)/xnrm2.cpp $(START_DIR)/xdotc.cpp $(START_DIR)/xaxpy.cpp $(START_DIR)/xrotg.cpp $(START_DIR)/xrot.cpp $(START_DIR)/xswap.cpp
+SRCS = $(START_DIR)/calibrate2_initialize.cpp $(START_DIR)/calibrate2_terminate.cpp $(START_DIR)/calibrate2.cpp $(START_DIR)/svd.cpp $(START_DIR)/xnrm2.cpp $(START_DIR)/xdotc.cpp $(START_DIR)/xaxpy.cpp $(START_DIR)/xrotg.cpp $(START_DIR)/xrot.cpp $(START_DIR)/xswap.cpp
 
 ALL_SRCS = $(SRCS)
 
@@ -180,7 +180,7 @@ ALL_SRCS = $(SRCS)
 ## OBJECTS
 ###########################################################################
 
-OBJS = rt_nonfinite.o rtGetNaN.o rtGetInf.o calibrateGribber.o svd.o xnrm2.o xdotc.o xaxpy.o xrotg.o xrot.o xswap.o
+OBJS = calibrate2_initialize.o calibrate2_terminate.o calibrate2.o svd.o xnrm2.o xdotc.o xaxpy.o xrotg.o xrot.o xswap.o
 
 ALL_OBJS = $(OBJS)
 
@@ -303,19 +303,15 @@ $(PRODUCT) : $(OBJS) $(PREBUILT_OBJS)
 	$(CPP) $(CPPFLAGS) -o "$@" "$<"
 
 
-rt_nonfinite.o : $(START_DIR)/rt_nonfinite.cpp
+calibrate2_initialize.o : $(START_DIR)/calibrate2_initialize.cpp
 	$(CPP) $(CPPFLAGS) -o "$@" "$<"
 
 
-rtGetNaN.o : $(START_DIR)/rtGetNaN.cpp
+calibrate2_terminate.o : $(START_DIR)/calibrate2_terminate.cpp
 	$(CPP) $(CPPFLAGS) -o "$@" "$<"
 
 
-rtGetInf.o : $(START_DIR)/rtGetInf.cpp
-	$(CPP) $(CPPFLAGS) -o "$@" "$<"
-
-
-calibrateGribber.o : $(START_DIR)/calibrateGribber.cpp
+calibrate2.o : $(START_DIR)/calibrate2.cpp
 	$(CPP) $(CPPFLAGS) -o "$@" "$<"
 
 

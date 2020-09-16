@@ -36,13 +36,14 @@
 
 // Include files
 #include "main.h"
-#include "calibrateGribber.h"
+#include "calibrate2.h"
+#include "calibrate2_terminate.h"
 #include "rt_nonfinite.h"
 
 // Function Declarations
 static coder::array<double, 2U> argInit_3xUnbounded_real_T();
 static double argInit_real_T();
-static void main_calibrate2(calibrateGribber *instancePtr);
+static void main_calibrate2();
 
 // Function Definitions
 static coder::array<double, 2U> argInit_3xUnbounded_real_T()
@@ -81,9 +82,9 @@ static double argInit_real_T()
   return 0.0;
 }
 
-static void main_calibrate2(calibrateGribber *instancePtr)
+static void main_calibrate2()
 {
-    coder::array<double, 2U> pr_tmp;
+  coder::array<double, 2U> pr_tmp;
   double rHat[9];
   double tHat[3];
 
@@ -93,18 +94,19 @@ static void main_calibrate2(calibrateGribber *instancePtr)
 
   // Initialize function input argument 'pw'.
   // Call the entry-point 'calibrate2'.
-  instancePtr->calibrate2(pr_tmp, pr_tmp, rHat, tHat);
+  calibrate2(pr_tmp, pr_tmp, rHat, tHat);
 }
 
 int main(int, const char * const [])
 {
-  calibrateGribber *classInstance;
-  classInstance = new calibrateGribber;
-
+  // The initialize function is being called automatically from your entry-point function. So, a call to initialize is not included here. 
   // Invoke the entry-point functions.
   // You can call entry-point functions multiple times.
-  main_calibrate2(classInstance);
-  delete classInstance;
+  main_calibrate2();
+
+  // Terminate the application.
+  // You do not need to do this more than one time.
+  calibrate2_terminate();
   return 0;
 }
 

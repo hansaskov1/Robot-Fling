@@ -11,8 +11,7 @@
 
 // Include files
 #include "svd.h"
-#include "calibrateGribber.h"
-#include "rt_nonfinite.h"
+#include "calibrate2.h"
 #include "xaxpy.h"
 #include "xdotc.h"
 #include "xnrm2.h"
@@ -27,7 +26,7 @@ void svd(const double A[9], double U[9], double s[3], double V[9])
   double e[3];
   double work[3];
   int kase;
-  boolean_T apply_transform;
+  bool apply_transform;
   double b_A[9];
   double nrm;
   double b_s[3];
@@ -251,11 +250,11 @@ void svd(const double A[9], double U[9], double s[3], double V[9])
 
     nrm = std::abs(b_s[q]);
     r = std::abs(e[q]);
-    if ((nrm > r) || rtIsNaN(r)) {
+    if (nrm > r) {
       r = nrm;
     }
 
-    if ((!(snorm > r)) && (!rtIsNaN(r))) {
+    if (snorm <= r) {
       snorm = r;
     }
   }
@@ -284,7 +283,7 @@ void svd(const double A[9], double U[9], double s[3], double V[9])
     if (qp1 + 1 == m + 1) {
       kase = 4;
     } else {
-      boolean_T exitg2;
+      bool exitg2;
       qjj = m + 2;
       kase = m + 2;
       exitg2 = false;
@@ -362,22 +361,22 @@ void svd(const double A[9], double U[9], double s[3], double V[9])
         nrm = b_s[m + 1];
         scale = std::abs(nrm);
         r = std::abs(b_s[m]);
-        if ((!(scale > r)) && (!rtIsNaN(r))) {
+        if (scale <= r) {
           scale = r;
         }
 
         r = std::abs(e[m]);
-        if ((!(scale > r)) && (!rtIsNaN(r))) {
+        if (scale <= r) {
           scale = r;
         }
 
         r = std::abs(b_s[q]);
-        if ((!(scale > r)) && (!rtIsNaN(r))) {
+        if (scale <= r) {
           scale = r;
         }
 
         r = std::abs(e[q]);
-        if ((!(scale > r)) && (!rtIsNaN(r))) {
+        if (scale <= r) {
           scale = r;
         }
 

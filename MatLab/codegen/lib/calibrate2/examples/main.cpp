@@ -36,44 +36,42 @@
 
 // Include files
 #include "main.h"
-#include "calibrateGribber.h"
-#include "rt_nonfinite.h"
+#include "calibrate2.h"
+#include "calibrate2_terminate.h"
 
 // Function Declarations
-static coder::array<double, 2U> argInit_3xUnbounded_real_T();
+static void argInit_3xd50_real_T(double result_data[], int result_size[2]);
 static double argInit_real_T();
-static void main_calibrate2(calibrateGribber *instancePtr);
+static void main_calibrate2();
 
 // Function Definitions
-static coder::array<double, 2U> argInit_3xUnbounded_real_T()
+static void argInit_3xd50_real_T(double result_data[], int result_size[2])
 {
-  coder::array<double, 2U> result;
   int idx1;
 
   // Set the size of the array.
   // Change this size to the value that the application requires.
-  result.set_size(3, 2);
+  result_size[0] = 3;
+  result_size[1] = 2;
 
   // Loop over the array to initialize each element.
-  for (idx1 = 0; idx1 < result.size(1); idx1++) {
+  for (idx1 = 0; idx1 < 2; idx1++) {
     // Set the value of the array element.
     // Change this value to the value that the application requires.
-    result[3 * idx1] = argInit_real_T();
+    result_data[3 * idx1] = argInit_real_T();
   }
 
-  for (idx1 = 0; idx1 < result.size(1); idx1++) {
+  for (idx1 = 0; idx1 < 2; idx1++) {
     // Set the value of the array element.
     // Change this value to the value that the application requires.
-    result[3 * idx1 + 1] = argInit_real_T();
+    result_data[3 * idx1 + 1] = argInit_real_T();
   }
 
-  for (idx1 = 0; idx1 < result.size(1); idx1++) {
+  for (idx1 = 0; idx1 < 2; idx1++) {
     // Set the value of the array element.
     // Change this value to the value that the application requires.
-    result[3 * idx1 + 2] = argInit_real_T();
+    result_data[3 * idx1 + 2] = argInit_real_T();
   }
-
-  return result;
 }
 
 static double argInit_real_T()
@@ -81,30 +79,36 @@ static double argInit_real_T()
   return 0.0;
 }
 
-static void main_calibrate2(calibrateGribber *instancePtr)
+static void main_calibrate2()
 {
-  coder::array<double, 2U> pr_tmp;
+  double pr_data[150];
+  int pr_size[2];
+  double pw_data[150];
+  int pw_size[2];
   double rHat[9];
   double tHat[3];
 
   // Initialize function 'calibrate2' input arguments.
   // Initialize function input argument 'pr'.
-  pr_tmp = argInit_3xUnbounded_real_T();
+  argInit_3xd50_real_T(pr_data, pr_size);
 
   // Initialize function input argument 'pw'.
+  argInit_3xd50_real_T(pw_data, pw_size);
+
   // Call the entry-point 'calibrate2'.
-  instancePtr->calibrate2(pr_tmp, pr_tmp, rHat, tHat);
+  calibrate2(pr_data, pr_size, pw_data, pw_size, rHat, tHat);
 }
 
 int main(int, const char * const [])
 {
-  calibrateGribber *classInstance;
-  classInstance = new calibrateGribber;
-
+  // The initialize function is being called automatically from your entry-point function. So, a call to initialize is not included here. 
   // Invoke the entry-point functions.
   // You can call entry-point functions multiple times.
-  main_calibrate2(classInstance);
-  delete classInstance;
+  main_calibrate2();
+
+  // Terminate the application.
+  // You do not need to do this more than one time.
+  calibrate2_terminate();
   return 0;
 }
 

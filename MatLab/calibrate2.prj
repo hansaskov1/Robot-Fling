@@ -1,18 +1,18 @@
 <deployment-project plugin="plugin.coder" plugin-version="R2018b">
-  <configuration build-checksum="2450136369" file="/home/hans/GithubCode/Robot-Fling/MatLab/calibrate2.prj" location="/home/hans/GithubCode/Robot-Fling/MatLab" name="calibrate2" target="target.unifiedcoder" target-name="MATLAB Coder">
+  <configuration build-checksum="1177849154" file="/home/hans/GithubCode/Robot-Fling/MatLab/calibrate2.prj" location="/home/hans/GithubCode/Robot-Fling/MatLab" name="calibrate2" target="target.unifiedcoder" target-name="MATLAB Coder">
     <profile key="profile.mex">
-      <param.BuiltInstrumentedMex />
+      <param.BuiltInstrumentedMex>false</param.BuiltInstrumentedMex>
       <param.RanInstrumentedMex>false</param.RanInstrumentedMex>
       <param.WorkingFolder>option.WorkingFolder.Project</param.WorkingFolder>
       <param.SpecifiedWorkingFolder />
       <param.BuildFolder>option.BuildFolder.Project</param.BuildFolder>
       <param.SpecifiedBuildFolder />
       <param.SearchPaths />
-      <param.ResponsivenessChecks />
-      <param.ExtrinsicCalls />
-      <param.IntegrityChecks />
+      <param.ResponsivenessChecks>true</param.ResponsivenessChecks>
+      <param.ExtrinsicCalls>true</param.ExtrinsicCalls>
+      <param.IntegrityChecks>true</param.IntegrityChecks>
       <param.SaturateOnIntegerOverflow>true</param.SaturateOnIntegerOverflow>
-      <param.GlobalDataSyncMethod />
+      <param.GlobalDataSyncMethod>option.GlobalDataSyncMethod.SyncAlways</param.GlobalDataSyncMethod>
       <param.EnableVariableSizing>true</param.EnableVariableSizing>
       <param.DynamicMemoryAllocation>option.DynamicMemoryAllocation.Threshold</param.DynamicMemoryAllocation>
       <param.DynamicMemoryAllocationThreshold>65536</param.DynamicMemoryAllocationThreshold>
@@ -26,7 +26,7 @@
       <param.GenerateComments>true</param.GenerateComments>
       <param.MATLABSourceComments>false</param.MATLABSourceComments>
       <param.ReservedNameArray />
-      <param.EnableDebugging />
+      <param.EnableDebugging>false</param.EnableDebugging>
       <param.ReportPotentialDifferences>false</param.ReportPotentialDifferences>
       <param.GenerateReport>true</param.GenerateReport>
       <param.LaunchReport>false</param.LaunchReport>
@@ -34,7 +34,7 @@
       <param.DefaultTestFile />
       <param.MergeInstrumentationResults>false</param.MergeInstrumentationResults>
       <param.VerificationMode>option.VerificationMode.None</param.VerificationMode>
-      <param.VerificationStatus>option.VerificationStatus.Inactive</param.VerificationStatus>
+      <param.VerificationStatus>option.VerificationStatus.Passed</param.VerificationStatus>
       <param.EnableMexProfiling>false</param.EnableMexProfiling>
       <var.BuiltWithMexProfiling>false</var.BuiltWithMexProfiling>
       <param.CustomSourceCode />
@@ -45,7 +45,7 @@
       <param.CustomSource />
       <param.CustomLibrary />
       <param.PostCodeGenCommand />
-      <param.mex.GenCodeOnly />
+      <param.mex.GenCodeOnly>false</param.mex.GenCodeOnly>
       <param.ConstantFoldingTimeout>40000</param.ConstantFoldingTimeout>
       <param.CompileTimeRecursionLimit>50</param.CompileTimeRecursionLimit>
       <param.EnableRuntimeRecursion>true</param.EnableRuntimeRecursion>
@@ -53,7 +53,7 @@
       <param.InlineUserFunctions>option.InlineUserFunctions.Speed</param.InlineUserFunctions>
       <param.InlineMWFunctions>option.InlineMWFunctions.Speed</param.InlineMWFunctions>
       <param.InlineMWFunctionsInUserFunctions>option.InlineMWFunctionsInUserFunctions.Speed</param.InlineMWFunctionsInUserFunctions>
-      <param.EchoExpressions />
+      <param.EchoExpressions>true</param.EchoExpressions>
       <param.InlineThreshold>10</param.InlineThreshold>
       <param.InlineThresholdMax>200</param.InlineThresholdMax>
       <param.InlineStackLimit>4000</param.InlineStackLimit>
@@ -61,11 +61,11 @@
       <param.MemcpyThreshold>64</param.MemcpyThreshold>
       <param.EnableOpenMP>true</param.EnableOpenMP>
       <param.InitFltsAndDblsToZero>true</param.InitFltsAndDblsToZero>
-      <param.ConstantInputs />
+      <param.ConstantInputs>option.ConstantInputs.CheckValues</param.ConstantInputs>
       <param.EnableCRICodeCoverage>true</param.EnableCRICodeCoverage>
       <param.EnableJIT>false</param.EnableJIT>
-      <param.EnableJITSilentBailOut />
-      <param.CheckForIssuesJIT />
+      <param.EnableJITSilentBailOut>false</param.EnableJITSilentBailOut>
+      <param.CheckForIssuesJIT>true</param.CheckForIssuesJIT>
       <unset>
         <param.BuiltInstrumentedMex />
         <param.RanInstrumentedMex />
@@ -100,7 +100,6 @@
         <param.DefaultTestFile />
         <param.MergeInstrumentationResults />
         <param.VerificationMode />
-        <param.VerificationStatus />
         <param.EnableMexProfiling />
         <var.BuiltWithMexProfiling />
         <param.CustomSourceCode />
@@ -143,7 +142,7 @@
       <param.SearchPaths />
       <param.SaturateOnIntegerOverflow>true</param.SaturateOnIntegerOverflow>
       <param.PurelyIntegerCode>false</param.PurelyIntegerCode>
-      <param.SupportNonFinite>true</param.SupportNonFinite>
+      <param.SupportNonFinite>false</param.SupportNonFinite>
       <param.LoopUnrollThreshold>5</param.LoopUnrollThreshold>
       <param.EnableVariableSizing>true</param.EnableVariableSizing>
       <param.DynamicMemoryAllocation>option.DynamicMemoryAllocation.Threshold</param.DynamicMemoryAllocation>
@@ -183,8 +182,8 @@
       <param.ReplacementTypes.logical />
       <param.ReplacementTypes.ImportCustomTypes>false</param.ReplacementTypes.ImportCustomTypes>
       <param.ReplacementTypes.HeaderFiles />
-      <param.CppInterfaceStyle>option.CppInterfaceStyle.Methods</param.CppInterfaceStyle>
-      <param.CppInterfaceClassName>calibrateGribber</param.CppInterfaceClassName>
+      <param.CppInterfaceStyle>option.CppInterfaceStyle.Functions</param.CppInterfaceStyle>
+      <param.CppInterfaceClassName />
       <param.CppPreserveClasses>true</param.CppPreserveClasses>
       <param.CustomFileNameStr>$N$M</param.CustomFileNameStr>
       <param.CustomSymbolStrGlobalVar>$M$N</param.CustomSymbolStrGlobalVar>
@@ -232,11 +231,11 @@
       <param.CustomToolchainOptions />
       <var.ToolchainSettingsVisible>true</var.ToolchainSettingsVisible>
       <param.target.Data>&lt;?xml version="1.0" encoding="UTF-8" standalone="yes"?&gt;&lt;ctdata&gt;&lt;configuredHardware/&gt;&lt;/ctdata&gt;</param.target.Data>
-      <param.target.ActiveType>option.target.TargetType.MatlabHost</param.target.ActiveType>
+      <param.target.ActiveType>option.target.TargetType.Custom</param.target.ActiveType>
       <param.target.ActiveTarget />
-      <param.HardwareVendor.Production>Generic</param.HardwareVendor.Production>
-      <param.HardwareType.Production>MATLAB Host Computer</param.HardwareType.Production>
-      <param.HWDeviceType.Production>Generic-&gt;MATLAB Host Computer</param.HWDeviceType.Production>
+      <param.HardwareVendor.Production>Intel</param.HardwareVendor.Production>
+      <param.HardwareType.Production>x86-64 (Linux 64)</param.HardwareType.Production>
+      <param.HWDeviceType.Production>Intel-&gt;x86-64 (Linux 64)</param.HWDeviceType.Production>
       <var.instance.enabled.Production>true</var.instance.enabled.Production>
       <param.HardwareSizeChar.Production>8</param.HardwareSizeChar.Production>
       <param.HardwareSizeShort.Production>16</param.HardwareSizeShort.Production>
@@ -251,13 +250,13 @@
       <param.HardwareSizePtrDiffT.Production>64</param.HardwareSizePtrDiffT.Production>
       <param.HardwareEndianness.Production>option.HardwareEndianness.Little</param.HardwareEndianness.Production>
       <param.HardwareArithmeticRightShift.Production>true</param.HardwareArithmeticRightShift.Production>
-      <param.HardwareLongLongMode.Production>true</param.HardwareLongLongMode.Production>
+      <param.HardwareLongLongMode.Production>false</param.HardwareLongLongMode.Production>
       <param.HardwareAtomicIntegerSize.Production>option.HardwareAtomicIntegerSize.Char</param.HardwareAtomicIntegerSize.Production>
-      <param.HardwareAtomicFloatSize.Production>option.HardwareAtomicFloatSize.None</param.HardwareAtomicFloatSize.Production>
+      <param.HardwareAtomicFloatSize.Production>option.HardwareAtomicFloatSize.Float</param.HardwareAtomicFloatSize.Production>
       <param.HardwareDivisionRounding.Production>option.HardwareDivisionRounding.Zero</param.HardwareDivisionRounding.Production>
-      <param.HardwareVendor.Target>Generic</param.HardwareVendor.Target>
-      <param.HardwareType.Target>MATLAB Host Computer</param.HardwareType.Target>
-      <param.HWDeviceType.Target>Generic-&gt;MATLAB Host Computer</param.HWDeviceType.Target>
+      <param.HardwareVendor.Target>Intel</param.HardwareVendor.Target>
+      <param.HardwareType.Target>x86-64 (Linux 64)</param.HardwareType.Target>
+      <param.HWDeviceType.Target>Intel-&gt;x86-64 (Linux 64)</param.HWDeviceType.Target>
       <var.instance.enabled.Target>false</var.instance.enabled.Target>
       <param.HardwareSizeChar.Target>8</param.HardwareSizeChar.Target>
       <param.HardwareSizeShort.Target>16</param.HardwareSizeShort.Target>
@@ -272,9 +271,9 @@
       <param.HardwareSizePtrDiffT.Target>64</param.HardwareSizePtrDiffT.Target>
       <param.HardwareEndianness.Target>option.HardwareEndianness.Little</param.HardwareEndianness.Target>
       <param.HardwareArithmeticRightShift.Target>true</param.HardwareArithmeticRightShift.Target>
-      <param.HardwareLongLongMode.Target>true</param.HardwareLongLongMode.Target>
+      <param.HardwareLongLongMode.Target>false</param.HardwareLongLongMode.Target>
       <param.HardwareAtomicIntegerSize.Target>option.HardwareAtomicIntegerSize.Char</param.HardwareAtomicIntegerSize.Target>
-      <param.HardwareAtomicFloatSize.Target>option.HardwareAtomicFloatSize.None</param.HardwareAtomicFloatSize.Target>
+      <param.HardwareAtomicFloatSize.Target>option.HardwareAtomicFloatSize.Float</param.HardwareAtomicFloatSize.Target>
       <param.HardwareDivisionRounding.Target>option.HardwareDivisionRounding.Zero</param.HardwareDivisionRounding.Target>
       <var.SuppressHardwareChange>false</var.SuppressHardwareChange>
       <param.CastingMode>option.CastingMode.Nominal</param.CastingMode>
@@ -327,7 +326,6 @@
         <param.SearchPaths />
         <param.SaturateOnIntegerOverflow />
         <param.PurelyIntegerCode />
-        <param.SupportNonFinite />
         <param.LoopUnrollThreshold />
         <param.EnableVariableSizing />
         <param.DynamicMemoryAllocation />
@@ -367,6 +365,8 @@
         <param.ReplacementTypes.logical />
         <param.ReplacementTypes.ImportCustomTypes />
         <param.ReplacementTypes.HeaderFiles />
+        <param.CppInterfaceStyle />
+        <param.CppInterfaceClassName />
         <param.CppPreserveClasses />
         <param.CustomFileNameStr />
         <param.CustomSymbolStrGlobalVar />
@@ -413,10 +413,7 @@
         <param.BuildConfiguration />
         <param.CustomToolchainOptions />
         <var.ToolchainSettingsVisible />
-        <param.target.ActiveType />
         <param.target.ActiveTarget />
-        <param.HardwareVendor.Production />
-        <param.HardwareType.Production />
         <param.HWDeviceType.Production />
         <var.instance.enabled.Production />
         <param.HardwareSizeChar.Production />
@@ -426,10 +423,8 @@
         <param.HardwareSizeFloat.Production />
         <param.HardwareSizeDouble.Production />
         <param.HardwareEndianness.Production />
+        <param.HardwareLongLongMode.Production />
         <param.HardwareAtomicIntegerSize.Production />
-        <param.HardwareAtomicFloatSize.Production />
-        <param.HardwareVendor.Target />
-        <param.HardwareType.Target />
         <param.HWDeviceType.Target />
         <var.instance.enabled.Target />
         <param.HardwareSizeChar.Target />
@@ -439,8 +434,8 @@
         <param.HardwareSizeFloat.Target />
         <param.HardwareSizeDouble.Target />
         <param.HardwareEndianness.Target />
+        <param.HardwareLongLongMode.Target />
         <param.HardwareAtomicIntegerSize.Target />
-        <param.HardwareAtomicFloatSize.Target />
         <var.SuppressHardwareChange />
         <param.CastingMode />
         <param.IndentStyle />
@@ -834,7 +829,9 @@
     </profile>
     <param.objective>option.objective.c</param.objective>
     <param.WorkflowStep>workflowSummary</param.WorkflowStep>
-    <param.TestSnippets />
+    <param.TestSnippets>
+      <item>calibrateTest</item>
+    </param.TestSnippets>
     <param.ExternalFcnMajority>column</param.ExternalFcnMajority>
     <param.UseGlobals>option.UseGlobals.No</param.UseGlobals>
     <param.outputfile>${PROJECT_ROOT}/codegen/lib/calibrate2/calibrate2.a</param.outputfile>
@@ -852,7 +849,7 @@
     <param.AutoInferUnboundedSizeThreshold>2048</param.AutoInferUnboundedSizeThreshold>
     <param.EnableFixedPointStep>false</param.EnableFixedPointStep>
     <param.EnableScreener>true</param.EnableScreener>
-    <param.AnnotationChecksum>3942384972</param.AnnotationChecksum>
+    <param.AnnotationChecksum>1228504113</param.AnnotationChecksum>
     <var.LegacyTarget />
     <var.MirrorOnOpen>false</var.MirrorOnOpen>
     <param.FixedPointEnabled>false</param.FixedPointEnabled>
@@ -861,11 +858,12 @@
     <param.unifiedParamStorage />
     <var.gc.lastOutputRoot>codegen/lib/calibrate2</var.gc.lastOutputRoot>
     <var.gc.lastOutputType>C_CODE</var.gc.lastOutputType>
-    <var.gc.preBuildChecksum>1298922199</var.gc.preBuildChecksum>
-    <var.cfi.lastOutputRoot />
-    <var.cfi.preBuildChecksum />
+    <var.gc.preBuildChecksum>1177849154</var.gc.preBuildChecksum>
+    <var.cfi.lastOutputRoot>codegen/mex/calibrate2</var.cfi.lastOutputRoot>
+    <var.cfi.preBuildChecksum>211084852</var.cfi.preBuildChecksum>
+    <var.lastCfiTestSnippet>calibrateTest</var.lastCfiTestSnippet>
     <var.outdatedOnRestore>false</var.outdatedOnRestore>
-    <var.lastUserSourceChecksum>&lt;?xml version="1.0" encoding="UTF-8" standalone="yes"?&gt;&lt;checksum&gt;&lt;includedFiles&gt;&lt;file&gt;/home/hans/GithubCode/Robot-Fling/MatLab/calibrate2.m&lt;/file&gt;&lt;/includedFiles&gt;&lt;value&gt;2643987423&lt;/value&gt;&lt;/checksum&gt;</var.lastUserSourceChecksum>
+    <var.lastUserSourceChecksum>&lt;?xml version="1.0" encoding="UTF-8" standalone="yes"?&gt;&lt;checksum&gt;&lt;includedFiles&gt;&lt;file&gt;/home/hans/GithubCode/Robot-Fling/MatLab/calibrate2.m&lt;/file&gt;&lt;/includedFiles&gt;&lt;value&gt;680829317&lt;/value&gt;&lt;/checksum&gt;</var.lastUserSourceChecksum>
     <var.sourceSetState>&lt;?xml version="1.0" encoding="UTF-8" standalone="yes"?&gt;&lt;sourceModel&gt;&lt;primarySourceFiles&gt;&lt;file&gt;/home/hans/GithubCode/Robot-Fling/MatLab/calibrate2.m&lt;/file&gt;&lt;/primarySourceFiles&gt;&lt;fixedPointSourceFiles/&gt;&lt;fixedPointSourceRegistered&gt;false&lt;/fixedPointSourceRegistered&gt;&lt;fixedPointSourceSelected&gt;false&lt;/fixedPointSourceSelected&gt;&lt;/sourceModel&gt;</var.sourceSetState>
     <param.forceMexBuild>false</param.forceMexBuild>
     <param.NoDefaultJIT>false</param.NoDefaultJIT>
@@ -959,7 +957,6 @@
     <param.FixedPointUseDesignRanges>false</param.FixedPointUseDesignRanges>
     <unset>
       <param.objective />
-      <param.TestSnippets />
       <param.ExternalFcnMajority />
       <param.UseGlobals />
       <param.outputfile />
@@ -983,8 +980,6 @@
       <var.redirectedInputTypeData />
       <var.DismissScreener />
       <param.unifiedParamStorage />
-      <var.cfi.lastOutputRoot />
-      <var.cfi.preBuildChecksum />
       <var.outdatedOnRestore />
       <param.forceMexBuild />
       <param.NoDefaultJIT />
@@ -1074,7 +1069,7 @@
     </unset>
     <fileset.entrypoints>
       <file custom-data-expanded="false" value="${PROJECT_ROOT}/calibrate2.m">
-        <Marker>1600252241863</Marker>
+        <Marker>1600288651116</Marker>
       </file>
     </fileset.entrypoints>
     <fileset.testbench />
@@ -1086,7 +1081,7 @@
           <idpTable>
             <type typeId="0">
               <Class>double</Class>
-              <Size>3 x :inf</Size>
+              <Size>3 x :50</Size>
               <Value />
               <InitialValue />
               <UserDefined>true</UserDefined>

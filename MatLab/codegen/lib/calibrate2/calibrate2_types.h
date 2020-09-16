@@ -14,22 +14,6 @@
 
 // Include files
 #include "rtwtypes.h"
-#include "coder_array.h"
-#ifdef _MSC_VER
-
-#pragma warning(push)
-#pragma warning(disable : 4251)
-
-#endif
-
-// Type Declarations
-class calibrateGribber;
-
-#ifdef _MSC_VER
-
-#pragma warning(pop)
-
-#endif
 #endif
 
 // End of code generation (calibrate2_types.h)

@@ -11,8 +11,7 @@
 
 // Include files
 #include "xdotc.h"
-#include "calibrateGribber.h"
-#include "rt_nonfinite.h"
+#include "calibrate2.h"
 
 // Function Definitions
 double xdotc(int n, const double x[9], int ix0, const double y[9], int iy0)

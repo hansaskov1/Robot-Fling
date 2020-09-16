@@ -11,8 +11,7 @@
 
 // Include files
 #include "xrotg.h"
-#include "calibrateGribber.h"
-#include "rt_nonfinite.h"
+#include "calibrate2.h"
 #include <cmath>
 
 // Function Definitions
