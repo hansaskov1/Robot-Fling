@@ -4,6 +4,7 @@
 #include <vector>
 #include <thread>
 #include <string>
+#include <eigen3/Eigen/Core>
 
 int main() {
   std::vector < std::array < double, 3 >> worldPositions;
