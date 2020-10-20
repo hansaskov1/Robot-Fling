@@ -1,2 +1,0 @@
-/usr/bin/ar qc libex_world-transforms.a  CMakeFiles/ex_world-transforms.dir/ex_world-transforms.cpp.o
-/usr/bin/ranlib libex_world-transforms.a

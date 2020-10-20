@@ -1,2 +1,0 @@
-/usr/bin/ar qc libex_find-from-workcell.a  CMakeFiles/ex_find-from-workcell.dir/ex_find-from-workcell.cpp.o
-/usr/bin/ranlib libex_find-from-workcell.a

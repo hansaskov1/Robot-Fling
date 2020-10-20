@@ -146,7 +146,10 @@ using namespace rwlibs::pathplanners;
 int main(int argc, char** argv)
 {
 
-    WorkCell::Ptr workcell = WorkCellLoader::Factory::load("/home/hans/Desktop/Ny mappe/XMLScenes/RobotOnTable/Scene.xml");
+
+    std::string path = "../../Code/Scenes/XMLScenes/RobotOnTable/Scene.xml";
+
+    WorkCell::Ptr workcell = WorkCellLoader::Factory::load(path);
     Device::Ptr device = workcell->getDevices().front();
     State state = workcell->getDefaultState();
     CollisionDetector::Ptr detector = rw::common::ownedPtr(new rw::proximity::CollisionDetector(workcell, rwlibs::proximitystrategies::ProximityStrategyFactory::makeDefaultCollisionStrategy()));
@@ -164,17 +167,9 @@ int main(int argc, char** argv)
     Transform3D<> T2(vec2, R2);
     Transform3D<> T3(vec3, R3);
 
-   // Q[6]{0.191, 0.351, 0.642, -1.571, -0.006, -1.571}
-
     Q que{2.387, -1.847, 1.759, -3.055, -2.387, -0.006};
 
-    //device->setQ(que, state);
-
-
-
-     std::string path = "/home/hans/Desktop/Ny mappe/XMLScenes/RobotOnTable/Scene.xml";
      DetectCollision dc(path,device->getQ(state));
-     //dc.setState(que);
 
      dc.setState(que);
 
@@ -183,8 +178,12 @@ int main(int argc, char** argv)
      std::cout << dc.isCollision(10,T1) << std::endl;
 
 
+
+     //Run simulation on ur5
+
+     /*
      ur_rtde::RTDEControlInterface rtde_control("127.0.0.1");
-     //dc.getQVec()[0].toStdVector();
+
 
 
 
@@ -220,4 +219,5 @@ int main(int argc, char** argv)
 
 
      rtde_control.moveL({x , y, z, 0, 0 , 0});
+     */
 }
