@@ -9,7 +9,7 @@ int main() {
   std::vector < std::array < double, 3 >> worldPositions;
   std::vector < std::array < double, 3 >> robotPositions;
 
-  std::string urIp = "192.168.100.49";
+  std::string urIp = "127.0.0.1";
   ur_rtde::RTDEReceiveInterface rtde_recieve(urIp);
 
   bool repeat = true;

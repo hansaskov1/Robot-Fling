@@ -1,0 +1,183 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CodeBlocks_project_file>
+	<FileVersion major="1" minor="6"/>
+	<Project>
+		<Option title="TutorialCollection"/>
+		<Option makefile_is_custom="1"/>
+		<Option compiler="gcc"/>
+		<Option virtualFolders="CMake Files\;CMake Files\..\;CMake Files\..\..\;CMake Files\..\..\..\;CMake Files\..\..\..\..\;CMake Files\..\..\..\..\..\;CMake Files\..\..\..\..\..\..\;CMake Files\..\..\..\..\..\..\usr\;CMake Files\..\..\..\..\..\..\usr\share\;CMake Files\..\..\..\..\..\..\usr\share\robwork-1.1\;CMake Files\..\..\..\..\..\..\usr\share\robwork-1.1\cmake\;"/>
+		<Build>
+			<Target title="all">
+				<Option working_dir="/home/hans/GithubCode/Robot-Fling/Code/build-RobWork-Desktop-Default"/>
+				<Option type="4"/>
+				<MakeCommands>
+					<Build command="/usr/bin/make -j8 -f &quot;/home/hans/GithubCode/Robot-Fling/Code/build-RobWork-Desktop-Default/Makefile&quot;  VERBOSE=1 all"/>
+					<CompileFile command="/usr/bin/make -j8 -f &quot;/home/hans/GithubCode/Robot-Fling/Code/build-RobWork-Desktop-Default/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j8 -f &quot;/home/hans/GithubCode/Robot-Fling/Code/build-RobWork-Desktop-Default/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j8 -f &quot;/home/hans/GithubCode/Robot-Fling/Code/build-RobWork-Desktop-Default/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="rebuild_cache">
+				<Option working_dir="/home/hans/GithubCode/Robot-Fling/Code/build-RobWork-Desktop-Default"/>
+				<Option type="4"/>
+				<MakeCommands>
+					<Build command="/usr/bin/make -j8 -f &quot;/home/hans/GithubCode/Robot-Fling/Code/build-RobWork-Desktop-Default/Makefile&quot;  VERBOSE=1 rebuild_cache"/>
+					<CompileFile command="/usr/bin/make -j8 -f &quot;/home/hans/GithubCode/Robot-Fling/Code/build-RobWork-Desktop-Default/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j8 -f &quot;/home/hans/GithubCode/Robot-Fling/Code/build-RobWork-Desktop-Default/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j8 -f &quot;/home/hans/GithubCode/Robot-Fling/Code/build-RobWork-Desktop-Default/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="edit_cache">
+				<Option working_dir="/home/hans/GithubCode/Robot-Fling/Code/build-RobWork-Desktop-Default"/>
+				<Option type="4"/>
+				<MakeCommands>
+					<Build command="/usr/bin/make -j8 -f &quot;/home/hans/GithubCode/Robot-Fling/Code/build-RobWork-Desktop-Default/Makefile&quot;  VERBOSE=1 edit_cache"/>
+					<CompileFile command="/usr/bin/make -j8 -f &quot;/home/hans/GithubCode/Robot-Fling/Code/build-RobWork-Desktop-Default/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j8 -f &quot;/home/hans/GithubCode/Robot-Fling/Code/build-RobWork-Desktop-Default/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j8 -f &quot;/home/hans/GithubCode/Robot-Fling/Code/build-RobWork-Desktop-Default/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="HelloWorld">
+				<Option output="/home/hans/GithubCode/Robot-Fling/Code/build-RobWork-Desktop-Default/HelloWorld" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="/home/hans/GithubCode/Robot-Fling/Code/build-RobWork-Desktop-Default"/>
+				<Option object_output="./"/>
+				<Option type="1"/>
+				<Option compiler="gcc"/>
+				<Compiler>
+					<Add directory="/usr/include/eigen3"/>
+					<Add directory="/usr/share/robwork-1.1/cmake/../../../include/robwork-1.1"/>
+					<Add directory="/usr/share/robwork-1.1/cmake/../../../include/robwork-1.1/ext/rwyaobi"/>
+					<Add directory="/usr/share/robwork-1.1/cmake/../../../include/robwork-1.1/ext/rwpqp"/>
+					<Add directory="/usr/include/lua5.3"/>
+					<Add directory="/usr/share/robwork-1.1/cmake/../../../include/robwork-1.1/ext/qhull/src"/>
+					<Add directory="/usr/share/robwork-1.1/cmake/../../../include/robwork-1.1/ext/csgjs/src"/>
+					<Add directory="/usr/include/c++/7"/>
+					<Add directory="/usr/include/x86_64-linux-gnu/c++/7"/>
+					<Add directory="/usr/include/c++/7/backward"/>
+					<Add directory="/usr/lib/gcc/x86_64-linux-gnu/7/include"/>
+					<Add directory="/usr/local/include"/>
+					<Add directory="/usr/lib/gcc/x86_64-linux-gnu/7/include-fixed"/>
+					<Add directory="/usr/include/x86_64-linux-gnu"/>
+					<Add directory="/usr/include"/>
+				</Compiler>
+				<MakeCommands>
+					<Build command="/usr/bin/make -j8 -f &quot;/home/hans/GithubCode/Robot-Fling/Code/build-RobWork-Desktop-Default/Makefile&quot;  VERBOSE=1 HelloWorld"/>
+					<CompileFile command="/usr/bin/make -j8 -f &quot;/home/hans/GithubCode/Robot-Fling/Code/build-RobWork-Desktop-Default/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j8 -f &quot;/home/hans/GithubCode/Robot-Fling/Code/build-RobWork-Desktop-Default/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j8 -f &quot;/home/hans/GithubCode/Robot-Fling/Code/build-RobWork-Desktop-Default/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="HelloWorld/fast">
+				<Option output="/home/hans/GithubCode/Robot-Fling/Code/build-RobWork-Desktop-Default/HelloWorld" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="/home/hans/GithubCode/Robot-Fling/Code/build-RobWork-Desktop-Default"/>
+				<Option object_output="./"/>
+				<Option type="1"/>
+				<Option compiler="gcc"/>
+				<Compiler>
+					<Add directory="/usr/include/eigen3"/>
+					<Add directory="/usr/share/robwork-1.1/cmake/../../../include/robwork-1.1"/>
+					<Add directory="/usr/share/robwork-1.1/cmake/../../../include/robwork-1.1/ext/rwyaobi"/>
+					<Add directory="/usr/share/robwork-1.1/cmake/../../../include/robwork-1.1/ext/rwpqp"/>
+					<Add directory="/usr/include/lua5.3"/>
+					<Add directory="/usr/share/robwork-1.1/cmake/../../../include/robwork-1.1/ext/qhull/src"/>
+					<Add directory="/usr/share/robwork-1.1/cmake/../../../include/robwork-1.1/ext/csgjs/src"/>
+					<Add directory="/usr/include/c++/7"/>
+					<Add directory="/usr/include/x86_64-linux-gnu/c++/7"/>
+					<Add directory="/usr/include/c++/7/backward"/>
+					<Add directory="/usr/lib/gcc/x86_64-linux-gnu/7/include"/>
+					<Add directory="/usr/local/include"/>
+					<Add directory="/usr/lib/gcc/x86_64-linux-gnu/7/include-fixed"/>
+					<Add directory="/usr/include/x86_64-linux-gnu"/>
+					<Add directory="/usr/include"/>
+				</Compiler>
+				<MakeCommands>
+					<Build command="/usr/bin/make -j8 -f &quot;/home/hans/GithubCode/Robot-Fling/Code/build-RobWork-Desktop-Default/Makefile&quot;  VERBOSE=1 HelloWorld/fast"/>
+					<CompileFile command="/usr/bin/make -j8 -f &quot;/home/hans/GithubCode/Robot-Fling/Code/build-RobWork-Desktop-Default/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j8 -f &quot;/home/hans/GithubCode/Robot-Fling/Code/build-RobWork-Desktop-Default/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j8 -f &quot;/home/hans/GithubCode/Robot-Fling/Code/build-RobWork-Desktop-Default/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="MathJoggling">
+				<Option output="/home/hans/GithubCode/Robot-Fling/Code/build-RobWork-Desktop-Default/MathJoggling" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="/home/hans/GithubCode/Robot-Fling/Code/build-RobWork-Desktop-Default"/>
+				<Option object_output="./"/>
+				<Option type="1"/>
+				<Option compiler="gcc"/>
+				<Compiler>
+					<Add directory="/usr/include/eigen3"/>
+					<Add directory="/usr/share/robwork-1.1/cmake/../../../include/robwork-1.1"/>
+					<Add directory="/usr/share/robwork-1.1/cmake/../../../include/robwork-1.1/ext/rwyaobi"/>
+					<Add directory="/usr/share/robwork-1.1/cmake/../../../include/robwork-1.1/ext/rwpqp"/>
+					<Add directory="/usr/include/lua5.3"/>
+					<Add directory="/usr/share/robwork-1.1/cmake/../../../include/robwork-1.1/ext/qhull/src"/>
+					<Add directory="/usr/share/robwork-1.1/cmake/../../../include/robwork-1.1/ext/csgjs/src"/>
+					<Add directory="/usr/include/c++/7"/>
+					<Add directory="/usr/include/x86_64-linux-gnu/c++/7"/>
+					<Add directory="/usr/include/c++/7/backward"/>
+					<Add directory="/usr/lib/gcc/x86_64-linux-gnu/7/include"/>
+					<Add directory="/usr/local/include"/>
+					<Add directory="/usr/lib/gcc/x86_64-linux-gnu/7/include-fixed"/>
+					<Add directory="/usr/include/x86_64-linux-gnu"/>
+					<Add directory="/usr/include"/>
+				</Compiler>
+				<MakeCommands>
+					<Build command="/usr/bin/make -j8 -f &quot;/home/hans/GithubCode/Robot-Fling/Code/build-RobWork-Desktop-Default/Makefile&quot;  VERBOSE=1 MathJoggling"/>
+					<CompileFile command="/usr/bin/make -j8 -f &quot;/home/hans/GithubCode/Robot-Fling/Code/build-RobWork-Desktop-Default/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j8 -f &quot;/home/hans/GithubCode/Robot-Fling/Code/build-RobWork-Desktop-Default/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j8 -f &quot;/home/hans/GithubCode/Robot-Fling/Code/build-RobWork-Desktop-Default/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="MathJoggling/fast">
+				<Option output="/home/hans/GithubCode/Robot-Fling/Code/build-RobWork-Desktop-Default/MathJoggling" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="/home/hans/GithubCode/Robot-Fling/Code/build-RobWork-Desktop-Default"/>
+				<Option object_output="./"/>
+				<Option type="1"/>
+				<Option compiler="gcc"/>
+				<Compiler>
+					<Add directory="/usr/include/eigen3"/>
+					<Add directory="/usr/share/robwork-1.1/cmake/../../../include/robwork-1.1"/>
+					<Add directory="/usr/share/robwork-1.1/cmake/../../../include/robwork-1.1/ext/rwyaobi"/>
+					<Add directory="/usr/share/robwork-1.1/cmake/../../../include/robwork-1.1/ext/rwpqp"/>
+					<Add directory="/usr/include/lua5.3"/>
+					<Add directory="/usr/share/robwork-1.1/cmake/../../../include/robwork-1.1/ext/qhull/src"/>
+					<Add directory="/usr/share/robwork-1.1/cmake/../../../include/robwork-1.1/ext/csgjs/src"/>
+					<Add directory="/usr/include/c++/7"/>
+					<Add directory="/usr/include/x86_64-linux-gnu/c++/7"/>
+					<Add directory="/usr/include/c++/7/backward"/>
+					<Add directory="/usr/lib/gcc/x86_64-linux-gnu/7/include"/>
+					<Add directory="/usr/local/include"/>
+					<Add directory="/usr/lib/gcc/x86_64-linux-gnu/7/include-fixed"/>
+					<Add directory="/usr/include/x86_64-linux-gnu"/>
+					<Add directory="/usr/include"/>
+				</Compiler>
+				<MakeCommands>
+					<Build command="/usr/bin/make -j8 -f &quot;/home/hans/GithubCode/Robot-Fling/Code/build-RobWork-Desktop-Default/Makefile&quot;  VERBOSE=1 MathJoggling/fast"/>
+					<CompileFile command="/usr/bin/make -j8 -f &quot;/home/hans/GithubCode/Robot-Fling/Code/build-RobWork-Desktop-Default/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j8 -f &quot;/home/hans/GithubCode/Robot-Fling/Code/build-RobWork-Desktop-Default/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j8 -f &quot;/home/hans/GithubCode/Robot-Fling/Code/build-RobWork-Desktop-Default/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+		</Build>
+		<Unit filename="/home/hans/GithubCode/Robot-Fling/Code/RobWork/src/HelloWorld.cpp">
+			<Option target="HelloWorld"/>
+		</Unit>
+		<Unit filename="/home/hans/GithubCode/Robot-Fling/Code/RobWork/src/MathJoggling.cpp">
+			<Option target="MathJoggling"/>
+		</Unit>
+		<Unit filename="/home/hans/GithubCode/Robot-Fling/Code/RobWork/CMakeLists.txt">
+			<Option virtualFolder="CMake Files\"/>
+		</Unit>
+		<Unit filename="/home/hans/GithubCode/Robot-Fling/Code/RobWork/../../../../../../usr/share/robwork-1.1/cmake/RobWorkBuildConfig_none.cmake">
+			<Option virtualFolder="CMake Files\..\..\..\..\..\..\usr\share\robwork-1.1\cmake\"/>
+		</Unit>
+		<Unit filename="/home/hans/GithubCode/Robot-Fling/Code/RobWork/../../../../../../usr/share/robwork-1.1/cmake/RobWorkConfig.cmake">
+			<Option virtualFolder="CMake Files\..\..\..\..\..\..\usr\share\robwork-1.1\cmake\"/>
+		</Unit>
+		<Unit filename="/home/hans/GithubCode/Robot-Fling/Code/RobWork/../../../../../../usr/share/robwork-1.1/cmake/RobWorkConfigVersion.cmake">
+			<Option virtualFolder="CMake Files\..\..\..\..\..\..\usr\share\robwork-1.1\cmake\"/>
+		</Unit>
+		<Unit filename="/home/hans/GithubCode/Robot-Fling/Code/RobWork/../../../../../../usr/share/robwork-1.1/cmake/RobWorkTargets.cmake">
+			<Option virtualFolder="CMake Files\..\..\..\..\..\..\usr\share\robwork-1.1\cmake\"/>
+		</Unit>
+	</Project>
+</CodeBlocks_project_file>
