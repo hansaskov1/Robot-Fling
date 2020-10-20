@@ -1,0 +1,2 @@
+/usr/bin/ar qc libex_print-devices.a  CMakeFiles/ex_print-devices.dir/ex_print-devices.cpp.o
+/usr/bin/ranlib libex_print-devices.a

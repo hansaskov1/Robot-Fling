@@ -1,0 +1,2 @@
+/usr/bin/ar qc libex_frame-to-frame-transform.a  CMakeFiles/ex_frame-to-frame-transform.dir/ex_frame-to-frame-transform.cpp.o
+/usr/bin/ranlib libex_frame-to-frame-transform.a

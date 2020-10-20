@@ -1,0 +1,2 @@
+/usr/bin/ar qc libex_fwd-kinematics.a  CMakeFiles/ex_fwd-kinematics.dir/ex_fwd-kinematics.cpp.o
+/usr/bin/ranlib libex_fwd-kinematics.a
