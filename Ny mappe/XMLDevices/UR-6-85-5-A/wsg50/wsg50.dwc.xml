@@ -1,0 +1,29 @@
+<IncludeData>
+	
+	<!-- device -->
+	<RigidDevice device="WSG50">
+		<ForceLimit joint="Finger1">25</ForceLimit>	
+		<ForceLimit joint="Finger2">25</ForceLimit>	
+
+		<!-- base -->
+		<KinematicBase frame="Base">
+			<MaterialID>Aluminum</MaterialID>
+		</KinematicBase> 
+
+		<!-- fingers -->
+		<RigidJoint joint="Finger1">
+			<Mass>0.1</Mass>
+			<EstimateInertia/>
+      			<Integrator>Euler</Integrator>
+			<MaterialID>Aluminum</MaterialID>
+		</RigidBody>
+
+		<RigidJoint joint="Finger2">
+			<Mass>0.1</Mass>
+			<EstimateInertia/>
+			<Integrator>Euler</Integrator>
+			<MaterialID>Aluminum</MaterialID>
+		</RigidBody>	
+	</RigidDevice>
+	
+</IncludeData>
