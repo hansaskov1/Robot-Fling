@@ -1,4 +1,0 @@
-/home/hans/GithubCode/Robot-Fling/Code/RobWork/build/CMakeFiles/rebuild_cache.dir
-/home/hans/GithubCode/Robot-Fling/Code/RobWork/build/CMakeFiles/edit_cache.dir
-/home/hans/GithubCode/Robot-Fling/Code/RobWork/build/CMakeFiles/HelloWorld.dir
-/home/hans/GithubCode/Robot-Fling/Code/RobWork/build/CMakeFiles/MathJoggling.dir
