@@ -100,6 +100,18 @@ public:
         return false;
     }
 
+    bool isCollision(std::vector<std::vector<double>> qVec){
+
+        for (std::vector<double> stdQ : qVec){
+            rw::math::Q q(stdQ);
+            mDevice->setQ(q,mState);
+            if (checkCollision()){
+                return true;
+            }
+        }
+        return false;
+    }
+
 
     void setState(const rw::math::Q jointPosition){mDevice->setQ(jointPosition,mState);}
     rw::math::Q getState() const { return mDevice->getQ(mState);}
@@ -153,26 +165,56 @@ void fetchQValues(std::promise<std::vector<std::vector<double>>> && returnQV ,st
 }
 
 
-void moveRobotJ(std::vector<double> position){
+void moveRobotJ(std::vector<double> jointPosition){
    ur_rtde::RTDEControlInterface rtde_control("127.0.0.1");
-   rtde_control.moveJ(position);
    std::cout << "Moving to position" << std::endl;
+   rtde_control.moveJ(jointPosition);
+
+}
+
+void moveRobotL(std::vector<double> toolPosition, double speed, double acceleration){
+    ur_rtde::RTDEControlInterface rtde_control("127.0.0.1");
+    std::cout << "Moving to position" << std::endl;
+    rtde_control.moveL(toolPosition,speed,acceleration);
+
 }
 
 std::vector<std::vector<double>> getQFromSim(std::vector<double> position, unsigned int msInterval){
 
+    std::atomic<bool> stop {false};
+    std::promise<std::vector<std::vector<double>>> promiseQVec;
+
+    auto futureQVec = promiseQVec.get_future();
+    std::thread recive(&fetchQValues,std::move(promiseQVec),  std::ref(stop), msInterval);
+
+    if (position.size() == 6){
+        std::thread control(moveRobotJ, position);
+
+        control.join();
+
+    }
+
+    stop = true;
+    recive.join();
+    return futureQVec.get();
+
+
+}
+
+
+std::vector<std::vector<double>> getQFromSim(std::vector<double> position, double speed, double acceleration, unsigned int msInterval){
 
     std::atomic<bool> stop {false};
     std::promise<std::vector<std::vector<double>>> promiseQVec;
 
-    std::thread control(moveRobotJ, position);
     auto futureQVec = promiseQVec.get_future();
-    std::thread recive(&fetchQValues,std::move(promiseQVec),  std::ref(stop), 100);
-
+    std::thread recive(&fetchQValues,std::move(promiseQVec),  std::ref(stop), msInterval);
+    std::thread control(moveRobotL, position, speed, acceleration);
     control.join();
+
+
     stop = true;
     recive.join();
-
     return futureQVec.get();
 
 }
@@ -181,55 +223,8 @@ std::vector<std::vector<double>> getQFromSim(std::vector<double> position, unsig
 
 
 
-
-
-
-
-
-
-
-
-/*
-std::vector<double> interpolateQDiff(unsigned int times, rw::math::Q startQ, rw::math::Q endQ){
-
-   std::vector<double> vStartQ = startQ.toStdVector();
-   std::vector<double> vEndtQ = startQ.toStdVector();
-   std::vector<double> vDiff;
-
-   for(unsigned int i = 0; i < 6; i++){
-        vDiff.push_back(vStartQ[i]-vEndtQ[i]);
-   }
-
-   std::vector<double> partVec;
-
-   for(unsigned int j = 1; j < 6; j++){
-       partVec.push_back(vDiff[j] * (i / times));
-    }
-    return partvec;
-
-
-}
-*/
-
 int main(int argc, char** argv)
 {
-
-/*
-    std::cout << "*** press enter to exit the program gracefully\n\n" ;
-
-     std::atomic<bool> running { true } ;
-     const unsigned int update_interval = 50 ; // update after every 50 milliseconds
-     std::thread update_thread( update, std::ref(running), update_interval ) ;
-
-     // do other stuff in parallel: simulated below
-     std::cin.get() ;
-
-     // exit gracefully
-     running = false ;
-     update_thread.join() ;
-*/
-
-
 
     std::string path = "../../Code/Scenes/XMLScenes/RobotOnTable/Scene.xml";
 
@@ -238,6 +233,7 @@ int main(int argc, char** argv)
     rw::math::Transform3D<> T1(vec1, R1);
 
     rw::math::Q startQ{2.387, -1.847, 1.759, -3.055, -2.387, -0.006};
+    std::vector<double> homeQ{0,-3.145/2,0,-3.145/2,0,0};
     DetectCollision dc(path,startQ);
 
      std::cout << dc.getState() << std::endl;
@@ -245,7 +241,7 @@ int main(int argc, char** argv)
      std::cout << dc.getState() << std::endl;
      std::cout << vec1[0] << std::endl;
 
-
+/*
       double velocity = 1;
       double acceleration = 1;
       double blend_1 = 0;
@@ -257,81 +253,23 @@ int main(int argc, char** argv)
           path.push_back(acceleration);
           path.push_back(blend_1);
           jointPath1.push_back(path);
-      }
+      }*/
 
 
+     std::vector<double> tcpPosition = {0.191, 0.351, 0.642,-1.571, -0.006, -1.571};
+
+    std::cout << "test1" << std::endl;
+    std::vector<std::vector<double>> qVec1 = getQFromSim(startQ.toStdVector(),100);
+    std::cout << "test2" << std::endl;
+    std::this_thread::sleep_for(std::chrono::milliseconds(100));
+    std::cout << "test3" << std::endl;
+    std::vector<std::vector<double>> qVec2 = getQFromSim(tcpPosition,1,1,10);
+    std::vector<std::vector<double>> qVec3 = getQFromSim(homeQ,100);
+       std::cout << "test4" << std::endl;
 
 
-    std::vector<std::vector<double>> qVec = getQFromSim(startQ.toStdVector(),100);
-
-    for(std::vector<double> q : qVec){
-        for (double val : q){
-            std::cout << val << " ";
-        }
-        std::cout << std::endl;
-     }
-
-
-      ur_rtde::RTDEControlInterface rtde_control("127.0.0.1");
-
-
-      std::cout << "Moving to start position" << std::endl;
-      rtde_control.moveJ({2.387, -1.847, 1.759, -3.055, -2.387, -0.006});
-
-
-      std::cout << "Moving predicted path" << std::endl;
-      rtde_control.moveJ(jointPath1);
-
-
-/*
-     ur_rtde::RTDEControlInterface rtde_control("127.0.0.1");
-
-      // Parameters
-      velocity = 0.5;
-       acceleration = 0.5;
-      double dt = 1.0/500; // 2ms
-      double lookahead_time = 0.1;
-      double gain = 300;
-      std::vector<double> joint_q = {-1.54, -1.83, -2.28, -0.59, 1.60, 0.023};
-
-      // Move to initial joint position with a regular moveJ
-      rtde_control.moveJ(joint_q);
-
-
-
-
-
-
-
-      // Execute 500Hz control loop for 2 seconds, each cycle is ~2ms
-      for (unsigned int i=0; i<1000; i++)
-      {
-        auto t_start = high_resolution_clock::now();
-        rtde_control.servoJ(joint_q, velocity, acceleration, dt, lookahead_time, gain);
-        joint_q[1] += 0.001;
-        joint_q[2] += 0.001;
-        auto t_stop = high_resolution_clock::now();
-        auto t_duration = std::chrono::duration<double>(t_stop - t_start);
-
-        if (t_duration.count() < dt)
-        {
-          std::this_thread::sleep_for(std::chrono::duration<double>(dt - t_duration.count()));
-        }
-      }
-
-
-
-
-      rtde_control.servoStop();
-
-      std::cout << "Moving to Home" << std::endl;
-      rtde_control.moveJ({0,-3.145/2,0,-3.145/2,0,0});
-      std::cout << "Done" << std::endl;
-
-
-      rtde_control.stopScript();
-
-      */
+    std::cout << dc.isCollision(qVec1)<<std::endl;
+    std::cout << dc.isCollision(qVec3) << std::endl;
 
       return 0;
 }
