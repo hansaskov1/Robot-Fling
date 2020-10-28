@@ -19,4 +19,8 @@ thread
 -
 string
 -
+ostream
+-
+fstream
+-
 

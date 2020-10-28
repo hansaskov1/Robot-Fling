@@ -183,8 +183,8 @@ std::vector<std::vector<double>> getQFromSim(std::vector<double> position, unsig
 
     std::atomic<bool> stop {false};
     std::promise<std::vector<std::vector<double>>> promiseQVec;
-
     auto futureQVec = promiseQVec.get_future();
+
     std::thread recive(&fetchQValues,std::move(promiseQVec),  std::ref(stop), msInterval);
 
     if (position.size() == 6){
@@ -219,6 +219,25 @@ std::vector<std::vector<double>> getQFromSim(std::vector<double> position, doubl
 
 }
 
+std::vector<double> TObjectToTVector(rw::math::Transform3D<> TObject){
+    std::vector<double> TVector(6);
+    rw::math::Vector3D<> P = TObject.P();
+    TVector[0] = P[0];
+    TVector[1] = P[1];
+    TVector[2] = P[2];
+
+    rw::math::Rotation3D<> R = TObject.R();
+    rw::math::RPY<> rpy(R);
+
+    TVector[3] = rpy[0];
+    TVector[4] = rpy[1];
+    TVector[5] = rpy[2];
+
+    return TVector;
+}
+
+
+
 
 
 
@@ -228,48 +247,97 @@ int main(int argc, char** argv)
 
     std::string path = "../../Code/Scenes/XMLScenes/RobotOnTable/Scene.xml";
 
-    rw::math::Vector3D<> vec1(0.191, 0.351, 0.642);
-    rw::math::RPY<> R1 ( -1.571, -0.006, -1.571);
-    rw::math::Transform3D<> T1(vec1, R1);
+    rw::math::Vector3D<> Pcal(0.6521, 0.0503, 0.0411);
+    rw::math::Rotation3D<> Rcal(    0.2577,    0.9662,   -0.0013,
+                                    0.9662,   -0.2577,   -0.0111,
+                                    0.0111,   -0.0016,    0.9999);
+
+    rw::math::Transform3D<> TCal(Pcal,Rcal);
+
 
     rw::math::Q startQ{2.387, -1.847, 1.759, -3.055, -2.387, -0.006};
-    std::vector<double> homeQ{0,-3.145/2,0,-3.145/2,0,0};
     DetectCollision dc(path,startQ);
 
-     std::cout << dc.getState() << std::endl;
-     std::cout << dc.isCollision(10,T1) << std::endl;
-     std::cout << dc.getState() << std::endl;
-     std::cout << vec1[0] << std::endl;
+    std::vector<double> qSafeGrib = {-0.003, -2.202, -0.935, -1.574, 1.571, -0.003};
+    std::vector<double> TBall = {0.586,-0.261, 0.172, -2.22065, 2.22065, 0};
+    std::vector<double> TGribReady = TBall;
+    TGribReady[2] += 0.15;
 
+    rw::math::Vector3D<> P1(0.586,-0.261, 0.172);
+    rw::math::RPY<> R1 ( -2.22065, 2.22065, 0);
+    rw::math::Transform3D<> T1(P1, R1);
+
+    std::cout << T1 << std::endl;
+
+     std::vector<double> qHome{/*-1.151*/0,-3.1415/2,0,-3.1415/2,0,0};
 /*
-      double velocity = 1;
-      double acceleration = 1;
-      double blend_1 = 0;
+    std::vector<std::vector<double>> qVec1 = getQFromSim(qSafeGrib,10);
+    std::vector<std::vector<double>> qVec2 = getQFromSim(TGribReady,1,1,10);
+    std::vector<std::vector<double>> qVec3 = getQFromSim(TBall,1,1,10);
+    std::vector<std::vector<double>> qVec4 = getQFromSim(TGribReady,1,1,10);
+    std::vector<std::vector<double>> qVec5 = getQFromSim(qSafeGrib,10);
+    std::vector<std::vector<double>> qVec6 = getQFromSim(qHome,10);
 
-      std::vector<std::vector<double>> jointPath1;
-      for (rw::math::Q value : dc.getQVec()){
-          std::vector<double> path = value.toStdVector();
-          path.push_back(velocity);
-          path.push_back(acceleration);
-          path.push_back(blend_1);
-          jointPath1.push_back(path);
-      }*/
+    std::cout << "Done" << std::endl;
 
-
-     std::vector<double> tcpPosition = {0.191, 0.351, 0.642,-1.571, -0.006, -1.571};
-
-    std::cout << "test1" << std::endl;
-    std::vector<std::vector<double>> qVec1 = getQFromSim(startQ.toStdVector(),100);
-    std::cout << "test2" << std::endl;
-    std::this_thread::sleep_for(std::chrono::milliseconds(100));
-    std::cout << "test3" << std::endl;
-    std::vector<std::vector<double>> qVec2 = getQFromSim(tcpPosition,1,1,10);
-    std::vector<std::vector<double>> qVec3 = getQFromSim(homeQ,100);
-       std::cout << "test4" << std::endl;
-
-
-    std::cout << dc.isCollision(qVec1)<<std::endl;
+    std::cout << dc.isCollision(qVec1) << std::endl;
+    std::cout << dc.isCollision(qVec2) << std::endl;
     std::cout << dc.isCollision(qVec3) << std::endl;
+    std::cout << dc.isCollision(qVec4) << std::endl;
+    std::cout << dc.isCollision(qVec5) << std::endl;
+    std::cout << dc.isCollision(qVec6) << std::endl;
+
+*/
+
+
+    rw::math::Vector3D<> VGribReady(0.586,-0.261, 0.172 + 0.15);
+    rw::math::RPY<> RGribReady( -2.22065, 2.22065, 0);
+    rw::math::Transform3D<> TGribReadyObject(VGribReady, RGribReady);
+    rw::math::Transform3D<> TGribReadyCalObject = TCal * TGribReadyObject;
+    std::vector<double> TGribReadyCalVector = TObjectToTVector(TGribReadyCalObject);
+
+
+
+    rw::math::Vector3D<> TGribReadyCalTranslation = Rcal * VGribReady;
+    double x = TGribReadyCalTranslation[0];
+    double y = TGribReadyCalTranslation[1];
+    double z = TGribReadyCalTranslation[2];
+    std::vector<double> TGribReadyCalVector2 = {x, y, z, -2.22065, 2.22065, 0};
+
+
+   // ur_rtde::RTDEControlInterface rtde_control("192.168.100.53");
+    ur_rtde::RTDEControlInterface rtde_control("127.0.0.1");
+
+    double speed = 1;
+    double acceleration = 1;
+
+
+    std::cout << "TGribReadyVectorSim " << std::endl;
+    for (double value: TGribReady){
+        std::cout << value << " ";
+    }
+    std::cout << std::endl << std::endl;
+
+
+    std::cout << "TGribReadyVectorCal " << std::endl;
+    for (double value: TGribReadyCalVector2){
+        std::cout << value << " ";
+    }
+    std::cout << std::endl;
+
+
+
+    rtde_control.moveJ(qHome, speed, acceleration);
+    rtde_control.moveJ(qSafeGrib, speed, acceleration);
+    rtde_control.moveL({1.05, 0.54, 0.32, -2.22, 2.22, 0},speed,acceleration);
+    rtde_control.moveJ(qSafeGrib, speed, acceleration);
+    rtde_control.moveJ(qHome, speed, acceleration);
+
+
 
       return 0;
+
+
+
+
 }
