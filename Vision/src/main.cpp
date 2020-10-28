@@ -17,7 +17,7 @@ int main()
     cv::Mat worldCalImg[4];
     for(int i = 0; i < 4; i++){
         cv::String path = "";
-        path = "/home/suspend/workspace/Vision/Images/BallWorldCords/img" + std::to_string(i) + ".png";
+        path = "../Images/BallWorldCords/img" + std::to_string(i) + ".png";
         worldCalImg[i] = cv::imread(path, cv::IMREAD_COLOR);
     }
     c.createTranformMatrix(worldCalImg);
@@ -42,17 +42,18 @@ int main()
         }else if(keyPressed == 'p'){
             image = c.getImage();
             cv::String path = "";
-            path = "/home/suspend/workspace/Vision/Images/BallWorldCords/img" + std::to_string(imgNr) + ".png";
+            path = "../Images/BallWorldCords/img" + std::to_string(imgNr) + ".png";
             cv::imwrite(path, image);
             imgNr++;
         }else if(keyPressed == 'r'){
             image = c.getRawImage();
             cv::String path = "";
-            path = "/home/suspend/workspace/Vision/Images/CalibrationImages/img" + std::to_string(rImgNr) + ".png";
+            path = "../Images/CalibrationImagesROI/img" + std::to_string(rImgNr) + ".png";
             cv::imwrite(path, image);
             rImgNr++;
         }else if(keyPressed == 'c'){
             c.calibrate();
+            c.createTranformMatrix(worldCalImg);
         }else{
             image = c.getImage();
             cv::imshow("video",image);

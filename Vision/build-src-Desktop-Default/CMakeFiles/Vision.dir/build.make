@@ -43,10 +43,10 @@ RM = /usr/bin/cmake -E remove -f
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = /home/suspend/workspace/Vision/src
+CMAKE_SOURCE_DIR = /home/kjohnsen/Workspace/Vision/src
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = /home/suspend/workspace/Vision/build-src-Desktop-Default
+CMAKE_BINARY_DIR = /home/kjohnsen/Workspace/Vision/build-src-Desktop-Default
 
 # Include any dependencies generated for this target.
 include CMakeFiles/Vision.dir/depend.make
@@ -58,17 +58,17 @@ include CMakeFiles/Vision.dir/progress.make
 include CMakeFiles/Vision.dir/flags.make
 
 CMakeFiles/Vision.dir/main.cpp.o: CMakeFiles/Vision.dir/flags.make
-CMakeFiles/Vision.dir/main.cpp.o: /home/suspend/workspace/Vision/src/main.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/suspend/workspace/Vision/build-src-Desktop-Default/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Building CXX object CMakeFiles/Vision.dir/main.cpp.o"
-	/usr/bin/g++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/Vision.dir/main.cpp.o -c /home/suspend/workspace/Vision/src/main.cpp
+CMakeFiles/Vision.dir/main.cpp.o: /home/kjohnsen/Workspace/Vision/src/main.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/kjohnsen/Workspace/Vision/build-src-Desktop-Default/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Building CXX object CMakeFiles/Vision.dir/main.cpp.o"
+	/usr/bin/g++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/Vision.dir/main.cpp.o -c /home/kjohnsen/Workspace/Vision/src/main.cpp
 
 CMakeFiles/Vision.dir/main.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/Vision.dir/main.cpp.i"
-	/usr/bin/g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/suspend/workspace/Vision/src/main.cpp > CMakeFiles/Vision.dir/main.cpp.i
+	/usr/bin/g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/kjohnsen/Workspace/Vision/src/main.cpp > CMakeFiles/Vision.dir/main.cpp.i
 
 CMakeFiles/Vision.dir/main.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/Vision.dir/main.cpp.s"
-	/usr/bin/g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/suspend/workspace/Vision/src/main.cpp -o CMakeFiles/Vision.dir/main.cpp.s
+	/usr/bin/g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/kjohnsen/Workspace/Vision/src/main.cpp -o CMakeFiles/Vision.dir/main.cpp.s
 
 CMakeFiles/Vision.dir/main.cpp.o.requires:
 
@@ -82,17 +82,17 @@ CMakeFiles/Vision.dir/main.cpp.o.provides.build: CMakeFiles/Vision.dir/main.cpp.
 
 
 CMakeFiles/Vision.dir/calibration.cpp.o: CMakeFiles/Vision.dir/flags.make
-CMakeFiles/Vision.dir/calibration.cpp.o: /home/suspend/workspace/Vision/src/calibration.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/suspend/workspace/Vision/build-src-Desktop-Default/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Building CXX object CMakeFiles/Vision.dir/calibration.cpp.o"
-	/usr/bin/g++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/Vision.dir/calibration.cpp.o -c /home/suspend/workspace/Vision/src/calibration.cpp
+CMakeFiles/Vision.dir/calibration.cpp.o: /home/kjohnsen/Workspace/Vision/src/calibration.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/kjohnsen/Workspace/Vision/build-src-Desktop-Default/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Building CXX object CMakeFiles/Vision.dir/calibration.cpp.o"
+	/usr/bin/g++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/Vision.dir/calibration.cpp.o -c /home/kjohnsen/Workspace/Vision/src/calibration.cpp
 
 CMakeFiles/Vision.dir/calibration.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/Vision.dir/calibration.cpp.i"
-	/usr/bin/g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/suspend/workspace/Vision/src/calibration.cpp > CMakeFiles/Vision.dir/calibration.cpp.i
+	/usr/bin/g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/kjohnsen/Workspace/Vision/src/calibration.cpp > CMakeFiles/Vision.dir/calibration.cpp.i
 
 CMakeFiles/Vision.dir/calibration.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/Vision.dir/calibration.cpp.s"
-	/usr/bin/g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/suspend/workspace/Vision/src/calibration.cpp -o CMakeFiles/Vision.dir/calibration.cpp.s
+	/usr/bin/g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/kjohnsen/Workspace/Vision/src/calibration.cpp -o CMakeFiles/Vision.dir/calibration.cpp.s
 
 CMakeFiles/Vision.dir/calibration.cpp.o.requires:
 
@@ -106,17 +106,17 @@ CMakeFiles/Vision.dir/calibration.cpp.o.provides.build: CMakeFiles/Vision.dir/ca
 
 
 CMakeFiles/Vision.dir/objectdetection.cpp.o: CMakeFiles/Vision.dir/flags.make
-CMakeFiles/Vision.dir/objectdetection.cpp.o: /home/suspend/workspace/Vision/src/objectdetection.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/suspend/workspace/Vision/build-src-Desktop-Default/CMakeFiles --progress-num=$(CMAKE_PROGRESS_3) "Building CXX object CMakeFiles/Vision.dir/objectdetection.cpp.o"
-	/usr/bin/g++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/Vision.dir/objectdetection.cpp.o -c /home/suspend/workspace/Vision/src/objectdetection.cpp
+CMakeFiles/Vision.dir/objectdetection.cpp.o: /home/kjohnsen/Workspace/Vision/src/objectdetection.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/kjohnsen/Workspace/Vision/build-src-Desktop-Default/CMakeFiles --progress-num=$(CMAKE_PROGRESS_3) "Building CXX object CMakeFiles/Vision.dir/objectdetection.cpp.o"
+	/usr/bin/g++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/Vision.dir/objectdetection.cpp.o -c /home/kjohnsen/Workspace/Vision/src/objectdetection.cpp
 
 CMakeFiles/Vision.dir/objectdetection.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/Vision.dir/objectdetection.cpp.i"
-	/usr/bin/g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/suspend/workspace/Vision/src/objectdetection.cpp > CMakeFiles/Vision.dir/objectdetection.cpp.i
+	/usr/bin/g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/kjohnsen/Workspace/Vision/src/objectdetection.cpp > CMakeFiles/Vision.dir/objectdetection.cpp.i
 
 CMakeFiles/Vision.dir/objectdetection.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/Vision.dir/objectdetection.cpp.s"
-	/usr/bin/g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/suspend/workspace/Vision/src/objectdetection.cpp -o CMakeFiles/Vision.dir/objectdetection.cpp.s
+	/usr/bin/g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/kjohnsen/Workspace/Vision/src/objectdetection.cpp -o CMakeFiles/Vision.dir/objectdetection.cpp.s
 
 CMakeFiles/Vision.dir/objectdetection.cpp.o.requires:
 
@@ -184,7 +184,7 @@ Vision: /usr/lib/x86_64-linux-gnu/libopencv_imgcodecs.so.3.2.0
 Vision: /usr/lib/x86_64-linux-gnu/libopencv_imgproc.so.3.2.0
 Vision: /usr/lib/x86_64-linux-gnu/libopencv_core.so.3.2.0
 Vision: CMakeFiles/Vision.dir/link.txt
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/home/suspend/workspace/Vision/build-src-Desktop-Default/CMakeFiles --progress-num=$(CMAKE_PROGRESS_4) "Linking CXX executable Vision"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/home/kjohnsen/Workspace/Vision/build-src-Desktop-Default/CMakeFiles --progress-num=$(CMAKE_PROGRESS_4) "Linking CXX executable Vision"
 	$(CMAKE_COMMAND) -E cmake_link_script CMakeFiles/Vision.dir/link.txt --verbose=$(VERBOSE)
 
 # Rule to build all files generated by this target.
@@ -203,6 +203,6 @@ CMakeFiles/Vision.dir/clean:
 .PHONY : CMakeFiles/Vision.dir/clean
 
 CMakeFiles/Vision.dir/depend:
-	cd /home/suspend/workspace/Vision/build-src-Desktop-Default && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" /home/suspend/workspace/Vision/src /home/suspend/workspace/Vision/src /home/suspend/workspace/Vision/build-src-Desktop-Default /home/suspend/workspace/Vision/build-src-Desktop-Default /home/suspend/workspace/Vision/build-src-Desktop-Default/CMakeFiles/Vision.dir/DependInfo.cmake --color=$(COLOR)
+	cd /home/kjohnsen/Workspace/Vision/build-src-Desktop-Default && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" /home/kjohnsen/Workspace/Vision/src /home/kjohnsen/Workspace/Vision/src /home/kjohnsen/Workspace/Vision/build-src-Desktop-Default /home/kjohnsen/Workspace/Vision/build-src-Desktop-Default /home/kjohnsen/Workspace/Vision/build-src-Desktop-Default/CMakeFiles/Vision.dir/DependInfo.cmake --color=$(COLOR)
 .PHONY : CMakeFiles/Vision.dir/depend
 

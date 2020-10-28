@@ -8,7 +8,6 @@ ObjectDetection::ObjectDetection()
 cv::Point2f ObjectDetection::hcBallCenterPosition(cv::Mat undisImage, int innerCircleSize, int outCircleSize)
 {
     cv::Mat grayImage;
-
     cv::cvtColor(undisImage,grayImage,cv::COLOR_BGR2GRAY);
     cv::medianBlur(grayImage,grayImage,5);
     std::vector<cv::Vec3f> circle;
@@ -24,8 +23,8 @@ cv::Point2f ObjectDetection::hcBallCenterPosition(cv::Mat undisImage, int innerC
         int radius = c[2];
         cv::circle(grayImage,center,radius,cv::Scalar(255,0,255),3,cv::LINE_AA);
     }
-    //cv::imshow("ball",grayImage);
-    //cv::waitKey(0);
+    cv::imshow("ball",grayImage);
+    cv::waitKey(0);
     return centerCircle;
 }
 
@@ -45,7 +44,9 @@ cv::Point2f ObjectDetection::colorMorphLineByLine(cv::Mat image){
     //morph closed
     cv::Mat closed;
     cv::morphologyEx(opened, closed, cv::MORPH_CLOSE,five_by_five_element);
-    cv::imwrite("/home/suspend/workspace/Vision/Images/BallWorldCords/imgtemp.png",closed);
+    cv::imwrite("../Images/BallWorldCords/imgtemp.png",closed);
+    cv::imshow("closed",closed);
+    cv::waitKey();
 
     int xStart = 0,xEnd = 0;
     int yStart = 0,yEnd = 0;
