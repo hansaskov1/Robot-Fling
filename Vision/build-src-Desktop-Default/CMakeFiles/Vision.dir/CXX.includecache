@@ -6,13 +6,13 @@
 
 #IncludeRegexTransform: 
 
-/home/kjohnsen/Workspace/Vision/src/calibration.cpp
+/home/suspend/workspace/Vision/src/calibration.cpp
 calibration.h
-/home/kjohnsen/Workspace/Vision/src/calibration.h
+/home/suspend/workspace/Vision/src/calibration.h
 objectdetection.h
-/home/kjohnsen/Workspace/Vision/src/objectdetection.h
+/home/suspend/workspace/Vision/src/objectdetection.h
 
-/home/kjohnsen/Workspace/Vision/src/calibration.h
+/home/suspend/workspace/Vision/src/calibration.h
 opencv2/core/core.hpp
 -
 opencv2/highgui/highgui.hpp
@@ -40,21 +40,21 @@ opencv2/imgproc.hpp
 thread
 -
 
-/home/kjohnsen/Workspace/Vision/src/main.cpp
+/home/suspend/workspace/Vision/src/main.cpp
 stdio.h
 -
 chrono
 -
 calibration.h
-/home/kjohnsen/Workspace/Vision/src/calibration.h
+/home/suspend/workspace/Vision/src/calibration.h
 objectdetection.h
-/home/kjohnsen/Workspace/Vision/src/objectdetection.h
+/home/suspend/workspace/Vision/src/objectdetection.h
 
-/home/kjohnsen/Workspace/Vision/src/objectdetection.cpp
+/home/suspend/workspace/Vision/src/objectdetection.cpp
 objectdetection.h
-/home/kjohnsen/Workspace/Vision/src/objectdetection.h
+/home/suspend/workspace/Vision/src/objectdetection.h
 
-/home/kjohnsen/Workspace/Vision/src/objectdetection.h
+/home/suspend/workspace/Vision/src/objectdetection.h
 opencv2/core/core.hpp
 -
 opencv2/highgui/highgui.hpp

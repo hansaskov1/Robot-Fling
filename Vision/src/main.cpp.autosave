@@ -10,7 +10,7 @@ int main()
 {
     Calibration c;
     ObjectDetection o;
-    c.calibrate2();
+    c.calibrate();
     c.connectToCam();
     cv::Mat image;
 

@@ -33,11 +33,15 @@ public:
 
     bool calibrate();
 
+    bool calibrate2();
+
     cv::Mat getImage();
 
     cv::Mat getRawImage();
 
     bool mRun= true;
+    void setFileNames(const std::vector<cv::String> &fileNames);
+
 private:
     void grapPictures();
 

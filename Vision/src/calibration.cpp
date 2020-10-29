@@ -117,7 +117,9 @@ bool Calibration::calibrate()
 
 
     std::cout << "Calibrating..." << std::endl;
-    float error = cv::calibrateCamera(objpoints ,q ,frameSize , K, k, rvecs, tvecs,flags);
+    float error = cv::calibrateCamera(objpoints ,q ,frameSize , K, k, rvecs, tvecs, stdIntrinsics, stdExtrinsics,
+                                      perViewErrors,flags,cv::TermCriteria(cv::TermCriteria::COUNT + cv::TermCriteria::EPS, 5,
+                                                                          DBL_EPSILON));
     // 4. Call "float error = cv::calibrateCamera()" with the input coordinates
     // and output parameters as declared above...
 
@@ -129,6 +131,78 @@ bool Calibration::calibrate()
                                 mMapX, mMapY);
 
 
+}
+
+bool Calibration::calibrate2()
+{
+//    std::vector<cv::String> fileNames;
+//    cv::glob("../calibrationImages/Image*.png", fileNames, false);
+    cv::Size patternSize(10 - 1, 7 - 1);
+    std::vector<std::vector<cv::Point2f>> q(mFileNames.size());
+
+    // Detect feature points
+
+    std::size_t i = 0;
+    for (auto const &f : mFileNames) {
+      std::cout << std::string(f) << std::endl;
+
+      cv::Mat img = cv::imread(f, cv::IMREAD_COLOR);
+      cv::Mat imgGray;
+      cv::cvtColor(img, imgGray, CV_BGR2GRAY);
+      bool success = cv::findChessboardCorners(imgGray, patternSize, q[i],
+                                               cv::CALIB_CB_ADAPTIVE_THRESH +
+                                                   cv::CALIB_CB_NORMALIZE_IMAGE);
+
+      if (!success) {
+        std::cout << "Could not find chessboard!" << std::endl;
+        continue;
+      }
+
+      cv::cornerSubPix(imgGray, q[i], cv::Size(5, 5), cv::Size(2, 2),
+                       cv::TermCriteria());
+
+      // Display
+//      cv::drawChessboardCorners(img, patternSize, q[i], success);
+//      cv::imshow("chessboard detection", img);
+//      cv::waitKey(0);
+
+      i++;
+    }
+
+    std::vector<cv::Point3f> Qview;
+    for (int i = 0; i < patternSize.height; i++) {
+      for (int j = 0; j < patternSize.width; j++) {
+        Qview.push_back(cv::Point3f(i * 0.015f, j * 0.015f, 0.0f));
+      }
+    }
+    std::vector<std::vector<cv::Point3f>> Q;
+    for (size_t i = 0; i < q.size(); i++)
+      Q.push_back(Qview);
+
+    cv::Matx33f K(cv::Matx33f::eye());  // intrinsic camera matrix
+    cv::Vec<float, 5> k(0, 0, 0, 0, 0); // distortion coefficients
+
+    std::vector<cv::Mat> rvecs, tvecs;
+    std::vector<double> stdIntrinsics, stdExtrinsics, perViewErrors;
+    int flags = cv::CALIB_FIX_ASPECT_RATIO + cv::CALIB_FIX_K3 +
+                cv::CALIB_ZERO_TANGENT_DIST + cv::CALIB_FIX_PRINCIPAL_POINT;
+    cv::Size frameSize(1440, 1080);
+
+    std::cout << "Calibrating..." << std::endl;
+    double error = cv::calibrateCamera(
+        Q, q, frameSize, K, k, rvecs, tvecs, stdIntrinsics, stdExtrinsics,
+        perViewErrors, flags,
+        cv::TermCriteria(cv::TermCriteria::COUNT + cv::TermCriteria::EPS, 5,
+                         DBL_EPSILON));
+
+    std::cout << "Reprojection error = " << error << "\nK =\n"
+              << K << "\nk=\n"
+              << k << std::endl;
+
+    // Precompute lens correction interpolation
+    //cv::Mat mapX, mapY;
+    cv::initUndistortRectifyMap(K, k, cv::Matx33f::eye(), K, frameSize, CV_32FC1,
+                                mMapX, mMapY);
 }
 
 cv::Mat Calibration::getImage()
@@ -157,7 +231,7 @@ cv::Mat Calibration::getRawImage()
     }
     imageIn = mCvImage;
     mtx.unlock();
-    imageIn.adjustROI(-180,-190,-420,-290);
+    //imageIn.adjustROI(-180,-190,-420,-290);
 
     return imageIn;
 }
@@ -340,4 +414,9 @@ void Calibration::grapPictures()
         << e.GetDescription() << std::endl;
     }
 
+}
+
+void Calibration::setFileNames(const std::vector<cv::String> &fileNames)
+{
+    mFileNames = fileNames;
 }

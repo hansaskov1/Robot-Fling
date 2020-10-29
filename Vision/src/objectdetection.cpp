@@ -24,7 +24,7 @@ cv::Point2f ObjectDetection::hcBallCenterPosition(cv::Mat undisImage, int innerC
         cv::circle(grayImage,center,radius,cv::Scalar(255,0,255),3,cv::LINE_AA);
     }
     cv::imshow("ball",grayImage);
-    cv::waitKey(0);
+    //cv::waitKey(0);
     return centerCircle;
 }
 
@@ -46,7 +46,7 @@ cv::Point2f ObjectDetection::colorMorphLineByLine(cv::Mat image){
     cv::morphologyEx(opened, closed, cv::MORPH_CLOSE,five_by_five_element);
     cv::imwrite("../Images/BallWorldCords/imgtemp.png",closed);
     cv::imshow("closed",closed);
-    cv::waitKey();
+    //cv::waitKey();
 
     int xStart = 0,xEnd = 0;
     int yStart = 0,yEnd = 0;

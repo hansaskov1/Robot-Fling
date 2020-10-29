@@ -48,10 +48,10 @@ RM = /usr/bin/cmake -E remove -f
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = /home/kjohnsen/Workspace/Vision/src
+CMAKE_SOURCE_DIR = /home/suspend/workspace/Vision/src
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = /home/kjohnsen/Workspace/Vision/build-src-Desktop-Default
+CMAKE_BINARY_DIR = /home/suspend/workspace/Vision/build-src-Desktop-Default
 
 #=============================================================================
 # Targets provided globally by CMake.
@@ -80,9 +80,9 @@ edit_cache/fast: edit_cache
 
 # The main all target
 all: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/kjohnsen/Workspace/Vision/build-src-Desktop-Default/CMakeFiles /home/kjohnsen/Workspace/Vision/build-src-Desktop-Default/CMakeFiles/progress.marks
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/suspend/workspace/Vision/build-src-Desktop-Default/CMakeFiles /home/suspend/workspace/Vision/build-src-Desktop-Default/CMakeFiles/progress.marks
 	$(MAKE) -f CMakeFiles/Makefile2 all
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/kjohnsen/Workspace/Vision/build-src-Desktop-Default/CMakeFiles 0
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/suspend/workspace/Vision/build-src-Desktop-Default/CMakeFiles 0
 .PHONY : all
 
 # The main clean target

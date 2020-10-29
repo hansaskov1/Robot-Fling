@@ -4,9 +4,9 @@ set(CMAKE_DEPENDS_LANGUAGES
   )
 # The set of files for implicit dependencies of each language:
 set(CMAKE_DEPENDS_CHECK_CXX
-  "/home/kjohnsen/Workspace/Vision/src/calibration.cpp" "/home/kjohnsen/Workspace/Vision/build-src-Desktop-Default/CMakeFiles/Vision.dir/calibration.cpp.o"
-  "/home/kjohnsen/Workspace/Vision/src/main.cpp" "/home/kjohnsen/Workspace/Vision/build-src-Desktop-Default/CMakeFiles/Vision.dir/main.cpp.o"
-  "/home/kjohnsen/Workspace/Vision/src/objectdetection.cpp" "/home/kjohnsen/Workspace/Vision/build-src-Desktop-Default/CMakeFiles/Vision.dir/objectdetection.cpp.o"
+  "/home/suspend/workspace/Vision/src/calibration.cpp" "/home/suspend/workspace/Vision/build-src-Desktop-Default/CMakeFiles/Vision.dir/calibration.cpp.o"
+  "/home/suspend/workspace/Vision/src/main.cpp" "/home/suspend/workspace/Vision/build-src-Desktop-Default/CMakeFiles/Vision.dir/main.cpp.o"
+  "/home/suspend/workspace/Vision/src/objectdetection.cpp" "/home/suspend/workspace/Vision/build-src-Desktop-Default/CMakeFiles/Vision.dir/objectdetection.cpp.o"
   )
 set(CMAKE_CXX_COMPILER_ID "GNU")
 
