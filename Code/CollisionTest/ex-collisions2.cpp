@@ -75,6 +75,7 @@ public:
     }
 
     bool isCollision(size_t checks,rw::math::Transform3D<> startTransform , rw::math::Transform3D<> endTransform){
+
         rw::trajectory::LinearInterpolator<rw::math::Transform3D<>> interpolator(startTransform, endTransform, 1);
         std::vector<rw::math::Q> QVec;
 
@@ -151,193 +152,217 @@ private:
 };
 
 
+class RobotControl {
 
-void fetchQValues(std::promise<std::vector<std::vector<double>>> && returnQV ,std::atomic<bool>& stop, unsigned int msInterval){
-    std::vector<std::vector<double>> qVector;
+public:
 
-    ur_rtde::RTDEReceiveInterface rtde_recieve("127.0.0.1");
-    while(!stop){
-        std::vector<double> q = rtde_recieve.getActualQ();
-        qVector.push_back(q);
-        std::this_thread::sleep_for(std::chrono::milliseconds(msInterval));
+    RobotControl(std::string ipAdress)
+    {
+        mIpAdress = ipAdress;
     }
-    returnQV.set_value(std::move(qVector));
-}
 
 
-void moveRobotJ(std::vector<double> jointPosition){
-   ur_rtde::RTDEControlInterface rtde_control("127.0.0.1");
-   std::cout << "Moving to position" << std::endl;
-   rtde_control.moveJ(jointPosition);
+    RobotControl(std::string ipAdress, rw::math::Vector3D<> calPos, rw::math::Rotation3D<> calRot)
+    {
+        mIpAdress = ipAdress;
+        mCalPos = calPos;
+        mCalRot = calRot;
+        mInvCalRot = calRot.inverse();
 
-}
+    }
 
-void moveRobotL(std::vector<double> toolPosition, double speed, double acceleration){
-    ur_rtde::RTDEControlInterface rtde_control("127.0.0.1");
-    std::cout << "Moving to position" << std::endl;
-    rtde_control.moveL(toolPosition,speed,acceleration);
+    std::vector<double> TObj2TVec(rw::math::Transform3D<> TObject)
+    {
+        std::vector<double> TVector(6);
+        rw::math::Vector3D<> P = TObject.P();
+        TVector[0] = P[0];
+        TVector[1] = P[1];
+        TVector[2] = P[2];
 
-}
+        rw::math::Rotation3D<> R = TObject.R();
+        rw::math::RPY<> rpy(R);
 
-std::vector<std::vector<double>> getQFromSim(std::vector<double> position, unsigned int msInterval){
+        TVector[3] = rpy[0];
+        TVector[4] = rpy[1];
+        TVector[5] = rpy[2];
 
-    std::atomic<bool> stop {false};
-    std::promise<std::vector<std::vector<double>>> promiseQVec;
-    auto futureQVec = promiseQVec.get_future();
+        return TVector;
+    }
 
-    std::thread recive(&fetchQValues,std::move(promiseQVec),  std::ref(stop), msInterval);
+    std::vector<double> vecRPY2stdVec(rw::math::Vector3D<> position, rw::math::RPY<> RPY)
+    {
+        double x = position[0];
+        double y = position[1];
+        double z = position[2];
+        double R = RPY[0];
+        double P = RPY[1];
+        double Y = RPY[2];
 
-    if (position.size() == 6){
-        std::thread control(moveRobotJ, position);
+        return std::vector<double>{x,y,z,R,P,Y};
+    }
+
+
+    rw::math::Vector3D<> world2Robot(rw::math::Vector3D<> worldPosition)
+    {
+        return mInvCalRot * worldPosition - mInvCalRot * mCalPos;
+    }
+
+    // Sim
+
+    void fetchQValues(std::promise<std::vector<std::vector<double>>> && returnQV ,std::atomic<bool>& stop, unsigned int msInterval)
+    {
+        std::vector<std::vector<double>> qVector;
+        ur_rtde::RTDEReceiveInterface rtde_recieve("127.0.0.1");
+        while(!stop)
+        {
+            std::vector<double> q = rtde_recieve.getActualQ();
+            qVector.push_back(q);
+            std::this_thread::sleep_for(std::chrono::milliseconds(msInterval));
+        }
+        returnQV.set_value(std::move(qVector));
+    }
+
+/*
+    std::vector<std::vector<double>> getQFromSim(rw::math::Q jointValues, unsigned int msInterval)  // For Linear movement in Joint Space
+    {
+        std::vector<double> jointValuesStdVec = jointValues.toStdVector();
+        std::atomic<bool> stop {false};
+        std::promise<std::vector<std::vector<double>>> promiseQVec;
+        auto futureQVec = promiseQVec.get_future();
+
+        std::thread recive(&RobotControl::fetchQValues,std::move(promiseQVec),  std::ref(stop), msInterval);
+        auto moveJ = [](std::vector<double> jointValues)
+        {
+            ur_rtde::RTDEControlInterface rtde_control("127.0.0.1");
+            rtde_control.moveJ(jointValues,1,1);
+        };
+        std::thread control(moveJ, jointValuesStdVec);
 
         control.join();
-
+        stop = true;
+        recive.join();
+        return futureQVec.get();
     }
 
-    stop = true;
-    recive.join();
-    return futureQVec.get();
+
+    std::vector<std::vector<double>> getQFromSim(rw::math::RPY<> orientation, rw::math::Vector3D<> position , unsigned int msInterval){ // For Linear movement in Tool Space
+
+        std::vector<double> toolPositionStdVec = vecRPY2stdVec(position,orientation);
+        std::atomic<bool> stop {false};
+        std::promise<std::vector<std::vector<double>>> promiseQVec;
+
+        auto futureQVec = promiseQVec.get_future();
+        std::thread recive(&RobotControl::fetchQValues,std::move(promiseQVec),  std::ref(stop), msInterval);
+        auto moveL = [](std::vector<double> toolPosition)
+        {
+            ur_rtde::RTDEControlInterface rtde_control("127.0.0.1");
+            rtde_control.moveL(toolPosition,1,1);
+        };
+        std::thread control(moveL, toolPositionStdVec);
+
+        control.join();
+        stop = true;
+        recive.join();
+        return futureQVec.get();
+    }
+*/
+
+    // All movements to get ball
+    void getBall(rw::math::Vector3D<> posBallW, double safeGribHeight)
+    {
+
+        rw::math::Q qHome(-1.151,-3.1415/2,0,-3.1415/2,0,0);                    // Hardcoded home for our robot
+        rw::math::Q qSafeGrib(-1.151, -2.202, -0.935, -1.574, 1.571, -0.003);   // Hardcoded safe gripping position
+
+        rw::math::RPY<> rpyBall(0.6, -3.09, 0);                                 // Hardcoded safe orientation
+        rw::math::RPY<> rpyGribReady = rpyBall;
+
+        rw::math::Vector3D<> posGribReadyW = posBallW;
+        posGribReadyW[2] += safeGribHeight;
+
+        rw::math::Vector3D<> posBallR = world2Robot(posBallW);
+        rw::math::Vector3D<> posGribReadyR = world2Robot(posGribReadyW);
 
 
+        std::vector<double> qHomeStdVec = qHome.toStdVector();
+        std::vector<double> qSafeGribStdVec = qSafeGrib.toStdVector();
+        std::vector<double> gribReadyR = vecRPY2stdVec(posGribReadyR,rpyGribReady);
+        std::vector<double> ballR = vecRPY2stdVec(posBallR,rpyBall);
+
+/*
+        //run simulation...
+        std::string path = "../../Code/Scenes/XMLScenes/RobotOnTable/Scene.xml";
+
+        DetectCollision dc(path);
+        std::vector<bool> collisionList;
+
+        double msInterval = 10;
+        std::cout << "Starting sim" << std::endl;
+        collisionList.push_back(dc.isCollision(getQFromSim(qHome, msInterval)));
+        collisionList.push_back(dc.isCollision(getQFromSim(qSafeGrib, msInterval)));
+        collisionList.push_back(dc.isCollision(getQFromSim(posGribReadyW,rpyGribReady, msInterval)));
+        collisionList.push_back(dc.isCollision(getQFromSim(posBallW, rpyBall, msInterval)));
+        collisionList.push_back(dc.isCollision(getQFromSim(qSafeGrib, msInterval)));
+        collisionList.push_back(dc.isCollision(getQFromSim(qHome, msInterval)));
+
+        bool collision;
+        for (bool isColl : collisionList)
+        {
+            (isColl)? std::cout << "true" : std::cout << "false";
+            std::cout << endl;
+
+            if (isColl) collision = true;
+        }
+
+    if (!collision)
+    {*/
+        ur_rtde::RTDEControlInterface rtdeControl(mIpAdress);
+
+        double speed = 2;
+        double acceleration = 2;
+        rtdeControl.moveJ(qHomeStdVec, speed, acceleration);
+        rtdeControl.moveJ(qSafeGribStdVec, speed, acceleration);
+        rtdeControl.moveL(gribReadyR,speed,acceleration);
+        rtdeControl.moveL(ballR,speed,acceleration);
+        std::this_thread::sleep_for(std::chrono::milliseconds(2000));
+        rtdeControl.moveL(gribReadyR,speed,acceleration);
+        rtdeControl.moveJ(qSafeGribStdVec, speed, acceleration);
+        rtdeControl.moveJ(qHomeStdVec, speed, acceleration);
+    /*} else
+    {
+        std::cout << "a collision has occured" << std::endl;
+    }*/
 }
 
+    void getBall(rw::math::Vector3D<> ballPositionW)
+    {
+      double distance = 0.2;    //Hardcoded a distance of 20cm above ball
+      getBall(ballPositionW,distance);
+    }
 
-std::vector<std::vector<double>> getQFromSim(std::vector<double> position, double speed, double acceleration, unsigned int msInterval){
-
-    std::atomic<bool> stop {false};
-    std::promise<std::vector<std::vector<double>>> promiseQVec;
-
-    auto futureQVec = promiseQVec.get_future();
-    std::thread recive(&fetchQValues,std::move(promiseQVec),  std::ref(stop), msInterval);
-    std::thread control(moveRobotL, position, speed, acceleration);
-    control.join();
-
-
-    stop = true;
-    recive.join();
-    return futureQVec.get();
-
-}
-
-std::vector<double> TObjectToTVector(rw::math::Transform3D<> TObject){
-    std::vector<double> TVector(6);
-    rw::math::Vector3D<> P = TObject.P();
-    TVector[0] = P[0];
-    TVector[1] = P[1];
-    TVector[2] = P[2];
-
-    rw::math::Rotation3D<> R = TObject.R();
-    rw::math::RPY<> rpy(R);
-
-    TVector[3] = rpy[0];
-    TVector[4] = rpy[1];
-    TVector[5] = rpy[2];
-
-    return TVector;
-}
-
-
-
+private:
+std::string mIpAdress;
+ rw::math::Vector3D<> mCalPos;
+ rw::math::Rotation3D<> mCalRot;
+ rw::math::Rotation3D<> mInvCalRot;
+};
 
 
 
 
 int main(int argc, char** argv)
 {
-
-    std::string path = "../../Code/Scenes/XMLScenes/RobotOnTable/Scene.xml";
-
-    rw::math::Vector3D<> Pcal(0.6521, 0.0503, 0.0411);
-    rw::math::Rotation3D<> Rcal(    0.2577,    0.9662,   -0.0013,
-                                    0.9662,   -0.2577,   -0.0111,
-                                    0.0111,   -0.0016,    0.9999);
-
-    rw::math::Transform3D<> TCal(Pcal,Rcal);
+     rw::math::Vector3D<> PCal(0.400624689065891, 0.901530744085863, 0.042187492976487);
+     rw::math::Rotation3D<double> RCal(0.923890908941640 ,0.382647484711815,-0.002547708521920,-0.382655561588167,0.923879135480505,-0.004697255522142,0.000556381736091,0.005314646509101,0.999985722383999);
 
 
-    rw::math::Q startQ{2.387, -1.847, 1.759, -3.055, -2.387, -0.006};
-    DetectCollision dc(path,startQ);
+    RobotControl RC("127.0.0.1",PCal,RCal);
 
-    std::vector<double> qSafeGrib = {-0.003, -2.202, -0.935, -1.574, 1.571, -0.003};
-    std::vector<double> TBall = {0.586,-0.261, 0.172, -2.22065, 2.22065, 0};
-    std::vector<double> TGribReady = TBall;
-    TGribReady[2] += 0.15;
+    rw::math::Vector3D<> ballPosition(0.2,0.2,0.1);
 
-    rw::math::Vector3D<> P1(0.586,-0.261, 0.172);
-    rw::math::RPY<> R1 ( -2.22065, 2.22065, 0);
-    rw::math::Transform3D<> T1(P1, R1);
-
-    std::cout << T1 << std::endl;
-
-     std::vector<double> qHome{/*-1.151*/0,-3.1415/2,0,-3.1415/2,0,0};
-/*
-    std::vector<std::vector<double>> qVec1 = getQFromSim(qSafeGrib,10);
-    std::vector<std::vector<double>> qVec2 = getQFromSim(TGribReady,1,1,10);
-    std::vector<std::vector<double>> qVec3 = getQFromSim(TBall,1,1,10);
-    std::vector<std::vector<double>> qVec4 = getQFromSim(TGribReady,1,1,10);
-    std::vector<std::vector<double>> qVec5 = getQFromSim(qSafeGrib,10);
-    std::vector<std::vector<double>> qVec6 = getQFromSim(qHome,10);
-
-    std::cout << "Done" << std::endl;
-
-    std::cout << dc.isCollision(qVec1) << std::endl;
-    std::cout << dc.isCollision(qVec2) << std::endl;
-    std::cout << dc.isCollision(qVec3) << std::endl;
-    std::cout << dc.isCollision(qVec4) << std::endl;
-    std::cout << dc.isCollision(qVec5) << std::endl;
-    std::cout << dc.isCollision(qVec6) << std::endl;
-
-*/
-
-
-    rw::math::Vector3D<> VGribReady(0.586,-0.261, 0.172 + 0.15);
-    rw::math::RPY<> RGribReady( -2.22065, 2.22065, 0);
-    rw::math::Transform3D<> TGribReadyObject(VGribReady, RGribReady);
-    rw::math::Transform3D<> TGribReadyCalObject = TCal * TGribReadyObject;
-    std::vector<double> TGribReadyCalVector = TObjectToTVector(TGribReadyCalObject);
-
-
-
-    rw::math::Vector3D<> TGribReadyCalTranslation = Rcal * VGribReady;
-    double x = TGribReadyCalTranslation[0];
-    double y = TGribReadyCalTranslation[1];
-    double z = TGribReadyCalTranslation[2];
-    std::vector<double> TGribReadyCalVector2 = {x, y, z, -2.22065, 2.22065, 0};
-
-
-   // ur_rtde::RTDEControlInterface rtde_control("192.168.100.53");
-    ur_rtde::RTDEControlInterface rtde_control("127.0.0.1");
-
-    double speed = 1;
-    double acceleration = 1;
-
-
-    std::cout << "TGribReadyVectorSim " << std::endl;
-    for (double value: TGribReady){
-        std::cout << value << " ";
-    }
-    std::cout << std::endl << std::endl;
-
-
-    std::cout << "TGribReadyVectorCal " << std::endl;
-    for (double value: TGribReadyCalVector2){
-        std::cout << value << " ";
-    }
-    std::cout << std::endl;
-
-
-
-    rtde_control.moveJ(qHome, speed, acceleration);
-    rtde_control.moveJ(qSafeGrib, speed, acceleration);
-    rtde_control.moveL({1.05, 0.54, 0.32, -2.22, 2.22, 0},speed,acceleration);
-    rtde_control.moveJ(qSafeGrib, speed, acceleration);
-    rtde_control.moveJ(qHome, speed, acceleration);
-
+    RC.getBall(ballPosition);
 
 
       return 0;
-
-
-
 
 }

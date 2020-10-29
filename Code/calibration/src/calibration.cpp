@@ -18,18 +18,20 @@ int main() {
   bool repeat = true;
   std::string continueHolder;
 
+  std::ofstream file1;
+  file1.open("calibration_pointsRunning.txt");
   while (repeat) {
 
     std::array < double, 3 > worldPosition {0};
     std::array < double, 3 > robotPosition {0};
 
     std::cout << "Move tcp to position" << std::endl;
-    std::this_thread::sleep_for(std::chrono::milliseconds(5000));
+    std::this_thread::sleep_for(std::chrono::milliseconds(1000));
     std::cout << "write \"x y z\" coordinate" << std::endl;
 
-    std::cin >> worldPosition[0] * 0.01;
-    std::cin >> worldPosition[1] * 0.01;
-    std::cin >> worldPosition[2] * 0.01;
+    std::cin >> worldPosition[0];
+    std::cin >> worldPosition[1];
+    std::cin >> worldPosition[2];
 
     worldPositions.push_back(worldPosition);
 
@@ -41,6 +43,39 @@ int main() {
     robotPositions.push_back(robotPosition);
 
 
+
+
+      file1 << "[";
+      for (size_t i = 0; i < 3; i++) {
+        file1 << worldPosition[i];
+        if (i != 2) {
+          file1 << "; ";
+        }
+      }
+      file1 << "]" << "\n";
+
+      file1 << "[";
+      for (size_t i = 0; i < 3; i++) {
+        file1 << robotPosition[i];
+        if (i != 2) {
+          file1 << "; ";
+        }
+      }
+      file1 << "];" << "\n";
+
+
+
+
+    std::cout << "[";
+    for (size_t i = 0; i < 3; i++) {
+      std::cout << robotPosition[i];
+      if (i != 2) {
+        std::cout << "; ";
+      }
+    }
+    std::cout << "]" << std::endl;
+
+
     std::cout << "Add another coordinate" << std::endl;
     std::cout << "y/n" << std::endl;
 
@@ -50,7 +85,10 @@ int main() {
     } else if (continueHolder == "n" || continueHolder == "N") {
       repeat = false;
     }
+
   }
+
+      file1.close();
 
   for (std::array < double, 3 > & array: worldPositions) {
     std::cout << "[";
@@ -60,7 +98,7 @@ int main() {
         std::cout << "; ";
       }
     }
-    std::cout << "]" << std::endl;
+    std::cout << "];" << std::endl;
 
   }
 
@@ -72,11 +110,11 @@ int main() {
         std::cout << "; ";
       }
     }
-    std::cout << "]" << std::endl;
+    std::cout << "];" << std::endl;
   }
 
   std::ofstream file;
-  file.open("calibration_points.txt");
+  file.open("calibration_pointsFinish.txt");
 
   for (std::array < double, 3 > & array: worldPositions) {
     file << "[";
@@ -86,7 +124,7 @@ int main() {
         file << "; ";
       }
     }
-    file << "]" << "\n";
+    file << "];" << "\n";
 
   }
 
@@ -98,7 +136,7 @@ int main() {
         file << "; ";
       }
     }
-    file << "]" << "\n";
+    file << "];" << "\n";
   }
 
   file.close();
