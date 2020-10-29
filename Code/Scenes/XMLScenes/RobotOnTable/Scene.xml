@@ -1,7 +1,7 @@
 <WorkCell name="Scene">
 	<Frame name="Table" refframe="WORLD" >
 		<RPY> 0 0 0 </RPY>
-		<Pos> 0 0.3 -0.05 </Pos>
+		<Pos> -0.42 -0.63 -0.05 </Pos>
 	</Frame>
 	<Drawable name="Table" refframe="Table" >
 		<RPY> 0 0 0</RPY> <Pos> 0 0 0 </Pos>
@@ -10,7 +10,7 @@
 	
 	<Frame name="Stolbe1" refframe="WORLD" >
 		<RPY> 0 0 0 </RPY>
-		<Pos> 0.47 0.6 0.74 </Pos>
+		<Pos> 0.05 -0.3 0.74 </Pos>
 	</Frame>
 	<Drawable name="Stolbe1" refframe="Stolbe1">
 		<RPY> 0 0 0 </RPY>
@@ -20,16 +20,27 @@
 
 	<Frame name="Stolbe2" refframe="WORLD" >
 		<RPY> 0 0 0 </RPY>
-		<Pos> -0.47 0.6 0.74 </Pos>
+		<Pos> -0.89 -0.3 0.74 </Pos>
 	</Frame>
 	<Drawable name="Stolbe2" refframe="Stolbe2">
 		<RPY> 0 0 0 </RPY>
 		<Pos> 0 0 0 </Pos>
 		<Box x="0.1" y="0.1" z="1.68" />
 	</Drawable>
+
+	<Frame name="Stolbe3" refframe="WORLD" >
+		<RPY> 0 0 0 </RPY>
+		<Pos> 0.17 -0.48 0.74 </Pos>
+	</Frame>
+	<Drawable name="Stolbe3" refframe="Stolbe3">
+		<RPY> 0 0 0 </RPY>
+		<Pos> 0 0 0 </Pos>
+		<Box x="0.12" y="0.12" z="1.70" />
+	</Drawable>
 	
 	<Frame name="URMount">
-		<RPY>90 0 0</RPY><Pos>0 0 0.017</Pos>
+		<RPY>90 0 0</RPY>
+		<Pos>-0.42 -0.92 0.017</Pos>
 	</Frame>
 	<Include file="../../XMLDevices/UR-6-85-5-A/UR.wc.xml" />
 
