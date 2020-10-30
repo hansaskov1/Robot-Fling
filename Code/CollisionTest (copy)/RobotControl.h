@@ -21,134 +21,6 @@
 #include <thread>
 #include <future>
 
-using namespace std::chrono;
-
-class DetectCollision{
-
-public:
-    DetectCollision(const std::string & path)
-    {
-        const rw::models::WorkCell::Ptr workcell = rw::loaders::WorkCellLoader::Factory::load(path);
-        if (!workcell.isNull())
-        {
-             mDevice = workcell->getDevices().front();
-             mState = workcell->getDefaultState();
-             mDetector = rw::common::ownedPtr(new rw::proximity::CollisionDetector(workcell, rwlibs::proximitystrategies::ProximityStrategyFactory::makeDefaultCollisionStrategy()));
-        } else
-        {
-            RW_THROW("WorkCell could not be loaded.");
-        }
-    }
-
-    DetectCollision(const std::string &path, rw::math::Q startQ) : DetectCollision(path) {
-        mDevice->setQ(startQ, mState);
-    }
-
-
-    bool isCollision(size_t checks, rw::math::Transform3D<> endTransform){
-
-        rw::trajectory::LinearInterpolator<rw::math::Transform3D<>> interpolator(getTransform(), endTransform, 1);
-        std::vector<rw::math::Q> QVec;
-
-        for (unsigned int i = 1; i < checks; i++)
-        {
-            rw::math::Transform3D<> T = interpolator.x(static_cast<double>(i) / static_cast<double>(checks));
-            rw::math::Q q = calcInverse(T);
-
-            if (q.empty())
-            {
-                std::cout << "Could not find inverse kinematics from " << T << std::endl;
-                return true;
-            }
-
-            if (checkCollision())
-            {
-                std::cout << "Collision occured at" << T << std::endl;
-                return true;
-            }
-            QVec.push_back(q);
-        }
-        mQVec = QVec;
-        return false;
-    }
-
-    bool isCollision(size_t checks,rw::math::Transform3D<> startTransform , rw::math::Transform3D<> endTransform){
-
-        rw::trajectory::LinearInterpolator<rw::math::Transform3D<>> interpolator(startTransform, endTransform, 1);
-        std::vector<rw::math::Q> QVec;
-
-        for (unsigned int i = 1; i < checks; i++)
-        {
-            rw::math::Transform3D<> T = interpolator.x(static_cast<double>(i) / static_cast<double>(checks));
-            rw::math::Q q = calcInverse(T);
-
-            if (q.empty())
-            {
-                std::cout << "Could not find inverse kinematics from " << T << std::endl;
-                return true;
-            }
-
-            if (checkCollision())
-            {
-                std::cout << "Collision occured at" << T << std::endl;
-                return true;
-            }
-            QVec.push_back(q);
-        }
-        mQVec = QVec;
-        return false;
-    }
-
-    bool isCollision(std::vector<std::vector<double>> qVec){
-
-        for (std::vector<double> stdQ : qVec){
-            rw::math::Q q(stdQ);
-            mDevice->setQ(q,mState);
-            if (checkCollision()){
-                return true;
-            }
-        }
-        return false;
-    }
-
-
-    void setState(const rw::math::Q jointPosition){mDevice->setQ(jointPosition,mState);}
-    rw::math::Q getState() const { return mDevice->getQ(mState);}
-    std::vector<rw::math::Q> getQVec() const { return mQVec; }
-    rw::math::Transform3D<> getTransform() const {return mDevice->baseTend(mState);}
-
-private:
-
-    rw::math::Q calcInverse(rw::math::Transform3D<> transform)
-    {
-        //rw::invkin::JacobianIKSolver::Ptr solver1(new rw::invkin::JacobianIKSolver(mDevice, mState));
-        rw::invkin::JacobianIKSolver solver(mDevice, mState);
-        std::vector<rw::math::Q> qVec = solver.solve(transform, mState);
-        rw::math::Q q;
-        if (!qVec.empty())
-        {
-            q = qVec.back();
-            mDevice->setQ(q, mState);
-            //std::cout << q << std::endl;
-        }
-
-        return q;       // NOTE: If there is no kinematic solution q will be uninitialized.
-    }
-
-    bool checkCollision()
-    {
-        rw::proximity::CollisionDetector::QueryResult resEnd;
-            mDetector->inCollision(mState, &resEnd);
-            return !resEnd.collidingFrames.empty();
-    }
-
-    rw::models::Device::Ptr mDevice;
-    rw::kinematics::State mState;
-    rw::proximity::CollisionDetector::Ptr mDetector;
-    std::vector<rw::math::Q> mQVec;
-
-};
-
 
 class RobotControl {
 
@@ -220,21 +92,32 @@ public:
         returnQV.set_value(std::move(qVector));
     }
 
-/*
+
+
+    static void moveL(std::vector<double> toolPosition)
+    {
+        ur_rtde::RTDEControlInterface rtde_control("127.0.0.1");
+        rtde_control.moveL(toolPosition,2,2);
+    }
+
+    static void moveJ(std::vector<double> jointValues)
+    {
+        ur_rtde::RTDEControlInterface rtde_control("127.0.0.1");
+        rtde_control.moveJ(jointValues,2,2);
+    }
+
+
     std::vector<std::vector<double>> getQFromSim(rw::math::Q jointValues, unsigned int msInterval)  // For Linear movement in Joint Space
     {
         std::vector<double> jointValuesStdVec = jointValues.toStdVector();
+
         std::atomic<bool> stop {false};
         std::promise<std::vector<std::vector<double>>> promiseQVec;
         auto futureQVec = promiseQVec.get_future();
 
-        std::thread recive(&RobotControl::fetchQValues,std::move(promiseQVec),  std::ref(stop), msInterval);
-        auto moveJ = [](std::vector<double> jointValues)
-        {
-            ur_rtde::RTDEControlInterface rtde_control("127.0.0.1");
-            rtde_control.moveJ(jointValues,1,1);
-        };
-        std::thread control(moveJ, jointValuesStdVec);
+        std::thread recive(&RobotControl::fetchQValues, this ,std::move(promiseQVec),  std::ref(stop), msInterval);
+
+        std::thread control(RobotControl::moveJ, jointValuesStdVec);
 
         control.join();
         stop = true;
@@ -243,27 +126,24 @@ public:
     }
 
 
-    std::vector<std::vector<double>> getQFromSim(rw::math::RPY<> orientation, rw::math::Vector3D<> position , unsigned int msInterval){ // For Linear movement in Tool Space
+    std::vector<std::vector<double>> getQFromSim( rw::math::Vector3D<> position,rw::math::RPY<> orientation, unsigned int msInterval){ // For Linear movement in Tool Space
 
         std::vector<double> toolPositionStdVec = vecRPY2stdVec(position,orientation);
         std::atomic<bool> stop {false};
         std::promise<std::vector<std::vector<double>>> promiseQVec;
-
         auto futureQVec = promiseQVec.get_future();
-        std::thread recive(&RobotControl::fetchQValues,std::move(promiseQVec),  std::ref(stop), msInterval);
-        auto moveL = [](std::vector<double> toolPosition)
-        {
-            ur_rtde::RTDEControlInterface rtde_control("127.0.0.1");
-            rtde_control.moveL(toolPosition,1,1);
-        };
-        std::thread control(moveL, toolPositionStdVec);
+
+        std::thread recive(&RobotControl::fetchQValues, this ,std::move(promiseQVec),  std::ref(stop), msInterval);
+
+        std::thread control(RobotControl::moveL, toolPositionStdVec);
 
         control.join();
         stop = true;
         recive.join();
         return futureQVec.get();
     }
-*/
+
+
 
     // All movements to get ball
     void getBall(rw::math::Vector3D<> posBallW, double safeGribHeight)
@@ -287,7 +167,7 @@ public:
         std::vector<double> gribReadyR = vecRPY2stdVec(posGribReadyR,rpyGribReady);
         std::vector<double> ballR = vecRPY2stdVec(posBallR,rpyBall);
 
-/*
+
         //run simulation...
         std::string path = "../../Code/Scenes/XMLScenes/RobotOnTable/Scene.xml";
 
@@ -298,8 +178,9 @@ public:
         std::cout << "Starting sim" << std::endl;
         collisionList.push_back(dc.isCollision(getQFromSim(qHome, msInterval)));
         collisionList.push_back(dc.isCollision(getQFromSim(qSafeGrib, msInterval)));
-        collisionList.push_back(dc.isCollision(getQFromSim(posGribReadyW,rpyGribReady, msInterval)));
-        collisionList.push_back(dc.isCollision(getQFromSim(posBallW, rpyBall, msInterval)));
+        collisionList.push_back(dc.isCollision(getQFromSim(posGribReadyR,rpyGribReady, msInterval)));
+        collisionList.push_back(dc.isCollision(getQFromSim(posGribReadyR,rpyGribReady, msInterval)));
+        collisionList.push_back(dc.isCollision(getQFromSim(posBallR, rpyBall, msInterval)));
         collisionList.push_back(dc.isCollision(getQFromSim(qSafeGrib, msInterval)));
         collisionList.push_back(dc.isCollision(getQFromSim(qHome, msInterval)));
 
@@ -307,17 +188,17 @@ public:
         for (bool isColl : collisionList)
         {
             (isColl)? std::cout << "true" : std::cout << "false";
-            std::cout << endl;
+            std::cout << std::endl;
 
             if (isColl) collision = true;
         }
 
     if (!collision)
-    {*/
+    {
         ur_rtde::RTDEControlInterface rtdeControl(mIpAdress);
 
-        double speed = 0.3;
-        double acceleration = 0.05;
+        double speed = 2;
+        double acceleration = 2;
         rtdeControl.moveJ(qHomeStdVec, speed, acceleration);
         rtdeControl.moveJ(qSafeGribStdVec, speed, acceleration);
         rtdeControl.moveL(gribReadyR,speed,acceleration);
@@ -326,10 +207,10 @@ public:
         rtdeControl.moveL(gribReadyR,speed,acceleration);
         rtdeControl.moveJ(qSafeGribStdVec, speed, acceleration);
         rtdeControl.moveJ(qHomeStdVec, speed, acceleration);
-    /*} else
+    } else
     {
         std::cout << "a collision has occured" << std::endl;
-    }*/
+    }
 }
 
     void getBall(rw::math::Vector3D<> ballPositionW)
@@ -346,19 +227,3 @@ std::string mIpAdress;
 };
 
 
-
-
-int main(int argc, char** argv)
-{
-     rw::math::Vector3D<> PCal(0.400624689065891, 0.901530744085863, 0.042187492976487);
-     rw::math::Rotation3D<double> RCal(0.923890908941640 ,0.382647484711815,-0.002547708521920,-0.382655561588167,0.923879135480505,-0.004697255522142,0.000556381736091,0.005314646509101,0.999985722383999);
-
-    RobotControl RC("192.168.100.53",PCal,RCal);
-    rw::math::Vector3D<> ballPosition(0.5478,0.0997,0.01);
-
-    RC.getBall(ballPosition,0.2);
-
-
-      return 0;
-
-}
