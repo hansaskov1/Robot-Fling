@@ -37,8 +37,6 @@ iostream
 -
 ur_rtde/rtde_control_interface.h
 -
-ur_rtde/rtde.h
--
 ur_rtde/rtde_receive_interface.h
 -
 vector

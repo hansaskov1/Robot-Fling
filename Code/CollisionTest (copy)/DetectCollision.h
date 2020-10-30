@@ -21,8 +21,6 @@
 #include <thread>
 #include <future>
 
-using namespace std::chrono;
-
 class DetectCollision{
 
 public:
