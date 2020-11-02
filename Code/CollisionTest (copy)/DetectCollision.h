@@ -38,13 +38,14 @@ public:
         }
     }
 
-    DetectCollision(const std::string &path, rw::math::Q startQ) : DetectCollision(path) {
+    DetectCollision(const std::string &path, rw::math::Q startQ) : DetectCollision(path)
+    {
         mDevice->setQ(startQ, mState);
     }
 
 
-    bool isCollision(size_t checks, rw::math::Transform3D<> endTransform){
-
+    bool isCollision(size_t checks, rw::math::Transform3D<> endTransform)
+    {
         rw::trajectory::LinearInterpolator<rw::math::Transform3D<>> interpolator(getTransform(), endTransform, 1);
         std::vector<rw::math::Q> QVec;
 
@@ -70,8 +71,8 @@ public:
         return false;
     }
 
-    bool isCollision(size_t checks,rw::math::Transform3D<> startTransform , rw::math::Transform3D<> endTransform){
-
+    bool isCollision(size_t checks,rw::math::Transform3D<> startTransform , rw::math::Transform3D<> endTransform)
+    {
         rw::trajectory::LinearInterpolator<rw::math::Transform3D<>> interpolator(startTransform, endTransform, 1);
         std::vector<rw::math::Q> QVec;
 
@@ -97,9 +98,10 @@ public:
         return false;
     }
 
-    bool isCollision(std::vector<std::vector<double>> qVec){
-
-        for (std::vector<double> stdQ : qVec){
+    bool isCollision(std::vector<std::vector<double>> qVec)
+    {
+        for (std::vector<double> stdQ : qVec)
+        {
             rw::math::Q q(stdQ);
             mDevice->setQ(q,mState);
             if (checkCollision()){
@@ -144,5 +146,4 @@ private:
     rw::kinematics::State mState;
     rw::proximity::CollisionDetector::Ptr mDetector;
     std::vector<rw::math::Q> mQVec;
-
 };
