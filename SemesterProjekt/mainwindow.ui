@@ -6,8 +6,8 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>800</width>
-    <height>600</height>
+    <width>829</width>
+    <height>654</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -34,13 +34,6 @@
      </property>
      <layout class="QVBoxLayout" name="verticalLayout">
       <item>
-       <widget class="QLabel" name="lManual">
-        <property name="text">
-         <string>Manuel Styring</string>
-        </property>
-       </widget>
-      </item>
-      <item>
        <widget class="QPushButton" name="bOpenGrip">
         <property name="text">
          <string>Open Gripper</string>
@@ -57,7 +50,7 @@
       <item>
        <widget class="QPushButton" name="bCalibrate">
         <property name="text">
-         <string>Calibrate Gripper</string>
+         <string>Calibrate</string>
         </property>
        </widget>
       </item>
@@ -86,7 +79,7 @@
       </rect>
      </property>
      <layout class="QGridLayout" name="gridLayout">
-      <item row="7" column="1">
+      <item row="6" column="0">
        <spacer name="verticalSpacer">
         <property name="orientation">
          <enum>Qt::Vertical</enum>
@@ -99,44 +92,51 @@
         </property>
        </spacer>
       </item>
-      <item row="2" column="1">
-       <widget class="QLineEdit" name="liForce"/>
-      </item>
-      <item row="1" column="1">
-       <widget class="QLineEdit" name="liSpeed"/>
-      </item>
-      <item row="1" column="0">
-       <widget class="QLabel" name="lSpeed">
-        <property name="text">
-         <string>Hastighed</string>
-        </property>
-       </widget>
-      </item>
-      <item row="3" column="1">
+      <item row="2" column="0">
        <widget class="QPushButton" name="bSend">
         <property name="text">
-         <string>Apply</string>
+         <string>Start</string>
         </property>
        </widget>
       </item>
-      <item row="2" column="0">
-       <widget class="QLabel" name="lForce">
-        <property name="text">
-         <string>Gribekraft</string>
-        </property>
-       </widget>
-      </item>
-      <item row="0" column="1">
-       <widget class="QLineEdit" name="liSize"/>
-      </item>
-      <item row="0" column="0">
-       <widget class="QLabel" name="lSize">
-        <property name="text">
-         <string>Størrelse</string>
-        </property>
+      <item row="1" column="0">
+       <widget class="QComboBox" name="cbMethod">
+        <item>
+         <property name="text">
+          <string>Alex</string>
+         </property>
+        </item>
+        <item>
+         <property name="text">
+          <string>Kenneth</string>
+         </property>
+        </item>
        </widget>
       </item>
      </layout>
+    </widget>
+    <widget class="QWidget" name="widget_6" native="true">
+     <property name="geometry">
+      <rect>
+       <x>260</x>
+       <y>20</y>
+       <width>371</width>
+       <height>411</height>
+      </rect>
+     </property>
+     <widget class="QLabel" name="lImage">
+      <property name="geometry">
+       <rect>
+        <x>0</x>
+        <y>0</y>
+        <width>381</width>
+        <height>431</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string/>
+      </property>
+     </widget>
     </widget>
    </widget>
    <widget class="QWidget" name="widget_3" native="true">
@@ -158,14 +158,14 @@
      <item row="1" column="2">
       <widget class="QPushButton" name="bDisconnect">
        <property name="text">
-        <string> Disconnect fra Server </string>
+        <string> Disconnect</string>
        </property>
       </widget>
      </item>
      <item row="0" column="2">
       <widget class="QPushButton" name="bSaveConnect">
        <property name="text">
-        <string>Gem og Connect til Server</string>
+        <string>Connect</string>
        </property>
       </widget>
      </item>
@@ -226,8 +226,8 @@
     <rect>
      <x>0</x>
      <y>0</y>
-     <width>800</width>
-     <height>21</height>
+     <width>829</width>
+     <height>26</height>
     </rect>
    </property>
   </widget>

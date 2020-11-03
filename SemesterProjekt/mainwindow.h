@@ -9,6 +9,11 @@
 #include <QDebug>
 #include <QHostAddress>
 #include <QString>
+#include "calibration.h"
+#include "objectdetection.h"
+#include "showvideo.h"
+#include "DetectCollision.h"
+#include "RobotControl.h"
 
 QT_BEGIN_NAMESPACE
 namespace Ui { class MainWindow; }
@@ -43,6 +48,12 @@ private:
     QTcpSocket _socket;
     quint32 newIP;
     double force = 0, speed = 0, size = 0;
+    Calibration c;
+    ObjectDetection o;
+    cv::Mat image;
+    cv::Mat worldCalImg[4];
+    QPixmap pixmap;
     Gripper gripper;
 };
+
 #endif // MAINWINDOW_H

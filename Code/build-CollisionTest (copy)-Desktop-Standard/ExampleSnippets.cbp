@@ -1,0 +1,141 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CodeBlocks_project_file>
+	<FileVersion major="1" minor="6"/>
+	<Project>
+		<Option title="ExampleSnippets"/>
+		<Option makefile_is_custom="1"/>
+		<Option compiler="gcc"/>
+		<Option virtualFolders="CMake Files\;CMake Files\..\;CMake Files\..\..\;CMake Files\..\..\..\;CMake Files\..\..\..\..\;CMake Files\..\..\..\..\..\;CMake Files\..\..\..\..\..\..\;CMake Files\..\..\..\..\..\..\usr\;CMake Files\..\..\..\..\..\..\usr\share\;CMake Files\..\..\..\..\..\..\usr\share\robwork-1.2\;CMake Files\..\..\..\..\..\..\usr\share\robwork-1.2\cmake\;CMake Files\..\..\..\..\..\..\usr\lib\;CMake Files\..\..\..\..\..\..\usr\lib\x86_64-linux-gnu\;CMake Files\..\..\..\..\..\..\usr\lib\x86_64-linux-gnu\cmake\;CMake Files\..\..\..\..\..\..\usr\lib\x86_64-linux-gnu\cmake\ur_rtde\;"/>
+		<Build>
+			<Target title="all">
+				<Option working_dir="/home/christian/workspace/Robot-Fling/Code/build-CollisionTest (copy)-Desktop-Standard"/>
+				<Option type="4"/>
+				<MakeCommands>
+					<Build command="/usr/bin/make -j6 -f &quot;/home/christian/workspace/Robot-Fling/Code/build-CollisionTest\ (copy)-Desktop-Standard/Makefile&quot;  VERBOSE=1 all"/>
+					<CompileFile command="/usr/bin/make -j6 -f &quot;/home/christian/workspace/Robot-Fling/Code/build-CollisionTest\ (copy)-Desktop-Standard/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j6 -f &quot;/home/christian/workspace/Robot-Fling/Code/build-CollisionTest\ (copy)-Desktop-Standard/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j6 -f &quot;/home/christian/workspace/Robot-Fling/Code/build-CollisionTest\ (copy)-Desktop-Standard/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="rebuild_cache">
+				<Option working_dir="/home/christian/workspace/Robot-Fling/Code/build-CollisionTest (copy)-Desktop-Standard"/>
+				<Option type="4"/>
+				<MakeCommands>
+					<Build command="/usr/bin/make -j6 -f &quot;/home/christian/workspace/Robot-Fling/Code/build-CollisionTest\ (copy)-Desktop-Standard/Makefile&quot;  VERBOSE=1 rebuild_cache"/>
+					<CompileFile command="/usr/bin/make -j6 -f &quot;/home/christian/workspace/Robot-Fling/Code/build-CollisionTest\ (copy)-Desktop-Standard/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j6 -f &quot;/home/christian/workspace/Robot-Fling/Code/build-CollisionTest\ (copy)-Desktop-Standard/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j6 -f &quot;/home/christian/workspace/Robot-Fling/Code/build-CollisionTest\ (copy)-Desktop-Standard/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="ex-collisions2">
+				<Option output="/home/christian/workspace/Robot-Fling/Code/build-CollisionTest (copy)-Desktop-Standard/ex-collisions2" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="/home/christian/workspace/Robot-Fling/Code/build-CollisionTest (copy)-Desktop-Standard"/>
+				<Option object_output="./"/>
+				<Option type="1"/>
+				<Option compiler="gcc"/>
+				<Compiler>
+					<Add directory="/usr/include/eigen3"/>
+					<Add directory="/usr/share/robwork-1.2/cmake/../../../include/robwork-1.2"/>
+					<Add directory="/usr/share/robwork-1.2/cmake/../../../include/robwork-1.2/ext/rwyaobi"/>
+					<Add directory="/usr/share/robwork-1.2/cmake/../../../include/robwork-1.2/ext/rwpqp"/>
+					<Add directory="/usr/include/lua5.3"/>
+					<Add directory="/usr/share/robwork-1.2/cmake/../../../include/robwork-1.2/ext/qhull/src"/>
+					<Add directory="/usr/share/robwork-1.2/cmake/../../../include/robwork-1.2/ext/csgjs/src"/>
+					<Add directory="/usr/include/c++/7"/>
+					<Add directory="/usr/include/x86_64-linux-gnu/c++/7"/>
+					<Add directory="/usr/include/c++/7/backward"/>
+					<Add directory="/usr/lib/gcc/x86_64-linux-gnu/7/include"/>
+					<Add directory="/usr/local/include"/>
+					<Add directory="/usr/lib/gcc/x86_64-linux-gnu/7/include-fixed"/>
+					<Add directory="/usr/include/x86_64-linux-gnu"/>
+					<Add directory="/usr/include"/>
+				</Compiler>
+				<MakeCommands>
+					<Build command="/usr/bin/make -j6 -f &quot;/home/christian/workspace/Robot-Fling/Code/build-CollisionTest\ (copy)-Desktop-Standard/Makefile&quot;  VERBOSE=1 ex-collisions2"/>
+					<CompileFile command="/usr/bin/make -j6 -f &quot;/home/christian/workspace/Robot-Fling/Code/build-CollisionTest\ (copy)-Desktop-Standard/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j6 -f &quot;/home/christian/workspace/Robot-Fling/Code/build-CollisionTest\ (copy)-Desktop-Standard/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j6 -f &quot;/home/christian/workspace/Robot-Fling/Code/build-CollisionTest\ (copy)-Desktop-Standard/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="ex-collisions2/fast">
+				<Option output="/home/christian/workspace/Robot-Fling/Code/build-CollisionTest (copy)-Desktop-Standard/ex-collisions2" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="/home/christian/workspace/Robot-Fling/Code/build-CollisionTest (copy)-Desktop-Standard"/>
+				<Option object_output="./"/>
+				<Option type="1"/>
+				<Option compiler="gcc"/>
+				<Compiler>
+					<Add directory="/usr/include/eigen3"/>
+					<Add directory="/usr/share/robwork-1.2/cmake/../../../include/robwork-1.2"/>
+					<Add directory="/usr/share/robwork-1.2/cmake/../../../include/robwork-1.2/ext/rwyaobi"/>
+					<Add directory="/usr/share/robwork-1.2/cmake/../../../include/robwork-1.2/ext/rwpqp"/>
+					<Add directory="/usr/include/lua5.3"/>
+					<Add directory="/usr/share/robwork-1.2/cmake/../../../include/robwork-1.2/ext/qhull/src"/>
+					<Add directory="/usr/share/robwork-1.2/cmake/../../../include/robwork-1.2/ext/csgjs/src"/>
+					<Add directory="/usr/include/c++/7"/>
+					<Add directory="/usr/include/x86_64-linux-gnu/c++/7"/>
+					<Add directory="/usr/include/c++/7/backward"/>
+					<Add directory="/usr/lib/gcc/x86_64-linux-gnu/7/include"/>
+					<Add directory="/usr/local/include"/>
+					<Add directory="/usr/lib/gcc/x86_64-linux-gnu/7/include-fixed"/>
+					<Add directory="/usr/include/x86_64-linux-gnu"/>
+					<Add directory="/usr/include"/>
+				</Compiler>
+				<MakeCommands>
+					<Build command="/usr/bin/make -j6 -f &quot;/home/christian/workspace/Robot-Fling/Code/build-CollisionTest\ (copy)-Desktop-Standard/Makefile&quot;  VERBOSE=1 ex-collisions2/fast"/>
+					<CompileFile command="/usr/bin/make -j6 -f &quot;/home/christian/workspace/Robot-Fling/Code/build-CollisionTest\ (copy)-Desktop-Standard/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j6 -f &quot;/home/christian/workspace/Robot-Fling/Code/build-CollisionTest\ (copy)-Desktop-Standard/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j6 -f &quot;/home/christian/workspace/Robot-Fling/Code/build-CollisionTest\ (copy)-Desktop-Standard/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="edit_cache">
+				<Option working_dir="/home/christian/workspace/Robot-Fling/Code/build-CollisionTest (copy)-Desktop-Standard"/>
+				<Option type="4"/>
+				<MakeCommands>
+					<Build command="/usr/bin/make -j6 -f &quot;/home/christian/workspace/Robot-Fling/Code/build-CollisionTest\ (copy)-Desktop-Standard/Makefile&quot;  VERBOSE=1 edit_cache"/>
+					<CompileFile command="/usr/bin/make -j6 -f &quot;/home/christian/workspace/Robot-Fling/Code/build-CollisionTest\ (copy)-Desktop-Standard/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j6 -f &quot;/home/christian/workspace/Robot-Fling/Code/build-CollisionTest\ (copy)-Desktop-Standard/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j6 -f &quot;/home/christian/workspace/Robot-Fling/Code/build-CollisionTest\ (copy)-Desktop-Standard/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+		</Build>
+		<Unit filename="/home/christian/workspace/Robot-Fling/Code/CollisionTest (copy)/DetectCollision.h">
+			<Option target="ex-collisions2"/>
+		</Unit>
+		<Unit filename="/home/christian/workspace/Robot-Fling/Code/CollisionTest (copy)/RobotControl.h">
+			<Option target="ex-collisions2"/>
+		</Unit>
+		<Unit filename="/home/christian/workspace/Robot-Fling/Code/CollisionTest (copy)/ex-collisions2.cpp">
+			<Option target="ex-collisions2"/>
+		</Unit>
+		<Unit filename="/home/christian/workspace/Robot-Fling/Code/CollisionTest (copy)/CMakeLists.txt">
+			<Option virtualFolder="CMake Files\"/>
+		</Unit>
+		<Unit filename="/home/christian/workspace/Robot-Fling/Code/CollisionTest (copy)/../../../../../../usr/share/robwork-1.2/cmake/RobWorkBuildConfig_none.cmake">
+			<Option virtualFolder="CMake Files\..\..\..\..\..\..\usr\share\robwork-1.2\cmake\"/>
+		</Unit>
+		<Unit filename="/home/christian/workspace/Robot-Fling/Code/CollisionTest (copy)/../../../../../../usr/share/robwork-1.2/cmake/RobWorkConfig.cmake">
+			<Option virtualFolder="CMake Files\..\..\..\..\..\..\usr\share\robwork-1.2\cmake\"/>
+		</Unit>
+		<Unit filename="/home/christian/workspace/Robot-Fling/Code/CollisionTest (copy)/../../../../../../usr/share/robwork-1.2/cmake/RobWorkConfigVersion.cmake">
+			<Option virtualFolder="CMake Files\..\..\..\..\..\..\usr\share\robwork-1.2\cmake\"/>
+		</Unit>
+		<Unit filename="/home/christian/workspace/Robot-Fling/Code/CollisionTest (copy)/../../../../../../usr/share/robwork-1.2/cmake/RobWorkTargets.cmake">
+			<Option virtualFolder="CMake Files\..\..\..\..\..\..\usr\share\robwork-1.2\cmake\"/>
+		</Unit>
+		<Unit filename="/home/christian/workspace/Robot-Fling/Code/CollisionTest (copy)/../../../../../../usr/lib/x86_64-linux-gnu/cmake/ur_rtde/ur_rtdeBuildConfig.cmake">
+			<Option virtualFolder="CMake Files\..\..\..\..\..\..\usr\lib\x86_64-linux-gnu\cmake\ur_rtde\"/>
+		</Unit>
+		<Unit filename="/home/christian/workspace/Robot-Fling/Code/CollisionTest (copy)/../../../../../../usr/lib/x86_64-linux-gnu/cmake/ur_rtde/ur_rtdeConfig.cmake">
+			<Option virtualFolder="CMake Files\..\..\..\..\..\..\usr\lib\x86_64-linux-gnu\cmake\ur_rtde\"/>
+		</Unit>
+		<Unit filename="/home/christian/workspace/Robot-Fling/Code/CollisionTest (copy)/../../../../../../usr/lib/x86_64-linux-gnu/cmake/ur_rtde/ur_rtdeConfigVersion.cmake">
+			<Option virtualFolder="CMake Files\..\..\..\..\..\..\usr\lib\x86_64-linux-gnu\cmake\ur_rtde\"/>
+		</Unit>
+		<Unit filename="/home/christian/workspace/Robot-Fling/Code/CollisionTest (copy)/../../../../../../usr/lib/x86_64-linux-gnu/cmake/ur_rtde/ur_rtdeTargets-none.cmake">
+			<Option virtualFolder="CMake Files\..\..\..\..\..\..\usr\lib\x86_64-linux-gnu\cmake\ur_rtde\"/>
+		</Unit>
+		<Unit filename="/home/christian/workspace/Robot-Fling/Code/CollisionTest (copy)/../../../../../../usr/lib/x86_64-linux-gnu/cmake/ur_rtde/ur_rtdeTargets.cmake">
+			<Option virtualFolder="CMake Files\..\..\..\..\..\..\usr\lib\x86_64-linux-gnu\cmake\ur_rtde\"/>
+		</Unit>
+	</Project>
+</CodeBlocks_project_file>
