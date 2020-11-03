@@ -164,7 +164,7 @@ public:
 
 
         //run simulation...
-        std::string path = "../../Code/Scenes/XMLScenes/RobotOnTable/Scene.xml";
+        std::string path = "../Scenes/XMLScenes/RobotOnTable/Scene.xml";
 
         DetectCollision dc(path);
         std::vector<bool> collisionList;
