@@ -20,6 +20,7 @@
 #include <chrono>
 #include <thread>
 #include <future>
+#include "Gripper.h"
 
 
 class RobotControl {
@@ -214,6 +215,7 @@ public:
         rtdeControl.moveJ(qSafeGribStdVec, speed, acceleration);
         rtdeControl.moveL(gribReadyR,speed,acceleration);
         rtdeControl.moveL(ballR,0.1,0.05);
+        gripper.close();
         std::this_thread::sleep_for(std::chrono::milliseconds(2000));
         rtdeControl.moveL(gribReadyR,speed,acceleration);
         rtdeControl.moveJ(qSafeGribStdVec, speed, acceleration);
@@ -231,7 +233,8 @@ public:
     }
 
 private:
-std::string mIpAdress;
+ std::string mIpAdress;
+ Gripper gripper;
  rw::math::Vector3D<> mCalPos;
  rw::math::Rotation3D<> mCalRot;
  rw::math::Rotation3D<> mInvCalRot;

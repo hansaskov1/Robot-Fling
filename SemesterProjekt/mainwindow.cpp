@@ -62,8 +62,7 @@ void MainWindow::on_bSend_clicked()
 
    RobotControl RC("127.0.0.1",PCal,RCal);
 
-   //rw::math::Vector3D<> ballPosition(camToBall.at<float>(0,3)*0.01,camToBall.at<float>(1,3)*0.01,camToBall.at<float>(2,3)*0.01);
-   rw::math::Vector3D<> ballPosition(0.2, 0.2, 0.1);
+   rw::math::Vector3D<> ballPosition(0.2,0.2,0.1);
    RC.getBall(ballPosition,0.2);
 }
 
