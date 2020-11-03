@@ -27,6 +27,8 @@ class RobotControl {
 
 public:
 
+    RobotControl(){}
+
     RobotControl(std::string ipAdress)
     {
         mIpAdress = ipAdress;
@@ -35,6 +37,13 @@ public:
 
     RobotControl(std::string ipAdress, rw::math::Vector3D<> calPos, rw::math::Rotation3D<> calRot)
     {
+        mIpAdress = ipAdress;
+        mCalPos = calPos;
+        mCalRot = calRot;
+        mInvCalRot = calRot.inverse();
+    }
+
+    void setParam(std::string ipAdress, rw::math::Vector3D<> calPos, rw::math::Rotation3D<> calRot) {
         mIpAdress = ipAdress;
         mCalPos = calPos;
         mCalRot = calRot;
@@ -196,7 +205,7 @@ public:
             collisionList.push_back(dc.isCollision(qPath));
         }
 
-        bool collision;
+        bool collision = false;
         for (bool isColl : collisionList)
         {
             (isColl)? std::cout << "true" : std::cout << "false";
