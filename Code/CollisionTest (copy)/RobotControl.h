@@ -185,9 +185,14 @@ public:
 
         for (std::vector<std::vector<double>> &qPath : QFullPath )
         {
-            /*for (std::vector<double> &qValue : qPath){
-                qValue[0] += 1.151;
-            }*/
+            for (std::vector<double> &qValues : qPath){
+               qValues[0] += 1.151;
+                std::cout << "{";
+                for (double joint : qValues){
+                    std::cout << joint << " ";
+                }
+                std::cout << "}"<< std::endl;
+            }
             collisionList.push_back(dc.isCollision(qPath));
         }
 
