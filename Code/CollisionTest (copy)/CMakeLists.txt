@@ -34,6 +34,8 @@ add_executable(ex-collisions2
     ex-collisions2.cpp
     RobotControl.h
     DetectCollision.h
+    Throw.h
+    path.h
     )
 target_link_libraries(ex-collisions2 ${ROBWORK_LIBRARIES})
 target_include_directories(ex-collisions2 PRIVATE ${ROBWORK_INCLUDE_DIRS})
