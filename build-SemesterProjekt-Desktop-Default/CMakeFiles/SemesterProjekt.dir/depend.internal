@@ -9,6 +9,7 @@ CMakeFiles/SemesterProjekt.dir/SemesterProjekt_autogen/mocs_compilation.cpp.o
  /home/hans/GithubCode/Robot-Fling/SemesterProjekt/clientInfo.h
  /home/hans/GithubCode/Robot-Fling/SemesterProjekt/mainwindow.h
  /home/hans/GithubCode/Robot-Fling/SemesterProjekt/objectdetection.h
+ /home/hans/GithubCode/Robot-Fling/SemesterProjekt/path.h
  /home/hans/GithubCode/Robot-Fling/SemesterProjekt/showvideo.h
  /home/hans/GithubCode/Robot-Fling/build-SemesterProjekt-Desktop-Default/SemesterProjekt_autogen/EWIEGA46WW/moc_Gripper.cpp
  /home/hans/GithubCode/Robot-Fling/build-SemesterProjekt-Desktop-Default/SemesterProjekt_autogen/EWIEGA46WW/moc_mainwindow.cpp
@@ -790,6 +791,7 @@ CMakeFiles/SemesterProjekt.dir/main.cpp.o
  /home/hans/GithubCode/Robot-Fling/SemesterProjekt/main.cpp
  /home/hans/GithubCode/Robot-Fling/SemesterProjekt/mainwindow.h
  /home/hans/GithubCode/Robot-Fling/SemesterProjekt/objectdetection.h
+ /home/hans/GithubCode/Robot-Fling/SemesterProjekt/path.h
  /home/hans/GithubCode/Robot-Fling/SemesterProjekt/showvideo.h
  /opt/pylon/include/Base/GCArray.h
  /opt/pylon/include/Base/GCBase.h
@@ -1443,6 +1445,7 @@ CMakeFiles/SemesterProjekt.dir/mainwindow.cpp.o
  /home/hans/GithubCode/Robot-Fling/SemesterProjekt/mainwindow.cpp
  /home/hans/GithubCode/Robot-Fling/SemesterProjekt/mainwindow.h
  /home/hans/GithubCode/Robot-Fling/SemesterProjekt/objectdetection.h
+ /home/hans/GithubCode/Robot-Fling/SemesterProjekt/path.h
  /home/hans/GithubCode/Robot-Fling/SemesterProjekt/showvideo.h
  /opt/pylon/include/Base/GCArray.h
  /opt/pylon/include/Base/GCBase.h
