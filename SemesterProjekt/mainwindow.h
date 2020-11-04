@@ -12,7 +12,6 @@
 #include "calibration.h"
 #include "objectdetection.h"
 #include "showvideo.h"
-#include "DetectCollision.h"
 #include "RobotControl.h"
 
 QT_BEGIN_NAMESPACE
@@ -43,7 +42,9 @@ private slots:
 
     void on_bDisconnect_clicked();
 
-private:
+    static void grib(rw::math::Vector3D<> pos);
+
+    private:
     Ui::MainWindow *ui;
     QTcpSocket _socket;
     quint32 newIP;

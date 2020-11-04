@@ -11,16 +11,18 @@
 #include <rw/invkin/InvKinSolver.hpp>
 #include <rw/invkin/JacobianIKSolver.hpp>
 
-#include <stdio.h>
-#include <iostream>
 #include <ur_rtde/rtde_control_interface.h>
 #include <ur_rtde/rtde.h>
 #include <ur_rtde/rtde_receive_interface.h>
+
 #include <vector>
+#include <stdio.h>
+#include <iostream>
 #include <chrono>
 #include <thread>
 #include <future>
 #include "Gripper.h"
+#include "DetectCollision.h"
 
 
 class RobotControl {
@@ -192,7 +194,7 @@ public:
         QFullPath.push_back(getQFromSim(qSafeGrib, msInterval));
         QFullPath.push_back(getQFromSim(qHome, msInterval));
 
-        for (std::vector<std::vector<double>> &qPath : QFullPath )
+        for (std::vector<std::vector<double>> &qPath : QFullPath)
         {
             for (std::vector<double> &qValues : qPath){
                qValues[0] += 1.151;

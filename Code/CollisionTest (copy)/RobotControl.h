@@ -167,13 +167,15 @@ public:
         //run simulation...
         std::string path = "../../Code/Scenes/XMLScenes/RobotOnTable/Scene.xml";
 
-        DetectCollision dc(path);
+        DetectCollision dc(path,qHome);
         std::vector<bool> collisionList;
 
         double msInterval = 10;
         std::cout << "Starting sim" << std::endl;
 
+
         std::vector<std::vector<std::vector<double>>> QFullPath;
+
 
         QFullPath.push_back(getQFromSim(qHome, msInterval));
         QFullPath.push_back(getQFromSim(qSafeGrib, msInterval));
@@ -204,6 +206,30 @@ public:
 
             if (isColl) collision = true;
         }
+
+         std::vector<bool> collisionList2;
+
+
+         rw::math::Q qHomeRob = qHome;
+         rw::math::Q qSafeGribRob = qSafeGrib;
+         qHomeRob[0] += 1.151;
+         qSafeGribRob[0] += 1.151;
+
+         rpyGribReady;
+         posGribReadyR;
+
+         rw::math::Transform3D<> transformGribReady(posGribReadyR,rpyGribReady);
+
+         dc.setState(qHomeRob);
+         collisionList2.push_back(dc.isCollision(100, qSafeGribRob));
+         collisionList2.push_back(dc.isCollision(100, transformGribReady));
+
+
+
+
+
+
+
 
     if (!collision)
     {

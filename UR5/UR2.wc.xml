@@ -1,0 +1,108 @@
+<SerialDevice name="UR2">
+	
+	<Frame name="Base" type="Movable">
+		<RPY>0 0 0</RPY>
+		<Pos>0 0 0</Pos>
+		
+		<Drawable name="BaseGeo" refframe="Base">
+			<RPY>135 0 0</RPY>
+			<Pos>0 0 0</Pos>
+			<Polytope file="geometry/podstawa"/>
+		</Drawable>
+	</Frame>
+	
+	<Joint name="Joint1" type="Revolute">
+		<RPY>0 0 0</RPY>
+		<Pos>0 0 0.024</Pos>
+		
+		<PosLimit refjoint="Joint1" min="-360" max="360"/>
+		<VelLimit refjoint="Joint1" max="60"/>
+		<AccLimit refjoint="Joint1" max="120"/>
+		
+		<Drawable name="Joint1Geo" refframe="Joint1">
+			<RPY>-90 0 0</RPY>
+			<Pos>0 0 0</Pos>
+			<Polytope file="geometry/czlon1"/>
+		</Drawable>
+	</Joint>
+	
+	<Joint name="Joint2" type="Revolute">
+		<RPY>-180 0 -90</RPY>
+		<Pos>0 -0.0705 0.0652</Pos>
+		
+		<PosLimit refjoint="Joint2" min="-360" max="360"/>
+		<VelLimit refjoint="Joint2" max="60"/>
+		<AccLimit refjoint="Joint2" max="120"/>
+		
+		<Drawable name="Joint2Geo" refframe="Joint2">
+			<RPY>-90 0 0</RPY>
+			<Pos>0 0 0</Pos>
+			<Polytope file="geometry/czlon2"/>
+		</Drawable>
+	</Joint>
+	
+	<Joint name="Joint3" type="Revolute">
+		<RPY>0 0 0</RPY>
+		<Pos>0.425 0 0</Pos>
+		
+		<PosLimit refjoint="Joint2" min="-360" max="360"/>
+		<VelLimit refjoint="Joint2" max="60"/>
+		<AccLimit refjoint="Joint2" max="120"/>
+		
+		<Drawable name="Joint3Geo" refframe="Joint3">
+			<RPY>180 0 180</RPY>
+			<Pos>0 0 0</Pos>
+			<Polytope file="geometry/czlon3"/>
+		</Drawable>
+	</Joint>
+	
+	<Joint name="Joint4" type="Revolute">
+		<RPY>0 0 0</RPY>
+		<Pos>0.39243 0 -0.007</Pos>
+		
+		<PosLimit refjoint="Joint4" min="-360" max="360"/>
+		<VelLimit refjoint="Joint4" max="60"/>
+		<AccLimit refjoint="Joint4" max="120"/>
+		
+		<Drawable name="Joint4Geo" refframe="Joint4">
+			<RPY>90 0 0</RPY>
+			<Pos>0 0 0</Pos>
+			<Polytope file="geometry/czlon4"/>
+		</Drawable>
+	</Joint>
+	
+	<Joint name="Joint5" type="Revolute">
+		<RPY>-90 -90 0</RPY>
+		<Pos>0 0.0475 0.0455</Pos>
+		
+		<PosLimit refjoint="Joint5" min="-360" max="360"/>
+		<VelLimit refjoint="Joint5" max="60"/>
+		<AccLimit refjoint="Joint5" max="120"/>
+		
+		<Drawable name="Joint5Geo" refframe="Joint5">
+			<RPY>0 0 0</RPY>
+			<Pos>0 0 0</Pos>
+			<Polytope file="geometry/czlon4"/>
+		</Drawable>
+	</Joint>
+	
+	<Joint name="Joint6" type="Revolute">
+		<RPY>90 0 90</RPY>
+		<Pos>0.0475 0 0.0455</Pos>
+		
+		<PosLimit refjoint="Joint6" min="-360" max="360"/>
+		<VelLimit refjoint="Joint6" max="60"/>
+		<AccLimit refjoint="Joint6" max="120"/>
+		
+		<Drawable name="Joint6Geo" refframe="Joint6">
+			<RPY>0 0 0</RPY>
+			<Pos>0 0 0</Pos>
+			<Polytope file="geometry/narzedzie"/>
+		</Drawable>
+	</Joint>
+
+	<!--Q name="Home">0 -1.5707963267948966 0 -1.5707963267948966 0 0</Q-->
+	
+	<CollisionSetup file="setup.prox.xml"/>
+	
+</SerialDevice>

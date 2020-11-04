@@ -91,10 +91,6 @@ rw/invkin/InvKinSolver.hpp
 -
 rw/invkin/JacobianIKSolver.hpp
 -
-stdio.h
--
-iostream
--
 ur_rtde/rtde_control_interface.h
 -
 ur_rtde/rtde.h
@@ -103,12 +99,20 @@ ur_rtde/rtde_receive_interface.h
 -
 vector
 -
+stdio.h
+-
+iostream
+-
 chrono
 -
 thread
 -
 future
 -
+Gripper.h
+/home/hans/GithubCode/Robot-Fling/SemesterProjekt/Gripper.h
+DetectCollision.h
+/home/hans/GithubCode/Robot-Fling/SemesterProjekt/DetectCollision.h
 
 /home/hans/GithubCode/Robot-Fling/SemesterProjekt/Throw.h
 QString
@@ -193,8 +197,6 @@ objectdetection.h
 /home/hans/GithubCode/Robot-Fling/SemesterProjekt/objectdetection.h
 showvideo.h
 /home/hans/GithubCode/Robot-Fling/SemesterProjekt/showvideo.h
-DetectCollision.h
-/home/hans/GithubCode/Robot-Fling/SemesterProjekt/DetectCollision.h
 RobotControl.h
 /home/hans/GithubCode/Robot-Fling/SemesterProjekt/RobotControl.h
 

@@ -37,5 +37,9 @@ int main(int argc, char** argv)
 
     RC.getBall(ballPosition,0.2);
 
+    std::string path = "../../Code/Scenes/XMLScenes/RobotOnTable/Scene.xml";
+    DetectCollision dc(path);
+
+
     return 0;
 }

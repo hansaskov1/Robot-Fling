@@ -10,6 +10,8 @@
 #include <rw/invkin/ClosedFormIKSolverUR.hpp>
 #include <rw/invkin/InvKinSolver.hpp>
 #include <rw/invkin/JacobianIKSolver.hpp>
+#include <rw/models/SerialDevice.hpp>
+
 
 #include <stdio.h>
 #include <iostream>
@@ -32,6 +34,11 @@ public:
              mDevice = workcell->getDevices().front();
              mState = workcell->getDefaultState();
              mDetector = rw::common::ownedPtr(new rw::proximity::CollisionDetector(workcell, rwlibs::proximitystrategies::ProximityStrategyFactory::makeDefaultCollisionStrategy()));
+             device  = workcell->findDevice<rw::models::SerialDevice>("wsg50");
+
+
+            // std::string serialDeivePath
+            // rw::models::WorkCell wc()
         } else
         {
             RW_THROW("WorkCell could not be loaded.");
@@ -98,11 +105,37 @@ public:
         return false;
     }
 
+
+    bool isCollision(size_t checks,rw::math::Q endJointPosition)
+    {
+        rw::trajectory::LinearInterpolator<rw::math::Q> interpolator(mDevice->getQ(mState), endJointPosition, 1);
+        std::vector<rw::math::Q> QVec;
+
+        for (unsigned int i = 1; i < checks; i++)
+        {
+            rw::math::Q q = interpolator.x(static_cast<double>(i) / static_cast<double>(checks));
+            std::cout << q << std::endl;
+
+
+            if (checkCollision())
+            {
+                std::cout << "Collision occured at" << q << std::endl;
+                return true;
+            }
+            QVec.push_back(q);
+        }
+        mQVec = QVec;
+        return false;
+    }
+
+
+
     bool isCollision(std::vector<std::vector<double>> qVec)
     {
         for (std::vector<double> stdQ : qVec)
         {
             rw::math::Q q(stdQ);
+
             mDevice->setQ(q,mState);
             if (checkCollision()){
                 return true;
@@ -122,7 +155,8 @@ private:
     rw::math::Q calcInverse(rw::math::Transform3D<> transform)
     {
         //rw::invkin::JacobianIKSolver::Ptr solver1(new rw::invkin::JacobianIKSolver(mDevice, mState));
-        rw::invkin::JacobianIKSolver solver(mDevice, mState);
+
+        rw::invkin::ClosedFormIKSolverUR solver(device, mState);
         std::vector<rw::math::Q> qVec = solver.solve(transform, mState);
         rw::math::Q q;
         if (!qVec.empty())
@@ -142,6 +176,7 @@ private:
             return !resEnd.collidingFrames.empty();
     }
 
+    rw::models::SerialDevice::Ptr device;
     rw::models::Device::Ptr mDevice;
     rw::kinematics::State mState;
     rw::proximity::CollisionDetector::Ptr mDetector;

@@ -11,7 +11,6 @@
 // let go of ball at throwingPose, with appropriate velocity and angle for the ball to hit target pose
 void throwBall(const std::array<double, 3> targetCoordinates, const std::array<double, 3> throwingCoordinates, const double angle){
 
-
         //calculate velocity from angle and diffrence in position to hit target
         //calculate ramp pose:
             // 1. which is parralel with the target and throwing coordinates in the xy plane                            (calculate xy plane from target/throwing coordinates)
@@ -23,10 +22,6 @@ void throwBall(const std::array<double, 3> targetCoordinates, const std::array<d
         //calculate time at which the tcp point is at throwingCoordinate from a linear motion in carteesian coordinates and a constant acceleration.
         //begin movement to throwing pose
         //call gripper to open after defined time.
-
-
-
-
 
 }
 
