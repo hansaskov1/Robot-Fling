@@ -21,11 +21,17 @@
 #include <thread>
 #include <future>
 #include "Gripper.h"
+#include "path.h"
 
 
 class RobotControl {
 
 public:
+
+    RobotControl() {
+        gripper.Init();
+        gripper.ToConnectToHost("192.168.100.10", 1000);
+    }
 
     RobotControl(std::string ipAdress)
     {
@@ -35,6 +41,13 @@ public:
 
     RobotControl(std::string ipAdress, rw::math::Vector3D<> calPos, rw::math::Rotation3D<> calRot)
     {
+        mIpAdress = ipAdress;
+        mCalPos = calPos;
+        mCalRot = calRot;
+        mInvCalRot = calRot.inverse();
+    }
+
+    void setParam(std::string ipAdress, rw::math::Vector3D<> calPos, rw::math::Rotation3D<> calRot) {
         mIpAdress = ipAdress;
         mCalPos = calPos;
         mCalRot = calRot;
@@ -77,6 +90,22 @@ public:
         return mInvCalRot * worldPosition - mInvCalRot * mCalPos;
     }
 
+    void fetchQValues(std::promise<Path> && returnPath ,std::atomic<bool>& stop, unsigned int msInterval) //Used in thread
+    {
+        Path path;
+        ur_rtde::RTDEReceiveInterface rtde_recieve(mIpAdress);
+        while(!stop)
+        {
+            path.addJointPose(rtde_recieve.getActualQ());
+            path.addJointVel(rtde_recieve.getActualQd());
+            path.addToolPose(rtde_recieve.getActualTCPPose());
+            path.addToolVel(rtde_recieve.getActualTCPSpeed());
+            std::this_thread::sleep_for(std::chrono::milliseconds(msInterval));
+        }
+        returnPath.set_value(std::move(path));
+    }
+
+
     // Sim
     void fetchQValues(std::promise<std::vector<std::vector<double>>> && returnQV ,std::atomic<bool>& stop, unsigned int msInterval) //Used in thread
     {
@@ -110,10 +139,10 @@ public:
     {
         std::vector<double> jointValuesStdVec = jointValues.toStdVector();
         std::atomic<bool> stop {false};
-        std::promise<std::vector<std::vector<double>>> promiseQVec;
+        std::promise<Path> promiseQVec;
         auto futureQVec = promiseQVec.get_future();
 
-        std::thread recive(&RobotControl::fetchQValues, this ,std::move(promiseQVec),  std::ref(stop), msInterval);
+        std::thread recive(&RobotControl::fetchQValues, this , promiseQVec,  std::ref(stop), msInterval);
         std::thread control(RobotControl::moveJ, jointValuesStdVec);
 
         control.join();
@@ -127,10 +156,10 @@ public:
 
         std::vector<double> toolPositionStdVec = vecRPY2stdVec(position,orientation);
         std::atomic<bool> stop {false};
-        std::promise<std::vector<std::vector<double>>> promiseQVec;
+        std::promise<Path> promiseQVec;
         auto futureQVec = promiseQVec.get_future();
 
-        std::thread recive(&RobotControl::fetchQValues, this ,std::move(promiseQVec),  std::ref(stop), msInterval);
+        std::thread recive(&RobotControl::fetchQValues, this ,promiseQVec,  std::ref(stop), msInterval);
         std::thread control(RobotControl::moveL, toolPositionStdVec);
 
         control.join();
@@ -196,7 +225,7 @@ public:
             collisionList.push_back(dc.isCollision(qPath));
         }
 
-        bool collision;
+        bool collision = false;
         for (bool isColl : collisionList)
         {
             (isColl)? std::cout << "true" : std::cout << "false";
@@ -207,10 +236,11 @@ public:
 
     if (!collision)
     {
+        std::cout << mIpAdress << std::endl;
         ur_rtde::RTDEControlInterface rtdeControl(mIpAdress);
 
-        double speed = 2;
-        double acceleration = 2;
+        double speed = 0.08;
+        double acceleration = 0.03;
         rtdeControl.moveJ(qHomeStdVec, speed, acceleration);
         rtdeControl.moveJ(qSafeGribStdVec, speed, acceleration);
         rtdeControl.moveL(gribReadyR,speed,acceleration);
@@ -220,6 +250,7 @@ public:
         rtdeControl.moveL(gribReadyR,speed,acceleration);
         rtdeControl.moveJ(qSafeGribStdVec, speed, acceleration);
         rtdeControl.moveJ(qHomeStdVec, speed, acceleration);
+        gripper.open();
     } else
     {
         std::cout << "a collision has occured" << std::endl;
@@ -238,6 +269,7 @@ private:
  rw::math::Vector3D<> mCalPos;
  rw::math::Rotation3D<> mCalRot;
  rw::math::Rotation3D<> mInvCalRot;
+ //static ur_rtde::RTDEControlInterface rtde_controlSim;
 };
 
 

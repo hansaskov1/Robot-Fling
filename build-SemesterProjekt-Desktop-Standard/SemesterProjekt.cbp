@@ -185,6 +185,9 @@
 		<Unit filename="/home/christian/workspace/Robot-Fling/SemesterProjekt/objectdetection.h">
 			<Option target="SemesterProjekt"/>
 		</Unit>
+		<Unit filename="/home/christian/workspace/Robot-Fling/SemesterProjekt/path.h">
+			<Option target="SemesterProjekt"/>
+		</Unit>
 		<Unit filename="/home/christian/workspace/Robot-Fling/SemesterProjekt/showvideo.h">
 			<Option target="SemesterProjekt"/>
 		</Unit>

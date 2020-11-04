@@ -8,6 +8,7 @@ CMakeFiles/SemesterProjekt.dir/SemesterProjekt_autogen/mocs_compilation.cpp.o: /
 CMakeFiles/SemesterProjekt.dir/SemesterProjekt_autogen/mocs_compilation.cpp.o: /home/christian/workspace/Robot-Fling/SemesterProjekt/clientInfo.h
 CMakeFiles/SemesterProjekt.dir/SemesterProjekt_autogen/mocs_compilation.cpp.o: /home/christian/workspace/Robot-Fling/SemesterProjekt/mainwindow.h
 CMakeFiles/SemesterProjekt.dir/SemesterProjekt_autogen/mocs_compilation.cpp.o: /home/christian/workspace/Robot-Fling/SemesterProjekt/objectdetection.h
+CMakeFiles/SemesterProjekt.dir/SemesterProjekt_autogen/mocs_compilation.cpp.o: /home/christian/workspace/Robot-Fling/SemesterProjekt/path.h
 CMakeFiles/SemesterProjekt.dir/SemesterProjekt_autogen/mocs_compilation.cpp.o: /home/christian/workspace/Robot-Fling/SemesterProjekt/showvideo.h
 CMakeFiles/SemesterProjekt.dir/SemesterProjekt_autogen/mocs_compilation.cpp.o: SemesterProjekt_autogen/EWIEGA46WW/moc_Gripper.cpp
 CMakeFiles/SemesterProjekt.dir/SemesterProjekt_autogen/mocs_compilation.cpp.o: SemesterProjekt_autogen/EWIEGA46WW/moc_mainwindow.cpp
@@ -430,6 +431,7 @@ CMakeFiles/SemesterProjekt.dir/SemesterProjekt_autogen/mocs_compilation.cpp.o: /
 CMakeFiles/SemesterProjekt.dir/SemesterProjekt_autogen/mocs_compilation.cpp.o: /usr/include/x86_64-linux-gnu/qt5/QtCore/QString
 CMakeFiles/SemesterProjekt.dir/SemesterProjekt_autogen/mocs_compilation.cpp.o: /usr/include/x86_64-linux-gnu/qt5/QtCore/QThread
 CMakeFiles/SemesterProjekt.dir/SemesterProjekt_autogen/mocs_compilation.cpp.o: /usr/include/x86_64-linux-gnu/qt5/QtCore/QThreadPool
+CMakeFiles/SemesterProjekt.dir/SemesterProjekt_autogen/mocs_compilation.cpp.o: /usr/include/x86_64-linux-gnu/qt5/QtCore/QTimer
 CMakeFiles/SemesterProjekt.dir/SemesterProjekt_autogen/mocs_compilation.cpp.o: /usr/include/x86_64-linux-gnu/qt5/QtCore/qalgorithms.h
 CMakeFiles/SemesterProjekt.dir/SemesterProjekt_autogen/mocs_compilation.cpp.o: /usr/include/x86_64-linux-gnu/qt5/QtCore/qarraydata.h
 CMakeFiles/SemesterProjekt.dir/SemesterProjekt_autogen/mocs_compilation.cpp.o: /usr/include/x86_64-linux-gnu/qt5/QtCore/qatomic.h
@@ -437,6 +439,7 @@ CMakeFiles/SemesterProjekt.dir/SemesterProjekt_autogen/mocs_compilation.cpp.o: /
 CMakeFiles/SemesterProjekt.dir/SemesterProjekt_autogen/mocs_compilation.cpp.o: /usr/include/x86_64-linux-gnu/qt5/QtCore/qatomic_cxx11.h
 CMakeFiles/SemesterProjekt.dir/SemesterProjekt_autogen/mocs_compilation.cpp.o: /usr/include/x86_64-linux-gnu/qt5/QtCore/qatomic_msvc.h
 CMakeFiles/SemesterProjekt.dir/SemesterProjekt_autogen/mocs_compilation.cpp.o: /usr/include/x86_64-linux-gnu/qt5/QtCore/qbasicatomic.h
+CMakeFiles/SemesterProjekt.dir/SemesterProjekt_autogen/mocs_compilation.cpp.o: /usr/include/x86_64-linux-gnu/qt5/QtCore/qbasictimer.h
 CMakeFiles/SemesterProjekt.dir/SemesterProjekt_autogen/mocs_compilation.cpp.o: /usr/include/x86_64-linux-gnu/qt5/QtCore/qbytearray.h
 CMakeFiles/SemesterProjekt.dir/SemesterProjekt_autogen/mocs_compilation.cpp.o: /usr/include/x86_64-linux-gnu/qt5/QtCore/qbytearraylist.h
 CMakeFiles/SemesterProjekt.dir/SemesterProjekt_autogen/mocs_compilation.cpp.o: /usr/include/x86_64-linux-gnu/qt5/QtCore/qchar.h
@@ -495,6 +498,7 @@ CMakeFiles/SemesterProjekt.dir/SemesterProjekt_autogen/mocs_compilation.cpp.o: /
 CMakeFiles/SemesterProjekt.dir/SemesterProjekt_autogen/mocs_compilation.cpp.o: /usr/include/x86_64-linux-gnu/qt5/QtCore/qtextstream.h
 CMakeFiles/SemesterProjekt.dir/SemesterProjekt_autogen/mocs_compilation.cpp.o: /usr/include/x86_64-linux-gnu/qt5/QtCore/qthread.h
 CMakeFiles/SemesterProjekt.dir/SemesterProjekt_autogen/mocs_compilation.cpp.o: /usr/include/x86_64-linux-gnu/qt5/QtCore/qthreadpool.h
+CMakeFiles/SemesterProjekt.dir/SemesterProjekt_autogen/mocs_compilation.cpp.o: /usr/include/x86_64-linux-gnu/qt5/QtCore/qtimer.h
 CMakeFiles/SemesterProjekt.dir/SemesterProjekt_autogen/mocs_compilation.cpp.o: /usr/include/x86_64-linux-gnu/qt5/QtCore/qtypeinfo.h
 CMakeFiles/SemesterProjekt.dir/SemesterProjekt_autogen/mocs_compilation.cpp.o: /usr/include/x86_64-linux-gnu/qt5/QtCore/qurl.h
 CMakeFiles/SemesterProjekt.dir/SemesterProjekt_autogen/mocs_compilation.cpp.o: /usr/include/x86_64-linux-gnu/qt5/QtCore/qurlquery.h
@@ -790,6 +794,7 @@ CMakeFiles/SemesterProjekt.dir/main.cpp.o: /home/christian/workspace/Robot-Fling
 CMakeFiles/SemesterProjekt.dir/main.cpp.o: /home/christian/workspace/Robot-Fling/SemesterProjekt/main.cpp
 CMakeFiles/SemesterProjekt.dir/main.cpp.o: /home/christian/workspace/Robot-Fling/SemesterProjekt/mainwindow.h
 CMakeFiles/SemesterProjekt.dir/main.cpp.o: /home/christian/workspace/Robot-Fling/SemesterProjekt/objectdetection.h
+CMakeFiles/SemesterProjekt.dir/main.cpp.o: /home/christian/workspace/Robot-Fling/SemesterProjekt/path.h
 CMakeFiles/SemesterProjekt.dir/main.cpp.o: /home/christian/workspace/Robot-Fling/SemesterProjekt/showvideo.h
 CMakeFiles/SemesterProjekt.dir/main.cpp.o: /opt/pylon/include/Base/GCArray.h
 CMakeFiles/SemesterProjekt.dir/main.cpp.o: /opt/pylon/include/Base/GCBase.h
@@ -1209,6 +1214,7 @@ CMakeFiles/SemesterProjekt.dir/main.cpp.o: /usr/include/x86_64-linux-gnu/qt5/QtC
 CMakeFiles/SemesterProjekt.dir/main.cpp.o: /usr/include/x86_64-linux-gnu/qt5/QtCore/QString
 CMakeFiles/SemesterProjekt.dir/main.cpp.o: /usr/include/x86_64-linux-gnu/qt5/QtCore/QThread
 CMakeFiles/SemesterProjekt.dir/main.cpp.o: /usr/include/x86_64-linux-gnu/qt5/QtCore/QThreadPool
+CMakeFiles/SemesterProjekt.dir/main.cpp.o: /usr/include/x86_64-linux-gnu/qt5/QtCore/QTimer
 CMakeFiles/SemesterProjekt.dir/main.cpp.o: /usr/include/x86_64-linux-gnu/qt5/QtCore/qalgorithms.h
 CMakeFiles/SemesterProjekt.dir/main.cpp.o: /usr/include/x86_64-linux-gnu/qt5/QtCore/qarraydata.h
 CMakeFiles/SemesterProjekt.dir/main.cpp.o: /usr/include/x86_64-linux-gnu/qt5/QtCore/qatomic.h
@@ -1216,6 +1222,7 @@ CMakeFiles/SemesterProjekt.dir/main.cpp.o: /usr/include/x86_64-linux-gnu/qt5/QtC
 CMakeFiles/SemesterProjekt.dir/main.cpp.o: /usr/include/x86_64-linux-gnu/qt5/QtCore/qatomic_cxx11.h
 CMakeFiles/SemesterProjekt.dir/main.cpp.o: /usr/include/x86_64-linux-gnu/qt5/QtCore/qatomic_msvc.h
 CMakeFiles/SemesterProjekt.dir/main.cpp.o: /usr/include/x86_64-linux-gnu/qt5/QtCore/qbasicatomic.h
+CMakeFiles/SemesterProjekt.dir/main.cpp.o: /usr/include/x86_64-linux-gnu/qt5/QtCore/qbasictimer.h
 CMakeFiles/SemesterProjekt.dir/main.cpp.o: /usr/include/x86_64-linux-gnu/qt5/QtCore/qbytearray.h
 CMakeFiles/SemesterProjekt.dir/main.cpp.o: /usr/include/x86_64-linux-gnu/qt5/QtCore/qbytearraylist.h
 CMakeFiles/SemesterProjekt.dir/main.cpp.o: /usr/include/x86_64-linux-gnu/qt5/QtCore/qchar.h
@@ -1276,6 +1283,7 @@ CMakeFiles/SemesterProjekt.dir/main.cpp.o: /usr/include/x86_64-linux-gnu/qt5/QtC
 CMakeFiles/SemesterProjekt.dir/main.cpp.o: /usr/include/x86_64-linux-gnu/qt5/QtCore/qtextstream.h
 CMakeFiles/SemesterProjekt.dir/main.cpp.o: /usr/include/x86_64-linux-gnu/qt5/QtCore/qthread.h
 CMakeFiles/SemesterProjekt.dir/main.cpp.o: /usr/include/x86_64-linux-gnu/qt5/QtCore/qthreadpool.h
+CMakeFiles/SemesterProjekt.dir/main.cpp.o: /usr/include/x86_64-linux-gnu/qt5/QtCore/qtimer.h
 CMakeFiles/SemesterProjekt.dir/main.cpp.o: /usr/include/x86_64-linux-gnu/qt5/QtCore/qtypeinfo.h
 CMakeFiles/SemesterProjekt.dir/main.cpp.o: /usr/include/x86_64-linux-gnu/qt5/QtCore/qurl.h
 CMakeFiles/SemesterProjekt.dir/main.cpp.o: /usr/include/x86_64-linux-gnu/qt5/QtCore/qurlquery.h
@@ -1444,6 +1452,7 @@ CMakeFiles/SemesterProjekt.dir/mainwindow.cpp.o: /home/christian/workspace/Robot
 CMakeFiles/SemesterProjekt.dir/mainwindow.cpp.o: /home/christian/workspace/Robot-Fling/SemesterProjekt/mainwindow.cpp
 CMakeFiles/SemesterProjekt.dir/mainwindow.cpp.o: /home/christian/workspace/Robot-Fling/SemesterProjekt/mainwindow.h
 CMakeFiles/SemesterProjekt.dir/mainwindow.cpp.o: /home/christian/workspace/Robot-Fling/SemesterProjekt/objectdetection.h
+CMakeFiles/SemesterProjekt.dir/mainwindow.cpp.o: /home/christian/workspace/Robot-Fling/SemesterProjekt/path.h
 CMakeFiles/SemesterProjekt.dir/mainwindow.cpp.o: /home/christian/workspace/Robot-Fling/SemesterProjekt/showvideo.h
 CMakeFiles/SemesterProjekt.dir/mainwindow.cpp.o: /opt/pylon/include/Base/GCArray.h
 CMakeFiles/SemesterProjekt.dir/mainwindow.cpp.o: /opt/pylon/include/Base/GCBase.h
@@ -1863,6 +1872,7 @@ CMakeFiles/SemesterProjekt.dir/mainwindow.cpp.o: /usr/include/x86_64-linux-gnu/q
 CMakeFiles/SemesterProjekt.dir/mainwindow.cpp.o: /usr/include/x86_64-linux-gnu/qt5/QtCore/QString
 CMakeFiles/SemesterProjekt.dir/mainwindow.cpp.o: /usr/include/x86_64-linux-gnu/qt5/QtCore/QThread
 CMakeFiles/SemesterProjekt.dir/mainwindow.cpp.o: /usr/include/x86_64-linux-gnu/qt5/QtCore/QThreadPool
+CMakeFiles/SemesterProjekt.dir/mainwindow.cpp.o: /usr/include/x86_64-linux-gnu/qt5/QtCore/QTimer
 CMakeFiles/SemesterProjekt.dir/mainwindow.cpp.o: /usr/include/x86_64-linux-gnu/qt5/QtCore/QVariant
 CMakeFiles/SemesterProjekt.dir/mainwindow.cpp.o: /usr/include/x86_64-linux-gnu/qt5/QtCore/qabstractitemmodel.h
 CMakeFiles/SemesterProjekt.dir/mainwindow.cpp.o: /usr/include/x86_64-linux-gnu/qt5/QtCore/qalgorithms.h
@@ -1872,6 +1882,7 @@ CMakeFiles/SemesterProjekt.dir/mainwindow.cpp.o: /usr/include/x86_64-linux-gnu/q
 CMakeFiles/SemesterProjekt.dir/mainwindow.cpp.o: /usr/include/x86_64-linux-gnu/qt5/QtCore/qatomic_cxx11.h
 CMakeFiles/SemesterProjekt.dir/mainwindow.cpp.o: /usr/include/x86_64-linux-gnu/qt5/QtCore/qatomic_msvc.h
 CMakeFiles/SemesterProjekt.dir/mainwindow.cpp.o: /usr/include/x86_64-linux-gnu/qt5/QtCore/qbasicatomic.h
+CMakeFiles/SemesterProjekt.dir/mainwindow.cpp.o: /usr/include/x86_64-linux-gnu/qt5/QtCore/qbasictimer.h
 CMakeFiles/SemesterProjekt.dir/mainwindow.cpp.o: /usr/include/x86_64-linux-gnu/qt5/QtCore/qbytearray.h
 CMakeFiles/SemesterProjekt.dir/mainwindow.cpp.o: /usr/include/x86_64-linux-gnu/qt5/QtCore/qbytearraylist.h
 CMakeFiles/SemesterProjekt.dir/mainwindow.cpp.o: /usr/include/x86_64-linux-gnu/qt5/QtCore/qchar.h
@@ -1934,6 +1945,7 @@ CMakeFiles/SemesterProjekt.dir/mainwindow.cpp.o: /usr/include/x86_64-linux-gnu/q
 CMakeFiles/SemesterProjekt.dir/mainwindow.cpp.o: /usr/include/x86_64-linux-gnu/qt5/QtCore/qtextstream.h
 CMakeFiles/SemesterProjekt.dir/mainwindow.cpp.o: /usr/include/x86_64-linux-gnu/qt5/QtCore/qthread.h
 CMakeFiles/SemesterProjekt.dir/mainwindow.cpp.o: /usr/include/x86_64-linux-gnu/qt5/QtCore/qthreadpool.h
+CMakeFiles/SemesterProjekt.dir/mainwindow.cpp.o: /usr/include/x86_64-linux-gnu/qt5/QtCore/qtimer.h
 CMakeFiles/SemesterProjekt.dir/mainwindow.cpp.o: /usr/include/x86_64-linux-gnu/qt5/QtCore/qtypeinfo.h
 CMakeFiles/SemesterProjekt.dir/mainwindow.cpp.o: /usr/include/x86_64-linux-gnu/qt5/QtCore/qurl.h
 CMakeFiles/SemesterProjekt.dir/mainwindow.cpp.o: /usr/include/x86_64-linux-gnu/qt5/QtCore/qurlquery.h
@@ -2269,6 +2281,7 @@ CMakeFiles/SemesterProjekt.dir/objectdetection.cpp.o: /opt/pylon/include/pylon/a
 CMakeFiles/SemesterProjekt.dir/objectdetection.cpp.o: /opt/pylon/include/pylon/stdinclude.h
 
 CMakeFiles/SemesterProjekt.dir/sqlcontroller.cpp.o: /home/christian/workspace/Robot-Fling/SemesterProjekt/Throw.h
+CMakeFiles/SemesterProjekt.dir/sqlcontroller.cpp.o: /home/christian/workspace/Robot-Fling/SemesterProjekt/path.h
 CMakeFiles/SemesterProjekt.dir/sqlcontroller.cpp.o: /home/christian/workspace/Robot-Fling/SemesterProjekt/sqlcontroller.cpp
 CMakeFiles/SemesterProjekt.dir/sqlcontroller.cpp.o: /home/christian/workspace/Robot-Fling/SemesterProjekt/sqlcontroller.h
 CMakeFiles/SemesterProjekt.dir/sqlcontroller.cpp.o: /usr/include/x86_64-linux-gnu/qt5/QtCore/QObject

@@ -9,6 +9,7 @@
 #include <QDebug>
 #include <QHostAddress>
 #include <QString>
+#include <QTimer>
 #include "calibration.h"
 #include "objectdetection.h"
 #include "showvideo.h"
@@ -54,6 +55,7 @@ private:
     cv::Mat worldCalImg[4];
     QPixmap pixmap;
     Gripper gripper;
+    RobotControl RC;
 };
 
 #endif // MAINWINDOW_H

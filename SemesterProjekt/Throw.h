@@ -2,6 +2,9 @@
 #define THROW_H
 
 #include <QString>
+#include <vector>
+#include "path.h"
+
 
 class Throw
 {
@@ -20,6 +23,8 @@ private:
     QString objekt;
     double vinkel;
     double hastighed;
+    std::vector<Path> paths;
+
     bool success;
 };
 

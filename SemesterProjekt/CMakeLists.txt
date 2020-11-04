@@ -72,6 +72,7 @@ if(ANDROID)
     showvideo.h
     RobotControl.h
     DetectCollision.h
+    path.h
   )
 else()
   add_executable(SemesterProjekt
@@ -91,6 +92,7 @@ else()
     showvideo.h
     RobotControl.h
     DetectCollision.h
+    path.h
   )
 endif()
 target_link_libraries(SemesterProjekt ${ROBWORK_LIBRARIES})

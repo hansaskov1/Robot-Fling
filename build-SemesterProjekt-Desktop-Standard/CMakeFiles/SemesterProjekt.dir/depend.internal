@@ -9,6 +9,7 @@ CMakeFiles/SemesterProjekt.dir/SemesterProjekt_autogen/mocs_compilation.cpp.o
  /home/christian/workspace/Robot-Fling/SemesterProjekt/clientInfo.h
  /home/christian/workspace/Robot-Fling/SemesterProjekt/mainwindow.h
  /home/christian/workspace/Robot-Fling/SemesterProjekt/objectdetection.h
+ /home/christian/workspace/Robot-Fling/SemesterProjekt/path.h
  /home/christian/workspace/Robot-Fling/SemesterProjekt/showvideo.h
  /home/christian/workspace/Robot-Fling/build-SemesterProjekt-Desktop-Standard/SemesterProjekt_autogen/EWIEGA46WW/moc_Gripper.cpp
  /home/christian/workspace/Robot-Fling/build-SemesterProjekt-Desktop-Standard/SemesterProjekt_autogen/EWIEGA46WW/moc_mainwindow.cpp
@@ -431,6 +432,7 @@ CMakeFiles/SemesterProjekt.dir/SemesterProjekt_autogen/mocs_compilation.cpp.o
  /usr/include/x86_64-linux-gnu/qt5/QtCore/QString
  /usr/include/x86_64-linux-gnu/qt5/QtCore/QThread
  /usr/include/x86_64-linux-gnu/qt5/QtCore/QThreadPool
+ /usr/include/x86_64-linux-gnu/qt5/QtCore/QTimer
  /usr/include/x86_64-linux-gnu/qt5/QtCore/qalgorithms.h
  /usr/include/x86_64-linux-gnu/qt5/QtCore/qarraydata.h
  /usr/include/x86_64-linux-gnu/qt5/QtCore/qatomic.h
@@ -438,6 +440,7 @@ CMakeFiles/SemesterProjekt.dir/SemesterProjekt_autogen/mocs_compilation.cpp.o
  /usr/include/x86_64-linux-gnu/qt5/QtCore/qatomic_cxx11.h
  /usr/include/x86_64-linux-gnu/qt5/QtCore/qatomic_msvc.h
  /usr/include/x86_64-linux-gnu/qt5/QtCore/qbasicatomic.h
+ /usr/include/x86_64-linux-gnu/qt5/QtCore/qbasictimer.h
  /usr/include/x86_64-linux-gnu/qt5/QtCore/qbytearray.h
  /usr/include/x86_64-linux-gnu/qt5/QtCore/qbytearraylist.h
  /usr/include/x86_64-linux-gnu/qt5/QtCore/qchar.h
@@ -496,6 +499,7 @@ CMakeFiles/SemesterProjekt.dir/SemesterProjekt_autogen/mocs_compilation.cpp.o
  /usr/include/x86_64-linux-gnu/qt5/QtCore/qtextstream.h
  /usr/include/x86_64-linux-gnu/qt5/QtCore/qthread.h
  /usr/include/x86_64-linux-gnu/qt5/QtCore/qthreadpool.h
+ /usr/include/x86_64-linux-gnu/qt5/QtCore/qtimer.h
  /usr/include/x86_64-linux-gnu/qt5/QtCore/qtypeinfo.h
  /usr/include/x86_64-linux-gnu/qt5/QtCore/qurl.h
  /usr/include/x86_64-linux-gnu/qt5/QtCore/qurlquery.h
@@ -791,6 +795,7 @@ CMakeFiles/SemesterProjekt.dir/main.cpp.o
  /home/christian/workspace/Robot-Fling/SemesterProjekt/main.cpp
  /home/christian/workspace/Robot-Fling/SemesterProjekt/mainwindow.h
  /home/christian/workspace/Robot-Fling/SemesterProjekt/objectdetection.h
+ /home/christian/workspace/Robot-Fling/SemesterProjekt/path.h
  /home/christian/workspace/Robot-Fling/SemesterProjekt/showvideo.h
  /opt/pylon/include/Base/GCArray.h
  /opt/pylon/include/Base/GCBase.h
@@ -1210,6 +1215,7 @@ CMakeFiles/SemesterProjekt.dir/main.cpp.o
  /usr/include/x86_64-linux-gnu/qt5/QtCore/QString
  /usr/include/x86_64-linux-gnu/qt5/QtCore/QThread
  /usr/include/x86_64-linux-gnu/qt5/QtCore/QThreadPool
+ /usr/include/x86_64-linux-gnu/qt5/QtCore/QTimer
  /usr/include/x86_64-linux-gnu/qt5/QtCore/qalgorithms.h
  /usr/include/x86_64-linux-gnu/qt5/QtCore/qarraydata.h
  /usr/include/x86_64-linux-gnu/qt5/QtCore/qatomic.h
@@ -1217,6 +1223,7 @@ CMakeFiles/SemesterProjekt.dir/main.cpp.o
  /usr/include/x86_64-linux-gnu/qt5/QtCore/qatomic_cxx11.h
  /usr/include/x86_64-linux-gnu/qt5/QtCore/qatomic_msvc.h
  /usr/include/x86_64-linux-gnu/qt5/QtCore/qbasicatomic.h
+ /usr/include/x86_64-linux-gnu/qt5/QtCore/qbasictimer.h
  /usr/include/x86_64-linux-gnu/qt5/QtCore/qbytearray.h
  /usr/include/x86_64-linux-gnu/qt5/QtCore/qbytearraylist.h
  /usr/include/x86_64-linux-gnu/qt5/QtCore/qchar.h
@@ -1277,6 +1284,7 @@ CMakeFiles/SemesterProjekt.dir/main.cpp.o
  /usr/include/x86_64-linux-gnu/qt5/QtCore/qtextstream.h
  /usr/include/x86_64-linux-gnu/qt5/QtCore/qthread.h
  /usr/include/x86_64-linux-gnu/qt5/QtCore/qthreadpool.h
+ /usr/include/x86_64-linux-gnu/qt5/QtCore/qtimer.h
  /usr/include/x86_64-linux-gnu/qt5/QtCore/qtypeinfo.h
  /usr/include/x86_64-linux-gnu/qt5/QtCore/qurl.h
  /usr/include/x86_64-linux-gnu/qt5/QtCore/qurlquery.h
@@ -1445,6 +1453,7 @@ CMakeFiles/SemesterProjekt.dir/mainwindow.cpp.o
  /home/christian/workspace/Robot-Fling/SemesterProjekt/mainwindow.cpp
  /home/christian/workspace/Robot-Fling/SemesterProjekt/mainwindow.h
  /home/christian/workspace/Robot-Fling/SemesterProjekt/objectdetection.h
+ /home/christian/workspace/Robot-Fling/SemesterProjekt/path.h
  /home/christian/workspace/Robot-Fling/SemesterProjekt/showvideo.h
  /opt/pylon/include/Base/GCArray.h
  /opt/pylon/include/Base/GCBase.h
@@ -1864,6 +1873,7 @@ CMakeFiles/SemesterProjekt.dir/mainwindow.cpp.o
  /usr/include/x86_64-linux-gnu/qt5/QtCore/QString
  /usr/include/x86_64-linux-gnu/qt5/QtCore/QThread
  /usr/include/x86_64-linux-gnu/qt5/QtCore/QThreadPool
+ /usr/include/x86_64-linux-gnu/qt5/QtCore/QTimer
  /usr/include/x86_64-linux-gnu/qt5/QtCore/QVariant
  /usr/include/x86_64-linux-gnu/qt5/QtCore/qabstractitemmodel.h
  /usr/include/x86_64-linux-gnu/qt5/QtCore/qalgorithms.h
@@ -1873,6 +1883,7 @@ CMakeFiles/SemesterProjekt.dir/mainwindow.cpp.o
  /usr/include/x86_64-linux-gnu/qt5/QtCore/qatomic_cxx11.h
  /usr/include/x86_64-linux-gnu/qt5/QtCore/qatomic_msvc.h
  /usr/include/x86_64-linux-gnu/qt5/QtCore/qbasicatomic.h
+ /usr/include/x86_64-linux-gnu/qt5/QtCore/qbasictimer.h
  /usr/include/x86_64-linux-gnu/qt5/QtCore/qbytearray.h
  /usr/include/x86_64-linux-gnu/qt5/QtCore/qbytearraylist.h
  /usr/include/x86_64-linux-gnu/qt5/QtCore/qchar.h
@@ -1935,6 +1946,7 @@ CMakeFiles/SemesterProjekt.dir/mainwindow.cpp.o
  /usr/include/x86_64-linux-gnu/qt5/QtCore/qtextstream.h
  /usr/include/x86_64-linux-gnu/qt5/QtCore/qthread.h
  /usr/include/x86_64-linux-gnu/qt5/QtCore/qthreadpool.h
+ /usr/include/x86_64-linux-gnu/qt5/QtCore/qtimer.h
  /usr/include/x86_64-linux-gnu/qt5/QtCore/qtypeinfo.h
  /usr/include/x86_64-linux-gnu/qt5/QtCore/qurl.h
  /usr/include/x86_64-linux-gnu/qt5/QtCore/qurlquery.h
@@ -2270,6 +2282,7 @@ CMakeFiles/SemesterProjekt.dir/objectdetection.cpp.o
  /opt/pylon/include/pylon/stdinclude.h
 CMakeFiles/SemesterProjekt.dir/sqlcontroller.cpp.o
  /home/christian/workspace/Robot-Fling/SemesterProjekt/Throw.h
+ /home/christian/workspace/Robot-Fling/SemesterProjekt/path.h
  /home/christian/workspace/Robot-Fling/SemesterProjekt/sqlcontroller.cpp
  /home/christian/workspace/Robot-Fling/SemesterProjekt/sqlcontroller.h
  /usr/include/x86_64-linux-gnu/qt5/QtCore/QObject
