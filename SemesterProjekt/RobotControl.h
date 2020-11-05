@@ -123,7 +123,7 @@ public:
     {
         std::vector<double> toolPositionStdVec = vecRPY2stdVec(position,orientation);
         std::atomic<bool> stop {false};
-        std::promise<std::vector<std::vector<double>>> promiseQVec;
+        std::promise<Path> promiseQVec;
         auto futureQVec = promiseQVec.get_future();
 
         std::thread recive(&RobotControl::fetchQValuesRob, this , std::move(promiseQVec), std::ref(stop), std::ref(rtdeRecieve), msInterval);
@@ -139,7 +139,7 @@ public:
 
         std::vector<double> toolPositionStdVec = jointPose.toStdVector();
         std::atomic<bool> stop {false};
-        std::promise<std::vector<std::vector<double>>> promiseQVec;
+        std::promise<Path> promiseQVec;
         auto futureQVec = promiseQVec.get_future();
 
         std::thread recive(&RobotControl::fetchQValuesRob, this , std::move(promiseQVec), std::ref(stop), std::ref(rtdeRecieve), msInterval);
@@ -189,7 +189,7 @@ public:
        }
 
 
-       std::string path = "../../Code/Scenes/XMLScenes/RobotOnTable/Scene.xml";
+       std::string path = "../Scenes/XMLScenes/RobotOnTable/Scene.xml";
        DetectCollision dc(path);
        std::vector<bool> collisionList;
 
@@ -232,7 +232,7 @@ public:
         QFullPath.push_back(moveRobotL(posGribReadyR, rpyGribReady,  msInterval, rtdeControl, rtdeRecive, simSpeed, simAcc).getJointPoses());
         QFullPath.push_back(moveRobotJ(qSafeGrib,                    msInterval, rtdeControl, rtdeRecive, simSpeed, simAcc).getJointPoses());
         QFullPath.push_back(moveRobotJ(qHome,                        msInterval, rtdeControl, rtdeRecive, simSpeed, simAcc).getJointPoses());
-        gripper.close();
+        gripper.open();
 
     } else
     {
