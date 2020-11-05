@@ -31,7 +31,6 @@ public:
 
     RobotControl() {
         gripper.Init();
-        gripper.ToConnectToHost("192.168.100.10", 1000);
     }
 
 
@@ -50,11 +49,12 @@ public:
         mInvCalRot = calRot.inverse();
     }
 
-    void setParam(std::string ipAdress, rw::math::Vector3D<> calPos, rw::math::Rotation3D<> calRot) {
+    void setParam(std::string ipAdress, QString gripIpAdress, rw::math::Vector3D<> calPos, rw::math::Rotation3D<> calRot) {
         mIpAdress = ipAdress;
         mCalPos = calPos;
         mCalRot = calRot;
         mInvCalRot = calRot.inverse();
+        gripper.ToConnectToHost(gripIpAdress, 1000);
     }
 
     std::vector<double> TObj2TVec(rw::math::Transform3D<> TObject)
@@ -123,7 +123,7 @@ public:
     {
         std::vector<double> toolPositionStdVec = vecRPY2stdVec(position,orientation);
         std::atomic<bool> stop {false};
-        std::promise<Path> promiseQVec;
+        std::promise<std::vector<std::vector<double>>> promiseQVec;
         auto futureQVec = promiseQVec.get_future();
 
         std::thread recive(&RobotControl::fetchQValuesRob, this , std::move(promiseQVec), std::ref(stop), std::ref(rtdeRecieve), msInterval);
@@ -139,7 +139,7 @@ public:
 
         std::vector<double> toolPositionStdVec = jointPose.toStdVector();
         std::atomic<bool> stop {false};
-        std::promise<Path> promiseQVec;
+        std::promise<std::vector<std::vector<double>>> promiseQVec;
         auto futureQVec = promiseQVec.get_future();
 
         std::thread recive(&RobotControl::fetchQValuesRob, this , std::move(promiseQVec), std::ref(stop), std::ref(rtdeRecieve), msInterval);

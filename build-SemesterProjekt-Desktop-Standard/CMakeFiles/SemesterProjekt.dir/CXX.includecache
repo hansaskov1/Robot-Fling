@@ -156,12 +156,6 @@ opencv2/imgproc.hpp
 thread
 -
 
-/home/christian/workspace/Robot-Fling/SemesterProjekt/clientInfo.h
-iostream
--
-QHostAddress
--
-
 /home/christian/workspace/Robot-Fling/SemesterProjekt/main.cpp
 mainwindow.h
 /home/christian/workspace/Robot-Fling/SemesterProjekt/mainwindow.h
@@ -179,8 +173,6 @@ mainwindow.h
 /home/christian/workspace/Robot-Fling/SemesterProjekt/./ui_mainwindow.h
 
 /home/christian/workspace/Robot-Fling/SemesterProjekt/mainwindow.h
-clientInfo.h
-/home/christian/workspace/Robot-Fling/SemesterProjekt/clientInfo.h
 Gripper.h
 /home/christian/workspace/Robot-Fling/SemesterProjekt/Gripper.h
 string.h
@@ -250,6 +242,10 @@ QThread
 QThreadPool
 -
 QLabel
+-
+thread
+-
+chrono
 -
 mainwindow.h
 /home/christian/workspace/Robot-Fling/SemesterProjekt/mainwindow.h

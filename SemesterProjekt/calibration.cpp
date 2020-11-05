@@ -209,26 +209,20 @@ cv::Mat Calibration::getImage()
 {
     cv::Mat imageIn, imageOut;
     //std::cout << "mtx locking for out.." << std::endl;
-    while(!mtx.try_lock()){
-    }
+    while(!mtx.try_lock());
     //td::cout << "mtx locked for out" << std::endl;
-    if(!mCvImage.data || !camRunning){
-        return cv::imread("../Images/BallWorldCords/img0.png",cv::IMREAD_COLOR);
-    }else{
-        imageIn = mCvImage;
-    }
-    mtx.unlock();
+    imageIn = mCvImage;
     //std::cout << "mtx unlocked for out" << std::endl;
     cv::remap(imageIn,imageOut,mMapX,mMapY,1,1);
     imageOut.adjustROI(-190,-200,-430,-300);
+    mtx.unlock();
     return imageOut;
 }
 
 cv::Mat Calibration::getRawImage()
 {
     cv::Mat imageIn;
-    while(!mtx.try_lock()){
-    }
+    while(!mtx.try_lock());
     imageIn = mCvImage;
     mtx.unlock();
     //imageIn.adjustROI(-180,-190,-420,-290);

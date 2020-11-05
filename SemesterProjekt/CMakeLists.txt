@@ -60,7 +60,6 @@ if(ANDROID)
     mainwindow.cpp
     mainwindow.h
     mainwindow.ui
-    clientInfo.h
     gripper.h
     sqlcontroller.h
     sqlcontroller.cpp
@@ -80,7 +79,6 @@ else()
     mainwindow.cpp
     mainwindow.h
     mainwindow.ui
-    clientInfo.h
     Gripper.h
     sqlcontroller.h
     sqlcontroller.cpp

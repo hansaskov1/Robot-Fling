@@ -6,7 +6,6 @@ CMakeFiles/SemesterProjekt.dir/SemesterProjekt_autogen/mocs_compilation.cpp.o
  /home/christian/workspace/Robot-Fling/SemesterProjekt/Gripper.h
  /home/christian/workspace/Robot-Fling/SemesterProjekt/RobotControl.h
  /home/christian/workspace/Robot-Fling/SemesterProjekt/calibration.h
- /home/christian/workspace/Robot-Fling/SemesterProjekt/clientInfo.h
  /home/christian/workspace/Robot-Fling/SemesterProjekt/mainwindow.h
  /home/christian/workspace/Robot-Fling/SemesterProjekt/objectdetection.h
  /home/christian/workspace/Robot-Fling/SemesterProjekt/path.h
@@ -791,7 +790,6 @@ CMakeFiles/SemesterProjekt.dir/main.cpp.o
  /home/christian/workspace/Robot-Fling/SemesterProjekt/Gripper.h
  /home/christian/workspace/Robot-Fling/SemesterProjekt/RobotControl.h
  /home/christian/workspace/Robot-Fling/SemesterProjekt/calibration.h
- /home/christian/workspace/Robot-Fling/SemesterProjekt/clientInfo.h
  /home/christian/workspace/Robot-Fling/SemesterProjekt/main.cpp
  /home/christian/workspace/Robot-Fling/SemesterProjekt/mainwindow.h
  /home/christian/workspace/Robot-Fling/SemesterProjekt/objectdetection.h
@@ -1449,7 +1447,6 @@ CMakeFiles/SemesterProjekt.dir/mainwindow.cpp.o
  /home/christian/workspace/Robot-Fling/SemesterProjekt/Gripper.h
  /home/christian/workspace/Robot-Fling/SemesterProjekt/RobotControl.h
  /home/christian/workspace/Robot-Fling/SemesterProjekt/calibration.h
- /home/christian/workspace/Robot-Fling/SemesterProjekt/clientInfo.h
  /home/christian/workspace/Robot-Fling/SemesterProjekt/mainwindow.cpp
  /home/christian/workspace/Robot-Fling/SemesterProjekt/mainwindow.h
  /home/christian/workspace/Robot-Fling/SemesterProjekt/objectdetection.h

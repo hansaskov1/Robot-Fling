@@ -4,40 +4,31 @@
 #include <QThread>
 #include <QThreadPool>
 #include <QLabel>
+#include <thread>
+#include <chrono>
 #include "mainwindow.h"
 
 class showVideo : public QRunnable
 {
 public:
-    showVideo (QLabel *label) {
+    showVideo (QLabel *label, Calibration *value) {
         mLabel = label;
+        c = value;
+        mLabel->setScaledContents(true);
     }
 
     void run() {
-        c.connectToCam();
-        while(true) {
-                image = c.getImage();
-                const uchar *qImageBuffer1 = (const uchar*)image.data;
-                QImage img1(qImageBuffer1, image.cols, image.rows, image.step, QImage::Format_RGB888);
-                pixmap = QPixmap::fromImage(img1.rgbSwapped());
-                mLabel->setPixmap(pixmap);
-                mLabel->setScaledContents(true);
-            }
-            /*
-            image = c.getImage();
-            const uchar *qImageBuffer = (const uchar*)image.data;
-            QImage img(qImageBuffer, image.cols, image.rows, image.step, QImage::Format_RGB888);
-            pixmap = QPixmap::fromImage(img.rgbSwapped());
-            mLabel->setPixmap(pixmap);
-            mLabel->setScaledContents(true);
-            */
-       }
+        while(c->mRun) {
+            image = c->getImage();
+            mLabel->setPixmap(QPixmap::fromImage(QImage((const uchar*)image.data, image.cols, image.rows, image.step, QImage::Format_RGB888).rgbSwapped()));
+            std::this_thread::sleep_for (std::chrono::milliseconds(10));
+        }
+    }
 
 private:
     QLabel *mLabel;
-    Calibration c;
+    Calibration *c;
     cv::Mat image;
-    QPixmap pixmap;
 };
 
 #endif // SHOWVIDEO_H

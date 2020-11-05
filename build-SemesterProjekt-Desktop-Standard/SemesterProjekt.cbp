@@ -164,9 +164,6 @@
 		<Unit filename="/home/christian/workspace/Robot-Fling/SemesterProjekt/calibration.h">
 			<Option target="SemesterProjekt"/>
 		</Unit>
-		<Unit filename="/home/christian/workspace/Robot-Fling/SemesterProjekt/clientInfo.h">
-			<Option target="SemesterProjekt"/>
-		</Unit>
 		<Unit filename="/home/christian/workspace/Robot-Fling/SemesterProjekt/main.cpp">
 			<Option target="SemesterProjekt"/>
 		</Unit>

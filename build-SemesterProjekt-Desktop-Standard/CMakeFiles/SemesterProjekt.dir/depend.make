@@ -5,7 +5,6 @@ CMakeFiles/SemesterProjekt.dir/SemesterProjekt_autogen/mocs_compilation.cpp.o: /
 CMakeFiles/SemesterProjekt.dir/SemesterProjekt_autogen/mocs_compilation.cpp.o: /home/christian/workspace/Robot-Fling/SemesterProjekt/Gripper.h
 CMakeFiles/SemesterProjekt.dir/SemesterProjekt_autogen/mocs_compilation.cpp.o: /home/christian/workspace/Robot-Fling/SemesterProjekt/RobotControl.h
 CMakeFiles/SemesterProjekt.dir/SemesterProjekt_autogen/mocs_compilation.cpp.o: /home/christian/workspace/Robot-Fling/SemesterProjekt/calibration.h
-CMakeFiles/SemesterProjekt.dir/SemesterProjekt_autogen/mocs_compilation.cpp.o: /home/christian/workspace/Robot-Fling/SemesterProjekt/clientInfo.h
 CMakeFiles/SemesterProjekt.dir/SemesterProjekt_autogen/mocs_compilation.cpp.o: /home/christian/workspace/Robot-Fling/SemesterProjekt/mainwindow.h
 CMakeFiles/SemesterProjekt.dir/SemesterProjekt_autogen/mocs_compilation.cpp.o: /home/christian/workspace/Robot-Fling/SemesterProjekt/objectdetection.h
 CMakeFiles/SemesterProjekt.dir/SemesterProjekt_autogen/mocs_compilation.cpp.o: /home/christian/workspace/Robot-Fling/SemesterProjekt/path.h
@@ -790,7 +789,6 @@ CMakeFiles/SemesterProjekt.dir/main.cpp.o: /home/christian/workspace/Robot-Fling
 CMakeFiles/SemesterProjekt.dir/main.cpp.o: /home/christian/workspace/Robot-Fling/SemesterProjekt/Gripper.h
 CMakeFiles/SemesterProjekt.dir/main.cpp.o: /home/christian/workspace/Robot-Fling/SemesterProjekt/RobotControl.h
 CMakeFiles/SemesterProjekt.dir/main.cpp.o: /home/christian/workspace/Robot-Fling/SemesterProjekt/calibration.h
-CMakeFiles/SemesterProjekt.dir/main.cpp.o: /home/christian/workspace/Robot-Fling/SemesterProjekt/clientInfo.h
 CMakeFiles/SemesterProjekt.dir/main.cpp.o: /home/christian/workspace/Robot-Fling/SemesterProjekt/main.cpp
 CMakeFiles/SemesterProjekt.dir/main.cpp.o: /home/christian/workspace/Robot-Fling/SemesterProjekt/mainwindow.h
 CMakeFiles/SemesterProjekt.dir/main.cpp.o: /home/christian/workspace/Robot-Fling/SemesterProjekt/objectdetection.h
@@ -1448,7 +1446,6 @@ CMakeFiles/SemesterProjekt.dir/mainwindow.cpp.o: /home/christian/workspace/Robot
 CMakeFiles/SemesterProjekt.dir/mainwindow.cpp.o: /home/christian/workspace/Robot-Fling/SemesterProjekt/Gripper.h
 CMakeFiles/SemesterProjekt.dir/mainwindow.cpp.o: /home/christian/workspace/Robot-Fling/SemesterProjekt/RobotControl.h
 CMakeFiles/SemesterProjekt.dir/mainwindow.cpp.o: /home/christian/workspace/Robot-Fling/SemesterProjekt/calibration.h
-CMakeFiles/SemesterProjekt.dir/mainwindow.cpp.o: /home/christian/workspace/Robot-Fling/SemesterProjekt/clientInfo.h
 CMakeFiles/SemesterProjekt.dir/mainwindow.cpp.o: /home/christian/workspace/Robot-Fling/SemesterProjekt/mainwindow.cpp
 CMakeFiles/SemesterProjekt.dir/mainwindow.cpp.o: /home/christian/workspace/Robot-Fling/SemesterProjekt/mainwindow.h
 CMakeFiles/SemesterProjekt.dir/mainwindow.cpp.o: /home/christian/workspace/Robot-Fling/SemesterProjekt/objectdetection.h
