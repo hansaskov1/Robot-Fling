@@ -176,6 +176,30 @@ public:
     }
 
 
+    bool isCollision(size_t checks,rw::math::Q endJointPosition)
+    {
+        rw::trajectory::LinearInterpolator<rw::math::Q> interpolator(mDevice->getQ(mState), endJointPosition, 1);
+        std::vector<rw::math::Q> QVec;
+
+        for (unsigned int i = 1; i < checks; i++)
+        {
+            rw::math::Q q = interpolator.x(static_cast<double>(i) / static_cast<double>(checks));
+            std::cout << q << std::endl;
+
+
+            if (checkCollision())
+            {
+                std::cout << "Collision occured at" << q << std::endl;
+                return true;
+            }
+            QVec.push_back(q);
+        }
+        setState(endJointPosition);
+        mQVec = QVec;
+        return false;
+    }
+
+
 
     bool isCollision(std::vector<std::vector<double>> qVec)
     {

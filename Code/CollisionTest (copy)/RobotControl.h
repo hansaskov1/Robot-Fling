@@ -160,15 +160,12 @@ public:
 
 
        std::string path = "../../Scenes/XMLScenes/RobotOnTable/Scene.xml";
-       DetectCollision dc(path);
-       dc.setState(qSafeGrib);
+       DetectCollision dc(path);       
 
-      std::cout << dc.isCollisionUR(50,rw::math::Transform3D<>(posGribReadyR, rpyGribReady)) << std::endl;
-
-       for (rw::math::Q &qValues : dc.getQVec()){
-                std::cout << qValues << std::endl;
-       }
-
+      std::cout << dc.isCollision(50, qHome) << std::endl;
+      std::cout << dc.isCollision(50, qSafeGrib) << std::endl;
+      std::cout << dc.isCollisionUR(50,rw::math::Transform3D<>(posGribReadyR, rpyGribReady)) << std::endl;      for (rw::math::Q &qValues : dc.getQVec()){ std::cout << qValues << std::endl;}
+      std::cout << dc.isCollisionUR(50,rw::math::Transform3D<>(posBallR, rpyBall)) << std::endl;                for (rw::math::Q &qValues : dc.getQVec()){ std::cout << qValues << std::endl;}
 
        {
            double simSpeed = 3;
