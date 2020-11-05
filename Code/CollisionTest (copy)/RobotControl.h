@@ -22,7 +22,7 @@
 #include <future>
 
 #include "path.h"
-//#include "DetectCollision.h"
+#include "DetectCollision.h"
 
 
 class RobotControl {
@@ -158,6 +158,18 @@ public:
        std::vector<std::vector<std::vector<double>>> QFullPath;
        std::cout << "Starting sim" << std::endl;
 
+
+       std::string path = "../../Scenes/XMLScenes/RobotOnTable/Scene.xml";
+       DetectCollision dc(path);
+       dc.setState(qSafeGrib);
+
+      std::cout << dc.isCollisionUR(50,rw::math::Transform3D<>(posGribReadyR, rpyGribReady)) << std::endl;
+
+       for (rw::math::Q &qValues : dc.getQVec()){
+                std::cout << qValues << std::endl;
+       }
+
+
        {
            double simSpeed = 3;
            double simAcc = 3;
@@ -175,19 +187,19 @@ public:
        }
 
 
-       std::string path = "../../Code/Scenes/XMLScenes/RobotOnTable/Scene.xml";
-       DetectCollision dc(path);
+
        std::vector<bool> collisionList;
 
         for (std::vector<std::vector<double>> &qPath : QFullPath )
         {
+            std::cout << "New Path" << std::endl;
             for (std::vector<double> &qValues : qPath){
-               qValues[0] += 1.151;
-              /*  std::cout << "{";
+            //   qValues[0] += 1.151;
+                std::cout << "{";
                 for (double joint : qValues){
                     std::cout << joint << " ";
                 }
-                std::cout << "}"<< std::endl;*/
+                std::cout << "}"<< std::endl;
             }
             collisionList.push_back(dc.isCollision(qPath));
         }
@@ -201,21 +213,22 @@ public:
             if (isColl) collision = true;
         }
 
+
     if (!collision)
     {
-        double simSpeed = 1;
-        double simAcc = 0.2;
+        double simSpeed = 3;
+        double simAcc = 3;
         double msInterval = 10;
 
         ur_rtde::RTDEControlInterface rtdeControl(mIpAdress);
         ur_rtde::RTDEReceiveInterface rtdeRecive(mIpAdress);
-        QFullPath.push_back(moveRobotJ(qHome,                        msInterval, rtdeControl, rtdeRecive, simSpeed, simAcc).getJointPoses());
-        QFullPath.push_back(moveRobotJ(qSafeGrib,                    msInterval, rtdeControl, rtdeRecive, simSpeed, simAcc).getJointPoses());
-        QFullPath.push_back(moveRobotL(posGribReadyR, rpyGribReady,  msInterval, rtdeControl, rtdeRecive, simSpeed, simAcc).getJointPoses());
-        QFullPath.push_back(moveRobotL(posBallR, rpyBall,            msInterval, rtdeControl, rtdeRecive, 0.2,      0.05  ).getJointPoses());
-        QFullPath.push_back(moveRobotL(posGribReadyR, rpyGribReady,  msInterval, rtdeControl, rtdeRecive, simSpeed, simAcc).getJointPoses());
-        QFullPath.push_back(moveRobotJ(qSafeGrib,                    msInterval, rtdeControl, rtdeRecive, simSpeed, simAcc).getJointPoses());
-        QFullPath.push_back(moveRobotJ(qHome,                        msInterval, rtdeControl, rtdeRecive, simSpeed, simAcc).getJointPoses());
+        moveRobotJ(qHome,                        msInterval, rtdeControl, rtdeRecive, simSpeed, simAcc);
+        moveRobotJ(qSafeGrib,                    msInterval, rtdeControl, rtdeRecive, simSpeed, simAcc);
+        moveRobotL(posGribReadyR, rpyGribReady,  msInterval, rtdeControl, rtdeRecive, simSpeed, simAcc);
+        moveRobotL(posBallR,      rpyBall,       msInterval, rtdeControl, rtdeRecive, 0.2,      0.05  );
+        moveRobotL(posGribReadyR, rpyGribReady,  msInterval, rtdeControl, rtdeRecive, simSpeed, simAcc);
+        moveRobotJ(qSafeGrib,                    msInterval, rtdeControl, rtdeRecive, simSpeed, simAcc);
+        moveRobotJ(qHome,                        msInterval, rtdeControl, rtdeRecive, simSpeed, simAcc);
 
     } else
     {
@@ -230,7 +243,7 @@ public:
     }
 
 private:
-std::string mIpAdress;
+ std::string mIpAdress;
  rw::math::Vector3D<> mCalPos;
  rw::math::Rotation3D<> mCalRot;
  rw::math::Rotation3D<> mInvCalRot;

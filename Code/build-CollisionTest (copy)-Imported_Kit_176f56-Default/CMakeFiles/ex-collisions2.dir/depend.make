@@ -360,7 +360,9 @@ CMakeFiles/ex-collisions2.dir/ex-collisions2.cpp.o: /usr/share/robwork-1.1/cmake
 CMakeFiles/ex-collisions2.dir/ex-collisions2.cpp.o: /usr/share/robwork-1.1/cmake/../../../include/robwork-1.1/rw/math/VelocityScrew6D.hpp
 CMakeFiles/ex-collisions2.dir/ex-collisions2.cpp.o: /usr/share/robwork-1.1/cmake/../../../include/robwork-1.1/rw/models/Device.hpp
 CMakeFiles/ex-collisions2.dir/ex-collisions2.cpp.o: /usr/share/robwork-1.1/cmake/../../../include/robwork-1.1/rw/models/JacobianCalculator.hpp
+CMakeFiles/ex-collisions2.dir/ex-collisions2.cpp.o: /usr/share/robwork-1.1/cmake/../../../include/robwork-1.1/rw/models/JointDevice.hpp
 CMakeFiles/ex-collisions2.dir/ex-collisions2.cpp.o: /usr/share/robwork-1.1/cmake/../../../include/robwork-1.1/rw/models/Models.hpp
+CMakeFiles/ex-collisions2.dir/ex-collisions2.cpp.o: /usr/share/robwork-1.1/cmake/../../../include/robwork-1.1/rw/models/SerialDevice.hpp
 CMakeFiles/ex-collisions2.dir/ex-collisions2.cpp.o: /usr/share/robwork-1.1/cmake/../../../include/robwork-1.1/rw/models/WorkCell.hpp
 CMakeFiles/ex-collisions2.dir/ex-collisions2.cpp.o: /usr/share/robwork-1.1/cmake/../../../include/robwork-1.1/rw/pathplanning/PathPlanner.hpp
 CMakeFiles/ex-collisions2.dir/ex-collisions2.cpp.o: /usr/share/robwork-1.1/cmake/../../../include/robwork-1.1/rw/pathplanning/QConstraint.hpp
