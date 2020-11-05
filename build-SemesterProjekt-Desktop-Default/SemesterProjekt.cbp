@@ -1,0 +1,303 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CodeBlocks_project_file>
+	<FileVersion major="1" minor="6"/>
+	<Project>
+		<Option title="SemesterProjekt"/>
+		<Option makefile_is_custom="1"/>
+		<Option compiler="gcc"/>
+		<Option virtualFolders="CMake Files\;CMake Files\..\;CMake Files\..\..\;CMake Files\..\..\..\;CMake Files\..\..\..\..\;CMake Files\..\..\..\..\..\;CMake Files\..\..\..\..\..\usr\;CMake Files\..\..\..\..\..\usr\lib\;CMake Files\..\..\..\..\..\usr\lib\x86_64-linux-gnu\;CMake Files\..\..\..\..\..\usr\lib\x86_64-linux-gnu\cmake\;CMake Files\..\..\..\..\..\usr\lib\x86_64-linux-gnu\cmake\Qt5\;CMake Files\..\..\..\..\..\usr\lib\x86_64-linux-gnu\cmake\Qt5Widgets\;CMake Files\..\..\..\..\..\usr\lib\x86_64-linux-gnu\cmake\Qt5Gui\;CMake Files\..\..\..\..\..\usr\lib\x86_64-linux-gnu\cmake\Qt5Core\;CMake Files\..\..\..\..\..\usr\lib\x86_64-linux-gnu\cmake\Qt5Sql\;CMake Files\..\..\..\..\..\usr\lib\x86_64-linux-gnu\cmake\Qt5Network\;CMake Files\..\..\..\..\..\usr\lib\x86_64-linux-gnu\cmake\ur_rtde\;CMake Files\..\..\..\..\..\usr\share\;CMake Files\..\..\..\..\..\usr\share\OpenCV\;CMake Files\..\..\..\..\..\usr\share\robwork-1.1\;CMake Files\..\..\..\..\..\usr\share\robwork-1.1\cmake\;"/>
+		<Build>
+			<Target title="all">
+				<Option working_dir="/home/hans/GithubCode/Robot-Fling/build-SemesterProjekt-Desktop-Default"/>
+				<Option type="4"/>
+				<MakeCommands>
+					<Build command="/usr/bin/make -j8 -f &quot;/home/hans/GithubCode/Robot-Fling/build-SemesterProjekt-Desktop-Default/Makefile&quot;  VERBOSE=1 all"/>
+					<CompileFile command="/usr/bin/make -j8 -f &quot;/home/hans/GithubCode/Robot-Fling/build-SemesterProjekt-Desktop-Default/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j8 -f &quot;/home/hans/GithubCode/Robot-Fling/build-SemesterProjekt-Desktop-Default/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j8 -f &quot;/home/hans/GithubCode/Robot-Fling/build-SemesterProjekt-Desktop-Default/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="rebuild_cache">
+				<Option working_dir="/home/hans/GithubCode/Robot-Fling/build-SemesterProjekt-Desktop-Default"/>
+				<Option type="4"/>
+				<MakeCommands>
+					<Build command="/usr/bin/make -j8 -f &quot;/home/hans/GithubCode/Robot-Fling/build-SemesterProjekt-Desktop-Default/Makefile&quot;  VERBOSE=1 rebuild_cache"/>
+					<CompileFile command="/usr/bin/make -j8 -f &quot;/home/hans/GithubCode/Robot-Fling/build-SemesterProjekt-Desktop-Default/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j8 -f &quot;/home/hans/GithubCode/Robot-Fling/build-SemesterProjekt-Desktop-Default/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j8 -f &quot;/home/hans/GithubCode/Robot-Fling/build-SemesterProjekt-Desktop-Default/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="SemesterProjekt">
+				<Option output="/home/hans/GithubCode/Robot-Fling/build-SemesterProjekt-Desktop-Default/SemesterProjekt" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="/home/hans/GithubCode/Robot-Fling/build-SemesterProjekt-Desktop-Default"/>
+				<Option object_output="./"/>
+				<Option type="1"/>
+				<Option compiler="gcc"/>
+				<Compiler>
+					<Add option="-DQT_WIDGETS_LIB"/>
+					<Add option="-DQT_GUI_LIB"/>
+					<Add option="-DQT_CORE_LIB"/>
+					<Add option="-DQT_NO_DEBUG"/>
+					<Add option="-DQT_SQL_LIB"/>
+					<Add option="-DQT_NETWORK_LIB"/>
+					<Add directory="/home/hans/GithubCode/Robot-Fling/build-SemesterProjekt-Desktop-Default"/>
+					<Add directory="/home/hans/GithubCode/Robot-Fling/SemesterProjekt"/>
+					<Add directory="/home/hans/GithubCode/Robot-Fling/build-SemesterProjekt-Desktop-Default/SemesterProjekt_autogen/include"/>
+					<Add directory="/opt/pylon/include"/>
+					<Add directory="/home/hans/GithubCode/Robot-Fling/SemesterProjekt/clientInfo.h"/>
+					<Add directory="/usr/include/eigen3"/>
+					<Add directory="/usr/share/robwork-1.1/cmake/../../../include/robwork-1.1"/>
+					<Add directory="/usr/share/robwork-1.1/cmake/../../../include/robwork-1.1/ext/rwyaobi"/>
+					<Add directory="/usr/share/robwork-1.1/cmake/../../../include/robwork-1.1/ext/rwpqp"/>
+					<Add directory="/usr/include/lua5.3"/>
+					<Add directory="/usr/share/robwork-1.1/cmake/../../../include/robwork-1.1/ext/qhull/src"/>
+					<Add directory="/usr/share/robwork-1.1/cmake/../../../include/robwork-1.1/ext/csgjs/src"/>
+					<Add directory="/usr/include/x86_64-linux-gnu/qt5"/>
+					<Add directory="/usr/include/x86_64-linux-gnu/qt5/QtWidgets"/>
+					<Add directory="/usr/include/x86_64-linux-gnu/qt5/QtGui"/>
+					<Add directory="/usr/include/x86_64-linux-gnu/qt5/QtCore"/>
+					<Add directory="/usr/lib/x86_64-linux-gnu/qt5/mkspecs/linux-g++"/>
+					<Add directory="/usr/include/x86_64-linux-gnu/qt5/QtSql"/>
+					<Add directory="/usr/include/x86_64-linux-gnu/qt5/QtNetwork"/>
+					<Add directory="/usr/include/opencv"/>
+					<Add directory="/usr/include/c++/7"/>
+					<Add directory="/usr/include/x86_64-linux-gnu/c++/7"/>
+					<Add directory="/usr/include/c++/7/backward"/>
+					<Add directory="/usr/lib/gcc/x86_64-linux-gnu/7/include"/>
+					<Add directory="/usr/local/include"/>
+					<Add directory="/usr/lib/gcc/x86_64-linux-gnu/7/include-fixed"/>
+					<Add directory="/usr/include/x86_64-linux-gnu"/>
+					<Add directory="/usr/include"/>
+				</Compiler>
+				<MakeCommands>
+					<Build command="/usr/bin/make -j8 -f &quot;/home/hans/GithubCode/Robot-Fling/build-SemesterProjekt-Desktop-Default/Makefile&quot;  VERBOSE=1 SemesterProjekt"/>
+					<CompileFile command="/usr/bin/make -j8 -f &quot;/home/hans/GithubCode/Robot-Fling/build-SemesterProjekt-Desktop-Default/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j8 -f &quot;/home/hans/GithubCode/Robot-Fling/build-SemesterProjekt-Desktop-Default/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j8 -f &quot;/home/hans/GithubCode/Robot-Fling/build-SemesterProjekt-Desktop-Default/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="SemesterProjekt/fast">
+				<Option output="/home/hans/GithubCode/Robot-Fling/build-SemesterProjekt-Desktop-Default/SemesterProjekt" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="/home/hans/GithubCode/Robot-Fling/build-SemesterProjekt-Desktop-Default"/>
+				<Option object_output="./"/>
+				<Option type="1"/>
+				<Option compiler="gcc"/>
+				<Compiler>
+					<Add option="-DQT_WIDGETS_LIB"/>
+					<Add option="-DQT_GUI_LIB"/>
+					<Add option="-DQT_CORE_LIB"/>
+					<Add option="-DQT_NO_DEBUG"/>
+					<Add option="-DQT_SQL_LIB"/>
+					<Add option="-DQT_NETWORK_LIB"/>
+					<Add directory="/home/hans/GithubCode/Robot-Fling/build-SemesterProjekt-Desktop-Default"/>
+					<Add directory="/home/hans/GithubCode/Robot-Fling/SemesterProjekt"/>
+					<Add directory="/home/hans/GithubCode/Robot-Fling/build-SemesterProjekt-Desktop-Default/SemesterProjekt_autogen/include"/>
+					<Add directory="/opt/pylon/include"/>
+					<Add directory="/home/hans/GithubCode/Robot-Fling/SemesterProjekt/clientInfo.h"/>
+					<Add directory="/usr/include/eigen3"/>
+					<Add directory="/usr/share/robwork-1.1/cmake/../../../include/robwork-1.1"/>
+					<Add directory="/usr/share/robwork-1.1/cmake/../../../include/robwork-1.1/ext/rwyaobi"/>
+					<Add directory="/usr/share/robwork-1.1/cmake/../../../include/robwork-1.1/ext/rwpqp"/>
+					<Add directory="/usr/include/lua5.3"/>
+					<Add directory="/usr/share/robwork-1.1/cmake/../../../include/robwork-1.1/ext/qhull/src"/>
+					<Add directory="/usr/share/robwork-1.1/cmake/../../../include/robwork-1.1/ext/csgjs/src"/>
+					<Add directory="/usr/include/x86_64-linux-gnu/qt5"/>
+					<Add directory="/usr/include/x86_64-linux-gnu/qt5/QtWidgets"/>
+					<Add directory="/usr/include/x86_64-linux-gnu/qt5/QtGui"/>
+					<Add directory="/usr/include/x86_64-linux-gnu/qt5/QtCore"/>
+					<Add directory="/usr/lib/x86_64-linux-gnu/qt5/mkspecs/linux-g++"/>
+					<Add directory="/usr/include/x86_64-linux-gnu/qt5/QtSql"/>
+					<Add directory="/usr/include/x86_64-linux-gnu/qt5/QtNetwork"/>
+					<Add directory="/usr/include/opencv"/>
+					<Add directory="/usr/include/c++/7"/>
+					<Add directory="/usr/include/x86_64-linux-gnu/c++/7"/>
+					<Add directory="/usr/include/c++/7/backward"/>
+					<Add directory="/usr/lib/gcc/x86_64-linux-gnu/7/include"/>
+					<Add directory="/usr/local/include"/>
+					<Add directory="/usr/lib/gcc/x86_64-linux-gnu/7/include-fixed"/>
+					<Add directory="/usr/include/x86_64-linux-gnu"/>
+					<Add directory="/usr/include"/>
+				</Compiler>
+				<MakeCommands>
+					<Build command="/usr/bin/make -j8 -f &quot;/home/hans/GithubCode/Robot-Fling/build-SemesterProjekt-Desktop-Default/Makefile&quot;  VERBOSE=1 SemesterProjekt/fast"/>
+					<CompileFile command="/usr/bin/make -j8 -f &quot;/home/hans/GithubCode/Robot-Fling/build-SemesterProjekt-Desktop-Default/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j8 -f &quot;/home/hans/GithubCode/Robot-Fling/build-SemesterProjekt-Desktop-Default/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j8 -f &quot;/home/hans/GithubCode/Robot-Fling/build-SemesterProjekt-Desktop-Default/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="edit_cache">
+				<Option working_dir="/home/hans/GithubCode/Robot-Fling/build-SemesterProjekt-Desktop-Default"/>
+				<Option type="4"/>
+				<MakeCommands>
+					<Build command="/usr/bin/make -j8 -f &quot;/home/hans/GithubCode/Robot-Fling/build-SemesterProjekt-Desktop-Default/Makefile&quot;  VERBOSE=1 edit_cache"/>
+					<CompileFile command="/usr/bin/make -j8 -f &quot;/home/hans/GithubCode/Robot-Fling/build-SemesterProjekt-Desktop-Default/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j8 -f &quot;/home/hans/GithubCode/Robot-Fling/build-SemesterProjekt-Desktop-Default/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j8 -f &quot;/home/hans/GithubCode/Robot-Fling/build-SemesterProjekt-Desktop-Default/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="SemesterProjekt_autogen">
+				<Option working_dir="/home/hans/GithubCode/Robot-Fling/build-SemesterProjekt-Desktop-Default"/>
+				<Option type="4"/>
+				<MakeCommands>
+					<Build command="/usr/bin/make -j8 -f &quot;/home/hans/GithubCode/Robot-Fling/build-SemesterProjekt-Desktop-Default/Makefile&quot;  VERBOSE=1 SemesterProjekt_autogen"/>
+					<CompileFile command="/usr/bin/make -j8 -f &quot;/home/hans/GithubCode/Robot-Fling/build-SemesterProjekt-Desktop-Default/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j8 -f &quot;/home/hans/GithubCode/Robot-Fling/build-SemesterProjekt-Desktop-Default/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j8 -f &quot;/home/hans/GithubCode/Robot-Fling/build-SemesterProjekt-Desktop-Default/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+		</Build>
+		<Unit filename="/home/hans/GithubCode/Robot-Fling/SemesterProjekt/DetectCollision.h">
+			<Option target="SemesterProjekt"/>
+		</Unit>
+		<Unit filename="/home/hans/GithubCode/Robot-Fling/SemesterProjekt/Gripper.h">
+			<Option target="SemesterProjekt"/>
+		</Unit>
+		<Unit filename="/home/hans/GithubCode/Robot-Fling/SemesterProjekt/RobotControl.h">
+			<Option target="SemesterProjekt"/>
+		</Unit>
+		<Unit filename="/home/hans/GithubCode/Robot-Fling/SemesterProjekt/Throw.h">
+			<Option target="SemesterProjekt"/>
+		</Unit>
+		<Unit filename="/home/hans/GithubCode/Robot-Fling/SemesterProjekt/calibration.cpp">
+			<Option target="SemesterProjekt"/>
+		</Unit>
+		<Unit filename="/home/hans/GithubCode/Robot-Fling/SemesterProjekt/calibration.h">
+			<Option target="SemesterProjekt"/>
+		</Unit>
+		<Unit filename="/home/hans/GithubCode/Robot-Fling/SemesterProjekt/clientInfo.h">
+			<Option target="SemesterProjekt"/>
+		</Unit>
+		<Unit filename="/home/hans/GithubCode/Robot-Fling/SemesterProjekt/main.cpp">
+			<Option target="SemesterProjekt"/>
+		</Unit>
+		<Unit filename="/home/hans/GithubCode/Robot-Fling/SemesterProjekt/mainwindow.cpp">
+			<Option target="SemesterProjekt"/>
+		</Unit>
+		<Unit filename="/home/hans/GithubCode/Robot-Fling/SemesterProjekt/mainwindow.h">
+			<Option target="SemesterProjekt"/>
+		</Unit>
+		<Unit filename="/home/hans/GithubCode/Robot-Fling/SemesterProjekt/mainwindow.ui">
+			<Option target="SemesterProjekt"/>
+		</Unit>
+		<Unit filename="/home/hans/GithubCode/Robot-Fling/SemesterProjekt/objectdetection.cpp">
+			<Option target="SemesterProjekt"/>
+		</Unit>
+		<Unit filename="/home/hans/GithubCode/Robot-Fling/SemesterProjekt/objectdetection.h">
+			<Option target="SemesterProjekt"/>
+		</Unit>
+		<Unit filename="/home/hans/GithubCode/Robot-Fling/SemesterProjekt/showvideo.h">
+			<Option target="SemesterProjekt"/>
+		</Unit>
+		<Unit filename="/home/hans/GithubCode/Robot-Fling/SemesterProjekt/sqlcontroller.cpp">
+			<Option target="SemesterProjekt"/>
+		</Unit>
+		<Unit filename="/home/hans/GithubCode/Robot-Fling/SemesterProjekt/sqlcontroller.h">
+			<Option target="SemesterProjekt"/>
+		</Unit>
+		<Unit filename="/home/hans/GithubCode/Robot-Fling/build-SemesterProjekt-Desktop-Default/SemesterProjekt_autogen/mocs_compilation.cpp">
+			<Option target="SemesterProjekt"/>
+		</Unit>
+		<Unit filename="/home/hans/GithubCode/Robot-Fling/SemesterProjekt/CMakeLists.txt">
+			<Option virtualFolder="CMake Files\"/>
+		</Unit>
+		<Unit filename="/home/hans/GithubCode/Robot-Fling/SemesterProjekt/FindPylon.cmake">
+			<Option virtualFolder="CMake Files\"/>
+		</Unit>
+		<Unit filename="/home/hans/GithubCode/Robot-Fling/SemesterProjekt/../../../../../usr/lib/x86_64-linux-gnu/cmake/Qt5/Qt5Config.cmake">
+			<Option virtualFolder="CMake Files\..\..\..\..\..\usr\lib\x86_64-linux-gnu\cmake\Qt5\"/>
+		</Unit>
+		<Unit filename="/home/hans/GithubCode/Robot-Fling/SemesterProjekt/../../../../../usr/lib/x86_64-linux-gnu/cmake/Qt5/Qt5ConfigVersion.cmake">
+			<Option virtualFolder="CMake Files\..\..\..\..\..\usr\lib\x86_64-linux-gnu\cmake\Qt5\"/>
+		</Unit>
+		<Unit filename="/home/hans/GithubCode/Robot-Fling/SemesterProjekt/../../../../../usr/lib/x86_64-linux-gnu/cmake/Qt5/Qt5ModuleLocation.cmake">
+			<Option virtualFolder="CMake Files\..\..\..\..\..\usr\lib\x86_64-linux-gnu\cmake\Qt5\"/>
+		</Unit>
+		<Unit filename="/home/hans/GithubCode/Robot-Fling/SemesterProjekt/../../../../../usr/lib/x86_64-linux-gnu/cmake/Qt5Widgets/Qt5WidgetsConfig.cmake">
+			<Option virtualFolder="CMake Files\..\..\..\..\..\usr\lib\x86_64-linux-gnu\cmake\Qt5Widgets\"/>
+		</Unit>
+		<Unit filename="/home/hans/GithubCode/Robot-Fling/SemesterProjekt/../../../../../usr/lib/x86_64-linux-gnu/cmake/Qt5Widgets/Qt5WidgetsConfigExtras.cmake">
+			<Option virtualFolder="CMake Files\..\..\..\..\..\usr\lib\x86_64-linux-gnu\cmake\Qt5Widgets\"/>
+		</Unit>
+		<Unit filename="/home/hans/GithubCode/Robot-Fling/SemesterProjekt/../../../../../usr/lib/x86_64-linux-gnu/cmake/Qt5Widgets/Qt5WidgetsConfigVersion.cmake">
+			<Option virtualFolder="CMake Files\..\..\..\..\..\usr\lib\x86_64-linux-gnu\cmake\Qt5Widgets\"/>
+		</Unit>
+		<Unit filename="/home/hans/GithubCode/Robot-Fling/SemesterProjekt/../../../../../usr/lib/x86_64-linux-gnu/cmake/Qt5Widgets/Qt5WidgetsMacros.cmake">
+			<Option virtualFolder="CMake Files\..\..\..\..\..\usr\lib\x86_64-linux-gnu\cmake\Qt5Widgets\"/>
+		</Unit>
+		<Unit filename="/home/hans/GithubCode/Robot-Fling/SemesterProjekt/../../../../../usr/lib/x86_64-linux-gnu/cmake/Qt5Gui/Qt5GuiConfig.cmake">
+			<Option virtualFolder="CMake Files\..\..\..\..\..\usr\lib\x86_64-linux-gnu\cmake\Qt5Gui\"/>
+		</Unit>
+		<Unit filename="/home/hans/GithubCode/Robot-Fling/SemesterProjekt/../../../../../usr/lib/x86_64-linux-gnu/cmake/Qt5Gui/Qt5GuiConfigExtras.cmake">
+			<Option virtualFolder="CMake Files\..\..\..\..\..\usr\lib\x86_64-linux-gnu\cmake\Qt5Gui\"/>
+		</Unit>
+		<Unit filename="/home/hans/GithubCode/Robot-Fling/SemesterProjekt/../../../../../usr/lib/x86_64-linux-gnu/cmake/Qt5Gui/Qt5GuiConfigVersion.cmake">
+			<Option virtualFolder="CMake Files\..\..\..\..\..\usr\lib\x86_64-linux-gnu\cmake\Qt5Gui\"/>
+		</Unit>
+		<Unit filename="/home/hans/GithubCode/Robot-Fling/SemesterProjekt/../../../../../usr/lib/x86_64-linux-gnu/cmake/Qt5Core/Qt5CoreConfig.cmake">
+			<Option virtualFolder="CMake Files\..\..\..\..\..\usr\lib\x86_64-linux-gnu\cmake\Qt5Core\"/>
+		</Unit>
+		<Unit filename="/home/hans/GithubCode/Robot-Fling/SemesterProjekt/../../../../../usr/lib/x86_64-linux-gnu/cmake/Qt5Core/Qt5CoreConfigExtras.cmake">
+			<Option virtualFolder="CMake Files\..\..\..\..\..\usr\lib\x86_64-linux-gnu\cmake\Qt5Core\"/>
+		</Unit>
+		<Unit filename="/home/hans/GithubCode/Robot-Fling/SemesterProjekt/../../../../../usr/lib/x86_64-linux-gnu/cmake/Qt5Core/Qt5CoreConfigExtrasMkspecDir.cmake">
+			<Option virtualFolder="CMake Files\..\..\..\..\..\usr\lib\x86_64-linux-gnu\cmake\Qt5Core\"/>
+		</Unit>
+		<Unit filename="/home/hans/GithubCode/Robot-Fling/SemesterProjekt/../../../../../usr/lib/x86_64-linux-gnu/cmake/Qt5Core/Qt5CoreConfigVersion.cmake">
+			<Option virtualFolder="CMake Files\..\..\..\..\..\usr\lib\x86_64-linux-gnu\cmake\Qt5Core\"/>
+		</Unit>
+		<Unit filename="/home/hans/GithubCode/Robot-Fling/SemesterProjekt/../../../../../usr/lib/x86_64-linux-gnu/cmake/Qt5Core/Qt5CoreMacros.cmake">
+			<Option virtualFolder="CMake Files\..\..\..\..\..\usr\lib\x86_64-linux-gnu\cmake\Qt5Core\"/>
+		</Unit>
+		<Unit filename="/home/hans/GithubCode/Robot-Fling/SemesterProjekt/../../../../../usr/lib/x86_64-linux-gnu/cmake/Qt5Sql/Qt5SqlConfig.cmake">
+			<Option virtualFolder="CMake Files\..\..\..\..\..\usr\lib\x86_64-linux-gnu\cmake\Qt5Sql\"/>
+		</Unit>
+		<Unit filename="/home/hans/GithubCode/Robot-Fling/SemesterProjekt/../../../../../usr/lib/x86_64-linux-gnu/cmake/Qt5Sql/Qt5SqlConfigVersion.cmake">
+			<Option virtualFolder="CMake Files\..\..\..\..\..\usr\lib\x86_64-linux-gnu\cmake\Qt5Sql\"/>
+		</Unit>
+		<Unit filename="/home/hans/GithubCode/Robot-Fling/SemesterProjekt/../../../../../usr/lib/x86_64-linux-gnu/cmake/Qt5Network/Qt5NetworkConfig.cmake">
+			<Option virtualFolder="CMake Files\..\..\..\..\..\usr\lib\x86_64-linux-gnu\cmake\Qt5Network\"/>
+		</Unit>
+		<Unit filename="/home/hans/GithubCode/Robot-Fling/SemesterProjekt/../../../../../usr/lib/x86_64-linux-gnu/cmake/Qt5Network/Qt5NetworkConfigVersion.cmake">
+			<Option virtualFolder="CMake Files\..\..\..\..\..\usr\lib\x86_64-linux-gnu\cmake\Qt5Network\"/>
+		</Unit>
+		<Unit filename="/home/hans/GithubCode/Robot-Fling/SemesterProjekt/../../../../../usr/lib/x86_64-linux-gnu/cmake/ur_rtde/ur_rtdeBuildConfig.cmake">
+			<Option virtualFolder="CMake Files\..\..\..\..\..\usr\lib\x86_64-linux-gnu\cmake\ur_rtde\"/>
+		</Unit>
+		<Unit filename="/home/hans/GithubCode/Robot-Fling/SemesterProjekt/../../../../../usr/lib/x86_64-linux-gnu/cmake/ur_rtde/ur_rtdeConfig.cmake">
+			<Option virtualFolder="CMake Files\..\..\..\..\..\usr\lib\x86_64-linux-gnu\cmake\ur_rtde\"/>
+		</Unit>
+		<Unit filename="/home/hans/GithubCode/Robot-Fling/SemesterProjekt/../../../../../usr/lib/x86_64-linux-gnu/cmake/ur_rtde/ur_rtdeConfigVersion.cmake">
+			<Option virtualFolder="CMake Files\..\..\..\..\..\usr\lib\x86_64-linux-gnu\cmake\ur_rtde\"/>
+		</Unit>
+		<Unit filename="/home/hans/GithubCode/Robot-Fling/SemesterProjekt/../../../../../usr/lib/x86_64-linux-gnu/cmake/ur_rtde/ur_rtdeTargets-none.cmake">
+			<Option virtualFolder="CMake Files\..\..\..\..\..\usr\lib\x86_64-linux-gnu\cmake\ur_rtde\"/>
+		</Unit>
+		<Unit filename="/home/hans/GithubCode/Robot-Fling/SemesterProjekt/../../../../../usr/lib/x86_64-linux-gnu/cmake/ur_rtde/ur_rtdeTargets.cmake">
+			<Option virtualFolder="CMake Files\..\..\..\..\..\usr\lib\x86_64-linux-gnu\cmake\ur_rtde\"/>
+		</Unit>
+		<Unit filename="/home/hans/GithubCode/Robot-Fling/SemesterProjekt/../../../../../usr/share/OpenCV/OpenCVConfig-version.cmake">
+			<Option virtualFolder="CMake Files\..\..\..\..\..\usr\share\OpenCV\"/>
+		</Unit>
+		<Unit filename="/home/hans/GithubCode/Robot-Fling/SemesterProjekt/../../../../../usr/share/OpenCV/OpenCVConfig.cmake">
+			<Option virtualFolder="CMake Files\..\..\..\..\..\usr\share\OpenCV\"/>
+		</Unit>
+		<Unit filename="/home/hans/GithubCode/Robot-Fling/SemesterProjekt/../../../../../usr/share/OpenCV/OpenCVModules-release.cmake">
+			<Option virtualFolder="CMake Files\..\..\..\..\..\usr\share\OpenCV\"/>
+		</Unit>
+		<Unit filename="/home/hans/GithubCode/Robot-Fling/SemesterProjekt/../../../../../usr/share/OpenCV/OpenCVModules.cmake">
+			<Option virtualFolder="CMake Files\..\..\..\..\..\usr\share\OpenCV\"/>
+		</Unit>
+		<Unit filename="/home/hans/GithubCode/Robot-Fling/SemesterProjekt/../../../../../usr/share/robwork-1.1/cmake/RobWorkBuildConfig_none.cmake">
+			<Option virtualFolder="CMake Files\..\..\..\..\..\usr\share\robwork-1.1\cmake\"/>
+		</Unit>
+		<Unit filename="/home/hans/GithubCode/Robot-Fling/SemesterProjekt/../../../../../usr/share/robwork-1.1/cmake/RobWorkConfig.cmake">
+			<Option virtualFolder="CMake Files\..\..\..\..\..\usr\share\robwork-1.1\cmake\"/>
+		</Unit>
+		<Unit filename="/home/hans/GithubCode/Robot-Fling/SemesterProjekt/../../../../../usr/share/robwork-1.1/cmake/RobWorkConfigVersion.cmake">
+			<Option virtualFolder="CMake Files\..\..\..\..\..\usr\share\robwork-1.1\cmake\"/>
+		</Unit>
+		<Unit filename="/home/hans/GithubCode/Robot-Fling/SemesterProjekt/../../../../../usr/share/robwork-1.1/cmake/RobWorkTargets.cmake">
+			<Option virtualFolder="CMake Files\..\..\..\..\..\usr\share\robwork-1.1\cmake\"/>
+		</Unit>
+	</Project>
+</CodeBlocks_project_file>

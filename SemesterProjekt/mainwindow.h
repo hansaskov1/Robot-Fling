@@ -54,6 +54,7 @@ private:
     cv::Mat worldCalImg[4];
     QPixmap pixmap;
     Gripper gripper;
+    RobotControl RC;
 };
 
 #endif // MAINWINDOW_H
