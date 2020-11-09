@@ -1,2 +1,0 @@
-/usr/bin/ar qc libRobotControl.a  CMakeFiles/RobotControl.dir/RobotControl.cpp.o
-/usr/bin/ranlib libRobotControl.a

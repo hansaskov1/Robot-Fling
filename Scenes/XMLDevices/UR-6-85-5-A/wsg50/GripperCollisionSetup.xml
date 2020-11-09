@@ -1,0 +1,17 @@
+<CollisionSetup>
+  <Exclude>
+    <FramePair first="Base1" second="Finger1"/>
+    <FramePair first="Base1" second="Finger2"/>
+    <FramePair first="Finger1" second="Finger2"/>
+<!--    <FramePair first="Finger1" second="Finger1Ex"/>
+    <FramePair first="Finger1" second="Finger2Ex"/>
+    <FramePair first="Finger2" second="Finger1Ex"/>
+    <FramePair first="Finger2" second="Finger2Ex"/>
+    <FramePair first="Finger1Ex" second="Finger2Ex"/>
+    <FramePair first="Finger1Ex" second="Exchange1"/>
+    <FramePair first="Finger1Ex" second="Exchange2"/>
+    <FramePair first="Finger2Ex" second="Exchange1"/>
+    <FramePair first="Finger2Ex" second="Exchange2"/> 
+    <FramePair first="Exchange1" second="Exchange2"/> -->
+  </Exclude>
+</CollisionSetup>

@@ -39,7 +39,7 @@
 	</Drawable>
 	
 	<Frame name="URMount">
-		<RPY>90 0 0</RPY>
+		<RPY>155.95 0 0</RPY>
 		<Pos>-0.42 -0.92 0.017</Pos>
 	</Frame>
 	<Include file="../../XMLDevices/UR-6-85-5-A/UR.wc.xml" />
