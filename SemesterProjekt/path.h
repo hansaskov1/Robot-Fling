@@ -8,10 +8,10 @@ class Path
 public:
     Path()
     {
-        jointPoses.reserve(100);
-        jointVel.reserve(100);
-        toolPose.reserve(100);
-        toolVel.reserve(100);
+        jointPoses.reserve(6);
+        jointVel.reserve(6);
+        toolPose.reserve(6);
+        toolVel.reserve(6);
     }
 
     Path(const Path& path){
@@ -32,7 +32,7 @@ public:
     }
 */
 
-    Path & operator = (const Path & p){
+    Path & operator = (const Path & p) {
         jointPoses = p.jointPoses;
         jointVel = p.jointVel;
         toolPose = p.toolPose;

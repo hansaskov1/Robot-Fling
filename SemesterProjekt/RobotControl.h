@@ -22,6 +22,7 @@
 #include <future>
 #include "Gripper.h"
 #include "path.h"
+#include "Throw.h"
 
 
 
@@ -217,21 +218,22 @@ public:
 
     if (!collision)
     {
-        double simSpeed = 1;
-        double simAcc = 0.2;
+        double simSpeed = 3;
+        double simAcc = 3;
         double msInterval = 10;
 
         ur_rtde::RTDEControlInterface rtdeControl(mIpAdress);
         ur_rtde::RTDEReceiveInterface rtdeRecive(mIpAdress);
-        QFullPath.push_back(moveRobotJ(qHome,                        msInterval, rtdeControl, rtdeRecive, simSpeed, simAcc).getJointPoses());
-        QFullPath.push_back(moveRobotJ(qSafeGrib,                    msInterval, rtdeControl, rtdeRecive, simSpeed, simAcc).getJointPoses());
-        QFullPath.push_back(moveRobotL(posGribReadyR, rpyGribReady,  msInterval, rtdeControl, rtdeRecive, simSpeed, simAcc).getJointPoses());
-        QFullPath.push_back(moveRobotL(posBallR, rpyBall,            msInterval, rtdeControl, rtdeRecive, 0.2,      0.05  ).getJointPoses());
+        mThrow.addPath(moveRobotJ(qHome,                        msInterval, rtdeControl, rtdeRecive, simSpeed, simAcc));
+        mThrow.addPath(moveRobotJ(qSafeGrib,                    msInterval, rtdeControl, rtdeRecive, simSpeed, simAcc));
+        mThrow.addPath(moveRobotL(posGribReadyR, rpyGribReady,  msInterval, rtdeControl, rtdeRecive, simSpeed, simAcc));
+        mThrow.addPath(moveRobotL(posBallR, rpyBall,            msInterval, rtdeControl, rtdeRecive, 0.2,      0.05  ));
         gripper.close();
+        //while (!gripper.hasGripped());
         std::this_thread::sleep_for(std::chrono::milliseconds(2000));
-        QFullPath.push_back(moveRobotL(posGribReadyR, rpyGribReady,  msInterval, rtdeControl, rtdeRecive, simSpeed, simAcc).getJointPoses());
-        QFullPath.push_back(moveRobotJ(qSafeGrib,                    msInterval, rtdeControl, rtdeRecive, simSpeed, simAcc).getJointPoses());
-        QFullPath.push_back(moveRobotJ(qHome,                        msInterval, rtdeControl, rtdeRecive, simSpeed, simAcc).getJointPoses());
+        mThrow.addPath(moveRobotL(posGribReadyR, rpyGribReady,  msInterval, rtdeControl, rtdeRecive, simSpeed, simAcc));
+        mThrow.addPath(moveRobotJ(qSafeGrib,                    msInterval, rtdeControl, rtdeRecive, simSpeed, simAcc));
+        mThrow.addPath(moveRobotJ(qHome,                        msInterval, rtdeControl, rtdeRecive, simSpeed, simAcc));
         gripper.open();
 
     } else
@@ -246,12 +248,22 @@ public:
       getBall(ballPositionW,distance);
     }
 
+    Throw getThrow() {
+        mThrow.setKastID(1);
+        mThrow.setObjekt("Bold");
+        mThrow.setVinkel(45);
+        mThrow.setHastighed(200);
+        mThrow.setSuccess(1);
+        return mThrow;
+    }
+
 private:
 std::string mIpAdress;
  Gripper gripper;
  rw::math::Vector3D<> mCalPos;
  rw::math::Rotation3D<> mCalRot;
  rw::math::Rotation3D<> mInvCalRot;
+ Throw mThrow;
 };
 
 

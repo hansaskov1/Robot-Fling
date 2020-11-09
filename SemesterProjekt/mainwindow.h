@@ -14,6 +14,7 @@
 #include "showvideo.h"
 #include "DetectCollision.h"
 #include "RobotControl.h"
+#include "sqlcontroller.h"
 
 QT_BEGIN_NAMESPACE
 namespace Ui { class MainWindow; }
@@ -47,6 +48,7 @@ private:
     cv::Mat image;
     cv::Mat worldCalImg[4];
     RobotControl RC;
+    SQLController sql;
 };
 
 #endif // MAINWINDOW_H

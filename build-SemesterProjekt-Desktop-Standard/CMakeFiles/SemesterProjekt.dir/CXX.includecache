@@ -113,6 +113,8 @@ Gripper.h
 /home/christian/workspace/Robot-Fling/SemesterProjekt/Gripper.h
 path.h
 /home/christian/workspace/Robot-Fling/SemesterProjekt/path.h
+Throw.h
+/home/christian/workspace/Robot-Fling/SemesterProjekt/Throw.h
 
 /home/christian/workspace/Robot-Fling/SemesterProjekt/Throw.h
 QString
@@ -199,6 +201,8 @@ DetectCollision.h
 /home/christian/workspace/Robot-Fling/SemesterProjekt/DetectCollision.h
 RobotControl.h
 /home/christian/workspace/Robot-Fling/SemesterProjekt/RobotControl.h
+sqlcontroller.h
+/home/christian/workspace/Robot-Fling/SemesterProjekt/sqlcontroller.h
 
 /home/christian/workspace/Robot-Fling/SemesterProjekt/objectdetection.cpp
 objectdetection.h

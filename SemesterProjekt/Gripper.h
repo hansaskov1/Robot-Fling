@@ -35,6 +35,10 @@ public:
             return connectFlag;
         }
 
+        bool hasGripped() {
+            return gripped;
+        }
+
         void disconnect() {
             qDebug() << "Disconnect called";
             ToSendData("BYE()\n");
@@ -43,6 +47,7 @@ public:
         void open() {
             qDebug() << "Open called";
             ToSendData("RELEASE()\n");
+            gripped = false;
         }
 
         void close() {
@@ -102,7 +107,8 @@ private slots:
             noAckTimes = 0;
             if (mySocket->isReadable())
             {
-                qDebug() << mySocket->readAll();
+                if (mySocket->readAll() == "FIN GRIP\n")
+                    gripped = true;
             }
         }
 
@@ -133,6 +139,7 @@ private slots:
         quint16 noAckTimes{0};//The number of times the server did not receive a reply
         quint16 serverPort{0};//Server port
         QString serverIp;//Server Ip
+        bool gripped {false};
 /*
     void connectGripper(std::string IP) {
         qDebug() << "Trying to connect";

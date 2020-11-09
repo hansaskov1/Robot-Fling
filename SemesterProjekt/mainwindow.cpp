@@ -56,11 +56,30 @@ void MainWindow::on_bSend_clicked()
     ui->lImage->setPixmap(QPixmap::fromImage(imgIn));
     ui->lImage->setScaledContents(true);
 */
-    if (ballPos.x && ballPos.y)
+    //if (ballPos.x && ballPos.y)
     {
-        rw::math::Vector3D<> ballPosition(camToBall.at<float>(0,3)*0.01,camToBall.at<float>(1,3)*0.01,camToBall.at<float>(2,3)*0.01);
-        //rw::math::Vector3D<> ballPosition(0.2,0.2,0.1);
-        RC.getBall(ballPosition,0.2);
+        //rw::math::Vector3D<> ballPosition(camToBall.at<float>(0,3)*0.01,camToBall.at<float>(1,3)*0.01,camToBall.at<float>(2,3)*0.01);
+        rw::math::Vector3D<> ballPosition(0.2,0.2,0.1);
+        RC.getBall(ballPosition,0.05);
+    }
+
+    if (sql.insert(RC.getThrow()))
+        ui->statusbar->showMessage("Inserted to database", 3000);
+
+    bool ok;
+
+    Throw kast = sql.getThrows(ok).front();
+    std::cout << "Paths: " << kast.getPaths().size() << std::endl;
+
+    for (unsigned int i = 0; i < kast.getPaths().size(); i++) {
+        for (unsigned int j = 0; j < kast.getPaths().at(i).getJointPoses().size(); j++)
+        {
+            std::cout << kast.getPaths().at(i).getJointPoses().size() << std::endl;
+            for (unsigned int u = 0; u < kast.getPaths().at(i).getJointPoses().at(j).size(); u++)
+                std::cout << kast.getPaths().at(i).getJointPoses().at(j).at(u) << " ";
+            std::cout << std::endl;
+        }
+        std::cout << std::endl;
     }
 }
 
@@ -100,11 +119,13 @@ void MainWindow::on_bSaveConnect_clicked()
     rw::math::Vector3D<> PCal(0.400624689065891, 0.901530744085863, 0.042187492976487);
     rw::math::Rotation3D<double> RCal(0.923890908941640 ,0.382647484711815,-0.002547708521920,-0.382655561588167,0.923879135480505,-0.004697255522142,0.000556381736091,0.005314646509101,0.999985722383999);
 
-    RC.setParam("192.168.100.49", "192.168.100.10", PCal, RCal);
+    RC.setParam("127.0.0.1", "192.168.100.10", PCal, RCal);
+
+    if (sql.connect("192.168.221.1", "ubuntu", "Tarzan12!", "kastdb"))
+        ui->statusbar->showMessage("Connected", 3000);
 
     //gripper.Init();
     //gripper.ToConnectToHost("192.168.100.10", 1000);
-    ui->statusbar->showMessage("Connected", 3000);
 }
 
 void MainWindow::on_bDisconnect_clicked()
