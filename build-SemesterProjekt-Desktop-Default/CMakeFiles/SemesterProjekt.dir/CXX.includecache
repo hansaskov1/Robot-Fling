@@ -31,6 +31,18 @@ rw/invkin/InvKinSolver.hpp
 -
 rw/invkin/JacobianIKSolver.hpp
 -
+rw/loaders/WorkCellLoader.hpp
+-
+rw/math/EAA.hpp
+-
+rw/models/SerialDevice.hpp
+-
+rw/models/WorkCell.hpp
+-
+rw/invkin/AmbiguityResolver.hpp
+-
+rw/invkin/JacobianIKSolver.hpp
+-
 stdio.h
 -
 iostream
@@ -48,6 +60,8 @@ chrono
 thread
 -
 future
+-
+math.h
 -
 
 /home/hans/GithubCode/Robot-Fling/SemesterProjekt/Gripper.h
@@ -6414,6 +6428,14 @@ rw/core/Ptr.hpp
 rw/math/Jacobian.hpp
 -
 
+/usr/share/robwork-1.1/cmake/../../../include/robwork-1.1/rw/models/JointDevice.hpp
+Device.hpp
+/usr/share/robwork-1.1/cmake/../../../include/robwork-1.1/rw/models/Device.hpp
+JacobianCalculator.hpp
+/usr/share/robwork-1.1/cmake/../../../include/robwork-1.1/rw/models/JacobianCalculator.hpp
+vector
+-
+
 /usr/share/robwork-1.1/cmake/../../../include/robwork-1.1/rw/models/Models.hpp
 Device.hpp
 /usr/share/robwork-1.1/cmake/../../../include/robwork-1.1/rw/models/Device.hpp
@@ -6423,6 +6445,12 @@ rw/trajectory/Path.hpp
 -
 utility
 -
+vector
+-
+
+/usr/share/robwork-1.1/cmake/../../../include/robwork-1.1/rw/models/SerialDevice.hpp
+JointDevice.hpp
+/usr/share/robwork-1.1/cmake/../../../include/robwork-1.1/rw/models/JointDevice.hpp
 vector
 -
 

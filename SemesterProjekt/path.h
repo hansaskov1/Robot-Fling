@@ -8,6 +8,7 @@ class Path
 public:
     Path()
     {
+
         jointPoses.reserve(100);
         jointVel.reserve(100);
         toolPose.reserve(100);

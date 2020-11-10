@@ -615,7 +615,9 @@ CMakeFiles/SemesterProjekt.dir/SemesterProjekt_autogen/mocs_compilation.cpp.o: /
 CMakeFiles/SemesterProjekt.dir/SemesterProjekt_autogen/mocs_compilation.cpp.o: /usr/share/robwork-1.1/cmake/../../../include/robwork-1.1/rw/math/VelocityScrew6D.hpp
 CMakeFiles/SemesterProjekt.dir/SemesterProjekt_autogen/mocs_compilation.cpp.o: /usr/share/robwork-1.1/cmake/../../../include/robwork-1.1/rw/models/Device.hpp
 CMakeFiles/SemesterProjekt.dir/SemesterProjekt_autogen/mocs_compilation.cpp.o: /usr/share/robwork-1.1/cmake/../../../include/robwork-1.1/rw/models/JacobianCalculator.hpp
+CMakeFiles/SemesterProjekt.dir/SemesterProjekt_autogen/mocs_compilation.cpp.o: /usr/share/robwork-1.1/cmake/../../../include/robwork-1.1/rw/models/JointDevice.hpp
 CMakeFiles/SemesterProjekt.dir/SemesterProjekt_autogen/mocs_compilation.cpp.o: /usr/share/robwork-1.1/cmake/../../../include/robwork-1.1/rw/models/Models.hpp
+CMakeFiles/SemesterProjekt.dir/SemesterProjekt_autogen/mocs_compilation.cpp.o: /usr/share/robwork-1.1/cmake/../../../include/robwork-1.1/rw/models/SerialDevice.hpp
 CMakeFiles/SemesterProjekt.dir/SemesterProjekt_autogen/mocs_compilation.cpp.o: /usr/share/robwork-1.1/cmake/../../../include/robwork-1.1/rw/models/WorkCell.hpp
 CMakeFiles/SemesterProjekt.dir/SemesterProjekt_autogen/mocs_compilation.cpp.o: /usr/share/robwork-1.1/cmake/../../../include/robwork-1.1/rw/pathplanning/PathPlanner.hpp
 CMakeFiles/SemesterProjekt.dir/SemesterProjekt_autogen/mocs_compilation.cpp.o: /usr/share/robwork-1.1/cmake/../../../include/robwork-1.1/rw/pathplanning/QConstraint.hpp
@@ -1403,7 +1405,9 @@ CMakeFiles/SemesterProjekt.dir/main.cpp.o: /usr/share/robwork-1.1/cmake/../../..
 CMakeFiles/SemesterProjekt.dir/main.cpp.o: /usr/share/robwork-1.1/cmake/../../../include/robwork-1.1/rw/math/VelocityScrew6D.hpp
 CMakeFiles/SemesterProjekt.dir/main.cpp.o: /usr/share/robwork-1.1/cmake/../../../include/robwork-1.1/rw/models/Device.hpp
 CMakeFiles/SemesterProjekt.dir/main.cpp.o: /usr/share/robwork-1.1/cmake/../../../include/robwork-1.1/rw/models/JacobianCalculator.hpp
+CMakeFiles/SemesterProjekt.dir/main.cpp.o: /usr/share/robwork-1.1/cmake/../../../include/robwork-1.1/rw/models/JointDevice.hpp
 CMakeFiles/SemesterProjekt.dir/main.cpp.o: /usr/share/robwork-1.1/cmake/../../../include/robwork-1.1/rw/models/Models.hpp
+CMakeFiles/SemesterProjekt.dir/main.cpp.o: /usr/share/robwork-1.1/cmake/../../../include/robwork-1.1/rw/models/SerialDevice.hpp
 CMakeFiles/SemesterProjekt.dir/main.cpp.o: /usr/share/robwork-1.1/cmake/../../../include/robwork-1.1/rw/models/WorkCell.hpp
 CMakeFiles/SemesterProjekt.dir/main.cpp.o: /usr/share/robwork-1.1/cmake/../../../include/robwork-1.1/rw/pathplanning/PathPlanner.hpp
 CMakeFiles/SemesterProjekt.dir/main.cpp.o: /usr/share/robwork-1.1/cmake/../../../include/robwork-1.1/rw/pathplanning/QConstraint.hpp
@@ -2099,7 +2103,9 @@ CMakeFiles/SemesterProjekt.dir/mainwindow.cpp.o: /usr/share/robwork-1.1/cmake/..
 CMakeFiles/SemesterProjekt.dir/mainwindow.cpp.o: /usr/share/robwork-1.1/cmake/../../../include/robwork-1.1/rw/math/VelocityScrew6D.hpp
 CMakeFiles/SemesterProjekt.dir/mainwindow.cpp.o: /usr/share/robwork-1.1/cmake/../../../include/robwork-1.1/rw/models/Device.hpp
 CMakeFiles/SemesterProjekt.dir/mainwindow.cpp.o: /usr/share/robwork-1.1/cmake/../../../include/robwork-1.1/rw/models/JacobianCalculator.hpp
+CMakeFiles/SemesterProjekt.dir/mainwindow.cpp.o: /usr/share/robwork-1.1/cmake/../../../include/robwork-1.1/rw/models/JointDevice.hpp
 CMakeFiles/SemesterProjekt.dir/mainwindow.cpp.o: /usr/share/robwork-1.1/cmake/../../../include/robwork-1.1/rw/models/Models.hpp
+CMakeFiles/SemesterProjekt.dir/mainwindow.cpp.o: /usr/share/robwork-1.1/cmake/../../../include/robwork-1.1/rw/models/SerialDevice.hpp
 CMakeFiles/SemesterProjekt.dir/mainwindow.cpp.o: /usr/share/robwork-1.1/cmake/../../../include/robwork-1.1/rw/models/WorkCell.hpp
 CMakeFiles/SemesterProjekt.dir/mainwindow.cpp.o: /usr/share/robwork-1.1/cmake/../../../include/robwork-1.1/rw/pathplanning/PathPlanner.hpp
 CMakeFiles/SemesterProjekt.dir/mainwindow.cpp.o: /usr/share/robwork-1.1/cmake/../../../include/robwork-1.1/rw/pathplanning/QConstraint.hpp
