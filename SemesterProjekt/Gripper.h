@@ -118,7 +118,7 @@ private slots:
                 {
                     if (data.size() != mySocket->write(data))
                     {
-                        qDebug() << "Noget gik gal";
+                        qDebug() << "Der er noget der driller";
                     }
                 }
         }
@@ -140,60 +140,6 @@ private slots:
         quint16 serverPort{0};//Server port
         QString serverIp;//Server Ip
         bool gripped {false};
-/*
-    void connectGripper(std::string IP) {
-        qDebug() << "Trying to connect";
-        QString newIP = QString::fromStdString(IP);
-        gripperSocket.connectToHost(QHostAddress(newIP), port);
-        //connect(&gripperSocket, SIGNAL(readyRead()), this, SLOT(onReadyRead()));
-        if (gripperSocket.waitForConnected(3000))
-            qDebug() << "Connected";
-        else {
-            qDebug() << "Den gik ikke";
-        }
-    }
-
-    void disconnect() {
-       qDebug() << gripperSocket.write("BYE()\n");
-       gripperSocket.close();
-    }
-
-    void open() {
-        qDebug() << "Open called";
-        qDebug() << gripperSocket.write("RELEASE()\n");
-    }
-
-    void close() {
-        qDebug() << "Close called";
-        qDebug() << gripperSocket.write("GRIP()\n");
-    }
-
-    void close(double force) {
-        qDebug() << "Close called";
-        QByteArray grip = QByteArray::fromStdString("GRIP(" + std::to_string(force) + ")\n");
-        qDebug() << gripperSocket.write(grip);
-    }
-
-    void close(double force, double size, double speed) {
-        qDebug() << "Close called";
-        QByteArray grip = QByteArray::fromStdString("GRIP(" + std::to_string(force) + ", " + std::to_string(size) + ", " + std::to_string(speed) + ")\n");
-        qDebug() << gripperSocket.write(grip);
-    }
-
-    void home() {
-        qDebug() << "Home called";
-        qDebug() << gripperSocket.write("HOME()\n");
-    }
-
-    void setPort(int value) { port = value; }
-
-private:
-    int port = 42069;
-    QTcpSocket gripperSocket;
-
-
-public slots:
-    void onReadyRead() { QByteArray datas = gripperSocket.readAll(); }*/
 };
 
 #endif // GRIPPER_H

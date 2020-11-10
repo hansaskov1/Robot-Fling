@@ -111,6 +111,7 @@ public:
        {
            path.addJointPose(rtde_recieve.getActualQ());
            path.addJointVel(rtde_recieve.getActualQd());
+           //insert targets here
            path.addToolPose(rtde_recieve.getActualTCPPose());
            path.addToolVel(rtde_recieve.getActualTCPSpeed());
            std::this_thread::sleep_for(std::chrono::milliseconds(msInterval));

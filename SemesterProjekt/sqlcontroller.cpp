@@ -105,16 +105,25 @@ std::vector<Throw> SQLController::searchThrow(std::string searchWord, std::strin
 
 bool SQLController::insert(Throw kast)
 {
-    QSqlQuery query;
-    QString sql = "INSERT INTO kast VALUES (" + QString::number(kast.getKastID()) + ", '" + kast.getObjekt() + "', " + QString::number(kast.getVinkel()) + ", " + QString::number(kast.getHastighed()) + ", " + QString::number(kast.isSuccess()) + "); ";
-    /*
-    sql.append("INSERT INTO sti VALUES ");
-    kast.getPaths().shrink_to_fit();
-    for (unsigned int i = 1; i < kast.getPaths().size(); i++)
-        sql.append("(" + QString::number(i) + ", " + QString::number(kast.getKastID()) + "), ");
-    sql.append("(" + QString::number(kast.getPaths().size()) + ", " + QString::number(kast.getKastID()) + "); ");
-    */
+    QSqlQuery selectQuery;
 
+    selectQuery.prepare("SELECT kastID FROM kast");
+    selectQuery.exec();
+
+    while(selectQuery.next()) {
+        if (kast.getKastID() == selectQuery.value(0).toUInt())
+            kast.setKastID(selectQuery.value(0).toUInt() + 1);
+        std::cout << kast.getKastID() << std::endl;
+    }
+
+    QSqlQuery kastQuery;
+
+    kastQuery.prepare("INSERT INTO kast (objekt, vinkel, hastighed, success) VALUES ('" + kast.getObjekt() + "', " + QString::number(kast.getVinkel()) + ", " + QString::number(kast.getHastighed()) + ", " + QString::number(kast.isSuccess()) + ");");
+    kastQuery.exec();
+
+    QSqlQuery query;
+
+    QString sql = "";
     sql.append("INSERT INTO jointpose VALUES ");
     //paths
     for (unsigned int i = 0; i < kast.getPaths().size(); i++) {

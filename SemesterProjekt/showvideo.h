@@ -18,7 +18,6 @@ public:
     }
 
     void run() {
-        int i = 0;
         while(c->mRun) {
             image = c->getImage();
             mLabel->setPixmap(QPixmap::fromImage(QImage((const uchar*)image.data, image.cols, image.rows, image.step, QImage::Format_RGB888).rgbSwapped()));

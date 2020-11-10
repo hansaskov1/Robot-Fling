@@ -230,29 +230,6 @@ cv::Mat Calibration::getRawImage()
     return imageIn;
 }
 
-cv::Mat tranformMatrix(cv::Mat undistortedImage, cv::Point2f pixelCords[4], cv::Point2f worldCords[4])
-{
-
-    //Define mat size and type
-    cv::Mat tMat = cv::Mat::zeros(undistortedImage.rows,undistortedImage.cols,undistortedImage.type());
-
-    //pixel coordiants
-    pixelCords[0] = cv::Point2f();
-    pixelCords[1] = cv::Point2f();
-    pixelCords[2] = cv::Point2f();
-    pixelCords[3] = cv::Point2f();
-
-    //World coordinats
-    worldCords[0] = cv::Point2f();
-    worldCords[1] = cv::Point2f();
-    worldCords[2] = cv::Point2f();
-    worldCords[3] = cv::Point2f();
-
-    //get perspektive transformation Matrix
-    tMat = cv::getPerspectiveTransform(pixelCords,worldCords);
-    return tMat;
-}
-
 void Calibration::grapPictures()
 {
     int myExposure = 30000;

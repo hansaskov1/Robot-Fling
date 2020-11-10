@@ -24,6 +24,7 @@ MainWindow::MainWindow(QWidget *parent)
 MainWindow::~MainWindow()
 {
     delete ui;
+    //delete video;
 }
 
 void MainWindow::on_bSend_clicked()
@@ -46,16 +47,6 @@ void MainWindow::on_bSend_clicked()
         break;
     }
 
-    //const uchar *qImageBuffer = (const uchar*)image.data;
-    //QImage img(qImageBuffer, image.cols, image.rows, image.step, QImage::Format_RGB888);
-    //img.setColorTable(colorTable);
-    //pixmap = QPixmap::fromImage(img);
-    //ui->lImage->setPixmap(pixmap);
-    /*
-    QImage imgIn = QImage((uchar*)image.data, image.cols, image.rows, image.step, QImage::Format_RGB888);
-    ui->lImage->setPixmap(QPixmap::fromImage(imgIn));
-    ui->lImage->setScaledContents(true);
-*/
     //if (ballPos.x && ballPos.y)
     {
         //rw::math::Vector3D<> ballPosition(camToBall.at<float>(0,3)*0.01,camToBall.at<float>(1,3)*0.01,camToBall.at<float>(2,3)*0.01);
@@ -65,22 +56,6 @@ void MainWindow::on_bSend_clicked()
 
     if (sql.insert(RC.getThrow()))
         ui->statusbar->showMessage("Inserted to database", 3000);
-
-    bool ok;
-
-    Throw kast = sql.getThrows(ok).front();
-    std::cout << "Paths: " << kast.getPaths().size() << std::endl;
-
-    for (unsigned int i = 0; i < kast.getPaths().size(); i++) {
-        for (unsigned int j = 0; j < kast.getPaths().at(i).getJointPoses().size(); j++)
-        {
-            std::cout << kast.getPaths().at(i).getJointPoses().size() << std::endl;
-            for (unsigned int u = 0; u < kast.getPaths().at(i).getJointPoses().at(j).size(); u++)
-                std::cout << kast.getPaths().at(i).getJointPoses().at(j).at(u) << " ";
-            std::cout << std::endl;
-        }
-        std::cout << std::endl;
-    }
 }
 
 void MainWindow::on_bOpenGrip_clicked()
