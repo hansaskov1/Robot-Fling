@@ -176,16 +176,16 @@ public:
     }
 
 
-    bool isCollision(size_t checks,rw::math::Q endJointPosition)
+    bool isCollision(unsigned int checks,rw::math::Q endJointPose)
     {
-        rw::trajectory::LinearInterpolator<rw::math::Q> interpolator(mDevice->getQ(mState), endJointPosition, 1);
+        rw::trajectory::LinearInterpolator<rw::math::Q> interpolator(mDevice->getQ(mState), endJointPose, checks);
         std::vector<rw::math::Q> QVec;
 
         for (unsigned int i = 1; i < checks; i++)
         {
-            rw::math::Q q = interpolator.x(static_cast<double>(i) / static_cast<double>(checks));
+            rw::math::Q q = interpolator.x(i);
             std::cout << q << std::endl;
-
+            setState(q);
 
             if (checkCollision())
             {
@@ -194,7 +194,7 @@ public:
             }
             QVec.push_back(q);
         }
-        setState(endJointPosition);
+        setState(endJointPose);
         mQVec = QVec;
         return false;
     }
@@ -253,6 +253,12 @@ private:
         rw::proximity::CollisionDetector::QueryResult resEnd;
             mDetector->inCollision(mState, &resEnd);
             return !resEnd.collidingFrames.empty();
+    }
+
+    bool checkCollision(rw::math::Q q)
+    {
+        setState(q);
+        checkCollision();
     }
 
     rw::models::SerialDevice::Ptr device;

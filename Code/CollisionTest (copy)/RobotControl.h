@@ -213,20 +213,19 @@ public:
 
     if (!collision)
     {
-        double simSpeed = 3;
-        double simAcc = 3;
+        double speed = 3;
+        double acceleration = 3;
         double msInterval = 10;
-
         ur_rtde::RTDEControlInterface rtdeControl(mIpAdress);
         ur_rtde::RTDEReceiveInterface rtdeRecive(mIpAdress);
-        moveRobotJ(qHome,                        msInterval, rtdeControl, rtdeRecive, simSpeed, simAcc);
-        moveRobotJ(qSafeGrib,                    msInterval, rtdeControl, rtdeRecive, simSpeed, simAcc);
-        moveRobotL(posGribReadyR, rpyGribReady,  msInterval, rtdeControl, rtdeRecive, simSpeed, simAcc);
-        moveRobotL(posBallR,      rpyBall,       msInterval, rtdeControl, rtdeRecive, 0.2,      0.05  );
-        moveRobotL(posGribReadyR, rpyGribReady,  msInterval, rtdeControl, rtdeRecive, simSpeed, simAcc);
-        moveRobotJ(qSafeGrib,                    msInterval, rtdeControl, rtdeRecive, simSpeed, simAcc);
-        moveRobotJ(qHome,                        msInterval, rtdeControl, rtdeRecive, simSpeed, simAcc);
 
+        moveRobotJ(qHome,                        msInterval, rtdeControl, rtdeRecive, speed, acceleration);
+        moveRobotJ(qSafeGrib,                    msInterval, rtdeControl, rtdeRecive, speed, acceleration);
+        moveRobotL(posGribReadyR, rpyGribReady,  msInterval, rtdeControl, rtdeRecive, speed, acceleration);
+        moveRobotL(posBallR,      rpyBall,       msInterval, rtdeControl, rtdeRecive, 0.2,      0.05  );
+        moveRobotL(posGribReadyR, rpyGribReady,  msInterval, rtdeControl, rtdeRecive, speed, acceleration);
+        moveRobotJ(qSafeGrib,                    msInterval, rtdeControl, rtdeRecive, speed, acceleration);
+        moveRobotJ(qHome,                        msInterval, rtdeControl, rtdeRecive, speed, acceleration);
     } else
     {
         std::cout << "a collision has occured" << std::endl;
