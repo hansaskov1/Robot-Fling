@@ -89,7 +89,7 @@ void MainWindow::qt_static_metacall(QObject *_o, QMetaObject::Call _c, int _id, 
         MainWindow *_t = static_cast<MainWindow *>(_o);
         Q_UNUSED(_t)
         switch (_id) {
-        case 0: _t->onReadyRead(); break;
+        //case 0: _t->onReadyRead(); break;
         case 1: _t->on_bSend_clicked(); break;
         case 2: _t->on_bOpenGrip_clicked(); break;
         case 3: _t->on_bCloseGrip_clicked(); break;

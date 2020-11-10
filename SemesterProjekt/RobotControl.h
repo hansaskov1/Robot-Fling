@@ -173,7 +173,7 @@ public:
        std::cout << "Starting sim" << std::endl;
 
 
-       std::string path = "../../Scenes/XMLScenes/RobotOnTable/Scene.xml";
+       std::string path = "../Scenes/XMLScenes/RobotOnTable/Scene.xml";
        DetectCollision dc(path);
 
       std::cout << dc.isCollision(50, qHome) << std::endl;

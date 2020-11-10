@@ -6,7 +6,6 @@ CMakeFiles/SemesterProjekt.dir/SemesterProjekt_autogen/mocs_compilation.cpp.o
  /home/hans/GithubCode/Robot-Fling/SemesterProjekt/Gripper.h
  /home/hans/GithubCode/Robot-Fling/SemesterProjekt/RobotControl.h
  /home/hans/GithubCode/Robot-Fling/SemesterProjekt/calibration.h
- /home/hans/GithubCode/Robot-Fling/SemesterProjekt/clientInfo.h
  /home/hans/GithubCode/Robot-Fling/SemesterProjekt/mainwindow.h
  /home/hans/GithubCode/Robot-Fling/SemesterProjekt/objectdetection.h
  /home/hans/GithubCode/Robot-Fling/SemesterProjekt/path.h
@@ -787,7 +786,6 @@ CMakeFiles/SemesterProjekt.dir/main.cpp.o
  /home/hans/GithubCode/Robot-Fling/SemesterProjekt/Gripper.h
  /home/hans/GithubCode/Robot-Fling/SemesterProjekt/RobotControl.h
  /home/hans/GithubCode/Robot-Fling/SemesterProjekt/calibration.h
- /home/hans/GithubCode/Robot-Fling/SemesterProjekt/clientInfo.h
  /home/hans/GithubCode/Robot-Fling/SemesterProjekt/main.cpp
  /home/hans/GithubCode/Robot-Fling/SemesterProjekt/mainwindow.h
  /home/hans/GithubCode/Robot-Fling/SemesterProjekt/objectdetection.h
@@ -1441,7 +1439,6 @@ CMakeFiles/SemesterProjekt.dir/mainwindow.cpp.o
  /home/hans/GithubCode/Robot-Fling/SemesterProjekt/Gripper.h
  /home/hans/GithubCode/Robot-Fling/SemesterProjekt/RobotControl.h
  /home/hans/GithubCode/Robot-Fling/SemesterProjekt/calibration.h
- /home/hans/GithubCode/Robot-Fling/SemesterProjekt/clientInfo.h
  /home/hans/GithubCode/Robot-Fling/SemesterProjekt/mainwindow.cpp
  /home/hans/GithubCode/Robot-Fling/SemesterProjekt/mainwindow.h
  /home/hans/GithubCode/Robot-Fling/SemesterProjekt/objectdetection.h

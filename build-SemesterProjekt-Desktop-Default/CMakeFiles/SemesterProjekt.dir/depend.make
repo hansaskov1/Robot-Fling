@@ -5,7 +5,6 @@ CMakeFiles/SemesterProjekt.dir/SemesterProjekt_autogen/mocs_compilation.cpp.o: /
 CMakeFiles/SemesterProjekt.dir/SemesterProjekt_autogen/mocs_compilation.cpp.o: /home/hans/GithubCode/Robot-Fling/SemesterProjekt/Gripper.h
 CMakeFiles/SemesterProjekt.dir/SemesterProjekt_autogen/mocs_compilation.cpp.o: /home/hans/GithubCode/Robot-Fling/SemesterProjekt/RobotControl.h
 CMakeFiles/SemesterProjekt.dir/SemesterProjekt_autogen/mocs_compilation.cpp.o: /home/hans/GithubCode/Robot-Fling/SemesterProjekt/calibration.h
-CMakeFiles/SemesterProjekt.dir/SemesterProjekt_autogen/mocs_compilation.cpp.o: /home/hans/GithubCode/Robot-Fling/SemesterProjekt/clientInfo.h
 CMakeFiles/SemesterProjekt.dir/SemesterProjekt_autogen/mocs_compilation.cpp.o: /home/hans/GithubCode/Robot-Fling/SemesterProjekt/mainwindow.h
 CMakeFiles/SemesterProjekt.dir/SemesterProjekt_autogen/mocs_compilation.cpp.o: /home/hans/GithubCode/Robot-Fling/SemesterProjekt/objectdetection.h
 CMakeFiles/SemesterProjekt.dir/SemesterProjekt_autogen/mocs_compilation.cpp.o: /home/hans/GithubCode/Robot-Fling/SemesterProjekt/path.h
@@ -786,7 +785,6 @@ CMakeFiles/SemesterProjekt.dir/main.cpp.o: /home/hans/GithubCode/Robot-Fling/Sem
 CMakeFiles/SemesterProjekt.dir/main.cpp.o: /home/hans/GithubCode/Robot-Fling/SemesterProjekt/Gripper.h
 CMakeFiles/SemesterProjekt.dir/main.cpp.o: /home/hans/GithubCode/Robot-Fling/SemesterProjekt/RobotControl.h
 CMakeFiles/SemesterProjekt.dir/main.cpp.o: /home/hans/GithubCode/Robot-Fling/SemesterProjekt/calibration.h
-CMakeFiles/SemesterProjekt.dir/main.cpp.o: /home/hans/GithubCode/Robot-Fling/SemesterProjekt/clientInfo.h
 CMakeFiles/SemesterProjekt.dir/main.cpp.o: /home/hans/GithubCode/Robot-Fling/SemesterProjekt/main.cpp
 CMakeFiles/SemesterProjekt.dir/main.cpp.o: /home/hans/GithubCode/Robot-Fling/SemesterProjekt/mainwindow.h
 CMakeFiles/SemesterProjekt.dir/main.cpp.o: /home/hans/GithubCode/Robot-Fling/SemesterProjekt/objectdetection.h
@@ -1440,7 +1438,6 @@ CMakeFiles/SemesterProjekt.dir/mainwindow.cpp.o: /home/hans/GithubCode/Robot-Fli
 CMakeFiles/SemesterProjekt.dir/mainwindow.cpp.o: /home/hans/GithubCode/Robot-Fling/SemesterProjekt/Gripper.h
 CMakeFiles/SemesterProjekt.dir/mainwindow.cpp.o: /home/hans/GithubCode/Robot-Fling/SemesterProjekt/RobotControl.h
 CMakeFiles/SemesterProjekt.dir/mainwindow.cpp.o: /home/hans/GithubCode/Robot-Fling/SemesterProjekt/calibration.h
-CMakeFiles/SemesterProjekt.dir/mainwindow.cpp.o: /home/hans/GithubCode/Robot-Fling/SemesterProjekt/clientInfo.h
 CMakeFiles/SemesterProjekt.dir/mainwindow.cpp.o: /home/hans/GithubCode/Robot-Fling/SemesterProjekt/mainwindow.cpp
 CMakeFiles/SemesterProjekt.dir/mainwindow.cpp.o: /home/hans/GithubCode/Robot-Fling/SemesterProjekt/mainwindow.h
 CMakeFiles/SemesterProjekt.dir/mainwindow.cpp.o: /home/hans/GithubCode/Robot-Fling/SemesterProjekt/objectdetection.h

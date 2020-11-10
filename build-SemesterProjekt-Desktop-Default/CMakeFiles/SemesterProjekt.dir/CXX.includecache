@@ -109,10 +109,10 @@ thread
 -
 future
 -
-Gripper.h
-/home/hans/GithubCode/Robot-Fling/SemesterProjekt/Gripper.h
 path.h
 /home/hans/GithubCode/Robot-Fling/SemesterProjekt/path.h
+DetectCollision.h
+/home/hans/GithubCode/Robot-Fling/SemesterProjekt/DetectCollision.h
 
 /home/hans/GithubCode/Robot-Fling/SemesterProjekt/Throw.h
 QString
@@ -150,12 +150,6 @@ opencv2/highgui.hpp
 opencv2/imgproc.hpp
 -
 thread
--
-
-/home/hans/GithubCode/Robot-Fling/SemesterProjekt/clientInfo.h
-iostream
--
-QHostAddress
 -
 
 /home/hans/GithubCode/Robot-Fling/SemesterProjekt/main.cpp
