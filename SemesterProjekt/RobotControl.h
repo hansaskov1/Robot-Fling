@@ -208,7 +208,7 @@ public:
             collisionList.push_back(dc.isCollision(qPath));
         }
 
-        bool collision;
+        bool collision = false;
         for (bool isColl : collisionList)
         {
             (isColl)? std::cout << "true" : std::cout << "false";
