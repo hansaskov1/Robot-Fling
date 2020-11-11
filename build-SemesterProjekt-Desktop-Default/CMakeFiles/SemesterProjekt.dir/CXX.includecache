@@ -6,7 +6,7 @@
 
 #IncludeRegexTransform: 
 
-/home/hans/GithubCode/Robot-Fling/SemesterProjekt/DetectCollision.h
+/home/kjohnsen/github/Robot-Fling/SemesterProjekt/DetectCollision.h
 rw/loaders/WorkCellFactory.hpp
 -
 rw/models/WorkCell.hpp
@@ -64,7 +64,7 @@ future
 math.h
 -
 
-/home/hans/GithubCode/Robot-Fling/SemesterProjekt/Gripper.h
+/home/kjohnsen/github/Robot-Fling/SemesterProjekt/Gripper.h
 iostream
 -
 QTcpSocket
@@ -80,7 +80,7 @@ QString
 QObject
 -
 
-/home/hans/GithubCode/Robot-Fling/SemesterProjekt/RobotControl.h
+/home/kjohnsen/github/Robot-Fling/SemesterProjekt/RobotControl.h
 rw/loaders/WorkCellFactory.hpp
 -
 rw/models/WorkCell.hpp
@@ -124,21 +124,25 @@ thread
 future
 -
 path.h
-/home/hans/GithubCode/Robot-Fling/SemesterProjekt/path.h
+/home/kjohnsen/github/Robot-Fling/SemesterProjekt/path.h
 DetectCollision.h
-/home/hans/GithubCode/Robot-Fling/SemesterProjekt/DetectCollision.h
+/home/kjohnsen/github/Robot-Fling/SemesterProjekt/DetectCollision.h
 
-/home/hans/GithubCode/Robot-Fling/SemesterProjekt/Throw.h
+/home/kjohnsen/github/Robot-Fling/SemesterProjekt/Throw.h
 QString
 -
+vector
+-
+path.h
+/home/kjohnsen/github/Robot-Fling/SemesterProjekt/path.h
 
-/home/hans/GithubCode/Robot-Fling/SemesterProjekt/calibration.cpp
+/home/kjohnsen/github/Robot-Fling/SemesterProjekt/calibration.cpp
 calibration.h
-/home/hans/GithubCode/Robot-Fling/SemesterProjekt/calibration.h
+/home/kjohnsen/github/Robot-Fling/SemesterProjekt/calibration.h
 objectdetection.h
-/home/hans/GithubCode/Robot-Fling/SemesterProjekt/objectdetection.h
+/home/kjohnsen/github/Robot-Fling/SemesterProjekt/objectdetection.h
 
-/home/hans/GithubCode/Robot-Fling/SemesterProjekt/calibration.h
+/home/kjohnsen/github/Robot-Fling/SemesterProjekt/calibration.h
 opencv2/core/core.hpp
 -
 opencv2/highgui/highgui.hpp
@@ -166,9 +170,9 @@ opencv2/imgproc.hpp
 thread
 -
 
-/home/hans/GithubCode/Robot-Fling/SemesterProjekt/main.cpp
+/home/kjohnsen/github/Robot-Fling/SemesterProjekt/main.cpp
 mainwindow.h
-/home/hans/GithubCode/Robot-Fling/SemesterProjekt/mainwindow.h
+/home/kjohnsen/github/Robot-Fling/SemesterProjekt/mainwindow.h
 QApplication
 -
 iostream
@@ -176,17 +180,15 @@ iostream
 QtSql/QSqlDatabase
 -
 
-/home/hans/GithubCode/Robot-Fling/SemesterProjekt/mainwindow.cpp
+/home/kjohnsen/github/Robot-Fling/SemesterProjekt/mainwindow.cpp
 mainwindow.h
-/home/hans/GithubCode/Robot-Fling/SemesterProjekt/mainwindow.h
+/home/kjohnsen/github/Robot-Fling/SemesterProjekt/mainwindow.h
 ./ui_mainwindow.h
-/home/hans/GithubCode/Robot-Fling/SemesterProjekt/./ui_mainwindow.h
+/home/kjohnsen/github/Robot-Fling/SemesterProjekt/./ui_mainwindow.h
 
-/home/hans/GithubCode/Robot-Fling/SemesterProjekt/mainwindow.h
-clientInfo.h
-/home/hans/GithubCode/Robot-Fling/SemesterProjekt/clientInfo.h
+/home/kjohnsen/github/Robot-Fling/SemesterProjekt/mainwindow.h
 Gripper.h
-/home/hans/GithubCode/Robot-Fling/SemesterProjekt/Gripper.h
+/home/kjohnsen/github/Robot-Fling/SemesterProjekt/Gripper.h
 string.h
 -
 QMainWindow
@@ -199,22 +201,22 @@ QHostAddress
 -
 QString
 -
+QTimer
+-
 calibration.h
-/home/hans/GithubCode/Robot-Fling/SemesterProjekt/calibration.h
+/home/kjohnsen/github/Robot-Fling/SemesterProjekt/calibration.h
 objectdetection.h
-/home/hans/GithubCode/Robot-Fling/SemesterProjekt/objectdetection.h
+/home/kjohnsen/github/Robot-Fling/SemesterProjekt/objectdetection.h
 showvideo.h
-/home/hans/GithubCode/Robot-Fling/SemesterProjekt/showvideo.h
-DetectCollision.h
-/home/hans/GithubCode/Robot-Fling/SemesterProjekt/DetectCollision.h
+/home/kjohnsen/github/Robot-Fling/SemesterProjekt/showvideo.h
 RobotControl.h
-/home/hans/GithubCode/Robot-Fling/SemesterProjekt/RobotControl.h
+/home/kjohnsen/github/Robot-Fling/SemesterProjekt/RobotControl.h
 
-/home/hans/GithubCode/Robot-Fling/SemesterProjekt/objectdetection.cpp
+/home/kjohnsen/github/Robot-Fling/SemesterProjekt/objectdetection.cpp
 objectdetection.h
-/home/hans/GithubCode/Robot-Fling/SemesterProjekt/objectdetection.h
+/home/kjohnsen/github/Robot-Fling/SemesterProjekt/objectdetection.h
 
-/home/hans/GithubCode/Robot-Fling/SemesterProjekt/objectdetection.h
+/home/kjohnsen/github/Robot-Fling/SemesterProjekt/objectdetection.h
 opencv2/core/core.hpp
 -
 opencv2/highgui/highgui.hpp
@@ -242,27 +244,31 @@ opencv2/imgproc.hpp
 thread
 -
 
-/home/hans/GithubCode/Robot-Fling/SemesterProjekt/path.h
+/home/kjohnsen/github/Robot-Fling/SemesterProjekt/path.h
 vector
 -
 
-/home/hans/GithubCode/Robot-Fling/SemesterProjekt/showvideo.h
+/home/kjohnsen/github/Robot-Fling/SemesterProjekt/showvideo.h
 QThread
 -
 QThreadPool
 -
 QLabel
 -
+thread
+-
+chrono
+-
 mainwindow.h
-/home/hans/GithubCode/Robot-Fling/SemesterProjekt/mainwindow.h
+/home/kjohnsen/github/Robot-Fling/SemesterProjekt/mainwindow.h
 
-/home/hans/GithubCode/Robot-Fling/SemesterProjekt/sqlcontroller.cpp
+/home/kjohnsen/github/Robot-Fling/SemesterProjekt/sqlcontroller.cpp
 sqlcontroller.h
-/home/hans/GithubCode/Robot-Fling/SemesterProjekt/sqlcontroller.h
+/home/kjohnsen/github/Robot-Fling/SemesterProjekt/sqlcontroller.h
 
-/home/hans/GithubCode/Robot-Fling/SemesterProjekt/sqlcontroller.h
+/home/kjohnsen/github/Robot-Fling/SemesterProjekt/sqlcontroller.h
 Throw.h
-/home/hans/GithubCode/Robot-Fling/SemesterProjekt/Throw.h
+/home/kjohnsen/github/Robot-Fling/SemesterProjekt/Throw.h
 iostream
 -
 QtSql
@@ -270,27 +276,27 @@ QtSql
 QSqlDatabase
 -
 
-/home/hans/GithubCode/Robot-Fling/build-SemesterProjekt-Desktop-Default/SemesterProjekt_autogen/EWIEGA46WW/moc_Gripper.cpp
+/home/kjohnsen/github/Robot-Fling/build-SemesterProjekt-Desktop-Default/SemesterProjekt_autogen/EWIEGA46WW/moc_Gripper.cpp
 ../../../SemesterProjekt/Gripper.h
-/home/hans/GithubCode/Robot-Fling/SemesterProjekt/Gripper.h
+/home/kjohnsen/github/Robot-Fling/SemesterProjekt/Gripper.h
 QtCore/qbytearray.h
 -
 QtCore/qmetatype.h
 -
 
-/home/hans/GithubCode/Robot-Fling/build-SemesterProjekt-Desktop-Default/SemesterProjekt_autogen/EWIEGA46WW/moc_mainwindow.cpp
+/home/kjohnsen/github/Robot-Fling/build-SemesterProjekt-Desktop-Default/SemesterProjekt_autogen/EWIEGA46WW/moc_mainwindow.cpp
 ../../../SemesterProjekt/mainwindow.h
-/home/hans/GithubCode/Robot-Fling/SemesterProjekt/mainwindow.h
+/home/kjohnsen/github/Robot-Fling/SemesterProjekt/mainwindow.h
 QtCore/qbytearray.h
 -
 QtCore/qmetatype.h
 -
 
-/home/hans/GithubCode/Robot-Fling/build-SemesterProjekt-Desktop-Default/SemesterProjekt_autogen/mocs_compilation.cpp
+/home/kjohnsen/github/Robot-Fling/build-SemesterProjekt-Desktop-Default/SemesterProjekt_autogen/mocs_compilation.cpp
 EWIEGA46WW/moc_Gripper.cpp
-/home/hans/GithubCode/Robot-Fling/build-SemesterProjekt-Desktop-Default/SemesterProjekt_autogen/EWIEGA46WW/moc_Gripper.cpp
+/home/kjohnsen/github/Robot-Fling/build-SemesterProjekt-Desktop-Default/SemesterProjekt_autogen/EWIEGA46WW/moc_Gripper.cpp
 EWIEGA46WW/moc_mainwindow.cpp
-/home/hans/GithubCode/Robot-Fling/build-SemesterProjekt-Desktop-Default/SemesterProjekt_autogen/EWIEGA46WW/moc_mainwindow.cpp
+/home/kjohnsen/github/Robot-Fling/build-SemesterProjekt-Desktop-Default/SemesterProjekt_autogen/EWIEGA46WW/moc_mainwindow.cpp
 
 /opt/pylon/include/Base/GCArray.h
 Base/GCTypes.h
@@ -3074,6 +3080,10 @@ qthread.h
 qthreadpool.h
 /usr/include/x86_64-linux-gnu/qt5/QtCore/qthreadpool.h
 
+/usr/include/x86_64-linux-gnu/qt5/QtCore/QTimer
+qtimer.h
+/usr/include/x86_64-linux-gnu/qt5/QtCore/qtimer.h
+
 /usr/include/x86_64-linux-gnu/qt5/QtCore/QVariant
 qvariant.h
 /usr/include/x86_64-linux-gnu/qt5/QtCore/qvariant.h
@@ -5822,7 +5832,51 @@ QtGui/qkeysequence.h
 QtGui/qevent.h
 -
 
-/usr/share/robwork-1.1/cmake/../../../include/robwork-1.1/rw/common/ConcatVectorIterator.hpp
+/usr/local/include/ur_rtde/rtde.h
+ur_rtde/rtde_export.h
+-
+boost/asio/io_service.hpp
+-
+boost/asio/ip/tcp.hpp
+-
+cstdint
+-
+functional
+-
+memory
+-
+string
+-
+unordered_map
+-
+utility
+-
+vector
+-
+
+/usr/local/include/ur_rtde/rtde_control_interface.h
+ur_rtde/rtde_export.h
+-
+ur_rtde/rtde.h
+-
+
+/usr/local/include/ur_rtde/rtde_export.h
+
+/usr/local/include/ur_rtde/rtde_receive_interface.h
+ur_rtde/rtde_export.h
+-
+memory
+-
+atomic
+-
+string
+-
+chrono
+-
+vector
+-
+
+/usr/share/robwork-1.2/cmake/../../../include/robwork-1.2/rw/common/ConcatVectorIterator.hpp
 cstddef
 -
 iterator
@@ -5830,37 +5884,37 @@ iterator
 vector
 -
 
-/usr/share/robwork-1.1/cmake/../../../include/robwork-1.1/rw/common/Serializable.hpp
+/usr/share/robwork-1.2/cmake/../../../include/robwork-1.2/rw/common/Serializable.hpp
 rw/core/macros.hpp
 -
 string
 -
 
-/usr/share/robwork-1.1/cmake/../../../include/robwork-1.1/rw/common/Timer.hpp
-TimerUtil.hpp
-/usr/share/robwork-1.1/cmake/../../../include/robwork-1.1/rw/common/TimerUtil.hpp
+/usr/share/robwork-1.2/cmake/../../../include/robwork-1.2/rw/common/Timer.hpp
+rw/common/TimerUtil.hpp
+-
 string
 -
 
-/usr/share/robwork-1.1/cmake/../../../include/robwork-1.1/rw/common/TimerUtil.hpp
+/usr/share/robwork-1.2/cmake/../../../include/robwork-1.2/rw/common/TimerUtil.hpp
 
-/usr/share/robwork-1.1/cmake/../../../include/robwork-1.1/rw/common/types.hpp
+/usr/share/robwork-1.2/cmake/../../../include/robwork-1.2/rw/common/types.hpp
 boost/cstdint.hpp
 -
 stdint.h
 -
 
-/usr/share/robwork-1.1/cmake/../../../include/robwork-1.1/rw/core/AnyPtr.hpp
+/usr/share/robwork-1.2/cmake/../../../include/robwork-1.2/rw/core/AnyPtr.hpp
 rw/core/Ptr.hpp
 -
 typeinfo
 -
 
-/usr/share/robwork-1.1/cmake/../../../include/robwork-1.1/rw/core/Event.hpp
+/usr/share/robwork-1.2/cmake/../../../include/robwork-1.2/rw/core/Event.hpp
 list
 -
 
-/usr/share/robwork-1.1/cmake/../../../include/robwork-1.1/rw/core/Exception.hpp
+/usr/share/robwork-1.2/cmake/../../../include/robwork-1.2/rw/core/Exception.hpp
 rw/core/Message.hpp
 -
 exception
@@ -5870,7 +5924,7 @@ iosfwd
 string
 -
 
-/usr/share/robwork-1.1/cmake/../../../include/robwork-1.1/rw/core/Extension.hpp
+/usr/share/robwork-1.2/cmake/../../../include/robwork-1.2/rw/core/Extension.hpp
 rw/core/AnyPtr.hpp
 -
 rw/core/PropertyMap.hpp
@@ -5880,11 +5934,11 @@ rw/core/Ptr.hpp
 string
 -
 
-/usr/share/robwork-1.1/cmake/../../../include/robwork-1.1/rw/core/ExtensionPoint.hpp
+/usr/share/robwork-1.2/cmake/../../../include/robwork-1.2/rw/core/ExtensionPoint.hpp
 rw/core/ExtensionRegistry.hpp
 -
 
-/usr/share/robwork-1.1/cmake/../../../include/robwork-1.1/rw/core/ExtensionRegistry.hpp
+/usr/share/robwork-1.2/cmake/../../../include/robwork-1.2/rw/core/ExtensionRegistry.hpp
 rw/core/Extension.hpp
 -
 rw/core/Ptr.hpp
@@ -5892,7 +5946,7 @@ rw/core/Ptr.hpp
 map
 -
 
-/usr/share/robwork-1.1/cmake/../../../include/robwork-1.1/rw/core/IOUtil.hpp
+/usr/share/robwork-1.2/cmake/../../../include/robwork-1.2/rw/core/IOUtil.hpp
 ctime
 -
 string
@@ -5900,7 +5954,7 @@ string
 vector
 -
 
-/usr/share/robwork-1.1/cmake/../../../include/robwork-1.1/rw/core/Log.hpp
+/usr/share/robwork-1.2/cmake/../../../include/robwork-1.2/rw/core/Log.hpp
 rw/core/LogWriter.hpp
 -
 rw/core/Ptr.hpp
@@ -5910,7 +5964,7 @@ string
 vector
 -
 
-/usr/share/robwork-1.1/cmake/../../../include/robwork-1.1/rw/core/LogWriter.hpp
+/usr/share/robwork-1.2/cmake/../../../include/robwork-1.2/rw/core/LogWriter.hpp
 rw/core/Message.hpp
 -
 rw/core/Ptr.hpp
@@ -5922,7 +5976,7 @@ sstream
 string
 -
 
-/usr/share/robwork-1.1/cmake/../../../include/robwork-1.1/rw/core/Message.hpp
+/usr/share/robwork-1.2/cmake/../../../include/robwork-1.2/rw/core/Message.hpp
 iostream
 -
 sstream
@@ -5930,15 +5984,15 @@ sstream
 string
 -
 
-/usr/share/robwork-1.1/cmake/../../../include/robwork-1.1/rw/core/PairIterator.hpp
+/usr/share/robwork-1.2/cmake/../../../include/robwork-1.2/rw/core/PairIterator.hpp
 utility
 -
 
-/usr/share/robwork-1.1/cmake/../../../include/robwork-1.1/rw/core/Property.hpp
+/usr/share/robwork-1.2/cmake/../../../include/robwork-1.2/rw/core/Property.hpp
 rw/core/PropertyBase.hpp
 -
 
-/usr/share/robwork-1.1/cmake/../../../include/robwork-1.1/rw/core/PropertyBase.hpp
+/usr/share/robwork-1.2/cmake/../../../include/robwork-1.2/rw/core/PropertyBase.hpp
 rw/core/Event.hpp
 -
 rw/core/PropertyType.hpp
@@ -5950,7 +6004,7 @@ boost/function.hpp
 string
 -
 
-/usr/share/robwork-1.1/cmake/../../../include/robwork-1.1/rw/core/PropertyMap.hpp
+/usr/share/robwork-1.2/cmake/../../../include/robwork-1.2/rw/core/PropertyMap.hpp
 rw/core/PairIterator.hpp
 -
 rw/core/Property.hpp
@@ -5959,10 +6013,12 @@ rw/core/PropertyBase.hpp
 -
 rw/core/macros.hpp
 -
+rw/core/os.hpp
+-
 set
 -
 
-/usr/share/robwork-1.1/cmake/../../../include/robwork-1.1/rw/core/PropertyType.hpp
+/usr/share/robwork-1.2/cmake/../../../include/robwork-1.2/rw/core/PropertyType.hpp
 rw/core/math_fwd.hpp
 -
 string
@@ -5970,7 +6026,7 @@ string
 vector
 -
 
-/usr/share/robwork-1.1/cmake/../../../include/robwork-1.1/rw/core/Ptr.hpp
+/usr/share/robwork-1.2/cmake/../../../include/robwork-1.2/rw/core/Ptr.hpp
 boost/shared_ptr.hpp
 -
 memory
@@ -5980,13 +6036,13 @@ type_traits
 vector
 -
 
-/usr/share/robwork-1.1/cmake/../../../include/robwork-1.1/rw/core/StringUtil.hpp
+/usr/share/robwork-1.2/cmake/../../../include/robwork-1.2/rw/core/StringUtil.hpp
 string
 -
 vector
 -
 
-/usr/share/robwork-1.1/cmake/../../../include/robwork-1.1/rw/core/macros.hpp
+/usr/share/robwork-1.2/cmake/../../../include/robwork-1.2/rw/core/macros.hpp
 rw/core/Exception.hpp
 -
 rw/core/IOUtil.hpp
@@ -6000,37 +6056,45 @@ iostream
 sstream
 -
 
-/usr/share/robwork-1.1/cmake/../../../include/robwork-1.1/rw/core/math_fwd.hpp
+/usr/share/robwork-1.2/cmake/../../../include/robwork-1.2/rw/core/math_fwd.hpp
 stddef.h
 -
 
-/usr/share/robwork-1.1/cmake/../../../include/robwork-1.1/rw/graphics/DrawableGeometryNode.hpp
+/usr/share/robwork-1.2/cmake/../../../include/robwork-1.2/rw/core/os.hpp
+boost/filesystem.hpp
+-
+string
+-
+windows.h
+-
+
+/usr/share/robwork-1.2/cmake/../../../include/robwork-1.2/rw/graphics/DrawableGeometryNode.hpp
 DrawableNode.hpp
-/usr/share/robwork-1.1/cmake/../../../include/robwork-1.1/rw/graphics/DrawableNode.hpp
+/usr/share/robwork-1.2/cmake/../../../include/robwork-1.2/rw/graphics/DrawableNode.hpp
 rw/math/Vector3D.hpp
 -
 vector
 -
 
-/usr/share/robwork-1.1/cmake/../../../include/robwork-1.1/rw/graphics/DrawableNode.hpp
+/usr/share/robwork-1.2/cmake/../../../include/robwork-1.2/rw/graphics/DrawableNode.hpp
 SceneNode.hpp
-/usr/share/robwork-1.1/cmake/../../../include/robwork-1.1/rw/graphics/SceneNode.hpp
+/usr/share/robwork-1.2/cmake/../../../include/robwork-1.2/rw/graphics/SceneNode.hpp
 rw/core/Ptr.hpp
 -
 rw/math/Transform3D.hpp
 -
 
-/usr/share/robwork-1.1/cmake/../../../include/robwork-1.1/rw/graphics/GroupNode.hpp
+/usr/share/robwork-1.2/cmake/../../../include/robwork-1.2/rw/graphics/GroupNode.hpp
 SceneNode.hpp
-/usr/share/robwork-1.1/cmake/../../../include/robwork-1.1/rw/graphics/SceneNode.hpp
+/usr/share/robwork-1.2/cmake/../../../include/robwork-1.2/rw/graphics/SceneNode.hpp
 rw/math/Transform3D.hpp
 -
 list
 -
 
-/usr/share/robwork-1.1/cmake/../../../include/robwork-1.1/rw/graphics/SceneCamera.hpp
+/usr/share/robwork-1.2/cmake/../../../include/robwork-1.2/rw/graphics/SceneCamera.hpp
 SceneNode.hpp
-/usr/share/robwork-1.1/cmake/../../../include/robwork-1.1/rw/graphics/SceneNode.hpp
+/usr/share/robwork-1.2/cmake/../../../include/robwork-1.2/rw/graphics/SceneNode.hpp
 rw/graphics/DrawableNode.hpp
 -
 rw/math/ProjectionMatrix.hpp
@@ -6038,11 +6102,11 @@ rw/math/ProjectionMatrix.hpp
 rw/sensor/Image.hpp
 -
 
-/usr/share/robwork-1.1/cmake/../../../include/robwork-1.1/rw/graphics/SceneGraph.hpp
+/usr/share/robwork-1.2/cmake/../../../include/robwork-1.2/rw/graphics/SceneGraph.hpp
 GroupNode.hpp
-/usr/share/robwork-1.1/cmake/../../../include/robwork-1.1/rw/graphics/GroupNode.hpp
+/usr/share/robwork-1.2/cmake/../../../include/robwork-1.2/rw/graphics/GroupNode.hpp
 SceneCamera.hpp
-/usr/share/robwork-1.1/cmake/../../../include/robwork-1.1/rw/graphics/SceneCamera.hpp
+/usr/share/robwork-1.2/cmake/../../../include/robwork-1.2/rw/graphics/SceneCamera.hpp
 rw/graphics/DrawableGeometryNode.hpp
 -
 rw/graphics/DrawableNode.hpp
@@ -6052,7 +6116,7 @@ rw/kinematics/Frame.hpp
 boost/function.hpp
 -
 
-/usr/share/robwork-1.1/cmake/../../../include/robwork-1.1/rw/graphics/SceneNode.hpp
+/usr/share/robwork-1.2/cmake/../../../include/robwork-1.2/rw/graphics/SceneNode.hpp
 rw/core/Ptr.hpp
 -
 algorithm
@@ -6062,27 +6126,27 @@ list
 string
 -
 
-/usr/share/robwork-1.1/cmake/../../../include/robwork-1.1/rw/graphics/WorkCellScene.hpp
+/usr/share/robwork-1.2/cmake/../../../include/robwork-1.2/rw/graphics/WorkCellScene.hpp
 SceneGraph.hpp
-/usr/share/robwork-1.1/cmake/../../../include/robwork-1.1/rw/graphics/SceneGraph.hpp
+/usr/share/robwork-1.2/cmake/../../../include/robwork-1.2/rw/graphics/SceneGraph.hpp
 rw/kinematics/FKTable.hpp
 -
 map
 -
 
-/usr/share/robwork-1.1/cmake/../../../include/robwork-1.1/rw/invkin/AmbiguityResolver.hpp
+/usr/share/robwork-1.2/cmake/../../../include/robwork-1.2/rw/invkin/AmbiguityResolver.hpp
 InvKinSolver.hpp
-/usr/share/robwork-1.1/cmake/../../../include/robwork-1.1/rw/invkin/InvKinSolver.hpp
+/usr/share/robwork-1.2/cmake/../../../include/robwork-1.2/rw/invkin/InvKinSolver.hpp
 rw/math/Transform3D.hpp
 -
 
-/usr/share/robwork-1.1/cmake/../../../include/robwork-1.1/rw/invkin/ClosedFormIK.hpp
+/usr/share/robwork-1.2/cmake/../../../include/robwork-1.2/rw/invkin/ClosedFormIK.hpp
 InvKinSolver.hpp
-/usr/share/robwork-1.1/cmake/../../../include/robwork-1.1/rw/invkin/InvKinSolver.hpp
+/usr/share/robwork-1.2/cmake/../../../include/robwork-1.2/rw/invkin/InvKinSolver.hpp
 rw/core/Ptr.hpp
 -
 
-/usr/share/robwork-1.1/cmake/../../../include/robwork-1.1/rw/invkin/ClosedFormIKSolverUR.hpp
+/usr/share/robwork-1.2/cmake/../../../include/robwork-1.2/rw/invkin/ClosedFormIKSolverUR.hpp
 rw/invkin/ClosedFormIK.hpp
 -
 rw/kinematics/FKRange.hpp
@@ -6090,7 +6154,7 @@ rw/kinematics/FKRange.hpp
 rw/math/Vector2D.hpp
 -
 
-/usr/share/robwork-1.1/cmake/../../../include/robwork-1.1/rw/invkin/InvKinSolver.hpp
+/usr/share/robwork-1.2/cmake/../../../include/robwork-1.2/rw/invkin/InvKinSolver.hpp
 rw/core/Ptr.hpp
 -
 rw/math/Q.hpp
@@ -6098,15 +6162,15 @@ rw/math/Q.hpp
 rw/math/Transform3D.hpp
 -
 
-/usr/share/robwork-1.1/cmake/../../../include/robwork-1.1/rw/invkin/IterativeIK.hpp
+/usr/share/robwork-1.2/cmake/../../../include/robwork-1.2/rw/invkin/IterativeIK.hpp
 InvKinSolver.hpp
-/usr/share/robwork-1.1/cmake/../../../include/robwork-1.1/rw/invkin/InvKinSolver.hpp
+/usr/share/robwork-1.2/cmake/../../../include/robwork-1.2/rw/invkin/InvKinSolver.hpp
 rw/core/PropertyMap.hpp
 -
 rw/core/Ptr.hpp
 -
 
-/usr/share/robwork-1.1/cmake/../../../include/robwork-1.1/rw/invkin/JacobianIKSolver.hpp
+/usr/share/robwork-1.2/cmake/../../../include/robwork-1.2/rw/invkin/JacobianIKSolver.hpp
 rw/core/Ptr.hpp
 -
 rw/invkin/IterativeIK.hpp
@@ -6116,17 +6180,17 @@ rw/kinematics/FKRange.hpp
 vector
 -
 
-/usr/share/robwork-1.1/cmake/../../../include/robwork-1.1/rw/kinematics/FKRange.hpp
+/usr/share/robwork-1.2/cmake/../../../include/robwork-1.2/rw/kinematics/FKRange.hpp
 rw/core/Ptr.hpp
 -
 rw/math/Transform3D.hpp
 -
 
-/usr/share/robwork-1.1/cmake/../../../include/robwork-1.1/rw/kinematics/FKTable.hpp
+/usr/share/robwork-1.2/cmake/../../../include/robwork-1.2/rw/kinematics/FKTable.hpp
 FrameMap.hpp
-/usr/share/robwork-1.1/cmake/../../../include/robwork-1.1/rw/kinematics/FrameMap.hpp
+/usr/share/robwork-1.2/cmake/../../../include/robwork-1.2/rw/kinematics/FrameMap.hpp
 State.hpp
-/usr/share/robwork-1.1/cmake/../../../include/robwork-1.1/rw/kinematics/State.hpp
+/usr/share/robwork-1.2/cmake/../../../include/robwork-1.2/rw/kinematics/State.hpp
 rw/math/Transform3D.hpp
 -
 boost/multi_index/hashed_index.hpp
@@ -6136,9 +6200,9 @@ boost/multi_index/member.hpp
 boost/multi_index_container.hpp
 -
 
-/usr/share/robwork-1.1/cmake/../../../include/robwork-1.1/rw/kinematics/Frame.hpp
+/usr/share/robwork-1.2/cmake/../../../include/robwork-1.2/rw/kinematics/Frame.hpp
 StateData.hpp
-/usr/share/robwork-1.1/cmake/../../../include/robwork-1.1/rw/kinematics/StateData.hpp
+/usr/share/robwork-1.2/cmake/../../../include/robwork-1.2/rw/kinematics/StateData.hpp
 rw/common/ConcatVectorIterator.hpp
 -
 rw/core/PairIterator.hpp
@@ -6152,7 +6216,7 @@ set
 vector
 -
 
-/usr/share/robwork-1.1/cmake/../../../include/robwork-1.1/rw/kinematics/FrameMap.hpp
+/usr/share/robwork-1.2/cmake/../../../include/robwork-1.2/rw/kinematics/FrameMap.hpp
 rw/kinematics/Frame.hpp
 -
 rw/math/Transform3D.hpp
@@ -6160,7 +6224,7 @@ rw/math/Transform3D.hpp
 vector
 -
 
-/usr/share/robwork-1.1/cmake/../../../include/robwork-1.1/rw/kinematics/QState.hpp
+/usr/share/robwork-1.2/cmake/../../../include/robwork-1.2/rw/kinematics/QState.hpp
 rw/core/Ptr.hpp
 -
 rw/core/macros.hpp
@@ -6168,13 +6232,13 @@ rw/core/macros.hpp
 rw/math/Q.hpp
 -
 
-/usr/share/robwork-1.1/cmake/../../../include/robwork-1.1/rw/kinematics/State.hpp
+/usr/share/robwork-1.2/cmake/../../../include/robwork-1.2/rw/kinematics/State.hpp
 QState.hpp
-/usr/share/robwork-1.1/cmake/../../../include/robwork-1.1/rw/kinematics/QState.hpp
+/usr/share/robwork-1.2/cmake/../../../include/robwork-1.2/rw/kinematics/QState.hpp
 StateCache.hpp
-/usr/share/robwork-1.1/cmake/../../../include/robwork-1.1/rw/kinematics/StateCache.hpp
+/usr/share/robwork-1.2/cmake/../../../include/robwork-1.2/rw/kinematics/StateCache.hpp
 TreeState.hpp
-/usr/share/robwork-1.1/cmake/../../../include/robwork-1.1/rw/kinematics/TreeState.hpp
+/usr/share/robwork-1.2/cmake/../../../include/robwork-1.2/rw/kinematics/TreeState.hpp
 rw/common/Serializable.hpp
 -
 rw/core/Ptr.hpp
@@ -6182,21 +6246,21 @@ rw/core/Ptr.hpp
 vector
 -
 
-/usr/share/robwork-1.1/cmake/../../../include/robwork-1.1/rw/kinematics/StateCache.hpp
+/usr/share/robwork-1.2/cmake/../../../include/robwork-1.2/rw/kinematics/StateCache.hpp
 rw/core/Ptr.hpp
 -
 
-/usr/share/robwork-1.1/cmake/../../../include/robwork-1.1/rw/kinematics/StateData.hpp
+/usr/share/robwork-1.2/cmake/../../../include/robwork-1.2/rw/kinematics/StateData.hpp
 State.hpp
-/usr/share/robwork-1.1/cmake/../../../include/robwork-1.1/rw/kinematics/State.hpp
+/usr/share/robwork-1.2/cmake/../../../include/robwork-1.2/rw/kinematics/State.hpp
 StateCache.hpp
-/usr/share/robwork-1.1/cmake/../../../include/robwork-1.1/rw/kinematics/StateCache.hpp
+/usr/share/robwork-1.2/cmake/../../../include/robwork-1.2/rw/kinematics/StateCache.hpp
 string
 -
 
-/usr/share/robwork-1.1/cmake/../../../include/robwork-1.1/rw/kinematics/StateStructure.hpp
+/usr/share/robwork-1.2/cmake/../../../include/robwork-1.2/rw/kinematics/StateStructure.hpp
 State.hpp
-/usr/share/robwork-1.1/cmake/../../../include/robwork-1.1/rw/kinematics/State.hpp
+/usr/share/robwork-1.2/cmake/../../../include/robwork-1.2/rw/kinematics/State.hpp
 rw/core/Event.hpp
 -
 rw/core/Ptr.hpp
@@ -6208,33 +6272,33 @@ map
 vector
 -
 
-/usr/share/robwork-1.1/cmake/../../../include/robwork-1.1/rw/kinematics/Stateless.hpp
+/usr/share/robwork-1.2/cmake/../../../include/robwork-1.2/rw/kinematics/Stateless.hpp
 StateStructure.hpp
-/usr/share/robwork-1.1/cmake/../../../include/robwork-1.1/rw/kinematics/StateStructure.hpp
+/usr/share/robwork-1.2/cmake/../../../include/robwork-1.2/rw/kinematics/StateStructure.hpp
 StatelessData.hpp
-/usr/share/robwork-1.1/cmake/../../../include/robwork-1.1/rw/kinematics/StatelessData.hpp
+/usr/share/robwork-1.2/cmake/../../../include/robwork-1.2/rw/kinematics/StatelessData.hpp
 
-/usr/share/robwork-1.1/cmake/../../../include/robwork-1.1/rw/kinematics/StatelessData.hpp
+/usr/share/robwork-1.2/cmake/../../../include/robwork-1.2/rw/kinematics/StatelessData.hpp
 StateCache.hpp
-/usr/share/robwork-1.1/cmake/../../../include/robwork-1.1/rw/kinematics/StateCache.hpp
+/usr/share/robwork-1.2/cmake/../../../include/robwork-1.2/rw/kinematics/StateCache.hpp
 StateData.hpp
-/usr/share/robwork-1.1/cmake/../../../include/robwork-1.1/rw/kinematics/StateData.hpp
+/usr/share/robwork-1.2/cmake/../../../include/robwork-1.2/rw/kinematics/StateData.hpp
 StateStructure.hpp
-/usr/share/robwork-1.1/cmake/../../../include/robwork-1.1/rw/kinematics/StateStructure.hpp
+/usr/share/robwork-1.2/cmake/../../../include/robwork-1.2/rw/kinematics/StateStructure.hpp
 rw/core/StringUtil.hpp
 -
 
-/usr/share/robwork-1.1/cmake/../../../include/robwork-1.1/rw/kinematics/TreeState.hpp
+/usr/share/robwork-1.2/cmake/../../../include/robwork-1.2/rw/kinematics/TreeState.hpp
 rw/core/Ptr.hpp
 -
 vector
 -
 
-/usr/share/robwork-1.1/cmake/../../../include/robwork-1.1/rw/loaders/WorkCellFactory.hpp
+/usr/share/robwork-1.2/cmake/../../../include/robwork-1.2/rw/loaders/WorkCellFactory.hpp
 WorkCellLoader.hpp
-/usr/share/robwork-1.1/cmake/../../../include/robwork-1.1/rw/loaders/WorkCellLoader.hpp
+/usr/share/robwork-1.2/cmake/../../../include/robwork-1.2/rw/loaders/WorkCellLoader.hpp
 
-/usr/share/robwork-1.1/cmake/../../../include/robwork-1.1/rw/loaders/WorkCellLoader.hpp
+/usr/share/robwork-1.2/cmake/../../../include/robwork-1.2/rw/loaders/WorkCellLoader.hpp
 rw/core/ExtensionPoint.hpp
 -
 rw/graphics/WorkCellScene.hpp
@@ -6244,7 +6308,7 @@ rw/models/WorkCell.hpp
 string
 -
 
-/usr/share/robwork-1.1/cmake/../../../include/robwork-1.1/rw/loaders/path/PathLoader.hpp
+/usr/share/robwork-1.2/cmake/../../../include/robwork-1.2/rw/loaders/path/PathLoader.hpp
 rw/trajectory/Path.hpp
 -
 rw/trajectory/Timed.hpp
@@ -6252,9 +6316,9 @@ rw/trajectory/Timed.hpp
 string
 -
 
-/usr/share/robwork-1.1/cmake/../../../include/robwork-1.1/rw/math/Constants.hpp
+/usr/share/robwork-1.2/cmake/../../../include/robwork-1.2/rw/math/Constants.hpp
 
-/usr/share/robwork-1.1/cmake/../../../include/robwork-1.1/rw/math/EAA.hpp
+/usr/share/robwork-1.2/cmake/../../../include/robwork-1.2/rw/math/EAA.hpp
 rw/common/Serializable.hpp
 -
 rw/math/Constants.hpp
@@ -6268,7 +6332,7 @@ rw/math/Vector3D.hpp
 Eigen/Core
 -
 
-/usr/share/robwork-1.1/cmake/../../../include/robwork-1.1/rw/math/Jacobian.hpp
+/usr/share/robwork-1.2/cmake/../../../include/robwork-1.2/rw/math/Jacobian.hpp
 rw/common/Serializable.hpp
 -
 rw/math/Q.hpp
@@ -6282,37 +6346,37 @@ rw/math/VelocityScrew6D.hpp
 Eigen/Core
 -
 
-/usr/share/robwork-1.1/cmake/../../../include/robwork-1.1/rw/math/Math.hpp
+/usr/share/robwork-1.2/cmake/../../../include/robwork-1.2/rw/math/Math.hpp
 EAA.hpp
-/usr/share/robwork-1.1/cmake/../../../include/robwork-1.1/rw/math/EAA.hpp
+/usr/share/robwork-1.2/cmake/../../../include/robwork-1.2/rw/math/EAA.hpp
 Q.hpp
-/usr/share/robwork-1.1/cmake/../../../include/robwork-1.1/rw/math/Q.hpp
+/usr/share/robwork-1.2/cmake/../../../include/robwork-1.2/rw/math/Q.hpp
 Quaternion.hpp
-/usr/share/robwork-1.1/cmake/../../../include/robwork-1.1/rw/math/Quaternion.hpp
+/usr/share/robwork-1.2/cmake/../../../include/robwork-1.2/rw/math/Quaternion.hpp
 RPY.hpp
-/usr/share/robwork-1.1/cmake/../../../include/robwork-1.1/rw/math/RPY.hpp
+/usr/share/robwork-1.2/cmake/../../../include/robwork-1.2/rw/math/RPY.hpp
 Transform3D.hpp
-/usr/share/robwork-1.1/cmake/../../../include/robwork-1.1/rw/math/Transform3D.hpp
+/usr/share/robwork-1.2/cmake/../../../include/robwork-1.2/rw/math/Transform3D.hpp
 algorithm
 -
 cmath
 -
 
-/usr/share/robwork-1.1/cmake/../../../include/robwork-1.1/rw/math/Metric.hpp
+/usr/share/robwork-1.2/cmake/../../../include/robwork-1.2/rw/math/Metric.hpp
 Q.hpp
-/usr/share/robwork-1.1/cmake/../../../include/robwork-1.1/rw/math/Q.hpp
+/usr/share/robwork-1.2/cmake/../../../include/robwork-1.2/rw/math/Q.hpp
 Transform3D.hpp
-/usr/share/robwork-1.1/cmake/../../../include/robwork-1.1/rw/math/Transform3D.hpp
+/usr/share/robwork-1.2/cmake/../../../include/robwork-1.2/rw/math/Transform3D.hpp
 rw/core/Ptr.hpp
 -
 
-/usr/share/robwork-1.1/cmake/../../../include/robwork-1.1/rw/math/ProjectionMatrix.hpp
+/usr/share/robwork-1.2/cmake/../../../include/robwork-1.2/rw/math/ProjectionMatrix.hpp
 rw/core/Ptr.hpp
 -
 Eigen/Core
 -
 
-/usr/share/robwork-1.1/cmake/../../../include/robwork-1.1/rw/math/Q.hpp
+/usr/share/robwork-1.2/cmake/../../../include/robwork-1.2/rw/math/Q.hpp
 rw/common/Serializable.hpp
 -
 rw/core/PropertyMap.hpp
@@ -6326,11 +6390,11 @@ boost/serialization/split_free.hpp
 vector
 -
 
-/usr/share/robwork-1.1/cmake/../../../include/robwork-1.1/rw/math/Quaternion.hpp
+/usr/share/robwork-1.2/cmake/../../../include/robwork-1.2/rw/math/Quaternion.hpp
 Rotation3D.hpp
-/usr/share/robwork-1.1/cmake/../../../include/robwork-1.1/rw/math/Rotation3D.hpp
+/usr/share/robwork-1.2/cmake/../../../include/robwork-1.2/rw/math/Rotation3D.hpp
 Rotation3DVector.hpp
-/usr/share/robwork-1.1/cmake/../../../include/robwork-1.1/rw/math/Rotation3DVector.hpp
+/usr/share/robwork-1.2/cmake/../../../include/robwork-1.2/rw/math/Rotation3DVector.hpp
 rw/common/Serializable.hpp
 -
 Eigen/Geometry
@@ -6338,17 +6402,17 @@ Eigen/Geometry
 ostream
 -
 
-/usr/share/robwork-1.1/cmake/../../../include/robwork-1.1/rw/math/RPY.hpp
+/usr/share/robwork-1.2/cmake/../../../include/robwork-1.2/rw/math/RPY.hpp
 Rotation3D.hpp
-/usr/share/robwork-1.1/cmake/../../../include/robwork-1.1/rw/math/Rotation3D.hpp
+/usr/share/robwork-1.2/cmake/../../../include/robwork-1.2/rw/math/Rotation3D.hpp
 Rotation3DVector.hpp
-/usr/share/robwork-1.1/cmake/../../../include/robwork-1.1/rw/math/Rotation3DVector.hpp
+/usr/share/robwork-1.2/cmake/../../../include/robwork-1.2/rw/math/Rotation3DVector.hpp
 Vector3D.hpp
-/usr/share/robwork-1.1/cmake/../../../include/robwork-1.1/rw/math/Vector3D.hpp
+/usr/share/robwork-1.2/cmake/../../../include/robwork-1.2/rw/math/Vector3D.hpp
 rw/common/Serializable.hpp
 -
 
-/usr/share/robwork-1.1/cmake/../../../include/robwork-1.1/rw/math/Rotation3D.hpp
+/usr/share/robwork-1.2/cmake/../../../include/robwork-1.2/rw/math/Rotation3D.hpp
 rw/common/Serializable.hpp
 -
 rw/core/macros.hpp
@@ -6360,17 +6424,17 @@ Eigen/Core
 limits
 -
 
-/usr/share/robwork-1.1/cmake/../../../include/robwork-1.1/rw/math/Rotation3DVector.hpp
+/usr/share/robwork-1.2/cmake/../../../include/robwork-1.2/rw/math/Rotation3DVector.hpp
 Rotation3D.hpp
-/usr/share/robwork-1.1/cmake/../../../include/robwork-1.1/rw/math/Rotation3D.hpp
+/usr/share/robwork-1.2/cmake/../../../include/robwork-1.2/rw/math/Rotation3D.hpp
 
-/usr/share/robwork-1.1/cmake/../../../include/robwork-1.1/rw/math/Transform3D.hpp
+/usr/share/robwork-1.2/cmake/../../../include/robwork-1.2/rw/math/Transform3D.hpp
 Rotation3D.hpp
-/usr/share/robwork-1.1/cmake/../../../include/robwork-1.1/rw/math/Rotation3D.hpp
+/usr/share/robwork-1.2/cmake/../../../include/robwork-1.2/rw/math/Rotation3D.hpp
 Rotation3DVector.hpp
-/usr/share/robwork-1.1/cmake/../../../include/robwork-1.1/rw/math/Rotation3DVector.hpp
+/usr/share/robwork-1.2/cmake/../../../include/robwork-1.2/rw/math/Rotation3DVector.hpp
 Vector3D.hpp
-/usr/share/robwork-1.1/cmake/../../../include/robwork-1.1/rw/math/Vector3D.hpp
+/usr/share/robwork-1.2/cmake/../../../include/robwork-1.2/rw/math/Vector3D.hpp
 Eigen/Core
 -
 cassert
@@ -6378,35 +6442,35 @@ cassert
 limits
 -
 
-/usr/share/robwork-1.1/cmake/../../../include/robwork-1.1/rw/math/Vector2D.hpp
+/usr/share/robwork-1.2/cmake/../../../include/robwork-1.2/rw/math/Vector2D.hpp
 rw/common/Serializable.hpp
 -
 Eigen/Core
 -
 
-/usr/share/robwork-1.1/cmake/../../../include/robwork-1.1/rw/math/Vector3D.hpp
+/usr/share/robwork-1.2/cmake/../../../include/robwork-1.2/rw/math/Vector3D.hpp
 rw/common/Serializable.hpp
 -
 Eigen/Eigen
 -
 
-/usr/share/robwork-1.1/cmake/../../../include/robwork-1.1/rw/math/VelocityScrew6D.hpp
+/usr/share/robwork-1.2/cmake/../../../include/robwork-1.2/rw/math/VelocityScrew6D.hpp
 EAA.hpp
-/usr/share/robwork-1.1/cmake/../../../include/robwork-1.1/rw/math/EAA.hpp
+/usr/share/robwork-1.2/cmake/../../../include/robwork-1.2/rw/math/EAA.hpp
 Math.hpp
-/usr/share/robwork-1.1/cmake/../../../include/robwork-1.1/rw/math/Math.hpp
+/usr/share/robwork-1.2/cmake/../../../include/robwork-1.2/rw/math/Math.hpp
 Transform3D.hpp
-/usr/share/robwork-1.1/cmake/../../../include/robwork-1.1/rw/math/Transform3D.hpp
+/usr/share/robwork-1.2/cmake/../../../include/robwork-1.2/rw/math/Transform3D.hpp
 Vector3D.hpp
-/usr/share/robwork-1.1/cmake/../../../include/robwork-1.1/rw/math/Vector3D.hpp
+/usr/share/robwork-1.2/cmake/../../../include/robwork-1.2/rw/math/Vector3D.hpp
 rw/common/Serializable.hpp
 -
 Eigen/Core
 -
 
-/usr/share/robwork-1.1/cmake/../../../include/robwork-1.1/rw/models/Device.hpp
+/usr/share/robwork-1.2/cmake/../../../include/robwork-1.2/rw/models/Device.hpp
 JacobianCalculator.hpp
-/usr/share/robwork-1.1/cmake/../../../include/robwork-1.1/rw/models/JacobianCalculator.hpp
+/usr/share/robwork-1.2/cmake/../../../include/robwork-1.2/rw/models/JacobianCalculator.hpp
 rw/core/PropertyMap.hpp
 -
 rw/core/Ptr.hpp
@@ -6422,23 +6486,23 @@ iosfwd
 string
 -
 
-/usr/share/robwork-1.1/cmake/../../../include/robwork-1.1/rw/models/JacobianCalculator.hpp
+/usr/share/robwork-1.2/cmake/../../../include/robwork-1.2/rw/models/JacobianCalculator.hpp
 rw/core/Ptr.hpp
 -
 rw/math/Jacobian.hpp
 -
 
-/usr/share/robwork-1.1/cmake/../../../include/robwork-1.1/rw/models/JointDevice.hpp
+/usr/share/robwork-1.2/cmake/../../../include/robwork-1.2/rw/models/JointDevice.hpp
 Device.hpp
-/usr/share/robwork-1.1/cmake/../../../include/robwork-1.1/rw/models/Device.hpp
+/usr/share/robwork-1.2/cmake/../../../include/robwork-1.2/rw/models/Device.hpp
 JacobianCalculator.hpp
-/usr/share/robwork-1.1/cmake/../../../include/robwork-1.1/rw/models/JacobianCalculator.hpp
+/usr/share/robwork-1.2/cmake/../../../include/robwork-1.2/rw/models/JacobianCalculator.hpp
 vector
 -
 
-/usr/share/robwork-1.1/cmake/../../../include/robwork-1.1/rw/models/Models.hpp
+/usr/share/robwork-1.2/cmake/../../../include/robwork-1.2/rw/models/Models.hpp
 Device.hpp
-/usr/share/robwork-1.1/cmake/../../../include/robwork-1.1/rw/models/Device.hpp
+/usr/share/robwork-1.2/cmake/../../../include/robwork-1.2/rw/models/Device.hpp
 rw/math/Q.hpp
 -
 rw/trajectory/Path.hpp
@@ -6448,13 +6512,13 @@ utility
 vector
 -
 
-/usr/share/robwork-1.1/cmake/../../../include/robwork-1.1/rw/models/SerialDevice.hpp
+/usr/share/robwork-1.2/cmake/../../../include/robwork-1.2/rw/models/SerialDevice.hpp
 JointDevice.hpp
-/usr/share/robwork-1.1/cmake/../../../include/robwork-1.1/rw/models/JointDevice.hpp
+/usr/share/robwork-1.2/cmake/../../../include/robwork-1.2/rw/models/JointDevice.hpp
 vector
 -
 
-/usr/share/robwork-1.1/cmake/../../../include/robwork-1.1/rw/models/WorkCell.hpp
+/usr/share/robwork-1.2/cmake/../../../include/robwork-1.2/rw/models/WorkCell.hpp
 rw/core/Event.hpp
 -
 rw/core/Ptr.hpp
@@ -6470,15 +6534,15 @@ string
 vector
 -
 
-/usr/share/robwork-1.1/cmake/../../../include/robwork-1.1/rw/pathplanning/PathPlanner.hpp
+/usr/share/robwork-1.2/cmake/../../../include/robwork-1.2/rw/pathplanning/PathPlanner.hpp
 StopCriteria.hpp
-/usr/share/robwork-1.1/cmake/../../../include/robwork-1.1/rw/pathplanning/StopCriteria.hpp
+/usr/share/robwork-1.2/cmake/../../../include/robwork-1.2/rw/pathplanning/StopCriteria.hpp
 rw/core/PropertyMap.hpp
 -
 rw/trajectory/Path.hpp
 -
 
-/usr/share/robwork-1.1/cmake/../../../include/robwork-1.1/rw/pathplanning/QConstraint.hpp
+/usr/share/robwork-1.2/cmake/../../../include/robwork-1.2/rw/pathplanning/QConstraint.hpp
 rw/core/Log.hpp
 -
 rw/core/Ptr.hpp
@@ -6488,7 +6552,7 @@ rw/math/Q.hpp
 rw/models/Device.hpp
 -
 
-/usr/share/robwork-1.1/cmake/../../../include/robwork-1.1/rw/pathplanning/QEdgeConstraintIncremental.hpp
+/usr/share/robwork-1.2/cmake/../../../include/robwork-1.2/rw/pathplanning/QEdgeConstraintIncremental.hpp
 rw/core/Ptr.hpp
 -
 rw/math/Metric.hpp
@@ -6496,7 +6560,7 @@ rw/math/Metric.hpp
 rw/math/Q.hpp
 -
 
-/usr/share/robwork-1.1/cmake/../../../include/robwork-1.1/rw/pathplanning/QSampler.hpp
+/usr/share/robwork-1.2/cmake/../../../include/robwork-1.2/rw/pathplanning/QSampler.hpp
 rw/core/Ptr.hpp
 -
 rw/math/Q.hpp
@@ -6506,27 +6570,27 @@ rw/math/Transform3D.hpp
 rw/models/Device.hpp
 -
 
-/usr/share/robwork-1.1/cmake/../../../include/robwork-1.1/rw/pathplanning/QToQPlanner.hpp
+/usr/share/robwork-1.2/cmake/../../../include/robwork-1.2/rw/pathplanning/QToQPlanner.hpp
 PathPlanner.hpp
-/usr/share/robwork-1.1/cmake/../../../include/robwork-1.1/rw/pathplanning/PathPlanner.hpp
+/usr/share/robwork-1.2/cmake/../../../include/robwork-1.2/rw/pathplanning/PathPlanner.hpp
 rw/core/Ptr.hpp
 -
 
-/usr/share/robwork-1.1/cmake/../../../include/robwork-1.1/rw/pathplanning/QToQSamplerPlanner.hpp
+/usr/share/robwork-1.2/cmake/../../../include/robwork-1.2/rw/pathplanning/QToQSamplerPlanner.hpp
 PathPlanner.hpp
-/usr/share/robwork-1.1/cmake/../../../include/robwork-1.1/rw/pathplanning/PathPlanner.hpp
+/usr/share/robwork-1.2/cmake/../../../include/robwork-1.2/rw/pathplanning/PathPlanner.hpp
 QSampler.hpp
-/usr/share/robwork-1.1/cmake/../../../include/robwork-1.1/rw/pathplanning/QSampler.hpp
+/usr/share/robwork-1.2/cmake/../../../include/robwork-1.2/rw/pathplanning/QSampler.hpp
 
-/usr/share/robwork-1.1/cmake/../../../include/robwork-1.1/rw/pathplanning/QToTPlanner.hpp
+/usr/share/robwork-1.2/cmake/../../../include/robwork-1.2/rw/pathplanning/QToTPlanner.hpp
 PathPlanner.hpp
-/usr/share/robwork-1.1/cmake/../../../include/robwork-1.1/rw/pathplanning/PathPlanner.hpp
+/usr/share/robwork-1.2/cmake/../../../include/robwork-1.2/rw/pathplanning/PathPlanner.hpp
 rw/core/Ptr.hpp
 -
 rw/math/Metric.hpp
 -
 
-/usr/share/robwork-1.1/cmake/../../../include/robwork-1.1/rw/pathplanning/StopCriteria.hpp
+/usr/share/robwork-1.2/cmake/../../../include/robwork-1.2/rw/pathplanning/StopCriteria.hpp
 rw/core/Ptr.hpp
 -
 boost/function.hpp
@@ -6534,7 +6598,7 @@ boost/function.hpp
 vector
 -
 
-/usr/share/robwork-1.1/cmake/../../../include/robwork-1.1/rw/proximity/CollisionDetector.hpp
+/usr/share/robwork-1.2/cmake/../../../include/robwork-1.2/rw/proximity/CollisionDetector.hpp
 rw/core/Ptr.hpp
 -
 rw/proximity/ProximityCalculator.hpp
@@ -6544,9 +6608,9 @@ rw/proximity/ProximityStrategyData.hpp
 vector
 -
 
-/usr/share/robwork-1.1/cmake/../../../include/robwork-1.1/rw/proximity/CollisionStrategy.hpp
+/usr/share/robwork-1.2/cmake/../../../include/robwork-1.2/rw/proximity/CollisionStrategy.hpp
 ProximityStrategy.hpp
-/usr/share/robwork-1.1/cmake/../../../include/robwork-1.1/rw/proximity/ProximityStrategy.hpp
+/usr/share/robwork-1.2/cmake/../../../include/robwork-1.2/rw/proximity/ProximityStrategy.hpp
 rw/core/ExtensionPoint.hpp
 -
 rw/core/Ptr.hpp
@@ -6558,9 +6622,9 @@ rw/math/Transform3D.hpp
 string
 -
 
-/usr/share/robwork-1.1/cmake/../../../include/robwork-1.1/rw/proximity/CollisionToleranceStrategy.hpp
+/usr/share/robwork-1.2/cmake/../../../include/robwork-1.2/rw/proximity/CollisionToleranceStrategy.hpp
 ProximityStrategy.hpp
-/usr/share/robwork-1.1/cmake/../../../include/robwork-1.1/rw/proximity/ProximityStrategy.hpp
+/usr/share/robwork-1.2/cmake/../../../include/robwork-1.2/rw/proximity/ProximityStrategy.hpp
 rw/core/ExtensionPoint.hpp
 -
 rw/core/Ptr.hpp
@@ -6570,17 +6634,17 @@ rw/math/Transform3D.hpp
 string
 -
 
-/usr/share/robwork-1.1/cmake/../../../include/robwork-1.1/rw/proximity/DistanceMultiStrategy.hpp
+/usr/share/robwork-1.2/cmake/../../../include/robwork-1.2/rw/proximity/DistanceMultiStrategy.hpp
 ProximityStrategy.hpp
-/usr/share/robwork-1.1/cmake/../../../include/robwork-1.1/rw/proximity/ProximityStrategy.hpp
+/usr/share/robwork-1.2/cmake/../../../include/robwork-1.2/rw/proximity/ProximityStrategy.hpp
 rw/core/ExtensionPoint.hpp
 -
 rw/math/Transform3D.hpp
 -
 
-/usr/share/robwork-1.1/cmake/../../../include/robwork-1.1/rw/proximity/DistanceStrategy.hpp
+/usr/share/robwork-1.2/cmake/../../../include/robwork-1.2/rw/proximity/DistanceStrategy.hpp
 ProximityStrategy.hpp
-/usr/share/robwork-1.1/cmake/../../../include/robwork-1.1/rw/proximity/ProximityStrategy.hpp
+/usr/share/robwork-1.2/cmake/../../../include/robwork-1.2/rw/proximity/ProximityStrategy.hpp
 rw/core/ExtensionPoint.hpp
 -
 rw/core/Ptr.hpp
@@ -6588,13 +6652,13 @@ rw/core/Ptr.hpp
 rw/math/Transform3D.hpp
 -
 
-/usr/share/robwork-1.1/cmake/../../../include/robwork-1.1/rw/proximity/ProximityCache.hpp
+/usr/share/robwork-1.2/cmake/../../../include/robwork-1.2/rw/proximity/ProximityCache.hpp
 rw/core/Ptr.hpp
 -
 cstddef
 -
 
-/usr/share/robwork-1.1/cmake/../../../include/robwork-1.1/rw/proximity/ProximityCalculator.hpp
+/usr/share/robwork-1.2/cmake/../../../include/robwork-1.2/rw/proximity/ProximityCalculator.hpp
 rw/common/Timer.hpp
 -
 rw/core/Ptr.hpp
@@ -6608,7 +6672,7 @@ utility
 vector
 -
 
-/usr/share/robwork-1.1/cmake/../../../include/robwork-1.1/rw/proximity/ProximityModel.hpp
+/usr/share/robwork-1.2/cmake/../../../include/robwork-1.2/rw/proximity/ProximityModel.hpp
 rw/core/Ptr.hpp
 -
 string
@@ -6616,9 +6680,9 @@ string
 vector
 -
 
-/usr/share/robwork-1.1/cmake/../../../include/robwork-1.1/rw/proximity/ProximityStrategy.hpp
+/usr/share/robwork-1.2/cmake/../../../include/robwork-1.2/rw/proximity/ProximityStrategy.hpp
 ProximityModel.hpp
-/usr/share/robwork-1.1/cmake/../../../include/robwork-1.1/rw/proximity/ProximityModel.hpp
+/usr/share/robwork-1.2/cmake/../../../include/robwork-1.2/rw/proximity/ProximityModel.hpp
 rw/core/ExtensionPoint.hpp
 -
 rw/kinematics/FrameMap.hpp
@@ -6626,17 +6690,17 @@ rw/kinematics/FrameMap.hpp
 string
 -
 
-/usr/share/robwork-1.1/cmake/../../../include/robwork-1.1/rw/proximity/ProximityStrategyData.hpp
+/usr/share/robwork-1.2/cmake/../../../include/robwork-1.2/rw/proximity/ProximityStrategyData.hpp
 CollisionStrategy.hpp
-/usr/share/robwork-1.1/cmake/../../../include/robwork-1.1/rw/proximity/CollisionStrategy.hpp
+/usr/share/robwork-1.2/cmake/../../../include/robwork-1.2/rw/proximity/CollisionStrategy.hpp
 DistanceMultiStrategy.hpp
-/usr/share/robwork-1.1/cmake/../../../include/robwork-1.1/rw/proximity/DistanceMultiStrategy.hpp
+/usr/share/robwork-1.2/cmake/../../../include/robwork-1.2/rw/proximity/DistanceMultiStrategy.hpp
 DistanceStrategy.hpp
-/usr/share/robwork-1.1/cmake/../../../include/robwork-1.1/rw/proximity/DistanceStrategy.hpp
+/usr/share/robwork-1.2/cmake/../../../include/robwork-1.2/rw/proximity/DistanceStrategy.hpp
 ProximityCache.hpp
-/usr/share/robwork-1.1/cmake/../../../include/robwork-1.1/rw/proximity/ProximityCache.hpp
+/usr/share/robwork-1.2/cmake/../../../include/robwork-1.2/rw/proximity/ProximityCache.hpp
 ProximityModel.hpp
-/usr/share/robwork-1.1/cmake/../../../include/robwork-1.1/rw/proximity/ProximityModel.hpp
+/usr/share/robwork-1.2/cmake/../../../include/robwork-1.2/rw/proximity/ProximityModel.hpp
 rw/core/Ptr.hpp
 -
 rw/kinematics/Frame.hpp
@@ -6648,7 +6712,7 @@ utility
 vector
 -
 
-/usr/share/robwork-1.1/cmake/../../../include/robwork-1.1/rw/sensor/Image.hpp
+/usr/share/robwork-1.2/cmake/../../../include/robwork-1.2/rw/sensor/Image.hpp
 rw/common/types.hpp
 -
 rw/core/Ptr.hpp
@@ -6662,13 +6726,13 @@ boost/mpl/int.hpp
 string
 -
 
-/usr/share/robwork-1.1/cmake/../../../include/robwork-1.1/rw/trajectory/Interpolator.hpp
+/usr/share/robwork-1.2/cmake/../../../include/robwork-1.2/rw/trajectory/Interpolator.hpp
 rw/core/Ptr.hpp
 -
 
-/usr/share/robwork-1.1/cmake/../../../include/robwork-1.1/rw/trajectory/LinearInterpolator.hpp
+/usr/share/robwork-1.2/cmake/../../../include/robwork-1.2/rw/trajectory/LinearInterpolator.hpp
 Interpolator.hpp
-/usr/share/robwork-1.1/cmake/../../../include/robwork-1.1/rw/trajectory/Interpolator.hpp
+/usr/share/robwork-1.2/cmake/../../../include/robwork-1.2/rw/trajectory/Interpolator.hpp
 rw/core/macros.hpp
 -
 rw/math/Math.hpp
@@ -6680,9 +6744,9 @@ rw/math/Rotation3D.hpp
 rw/math/Transform3D.hpp
 -
 
-/usr/share/robwork-1.1/cmake/../../../include/robwork-1.1/rw/trajectory/Path.hpp
+/usr/share/robwork-1.2/cmake/../../../include/robwork-1.2/rw/trajectory/Path.hpp
 Timed.hpp
-/usr/share/robwork-1.1/cmake/../../../include/robwork-1.1/rw/trajectory/Timed.hpp
+/usr/share/robwork-1.2/cmake/../../../include/robwork-1.2/rw/trajectory/Timed.hpp
 rw/core/Ptr.hpp
 -
 rw/kinematics/State.hpp
@@ -6702,29 +6766,29 @@ boost/serialization/serialization.hpp
 boost/serialization/vector.hpp
 -
 
-/usr/share/robwork-1.1/cmake/../../../include/robwork-1.1/rw/trajectory/Timed.hpp
+/usr/share/robwork-1.2/cmake/../../../include/robwork-1.2/rw/trajectory/Timed.hpp
 rw/kinematics/State.hpp
 -
 rw/math/Q.hpp
 -
 
-/usr/share/robwork-1.1/cmake/../../../include/robwork-1.1/rwlibs/pathplanners/sbl/SBLExpand.hpp
+/usr/share/robwork-1.2/cmake/../../../include/robwork-1.2/rwlibs/pathplanners/sbl/SBLExpand.hpp
 rw/core/Ptr.hpp
 -
 rw/math/Q.hpp
 -
 
-/usr/share/robwork-1.1/cmake/../../../include/robwork-1.1/rwlibs/pathplanners/sbl/SBLOptions.hpp
+/usr/share/robwork-1.2/cmake/../../../include/robwork-1.2/rwlibs/pathplanners/sbl/SBLOptions.hpp
 SBLExpand.hpp
-/usr/share/robwork-1.1/cmake/../../../include/robwork-1.1/rwlibs/pathplanners/sbl/SBLExpand.hpp
+/usr/share/robwork-1.2/cmake/../../../include/robwork-1.2/rwlibs/pathplanners/sbl/SBLExpand.hpp
 rw/pathplanning/QConstraint.hpp
 -
 rw/pathplanning/QEdgeConstraintIncremental.hpp
 -
 
-/usr/share/robwork-1.1/cmake/../../../include/robwork-1.1/rwlibs/pathplanners/sbl/SBLPlanner.hpp
+/usr/share/robwork-1.2/cmake/../../../include/robwork-1.2/rwlibs/pathplanners/sbl/SBLPlanner.hpp
 SBLSetup.hpp
-/usr/share/robwork-1.1/cmake/../../../include/robwork-1.1/rwlibs/pathplanners/sbl/SBLSetup.hpp
+/usr/share/robwork-1.2/cmake/../../../include/robwork-1.2/rwlibs/pathplanners/sbl/SBLSetup.hpp
 rw/core/Ptr.hpp
 -
 rw/pathplanning/QToQPlanner.hpp
@@ -6734,13 +6798,13 @@ rw/pathplanning/QToQSamplerPlanner.hpp
 rw/pathplanning/QToTPlanner.hpp
 -
 
-/usr/share/robwork-1.1/cmake/../../../include/robwork-1.1/rwlibs/pathplanners/sbl/SBLSetup.hpp
+/usr/share/robwork-1.2/cmake/../../../include/robwork-1.2/rwlibs/pathplanners/sbl/SBLSetup.hpp
 SBLOptions.hpp
-/usr/share/robwork-1.1/cmake/../../../include/robwork-1.1/rwlibs/pathplanners/sbl/SBLOptions.hpp
+/usr/share/robwork-1.2/cmake/../../../include/robwork-1.2/rwlibs/pathplanners/sbl/SBLOptions.hpp
 rw/core/Ptr.hpp
 -
 
-/usr/share/robwork-1.1/cmake/../../../include/robwork-1.1/rwlibs/proximitystrategies/ProximityStrategyFactory.hpp
+/usr/share/robwork-1.2/cmake/../../../include/robwork-1.2/rwlibs/proximitystrategies/ProximityStrategyFactory.hpp
 rw/proximity/CollisionStrategy.hpp
 -
 rw/proximity/CollisionToleranceStrategy.hpp

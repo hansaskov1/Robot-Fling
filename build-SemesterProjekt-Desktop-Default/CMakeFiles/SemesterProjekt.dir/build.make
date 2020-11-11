@@ -43,10 +43,10 @@ RM = /usr/bin/cmake -E remove -f
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = /home/hans/GithubCode/Robot-Fling/SemesterProjekt
+CMAKE_SOURCE_DIR = /home/kjohnsen/github/Robot-Fling/SemesterProjekt
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = /home/hans/GithubCode/Robot-Fling/build-SemesterProjekt-Desktop-Default
+CMAKE_BINARY_DIR = /home/kjohnsen/github/Robot-Fling/build-SemesterProjekt-Desktop-Default
 
 # Include any dependencies generated for this target.
 include CMakeFiles/SemesterProjekt.dir/depend.make
@@ -58,17 +58,17 @@ include CMakeFiles/SemesterProjekt.dir/progress.make
 include CMakeFiles/SemesterProjekt.dir/flags.make
 
 CMakeFiles/SemesterProjekt.dir/main.cpp.o: CMakeFiles/SemesterProjekt.dir/flags.make
-CMakeFiles/SemesterProjekt.dir/main.cpp.o: /home/hans/GithubCode/Robot-Fling/SemesterProjekt/main.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/hans/GithubCode/Robot-Fling/build-SemesterProjekt-Desktop-Default/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Building CXX object CMakeFiles/SemesterProjekt.dir/main.cpp.o"
-	/usr/bin/g++-7  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/SemesterProjekt.dir/main.cpp.o -c /home/hans/GithubCode/Robot-Fling/SemesterProjekt/main.cpp
+CMakeFiles/SemesterProjekt.dir/main.cpp.o: /home/kjohnsen/github/Robot-Fling/SemesterProjekt/main.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/kjohnsen/github/Robot-Fling/build-SemesterProjekt-Desktop-Default/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Building CXX object CMakeFiles/SemesterProjekt.dir/main.cpp.o"
+	/usr/bin/g++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/SemesterProjekt.dir/main.cpp.o -c /home/kjohnsen/github/Robot-Fling/SemesterProjekt/main.cpp
 
 CMakeFiles/SemesterProjekt.dir/main.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/SemesterProjekt.dir/main.cpp.i"
-	/usr/bin/g++-7 $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/hans/GithubCode/Robot-Fling/SemesterProjekt/main.cpp > CMakeFiles/SemesterProjekt.dir/main.cpp.i
+	/usr/bin/g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/kjohnsen/github/Robot-Fling/SemesterProjekt/main.cpp > CMakeFiles/SemesterProjekt.dir/main.cpp.i
 
 CMakeFiles/SemesterProjekt.dir/main.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/SemesterProjekt.dir/main.cpp.s"
-	/usr/bin/g++-7 $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/hans/GithubCode/Robot-Fling/SemesterProjekt/main.cpp -o CMakeFiles/SemesterProjekt.dir/main.cpp.s
+	/usr/bin/g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/kjohnsen/github/Robot-Fling/SemesterProjekt/main.cpp -o CMakeFiles/SemesterProjekt.dir/main.cpp.s
 
 CMakeFiles/SemesterProjekt.dir/main.cpp.o.requires:
 
@@ -82,17 +82,17 @@ CMakeFiles/SemesterProjekt.dir/main.cpp.o.provides.build: CMakeFiles/SemesterPro
 
 
 CMakeFiles/SemesterProjekt.dir/mainwindow.cpp.o: CMakeFiles/SemesterProjekt.dir/flags.make
-CMakeFiles/SemesterProjekt.dir/mainwindow.cpp.o: /home/hans/GithubCode/Robot-Fling/SemesterProjekt/mainwindow.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/hans/GithubCode/Robot-Fling/build-SemesterProjekt-Desktop-Default/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Building CXX object CMakeFiles/SemesterProjekt.dir/mainwindow.cpp.o"
-	/usr/bin/g++-7  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/SemesterProjekt.dir/mainwindow.cpp.o -c /home/hans/GithubCode/Robot-Fling/SemesterProjekt/mainwindow.cpp
+CMakeFiles/SemesterProjekt.dir/mainwindow.cpp.o: /home/kjohnsen/github/Robot-Fling/SemesterProjekt/mainwindow.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/kjohnsen/github/Robot-Fling/build-SemesterProjekt-Desktop-Default/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Building CXX object CMakeFiles/SemesterProjekt.dir/mainwindow.cpp.o"
+	/usr/bin/g++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/SemesterProjekt.dir/mainwindow.cpp.o -c /home/kjohnsen/github/Robot-Fling/SemesterProjekt/mainwindow.cpp
 
 CMakeFiles/SemesterProjekt.dir/mainwindow.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/SemesterProjekt.dir/mainwindow.cpp.i"
-	/usr/bin/g++-7 $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/hans/GithubCode/Robot-Fling/SemesterProjekt/mainwindow.cpp > CMakeFiles/SemesterProjekt.dir/mainwindow.cpp.i
+	/usr/bin/g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/kjohnsen/github/Robot-Fling/SemesterProjekt/mainwindow.cpp > CMakeFiles/SemesterProjekt.dir/mainwindow.cpp.i
 
 CMakeFiles/SemesterProjekt.dir/mainwindow.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/SemesterProjekt.dir/mainwindow.cpp.s"
-	/usr/bin/g++-7 $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/hans/GithubCode/Robot-Fling/SemesterProjekt/mainwindow.cpp -o CMakeFiles/SemesterProjekt.dir/mainwindow.cpp.s
+	/usr/bin/g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/kjohnsen/github/Robot-Fling/SemesterProjekt/mainwindow.cpp -o CMakeFiles/SemesterProjekt.dir/mainwindow.cpp.s
 
 CMakeFiles/SemesterProjekt.dir/mainwindow.cpp.o.requires:
 
@@ -106,17 +106,17 @@ CMakeFiles/SemesterProjekt.dir/mainwindow.cpp.o.provides.build: CMakeFiles/Semes
 
 
 CMakeFiles/SemesterProjekt.dir/sqlcontroller.cpp.o: CMakeFiles/SemesterProjekt.dir/flags.make
-CMakeFiles/SemesterProjekt.dir/sqlcontroller.cpp.o: /home/hans/GithubCode/Robot-Fling/SemesterProjekt/sqlcontroller.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/hans/GithubCode/Robot-Fling/build-SemesterProjekt-Desktop-Default/CMakeFiles --progress-num=$(CMAKE_PROGRESS_3) "Building CXX object CMakeFiles/SemesterProjekt.dir/sqlcontroller.cpp.o"
-	/usr/bin/g++-7  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/SemesterProjekt.dir/sqlcontroller.cpp.o -c /home/hans/GithubCode/Robot-Fling/SemesterProjekt/sqlcontroller.cpp
+CMakeFiles/SemesterProjekt.dir/sqlcontroller.cpp.o: /home/kjohnsen/github/Robot-Fling/SemesterProjekt/sqlcontroller.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/kjohnsen/github/Robot-Fling/build-SemesterProjekt-Desktop-Default/CMakeFiles --progress-num=$(CMAKE_PROGRESS_3) "Building CXX object CMakeFiles/SemesterProjekt.dir/sqlcontroller.cpp.o"
+	/usr/bin/g++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/SemesterProjekt.dir/sqlcontroller.cpp.o -c /home/kjohnsen/github/Robot-Fling/SemesterProjekt/sqlcontroller.cpp
 
 CMakeFiles/SemesterProjekt.dir/sqlcontroller.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/SemesterProjekt.dir/sqlcontroller.cpp.i"
-	/usr/bin/g++-7 $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/hans/GithubCode/Robot-Fling/SemesterProjekt/sqlcontroller.cpp > CMakeFiles/SemesterProjekt.dir/sqlcontroller.cpp.i
+	/usr/bin/g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/kjohnsen/github/Robot-Fling/SemesterProjekt/sqlcontroller.cpp > CMakeFiles/SemesterProjekt.dir/sqlcontroller.cpp.i
 
 CMakeFiles/SemesterProjekt.dir/sqlcontroller.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/SemesterProjekt.dir/sqlcontroller.cpp.s"
-	/usr/bin/g++-7 $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/hans/GithubCode/Robot-Fling/SemesterProjekt/sqlcontroller.cpp -o CMakeFiles/SemesterProjekt.dir/sqlcontroller.cpp.s
+	/usr/bin/g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/kjohnsen/github/Robot-Fling/SemesterProjekt/sqlcontroller.cpp -o CMakeFiles/SemesterProjekt.dir/sqlcontroller.cpp.s
 
 CMakeFiles/SemesterProjekt.dir/sqlcontroller.cpp.o.requires:
 
@@ -130,17 +130,17 @@ CMakeFiles/SemesterProjekt.dir/sqlcontroller.cpp.o.provides.build: CMakeFiles/Se
 
 
 CMakeFiles/SemesterProjekt.dir/calibration.cpp.o: CMakeFiles/SemesterProjekt.dir/flags.make
-CMakeFiles/SemesterProjekt.dir/calibration.cpp.o: /home/hans/GithubCode/Robot-Fling/SemesterProjekt/calibration.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/hans/GithubCode/Robot-Fling/build-SemesterProjekt-Desktop-Default/CMakeFiles --progress-num=$(CMAKE_PROGRESS_4) "Building CXX object CMakeFiles/SemesterProjekt.dir/calibration.cpp.o"
-	/usr/bin/g++-7  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/SemesterProjekt.dir/calibration.cpp.o -c /home/hans/GithubCode/Robot-Fling/SemesterProjekt/calibration.cpp
+CMakeFiles/SemesterProjekt.dir/calibration.cpp.o: /home/kjohnsen/github/Robot-Fling/SemesterProjekt/calibration.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/kjohnsen/github/Robot-Fling/build-SemesterProjekt-Desktop-Default/CMakeFiles --progress-num=$(CMAKE_PROGRESS_4) "Building CXX object CMakeFiles/SemesterProjekt.dir/calibration.cpp.o"
+	/usr/bin/g++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/SemesterProjekt.dir/calibration.cpp.o -c /home/kjohnsen/github/Robot-Fling/SemesterProjekt/calibration.cpp
 
 CMakeFiles/SemesterProjekt.dir/calibration.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/SemesterProjekt.dir/calibration.cpp.i"
-	/usr/bin/g++-7 $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/hans/GithubCode/Robot-Fling/SemesterProjekt/calibration.cpp > CMakeFiles/SemesterProjekt.dir/calibration.cpp.i
+	/usr/bin/g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/kjohnsen/github/Robot-Fling/SemesterProjekt/calibration.cpp > CMakeFiles/SemesterProjekt.dir/calibration.cpp.i
 
 CMakeFiles/SemesterProjekt.dir/calibration.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/SemesterProjekt.dir/calibration.cpp.s"
-	/usr/bin/g++-7 $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/hans/GithubCode/Robot-Fling/SemesterProjekt/calibration.cpp -o CMakeFiles/SemesterProjekt.dir/calibration.cpp.s
+	/usr/bin/g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/kjohnsen/github/Robot-Fling/SemesterProjekt/calibration.cpp -o CMakeFiles/SemesterProjekt.dir/calibration.cpp.s
 
 CMakeFiles/SemesterProjekt.dir/calibration.cpp.o.requires:
 
@@ -154,17 +154,17 @@ CMakeFiles/SemesterProjekt.dir/calibration.cpp.o.provides.build: CMakeFiles/Seme
 
 
 CMakeFiles/SemesterProjekt.dir/objectdetection.cpp.o: CMakeFiles/SemesterProjekt.dir/flags.make
-CMakeFiles/SemesterProjekt.dir/objectdetection.cpp.o: /home/hans/GithubCode/Robot-Fling/SemesterProjekt/objectdetection.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/hans/GithubCode/Robot-Fling/build-SemesterProjekt-Desktop-Default/CMakeFiles --progress-num=$(CMAKE_PROGRESS_5) "Building CXX object CMakeFiles/SemesterProjekt.dir/objectdetection.cpp.o"
-	/usr/bin/g++-7  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/SemesterProjekt.dir/objectdetection.cpp.o -c /home/hans/GithubCode/Robot-Fling/SemesterProjekt/objectdetection.cpp
+CMakeFiles/SemesterProjekt.dir/objectdetection.cpp.o: /home/kjohnsen/github/Robot-Fling/SemesterProjekt/objectdetection.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/kjohnsen/github/Robot-Fling/build-SemesterProjekt-Desktop-Default/CMakeFiles --progress-num=$(CMAKE_PROGRESS_5) "Building CXX object CMakeFiles/SemesterProjekt.dir/objectdetection.cpp.o"
+	/usr/bin/g++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/SemesterProjekt.dir/objectdetection.cpp.o -c /home/kjohnsen/github/Robot-Fling/SemesterProjekt/objectdetection.cpp
 
 CMakeFiles/SemesterProjekt.dir/objectdetection.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/SemesterProjekt.dir/objectdetection.cpp.i"
-	/usr/bin/g++-7 $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/hans/GithubCode/Robot-Fling/SemesterProjekt/objectdetection.cpp > CMakeFiles/SemesterProjekt.dir/objectdetection.cpp.i
+	/usr/bin/g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/kjohnsen/github/Robot-Fling/SemesterProjekt/objectdetection.cpp > CMakeFiles/SemesterProjekt.dir/objectdetection.cpp.i
 
 CMakeFiles/SemesterProjekt.dir/objectdetection.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/SemesterProjekt.dir/objectdetection.cpp.s"
-	/usr/bin/g++-7 $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/hans/GithubCode/Robot-Fling/SemesterProjekt/objectdetection.cpp -o CMakeFiles/SemesterProjekt.dir/objectdetection.cpp.s
+	/usr/bin/g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/kjohnsen/github/Robot-Fling/SemesterProjekt/objectdetection.cpp -o CMakeFiles/SemesterProjekt.dir/objectdetection.cpp.s
 
 CMakeFiles/SemesterProjekt.dir/objectdetection.cpp.o.requires:
 
@@ -179,16 +179,16 @@ CMakeFiles/SemesterProjekt.dir/objectdetection.cpp.o.provides.build: CMakeFiles/
 
 CMakeFiles/SemesterProjekt.dir/SemesterProjekt_autogen/mocs_compilation.cpp.o: CMakeFiles/SemesterProjekt.dir/flags.make
 CMakeFiles/SemesterProjekt.dir/SemesterProjekt_autogen/mocs_compilation.cpp.o: SemesterProjekt_autogen/mocs_compilation.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/hans/GithubCode/Robot-Fling/build-SemesterProjekt-Desktop-Default/CMakeFiles --progress-num=$(CMAKE_PROGRESS_6) "Building CXX object CMakeFiles/SemesterProjekt.dir/SemesterProjekt_autogen/mocs_compilation.cpp.o"
-	/usr/bin/g++-7  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/SemesterProjekt.dir/SemesterProjekt_autogen/mocs_compilation.cpp.o -c /home/hans/GithubCode/Robot-Fling/build-SemesterProjekt-Desktop-Default/SemesterProjekt_autogen/mocs_compilation.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/kjohnsen/github/Robot-Fling/build-SemesterProjekt-Desktop-Default/CMakeFiles --progress-num=$(CMAKE_PROGRESS_6) "Building CXX object CMakeFiles/SemesterProjekt.dir/SemesterProjekt_autogen/mocs_compilation.cpp.o"
+	/usr/bin/g++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/SemesterProjekt.dir/SemesterProjekt_autogen/mocs_compilation.cpp.o -c /home/kjohnsen/github/Robot-Fling/build-SemesterProjekt-Desktop-Default/SemesterProjekt_autogen/mocs_compilation.cpp
 
 CMakeFiles/SemesterProjekt.dir/SemesterProjekt_autogen/mocs_compilation.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/SemesterProjekt.dir/SemesterProjekt_autogen/mocs_compilation.cpp.i"
-	/usr/bin/g++-7 $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/hans/GithubCode/Robot-Fling/build-SemesterProjekt-Desktop-Default/SemesterProjekt_autogen/mocs_compilation.cpp > CMakeFiles/SemesterProjekt.dir/SemesterProjekt_autogen/mocs_compilation.cpp.i
+	/usr/bin/g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/kjohnsen/github/Robot-Fling/build-SemesterProjekt-Desktop-Default/SemesterProjekt_autogen/mocs_compilation.cpp > CMakeFiles/SemesterProjekt.dir/SemesterProjekt_autogen/mocs_compilation.cpp.i
 
 CMakeFiles/SemesterProjekt.dir/SemesterProjekt_autogen/mocs_compilation.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/SemesterProjekt.dir/SemesterProjekt_autogen/mocs_compilation.cpp.s"
-	/usr/bin/g++-7 $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/hans/GithubCode/Robot-Fling/build-SemesterProjekt-Desktop-Default/SemesterProjekt_autogen/mocs_compilation.cpp -o CMakeFiles/SemesterProjekt.dir/SemesterProjekt_autogen/mocs_compilation.cpp.s
+	/usr/bin/g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/kjohnsen/github/Robot-Fling/build-SemesterProjekt-Desktop-Default/SemesterProjekt_autogen/mocs_compilation.cpp -o CMakeFiles/SemesterProjekt.dir/SemesterProjekt_autogen/mocs_compilation.cpp.s
 
 CMakeFiles/SemesterProjekt.dir/SemesterProjekt_autogen/mocs_compilation.cpp.o.requires:
 
@@ -259,7 +259,7 @@ SemesterProjekt: /usr/lib/x86_64-linux-gnu/libboost_atomic.so
 SemesterProjekt: /usr/lib/x86_64-linux-gnu/libpthread.so
 SemesterProjekt: /usr/lib/x86_64-linux-gnu/libboost_test_exec_monitor.a
 SemesterProjekt: /usr/lib/x86_64-linux-gnu/libboost_unit_test_framework.so
-SemesterProjekt: /usr/lib/x86_64-linux-gnu/librtde.so.1.2.6
+SemesterProjekt: /usr/local/lib/librtde.so.1.3.1
 SemesterProjekt: /usr/lib/x86_64-linux-gnu/libQt5Widgets.so.5.9.5
 SemesterProjekt: /usr/lib/x86_64-linux-gnu/libQt5Sql.so.5.9.5
 SemesterProjekt: /usr/lib/x86_64-linux-gnu/libQt5Network.so.5.9.5
@@ -309,7 +309,7 @@ SemesterProjekt: /usr/lib/x86_64-linux-gnu/libopencv_imgcodecs.so.3.2.0
 SemesterProjekt: /usr/lib/x86_64-linux-gnu/libopencv_imgproc.so.3.2.0
 SemesterProjekt: /usr/lib/x86_64-linux-gnu/libopencv_core.so.3.2.0
 SemesterProjekt: CMakeFiles/SemesterProjekt.dir/link.txt
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/home/hans/GithubCode/Robot-Fling/build-SemesterProjekt-Desktop-Default/CMakeFiles --progress-num=$(CMAKE_PROGRESS_7) "Linking CXX executable SemesterProjekt"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/home/kjohnsen/github/Robot-Fling/build-SemesterProjekt-Desktop-Default/CMakeFiles --progress-num=$(CMAKE_PROGRESS_7) "Linking CXX executable SemesterProjekt"
 	$(CMAKE_COMMAND) -E cmake_link_script CMakeFiles/SemesterProjekt.dir/link.txt --verbose=$(VERBOSE)
 
 # Rule to build all files generated by this target.
@@ -331,6 +331,6 @@ CMakeFiles/SemesterProjekt.dir/clean:
 .PHONY : CMakeFiles/SemesterProjekt.dir/clean
 
 CMakeFiles/SemesterProjekt.dir/depend:
-	cd /home/hans/GithubCode/Robot-Fling/build-SemesterProjekt-Desktop-Default && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" /home/hans/GithubCode/Robot-Fling/SemesterProjekt /home/hans/GithubCode/Robot-Fling/SemesterProjekt /home/hans/GithubCode/Robot-Fling/build-SemesterProjekt-Desktop-Default /home/hans/GithubCode/Robot-Fling/build-SemesterProjekt-Desktop-Default /home/hans/GithubCode/Robot-Fling/build-SemesterProjekt-Desktop-Default/CMakeFiles/SemesterProjekt.dir/DependInfo.cmake --color=$(COLOR)
+	cd /home/kjohnsen/github/Robot-Fling/build-SemesterProjekt-Desktop-Default && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" /home/kjohnsen/github/Robot-Fling/SemesterProjekt /home/kjohnsen/github/Robot-Fling/SemesterProjekt /home/kjohnsen/github/Robot-Fling/build-SemesterProjekt-Desktop-Default /home/kjohnsen/github/Robot-Fling/build-SemesterProjekt-Desktop-Default /home/kjohnsen/github/Robot-Fling/build-SemesterProjekt-Desktop-Default/CMakeFiles/SemesterProjekt.dir/DependInfo.cmake --color=$(COLOR)
 .PHONY : CMakeFiles/SemesterProjekt.dir/depend
 
