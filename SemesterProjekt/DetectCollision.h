@@ -85,13 +85,13 @@ public:
 
     bool isCollisionUR(size_t checks, rw::math::Transform3D<> endTransform)
     {
-        rw::trajectory::LinearInterpolator<rw::math::Transform3D<>> interpolator(getTransform(), endTransform, 1);
+        rw::trajectory::LinearInterpolator<rw::math::Transform3D<>> interpolator(getTransform(), endTransform, checks);
         std::vector<rw::math::Q> QVec;
         rw::math::Q lastPose = mSerialDevice->getQ(mState);
 
         for (unsigned int i = 1; i < checks; i++)
         {
-            rw::math::Transform3D<> T = interpolator.x(static_cast<double>(i) / static_cast<double>(checks));
+            rw::math::Transform3D<> T = interpolator.x(i);
             std::vector<rw::math::Q> qPoses = calcInverseUR(T);
 
             if (qPoses.empty())
