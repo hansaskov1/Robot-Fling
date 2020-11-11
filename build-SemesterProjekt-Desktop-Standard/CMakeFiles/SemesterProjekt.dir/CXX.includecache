@@ -111,10 +111,18 @@ future
 -
 Gripper.h
 /home/christian/workspace/Robot-Fling/SemesterProjekt/Gripper.h
+path.h
+/home/christian/workspace/Robot-Fling/SemesterProjekt/path.h
+Throw.h
+/home/christian/workspace/Robot-Fling/SemesterProjekt/Throw.h
 
 /home/christian/workspace/Robot-Fling/SemesterProjekt/Throw.h
 QString
 -
+vector
+-
+path.h
+/home/christian/workspace/Robot-Fling/SemesterProjekt/path.h
 
 /home/christian/workspace/Robot-Fling/SemesterProjekt/calibration.cpp
 calibration.h
@@ -150,20 +158,10 @@ opencv2/imgproc.hpp
 thread
 -
 
-/home/christian/workspace/Robot-Fling/SemesterProjekt/clientInfo.h
-iostream
--
-QHostAddress
--
-
 /home/christian/workspace/Robot-Fling/SemesterProjekt/main.cpp
 mainwindow.h
 /home/christian/workspace/Robot-Fling/SemesterProjekt/mainwindow.h
 QApplication
--
-iostream
--
-QtSql/QSqlDatabase
 -
 
 /home/christian/workspace/Robot-Fling/SemesterProjekt/mainwindow.cpp
@@ -173,8 +171,6 @@ mainwindow.h
 /home/christian/workspace/Robot-Fling/SemesterProjekt/./ui_mainwindow.h
 
 /home/christian/workspace/Robot-Fling/SemesterProjekt/mainwindow.h
-clientInfo.h
-/home/christian/workspace/Robot-Fling/SemesterProjekt/clientInfo.h
 Gripper.h
 /home/christian/workspace/Robot-Fling/SemesterProjekt/Gripper.h
 string.h
@@ -189,6 +185,8 @@ QHostAddress
 -
 QString
 -
+QTimer
+-
 calibration.h
 /home/christian/workspace/Robot-Fling/SemesterProjekt/calibration.h
 objectdetection.h
@@ -199,6 +197,8 @@ DetectCollision.h
 /home/christian/workspace/Robot-Fling/SemesterProjekt/DetectCollision.h
 RobotControl.h
 /home/christian/workspace/Robot-Fling/SemesterProjekt/RobotControl.h
+sqlcontroller.h
+/home/christian/workspace/Robot-Fling/SemesterProjekt/sqlcontroller.h
 
 /home/christian/workspace/Robot-Fling/SemesterProjekt/objectdetection.cpp
 objectdetection.h
@@ -232,12 +232,20 @@ opencv2/imgproc.hpp
 thread
 -
 
+/home/christian/workspace/Robot-Fling/SemesterProjekt/path.h
+vector
+-
+
 /home/christian/workspace/Robot-Fling/SemesterProjekt/showvideo.h
 QThread
 -
 QThreadPool
 -
 QLabel
+-
+thread
+-
+chrono
 -
 mainwindow.h
 /home/christian/workspace/Robot-Fling/SemesterProjekt/mainwindow.h
@@ -3059,6 +3067,10 @@ qthread.h
 /usr/include/x86_64-linux-gnu/qt5/QtCore/QThreadPool
 qthreadpool.h
 /usr/include/x86_64-linux-gnu/qt5/QtCore/qthreadpool.h
+
+/usr/include/x86_64-linux-gnu/qt5/QtCore/QTimer
+qtimer.h
+/usr/include/x86_64-linux-gnu/qt5/QtCore/qtimer.h
 
 /usr/include/x86_64-linux-gnu/qt5/QtCore/QVariant
 qvariant.h

@@ -10,17 +10,8 @@ int main()
 {
     Calibration c;
     ObjectDetection o;
-    c.calibrate2();
     c.connectToCam();
     cv::Mat image;
-
-    cv::Mat worldCalImg[4];
-    for(int i = 0; i < 4; i++){
-        cv::String path = "";
-        path = "../Images/BallWorldCordsROI/img" + std::to_string(i) + ".png";
-        worldCalImg[i] = cv::imread(path, cv::IMREAD_COLOR);
-    }
-    c.createTranformMatrix(worldCalImg);
 
     int imgNr = 0,rImgNr = 0;
     while(c.mRun){
@@ -53,6 +44,12 @@ int main()
             rImgNr++;
         }else if(keyPressed == 'c'){
             c.calibrate();
+            cv::Mat worldCalImg[4];
+            for(int i = 0; i < 4; i++){
+                cv::String path = "";
+                path = "../Images/BallWorldCordsROI/img" + std::to_string(i) + ".png";
+                worldCalImg[i] = cv::imread(path, cv::IMREAD_COLOR);
+            }
             c.createTranformMatrix(worldCalImg);
         }else{
             std::vector<cv::String> FileNames;

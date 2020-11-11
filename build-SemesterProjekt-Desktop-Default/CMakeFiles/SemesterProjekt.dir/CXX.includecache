@@ -109,6 +109,10 @@ thread
 -
 future
 -
+Gripper.h
+/home/hans/GithubCode/Robot-Fling/SemesterProjekt/Gripper.h
+path.h
+/home/hans/GithubCode/Robot-Fling/SemesterProjekt/path.h
 
 /home/hans/GithubCode/Robot-Fling/SemesterProjekt/Throw.h
 QString
@@ -228,6 +232,10 @@ opencv2/highgui.hpp
 opencv2/imgproc.hpp
 -
 thread
+-
+
+/home/hans/GithubCode/Robot-Fling/SemesterProjekt/path.h
+vector
 -
 
 /home/hans/GithubCode/Robot-Fling/SemesterProjekt/showvideo.h

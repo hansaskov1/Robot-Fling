@@ -60,7 +60,6 @@ if(ANDROID)
     mainwindow.cpp
     mainwindow.h
     mainwindow.ui
-    clientInfo.h
     gripper.h
     sqlcontroller.h
     sqlcontroller.cpp
@@ -72,6 +71,7 @@ if(ANDROID)
     showvideo.h
     RobotControl.h
     DetectCollision.h
+    path.h
   )
 else()
   add_executable(SemesterProjekt
@@ -79,7 +79,6 @@ else()
     mainwindow.cpp
     mainwindow.h
     mainwindow.ui
-    clientInfo.h
     Gripper.h
     sqlcontroller.h
     sqlcontroller.cpp
@@ -91,6 +90,7 @@ else()
     showvideo.h
     RobotControl.h
     DetectCollision.h
+    path.h
   )
 endif()
 target_link_libraries(SemesterProjekt ${ROBWORK_LIBRARIES})
