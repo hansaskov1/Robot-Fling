@@ -89,8 +89,8 @@ void MainWindow::on_bSaveConnect_clicked()
 
     RC.setParam("127.0.0.1", "192.168.100.10", PCal, RCal);
 
-    if (sql.connect("192.168.221.1", "ubuntu", "Tarzan12!", "kastdb"))
-        ui->statusbar->showMessage("Connected", 3000);
+    //if (sql.connect("192.168.221.1", "ubuntu", "Tarzan12!", "kastdb"))
+        //ui->statusbar->showMessage("Connected", 3000);
 
     //gripper.Init();
     //gripper.ToConnectToHost("192.168.100.10", 1000);

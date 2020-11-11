@@ -1,4 +1,4 @@
-# Install script for directory: /home/hans/GithubCode/Robot-Fling/SemesterProjekt
+# Install script for directory: /home/suspend/GitHub/Robot-Fling/SemesterProjekt
 
 # Set the install prefix
 if(NOT DEFINED CMAKE_INSTALL_PREFIX)
@@ -45,5 +45,5 @@ endif()
 
 string(REPLACE ";" "\n" CMAKE_INSTALL_MANIFEST_CONTENT
        "${CMAKE_INSTALL_MANIFEST_FILES}")
-file(WRITE "/home/hans/GithubCode/Robot-Fling/build-SemesterProjekt-Desktop-Default/${CMAKE_INSTALL_MANIFEST}"
+file(WRITE "/home/suspend/GitHub/Robot-Fling/build-SemesterProjekt-Desktop-Default/${CMAKE_INSTALL_MANIFEST}"
      "${CMAKE_INSTALL_MANIFEST_CONTENT}")

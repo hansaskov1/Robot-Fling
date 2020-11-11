@@ -32,20 +32,7 @@ class Ui_MainWindow
 {
 public:
     QWidget *centralwidget;
-    QWidget *widget;
-    QWidget *widget_2;
-    QVBoxLayout *verticalLayout;
-    QPushButton *bOpenGrip;
-    QPushButton *bCloseGrip;
-    QPushButton *bCalibrate;
-    QSpacerItem *verticalSpacer_2;
-    QWidget *widget_4;
-    QGridLayout *gridLayout;
-    QSpacerItem *verticalSpacer;
-    QPushButton *bSend;
-    QComboBox *cbMethod;
-    QWidget *widget_6;
-    QLabel *lImage;
+    QGridLayout *gridLayout_5;
     QWidget *widget_3;
     QGridLayout *gridLayout_3;
     QPushButton *bDisconnect;
@@ -59,6 +46,23 @@ public:
     QLabel *lIP;
     QLineEdit *liGripperIP;
     QLabel *lGripperIP;
+    QWidget *widget;
+    QGridLayout *gridLayout_4;
+    QWidget *widget_2;
+    QVBoxLayout *verticalLayout;
+    QPushButton *bOpenGrip;
+    QPushButton *bCloseGrip;
+    QPushButton *bCalibrate;
+    QSpacerItem *verticalSpacer_2;
+    QWidget *widget_4;
+    QVBoxLayout *verticalLayout_2;
+    QComboBox *cbMethod;
+    QPushButton *bSend;
+    QSpacerItem *verticalSpacer;
+    QWidget *widget_6;
+    QGridLayout *gridLayout;
+    QLabel *lImage;
+    QSpacerItem *horizontalSpacer;
     QMenuBar *menubar;
     QStatusBar *statusbar;
 
@@ -66,64 +70,13 @@ public:
     {
         if (MainWindow->objectName().isEmpty())
             MainWindow->setObjectName(QStringLiteral("MainWindow"));
-        MainWindow->resize(829, 654);
+        MainWindow->resize(1684, 1085);
         centralwidget = new QWidget(MainWindow);
         centralwidget->setObjectName(QStringLiteral("centralwidget"));
-        widget = new QWidget(centralwidget);
-        widget->setObjectName(QStringLiteral("widget"));
-        widget->setGeometry(QRect(-1, -1, 801, 471));
-        widget_2 = new QWidget(widget);
-        widget_2->setObjectName(QStringLiteral("widget_2"));
-        widget_2->setGeometry(QRect(647, 20, 151, 261));
-        verticalLayout = new QVBoxLayout(widget_2);
-        verticalLayout->setObjectName(QStringLiteral("verticalLayout"));
-        bOpenGrip = new QPushButton(widget_2);
-        bOpenGrip->setObjectName(QStringLiteral("bOpenGrip"));
-
-        verticalLayout->addWidget(bOpenGrip);
-
-        bCloseGrip = new QPushButton(widget_2);
-        bCloseGrip->setObjectName(QStringLiteral("bCloseGrip"));
-
-        verticalLayout->addWidget(bCloseGrip);
-
-        bCalibrate = new QPushButton(widget_2);
-        bCalibrate->setObjectName(QStringLiteral("bCalibrate"));
-
-        verticalLayout->addWidget(bCalibrate);
-
-        verticalSpacer_2 = new QSpacerItem(20, 40, QSizePolicy::Minimum, QSizePolicy::Expanding);
-
-        verticalLayout->addItem(verticalSpacer_2);
-
-        widget_4 = new QWidget(widget);
-        widget_4->setObjectName(QStringLiteral("widget_4"));
-        widget_4->setGeometry(QRect(2, 20, 241, 281));
-        gridLayout = new QGridLayout(widget_4);
-        gridLayout->setObjectName(QStringLiteral("gridLayout"));
-        verticalSpacer = new QSpacerItem(20, 40, QSizePolicy::Minimum, QSizePolicy::Expanding);
-
-        gridLayout->addItem(verticalSpacer, 6, 0, 1, 1);
-
-        bSend = new QPushButton(widget_4);
-        bSend->setObjectName(QStringLiteral("bSend"));
-
-        gridLayout->addWidget(bSend, 2, 0, 1, 1);
-
-        cbMethod = new QComboBox(widget_4);
-        cbMethod->setObjectName(QStringLiteral("cbMethod"));
-
-        gridLayout->addWidget(cbMethod, 1, 0, 1, 1);
-
-        widget_6 = new QWidget(widget);
-        widget_6->setObjectName(QStringLiteral("widget_6"));
-        widget_6->setGeometry(QRect(260, 20, 371, 411));
-        lImage = new QLabel(widget_6);
-        lImage->setObjectName(QStringLiteral("lImage"));
-        lImage->setGeometry(QRect(0, 0, 381, 431));
+        gridLayout_5 = new QGridLayout(centralwidget);
+        gridLayout_5->setObjectName(QStringLiteral("gridLayout_5"));
         widget_3 = new QWidget(centralwidget);
         widget_3->setObjectName(QStringLiteral("widget_3"));
-        widget_3->setGeometry(QRect(3, 470, 791, 101));
         gridLayout_3 = new QGridLayout(widget_3);
         gridLayout_3->setObjectName(QStringLiteral("gridLayout_3"));
         gridLayout_3->setContentsMargins(-1, 9, -1, 9);
@@ -178,10 +131,83 @@ public:
 
         gridLayout_3->addWidget(widget_5, 0, 0, 2, 1);
 
+
+        gridLayout_5->addWidget(widget_3, 1, 0, 1, 1);
+
+        widget = new QWidget(centralwidget);
+        widget->setObjectName(QStringLiteral("widget"));
+        gridLayout_4 = new QGridLayout(widget);
+        gridLayout_4->setObjectName(QStringLiteral("gridLayout_4"));
+        widget_2 = new QWidget(widget);
+        widget_2->setObjectName(QStringLiteral("widget_2"));
+        verticalLayout = new QVBoxLayout(widget_2);
+        verticalLayout->setObjectName(QStringLiteral("verticalLayout"));
+        bOpenGrip = new QPushButton(widget_2);
+        bOpenGrip->setObjectName(QStringLiteral("bOpenGrip"));
+
+        verticalLayout->addWidget(bOpenGrip);
+
+        bCloseGrip = new QPushButton(widget_2);
+        bCloseGrip->setObjectName(QStringLiteral("bCloseGrip"));
+
+        verticalLayout->addWidget(bCloseGrip);
+
+        bCalibrate = new QPushButton(widget_2);
+        bCalibrate->setObjectName(QStringLiteral("bCalibrate"));
+
+        verticalLayout->addWidget(bCalibrate);
+
+        verticalSpacer_2 = new QSpacerItem(20, 40, QSizePolicy::Minimum, QSizePolicy::Expanding);
+
+        verticalLayout->addItem(verticalSpacer_2);
+
+
+        gridLayout_4->addWidget(widget_2, 1, 3, 1, 1);
+
+        widget_4 = new QWidget(widget);
+        widget_4->setObjectName(QStringLiteral("widget_4"));
+        verticalLayout_2 = new QVBoxLayout(widget_4);
+        verticalLayout_2->setObjectName(QStringLiteral("verticalLayout_2"));
+        cbMethod = new QComboBox(widget_4);
+        cbMethod->setObjectName(QStringLiteral("cbMethod"));
+
+        verticalLayout_2->addWidget(cbMethod);
+
+        bSend = new QPushButton(widget_4);
+        bSend->setObjectName(QStringLiteral("bSend"));
+
+        verticalLayout_2->addWidget(bSend);
+
+        verticalSpacer = new QSpacerItem(20, 40, QSizePolicy::Minimum, QSizePolicy::Expanding);
+
+        verticalLayout_2->addItem(verticalSpacer);
+
+
+        gridLayout_4->addWidget(widget_4, 1, 0, 1, 1);
+
+        widget_6 = new QWidget(widget);
+        widget_6->setObjectName(QStringLiteral("widget_6"));
+        gridLayout = new QGridLayout(widget_6);
+        gridLayout->setObjectName(QStringLiteral("gridLayout"));
+        lImage = new QLabel(widget_6);
+        lImage->setObjectName(QStringLiteral("lImage"));
+
+        gridLayout->addWidget(lImage, 0, 0, 1, 1);
+
+        horizontalSpacer = new QSpacerItem(40, 1, QSizePolicy::Expanding, QSizePolicy::Minimum);
+
+        gridLayout->addItem(horizontalSpacer, 1, 0, 1, 1);
+
+
+        gridLayout_4->addWidget(widget_6, 1, 2, 1, 1);
+
+
+        gridLayout_5->addWidget(widget, 0, 0, 1, 1);
+
         MainWindow->setCentralWidget(centralwidget);
         menubar = new QMenuBar(MainWindow);
         menubar->setObjectName(QStringLiteral("menubar"));
-        menubar->setGeometry(QRect(0, 0, 829, 26));
+        menubar->setGeometry(QRect(0, 0, 1684, 26));
         MainWindow->setMenuBar(menubar);
         statusbar = new QStatusBar(MainWindow);
         statusbar->setObjectName(QStringLiteral("statusbar"));
@@ -195,21 +221,21 @@ public:
     void retranslateUi(QMainWindow *MainWindow)
     {
         MainWindow->setWindowTitle(QApplication::translate("MainWindow", "MainWindow", Q_NULLPTR));
-        bOpenGrip->setText(QApplication::translate("MainWindow", "Open Gripper", Q_NULLPTR));
-        bCloseGrip->setText(QApplication::translate("MainWindow", "Close Gripper", Q_NULLPTR));
-        bCalibrate->setText(QApplication::translate("MainWindow", "Calibrate", Q_NULLPTR));
-        bSend->setText(QApplication::translate("MainWindow", "Start", Q_NULLPTR));
-        cbMethod->clear();
-        cbMethod->insertItems(0, QStringList()
-         << QApplication::translate("MainWindow", "Alex", Q_NULLPTR)
-         << QApplication::translate("MainWindow", "Kenneth", Q_NULLPTR)
-        );
-        lImage->setText(QString());
         bDisconnect->setText(QApplication::translate("MainWindow", " Disconnect", Q_NULLPTR));
         bSaveConnect->setText(QApplication::translate("MainWindow", "Connect", Q_NULLPTR));
         lPort->setText(QApplication::translate("MainWindow", "Set Port", Q_NULLPTR));
         lIP->setText(QApplication::translate("MainWindow", "Set IP", Q_NULLPTR));
         lGripperIP->setText(QApplication::translate("MainWindow", "Set Gripper IP", Q_NULLPTR));
+        bOpenGrip->setText(QApplication::translate("MainWindow", "Open Gripper", Q_NULLPTR));
+        bCloseGrip->setText(QApplication::translate("MainWindow", "Close Gripper", Q_NULLPTR));
+        bCalibrate->setText(QApplication::translate("MainWindow", "Calibrate", Q_NULLPTR));
+        cbMethod->clear();
+        cbMethod->insertItems(0, QStringList()
+         << QApplication::translate("MainWindow", "Alex", Q_NULLPTR)
+         << QApplication::translate("MainWindow", "Kenneth", Q_NULLPTR)
+        );
+        bSend->setText(QApplication::translate("MainWindow", "Start", Q_NULLPTR));
+        lImage->setText(QString());
     } // retranslateUi
 
 };

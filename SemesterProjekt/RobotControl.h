@@ -258,6 +258,42 @@ public:
         return mThrow;
     }
 
+    double speed(double vinkel, rw::math::Vector3D<> throwPose, rw::math::Vector3D<> cupPose)
+    {
+        double xDistanceToCup = throwPose[0] - cupPose[0];
+        double yDistanceToCup = throwPose[1] - cupPose[1];
+        double zDistanceToCup = throwPose[2] - cupPose[2];
+
+        double den = 9.82*(pow(xDistanceToCup,2)+pow(yDistanceToCup,2));
+        double num = 2 * cos(pow(vinkel,2)) * tan(vinkel) * (sqrt(pow(xDistanceToCup,2)+pow(yDistanceToCup,2)))+zDistanceToCup;
+
+        double speed = sqrt(den/num);
+        return speed;
+    }
+
+    rw::math::Vector3D<double> rampPose(double hastighed, double acceleration, double vinkel, rw::math::Vector3D<double> throwPose, rw::math::Vector3D<double> &stopPose)
+    {
+        double timeFromThrowPose = hastighed/acceleration;
+        double lenghtToRampPose = 0.5 * acceleration * pow(timeFromThrowPose,2);
+
+        rw::math::Vector3D<double> startRampPose;
+
+        double xLenght = lenghtToRampPose * cos(vinkel);
+        double yLenght = 0;
+        double zLenght = lenghtToRampPose * sin(vinkel);
+
+        startRampPose = rw::math::Vector3D<double>(xLenght, yLenght, zLenght);
+
+        rw::math::Vector3D<double> startPose = throwPose - startRampPose;
+        stopPose = throwPose + startRampPose;
+
+        return startPose;
+    }
+
+    void throwBall(rw::math::Vector3D<double> throwPos, rw::math::Vector3D<double> cupPos){
+
+    }
+
 private:
 std::string mIpAdress;
  Gripper gripper;

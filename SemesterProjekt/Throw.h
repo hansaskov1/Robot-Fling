@@ -4,6 +4,7 @@
 #include <QString>
 #include <vector>
 #include "path.h"
+#include <rw/math.hpp>
 
 
 class Throw
@@ -68,38 +69,9 @@ public:
         mPaths.shrink_to_fit();
         return mPaths;
     }
-/*
-    double speed(double vinkel, rw::math::Vector3D<> throwPose, rw::math::Vector3D<> cupPose)
-    {
-        double xDistanceToCup = throwPose[0] - cupPose[0];
-        double yDistanceToCup = throwPose[1] - cupPose[1];
-        double zDistanceToCup = throwPose[2] - cupPose[2];
 
-        double den = gravity*(pow(xDistanceToCup,2)+pow(yDistanceToCup,2));
-        double num = 2 * cos(pow(vinkel,2)) * tan(vinkel) * (sqrt(pow(xDistanceToCup,2)+pow(yDistanceToCup,2)))+zDistanceToCup;
 
-        mSpeed = sqrt(den/num);
-        return mSpeed;
-    }
 
-    rw::math::Vector3D<> rampPose(double hastighed, double acceleration, double vinkel, rw::math::Vector3D<> throwPose)
-    {
-        double timeFromThrowPose = hastighed/acceleration;
-        double lenghtToRampPose = 0.5 * acceleration * pow(timeFromThrowPose,2);
-
-        std::vector<double> startRampPose;
-
-        double xLenght = lenghtToRampPose * cos(vinkel);
-        double yLenght = 0;
-        double zLenght = lenghtToRampPose * sin(vinkel);
-
-        startRampPose.push_back(xLenght);
-        startRampPose.push_back(yLenght);
-        startRampPose.push_back(zLenght);
-
-        return startRampPose;
-    }
-*/
 
 private:
     unsigned int mThrowID;
@@ -108,7 +80,6 @@ private:
     double mSpeed;
     std::vector<Path> mPaths;
     bool mSuccess;
-    double gravity = 9.82;
     double acceleration = 0.5;
 };
 

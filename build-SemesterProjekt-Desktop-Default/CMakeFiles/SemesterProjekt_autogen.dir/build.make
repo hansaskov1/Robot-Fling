@@ -43,10 +43,10 @@ RM = /usr/bin/cmake -E remove -f
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = /home/hans/GithubCode/Robot-Fling/SemesterProjekt
+CMAKE_SOURCE_DIR = /home/suspend/GitHub/Robot-Fling/SemesterProjekt
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = /home/hans/GithubCode/Robot-Fling/build-SemesterProjekt-Desktop-Default
+CMAKE_BINARY_DIR = /home/suspend/GitHub/Robot-Fling/build-SemesterProjekt-Desktop-Default
 
 # Utility rule file for SemesterProjekt_autogen.
 
@@ -54,8 +54,8 @@ CMAKE_BINARY_DIR = /home/hans/GithubCode/Robot-Fling/build-SemesterProjekt-Deskt
 include CMakeFiles/SemesterProjekt_autogen.dir/progress.make
 
 CMakeFiles/SemesterProjekt_autogen:
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold --progress-dir=/home/hans/GithubCode/Robot-Fling/build-SemesterProjekt-Desktop-Default/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Automatic MOC, UIC and RCC for target SemesterProjekt"
-	/usr/bin/cmake -E cmake_autogen /home/hans/GithubCode/Robot-Fling/build-SemesterProjekt-Desktop-Default/CMakeFiles/SemesterProjekt_autogen.dir ""
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold --progress-dir=/home/suspend/GitHub/Robot-Fling/build-SemesterProjekt-Desktop-Default/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Automatic MOC, UIC and RCC for target SemesterProjekt"
+	/usr/bin/cmake -E cmake_autogen /home/suspend/GitHub/Robot-Fling/build-SemesterProjekt-Desktop-Default/CMakeFiles/SemesterProjekt_autogen.dir ""
 
 SemesterProjekt_autogen: CMakeFiles/SemesterProjekt_autogen
 SemesterProjekt_autogen: CMakeFiles/SemesterProjekt_autogen.dir/build.make
@@ -72,6 +72,6 @@ CMakeFiles/SemesterProjekt_autogen.dir/clean:
 .PHONY : CMakeFiles/SemesterProjekt_autogen.dir/clean
 
 CMakeFiles/SemesterProjekt_autogen.dir/depend:
-	cd /home/hans/GithubCode/Robot-Fling/build-SemesterProjekt-Desktop-Default && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" /home/hans/GithubCode/Robot-Fling/SemesterProjekt /home/hans/GithubCode/Robot-Fling/SemesterProjekt /home/hans/GithubCode/Robot-Fling/build-SemesterProjekt-Desktop-Default /home/hans/GithubCode/Robot-Fling/build-SemesterProjekt-Desktop-Default /home/hans/GithubCode/Robot-Fling/build-SemesterProjekt-Desktop-Default/CMakeFiles/SemesterProjekt_autogen.dir/DependInfo.cmake --color=$(COLOR)
+	cd /home/suspend/GitHub/Robot-Fling/build-SemesterProjekt-Desktop-Default && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" /home/suspend/GitHub/Robot-Fling/SemesterProjekt /home/suspend/GitHub/Robot-Fling/SemesterProjekt /home/suspend/GitHub/Robot-Fling/build-SemesterProjekt-Desktop-Default /home/suspend/GitHub/Robot-Fling/build-SemesterProjekt-Desktop-Default /home/suspend/GitHub/Robot-Fling/build-SemesterProjekt-Desktop-Default/CMakeFiles/SemesterProjekt_autogen.dir/DependInfo.cmake --color=$(COLOR)
 .PHONY : CMakeFiles/SemesterProjekt_autogen.dir/depend
 
