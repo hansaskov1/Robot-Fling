@@ -6,7 +6,11 @@
 
 #IncludeRegexTransform: 
 
+<<<<<<< HEAD
 /home/suspend/GitHub/Robot-Fling/SemesterProjekt/DetectCollision.h
+=======
+/home/kjohnsen/github/Robot-Fling/SemesterProjekt/DetectCollision.h
+>>>>>>> ClosedFormIKSolver2
 rw/loaders/WorkCellFactory.hpp
 -
 rw/models/WorkCell.hpp
@@ -31,6 +35,18 @@ rw/invkin/InvKinSolver.hpp
 -
 rw/invkin/JacobianIKSolver.hpp
 -
+rw/loaders/WorkCellLoader.hpp
+-
+rw/math/EAA.hpp
+-
+rw/models/SerialDevice.hpp
+-
+rw/models/WorkCell.hpp
+-
+rw/invkin/AmbiguityResolver.hpp
+-
+rw/invkin/JacobianIKSolver.hpp
+-
 stdio.h
 -
 iostream
@@ -49,8 +65,14 @@ thread
 -
 future
 -
+math.h
+-
 
+<<<<<<< HEAD
 /home/suspend/GitHub/Robot-Fling/SemesterProjekt/Gripper.h
+=======
+/home/kjohnsen/github/Robot-Fling/SemesterProjekt/Gripper.h
+>>>>>>> ClosedFormIKSolver2
 iostream
 -
 QTcpSocket
@@ -66,7 +88,11 @@ QString
 QObject
 -
 
+<<<<<<< HEAD
 /home/suspend/GitHub/Robot-Fling/SemesterProjekt/RobotControl.h
+=======
+/home/kjohnsen/github/Robot-Fling/SemesterProjekt/RobotControl.h
+>>>>>>> ClosedFormIKSolver2
 rw/loaders/WorkCellFactory.hpp
 -
 rw/models/WorkCell.hpp
@@ -109,6 +135,7 @@ thread
 -
 future
 -
+<<<<<<< HEAD
 Gripper.h
 /home/suspend/GitHub/Robot-Fling/SemesterProjekt/Gripper.h
 path.h
@@ -117,11 +144,20 @@ Throw.h
 /home/suspend/GitHub/Robot-Fling/SemesterProjekt/Throw.h
 
 /home/suspend/GitHub/Robot-Fling/SemesterProjekt/Throw.h
+=======
+path.h
+/home/kjohnsen/github/Robot-Fling/SemesterProjekt/path.h
+DetectCollision.h
+/home/kjohnsen/github/Robot-Fling/SemesterProjekt/DetectCollision.h
+
+/home/kjohnsen/github/Robot-Fling/SemesterProjekt/Throw.h
+>>>>>>> ClosedFormIKSolver2
 QString
 -
 vector
 -
 path.h
+<<<<<<< HEAD
 /home/suspend/GitHub/Robot-Fling/SemesterProjekt/path.h
 rw/math.hpp
 -
@@ -133,6 +169,17 @@ objectdetection.h
 /home/suspend/GitHub/Robot-Fling/SemesterProjekt/objectdetection.h
 
 /home/suspend/GitHub/Robot-Fling/SemesterProjekt/calibration.h
+=======
+/home/kjohnsen/github/Robot-Fling/SemesterProjekt/path.h
+
+/home/kjohnsen/github/Robot-Fling/SemesterProjekt/calibration.cpp
+calibration.h
+/home/kjohnsen/github/Robot-Fling/SemesterProjekt/calibration.h
+objectdetection.h
+/home/kjohnsen/github/Robot-Fling/SemesterProjekt/objectdetection.h
+
+/home/kjohnsen/github/Robot-Fling/SemesterProjekt/calibration.h
+>>>>>>> ClosedFormIKSolver2
 opencv2/core/core.hpp
 -
 opencv2/highgui/highgui.hpp
@@ -160,12 +207,19 @@ opencv2/imgproc.hpp
 thread
 -
 
+<<<<<<< HEAD
 /home/suspend/GitHub/Robot-Fling/SemesterProjekt/main.cpp
 mainwindow.h
 /home/suspend/GitHub/Robot-Fling/SemesterProjekt/mainwindow.h
+=======
+/home/kjohnsen/github/Robot-Fling/SemesterProjekt/main.cpp
+mainwindow.h
+/home/kjohnsen/github/Robot-Fling/SemesterProjekt/mainwindow.h
+>>>>>>> ClosedFormIKSolver2
 QApplication
 -
 
+<<<<<<< HEAD
 /home/suspend/GitHub/Robot-Fling/SemesterProjekt/mainwindow.cpp
 mainwindow.h
 /home/suspend/GitHub/Robot-Fling/SemesterProjekt/mainwindow.h
@@ -175,6 +229,17 @@ mainwindow.h
 /home/suspend/GitHub/Robot-Fling/SemesterProjekt/mainwindow.h
 Gripper.h
 /home/suspend/GitHub/Robot-Fling/SemesterProjekt/Gripper.h
+=======
+/home/kjohnsen/github/Robot-Fling/SemesterProjekt/mainwindow.cpp
+mainwindow.h
+/home/kjohnsen/github/Robot-Fling/SemesterProjekt/mainwindow.h
+./ui_mainwindow.h
+/home/kjohnsen/github/Robot-Fling/SemesterProjekt/./ui_mainwindow.h
+
+/home/kjohnsen/github/Robot-Fling/SemesterProjekt/mainwindow.h
+Gripper.h
+/home/kjohnsen/github/Robot-Fling/SemesterProjekt/Gripper.h
+>>>>>>> ClosedFormIKSolver2
 string.h
 -
 QMainWindow
@@ -190,6 +255,7 @@ QString
 QTimer
 -
 calibration.h
+<<<<<<< HEAD
 /home/suspend/GitHub/Robot-Fling/SemesterProjekt/calibration.h
 objectdetection.h
 /home/suspend/GitHub/Robot-Fling/SemesterProjekt/objectdetection.h
@@ -207,6 +273,21 @@ objectdetection.h
 /home/suspend/GitHub/Robot-Fling/SemesterProjekt/objectdetection.h
 
 /home/suspend/GitHub/Robot-Fling/SemesterProjekt/objectdetection.h
+=======
+/home/kjohnsen/github/Robot-Fling/SemesterProjekt/calibration.h
+objectdetection.h
+/home/kjohnsen/github/Robot-Fling/SemesterProjekt/objectdetection.h
+showvideo.h
+/home/kjohnsen/github/Robot-Fling/SemesterProjekt/showvideo.h
+RobotControl.h
+/home/kjohnsen/github/Robot-Fling/SemesterProjekt/RobotControl.h
+
+/home/kjohnsen/github/Robot-Fling/SemesterProjekt/objectdetection.cpp
+objectdetection.h
+/home/kjohnsen/github/Robot-Fling/SemesterProjekt/objectdetection.h
+
+/home/kjohnsen/github/Robot-Fling/SemesterProjekt/objectdetection.h
+>>>>>>> ClosedFormIKSolver2
 opencv2/core/core.hpp
 -
 opencv2/highgui/highgui.hpp
@@ -234,11 +315,19 @@ opencv2/imgproc.hpp
 thread
 -
 
+<<<<<<< HEAD
 /home/suspend/GitHub/Robot-Fling/SemesterProjekt/path.h
 vector
 -
 
 /home/suspend/GitHub/Robot-Fling/SemesterProjekt/showvideo.h
+=======
+/home/kjohnsen/github/Robot-Fling/SemesterProjekt/path.h
+vector
+-
+
+/home/kjohnsen/github/Robot-Fling/SemesterProjekt/showvideo.h
+>>>>>>> ClosedFormIKSolver2
 QThread
 -
 QThreadPool
@@ -250,6 +339,7 @@ thread
 chrono
 -
 mainwindow.h
+<<<<<<< HEAD
 /home/suspend/GitHub/Robot-Fling/SemesterProjekt/mainwindow.h
 
 /home/suspend/GitHub/Robot-Fling/SemesterProjekt/sqlcontroller.cpp
@@ -259,6 +349,17 @@ sqlcontroller.h
 /home/suspend/GitHub/Robot-Fling/SemesterProjekt/sqlcontroller.h
 Throw.h
 /home/suspend/GitHub/Robot-Fling/SemesterProjekt/Throw.h
+=======
+/home/kjohnsen/github/Robot-Fling/SemesterProjekt/mainwindow.h
+
+/home/kjohnsen/github/Robot-Fling/SemesterProjekt/sqlcontroller.cpp
+sqlcontroller.h
+/home/kjohnsen/github/Robot-Fling/SemesterProjekt/sqlcontroller.h
+
+/home/kjohnsen/github/Robot-Fling/SemesterProjekt/sqlcontroller.h
+Throw.h
+/home/kjohnsen/github/Robot-Fling/SemesterProjekt/Throw.h
+>>>>>>> ClosedFormIKSolver2
 iostream
 -
 QtSql
@@ -266,27 +367,47 @@ QtSql
 QSqlDatabase
 -
 
+<<<<<<< HEAD
 /home/suspend/GitHub/Robot-Fling/build-SemesterProjekt-Desktop-Default/SemesterProjekt_autogen/EWIEGA46WW/moc_Gripper.cpp
 ../../../SemesterProjekt/Gripper.h
 /home/suspend/GitHub/Robot-Fling/SemesterProjekt/Gripper.h
+=======
+/home/kjohnsen/github/Robot-Fling/build-SemesterProjekt-Desktop-Default/SemesterProjekt_autogen/EWIEGA46WW/moc_Gripper.cpp
+../../../SemesterProjekt/Gripper.h
+/home/kjohnsen/github/Robot-Fling/SemesterProjekt/Gripper.h
+>>>>>>> ClosedFormIKSolver2
 QtCore/qbytearray.h
 -
 QtCore/qmetatype.h
 -
 
+<<<<<<< HEAD
 /home/suspend/GitHub/Robot-Fling/build-SemesterProjekt-Desktop-Default/SemesterProjekt_autogen/EWIEGA46WW/moc_mainwindow.cpp
 ../../../SemesterProjekt/mainwindow.h
 /home/suspend/GitHub/Robot-Fling/SemesterProjekt/mainwindow.h
+=======
+/home/kjohnsen/github/Robot-Fling/build-SemesterProjekt-Desktop-Default/SemesterProjekt_autogen/EWIEGA46WW/moc_mainwindow.cpp
+../../../SemesterProjekt/mainwindow.h
+/home/kjohnsen/github/Robot-Fling/SemesterProjekt/mainwindow.h
+>>>>>>> ClosedFormIKSolver2
 QtCore/qbytearray.h
 -
 QtCore/qmetatype.h
 -
 
+<<<<<<< HEAD
 /home/suspend/GitHub/Robot-Fling/build-SemesterProjekt-Desktop-Default/SemesterProjekt_autogen/mocs_compilation.cpp
 EWIEGA46WW/moc_Gripper.cpp
 /home/suspend/GitHub/Robot-Fling/build-SemesterProjekt-Desktop-Default/SemesterProjekt_autogen/EWIEGA46WW/moc_Gripper.cpp
 EWIEGA46WW/moc_mainwindow.cpp
 /home/suspend/GitHub/Robot-Fling/build-SemesterProjekt-Desktop-Default/SemesterProjekt_autogen/EWIEGA46WW/moc_mainwindow.cpp
+=======
+/home/kjohnsen/github/Robot-Fling/build-SemesterProjekt-Desktop-Default/SemesterProjekt_autogen/mocs_compilation.cpp
+EWIEGA46WW/moc_Gripper.cpp
+/home/kjohnsen/github/Robot-Fling/build-SemesterProjekt-Desktop-Default/SemesterProjekt_autogen/EWIEGA46WW/moc_Gripper.cpp
+EWIEGA46WW/moc_mainwindow.cpp
+/home/kjohnsen/github/Robot-Fling/build-SemesterProjekt-Desktop-Default/SemesterProjekt_autogen/EWIEGA46WW/moc_mainwindow.cpp
+>>>>>>> ClosedFormIKSolver2
 
 /opt/pylon/include/Base/GCArray.h
 Base/GCTypes.h
@@ -5822,6 +5943,7 @@ QtGui/qkeysequence.h
 QtGui/qevent.h
 -
 
+<<<<<<< HEAD
 /usr/share/robwork-1.2/cmake/../../../include/robwork-1.2/rw/./common/InputArchive.hpp
 rw/common/Archive.hpp
 -
@@ -6036,10 +6158,31 @@ rw/core/macros.hpp
 Eigen/Core
 -
 boost/serialization/split_free.hpp
+=======
+/usr/local/include/ur_rtde/rtde.h
+ur_rtde/rtde_export.h
+-
+boost/asio/io_service.hpp
+-
+boost/asio/ip/tcp.hpp
+-
+cstdint
+-
+functional
+-
+memory
+-
+string
+-
+unordered_map
+-
+utility
+>>>>>>> ClosedFormIKSolver2
 -
 vector
 -
 
+<<<<<<< HEAD
 /usr/share/robwork-1.2/cmake/../../../include/robwork-1.2/rw/./math/Quaternion.hpp
 Rotation3D.hpp
 /usr/share/robwork-1.2/cmake/../../../include/robwork-1.2/rw/./math/Rotation3D.hpp
@@ -6096,10 +6239,31 @@ cmath
 iostream
 -
 list
+=======
+/usr/local/include/ur_rtde/rtde_control_interface.h
+ur_rtde/rtde_export.h
+-
+ur_rtde/rtde.h
+-
+
+/usr/local/include/ur_rtde/rtde_export.h
+
+/usr/local/include/ur_rtde/rtde_receive_interface.h
+ur_rtde/rtde_export.h
+-
+memory
+-
+atomic
+-
+string
+-
+chrono
+>>>>>>> ClosedFormIKSolver2
 -
 vector
 -
 
+<<<<<<< HEAD
 /usr/share/robwork-1.2/cmake/../../../include/robwork-1.2/rw/./math/Transform2D.hpp
 Rotation2D.hpp
 /usr/share/robwork-1.2/cmake/../../../include/robwork-1.2/rw/./math/Rotation2D.hpp
@@ -6186,6 +6350,8 @@ iosfwd
 string
 -
 
+=======
+>>>>>>> ClosedFormIKSolver2
 /usr/share/robwork-1.2/cmake/../../../include/robwork-1.2/rw/common/ConcatVectorIterator.hpp
 cstddef
 -
@@ -6194,6 +6360,7 @@ iterator
 vector
 -
 
+<<<<<<< HEAD
 /usr/share/robwork-1.2/cmake/../../../include/robwork-1.2/rw/common/InputArchive.hpp
 rw/common/Archive.hpp
 -
@@ -6218,6 +6385,8 @@ boost/cstdint.hpp
 boost/type_traits.hpp
 -
 
+=======
+>>>>>>> ClosedFormIKSolver2
 /usr/share/robwork-1.2/cmake/../../../include/robwork-1.2/rw/common/Serializable.hpp
 rw/core/macros.hpp
 -
@@ -6650,6 +6819,7 @@ rw/trajectory/Timed.hpp
 string
 -
 
+<<<<<<< HEAD
 /usr/share/robwork-1.2/cmake/../../../include/robwork-1.2/rw/math.hpp
 ./common/InputArchive.hpp
 /usr/share/robwork-1.2/cmake/../../../include/robwork-1.2/rw/./common/InputArchive.hpp
@@ -6728,6 +6898,8 @@ string
 ./math/Wrench6D.hpp
 /usr/share/robwork-1.2/cmake/../../../include/robwork-1.2/rw/./math/Wrench6D.hpp
 
+=======
+>>>>>>> ClosedFormIKSolver2
 /usr/share/robwork-1.2/cmake/../../../include/robwork-1.2/rw/math/Constants.hpp
 
 /usr/share/robwork-1.2/cmake/../../../include/robwork-1.2/rw/math/EAA.hpp
@@ -6839,6 +7011,7 @@ limits
 /usr/share/robwork-1.2/cmake/../../../include/robwork-1.2/rw/math/Rotation3DVector.hpp
 Rotation3D.hpp
 /usr/share/robwork-1.2/cmake/../../../include/robwork-1.2/rw/math/Rotation3D.hpp
+<<<<<<< HEAD
 
 /usr/share/robwork-1.2/cmake/../../../include/robwork-1.2/rw/math/Transform2D.hpp
 Rotation2D.hpp
@@ -6847,6 +7020,8 @@ Vector2D.hpp
 /usr/share/robwork-1.2/cmake/../../../include/robwork-1.2/rw/math/Vector2D.hpp
 cassert
 -
+=======
+>>>>>>> ClosedFormIKSolver2
 
 /usr/share/robwork-1.2/cmake/../../../include/robwork-1.2/rw/math/Transform3D.hpp
 Rotation3D.hpp
@@ -6912,9 +7087,23 @@ rw/core/Ptr.hpp
 rw/math/Jacobian.hpp
 -
 
+<<<<<<< HEAD
 /usr/share/robwork-1.2/cmake/../../../include/robwork-1.2/rw/models/Models.hpp
 Device.hpp
 /usr/share/robwork-1.2/cmake/../../../include/robwork-1.2/rw/models/Device.hpp
+=======
+/usr/share/robwork-1.2/cmake/../../../include/robwork-1.2/rw/models/JointDevice.hpp
+Device.hpp
+/usr/share/robwork-1.2/cmake/../../../include/robwork-1.2/rw/models/Device.hpp
+JacobianCalculator.hpp
+/usr/share/robwork-1.2/cmake/../../../include/robwork-1.2/rw/models/JacobianCalculator.hpp
+vector
+-
+
+/usr/share/robwork-1.2/cmake/../../../include/robwork-1.2/rw/models/Models.hpp
+Device.hpp
+/usr/share/robwork-1.2/cmake/../../../include/robwork-1.2/rw/models/Device.hpp
+>>>>>>> ClosedFormIKSolver2
 rw/math/Q.hpp
 -
 rw/trajectory/Path.hpp
@@ -6924,6 +7113,15 @@ utility
 vector
 -
 
+<<<<<<< HEAD
+=======
+/usr/share/robwork-1.2/cmake/../../../include/robwork-1.2/rw/models/SerialDevice.hpp
+JointDevice.hpp
+/usr/share/robwork-1.2/cmake/../../../include/robwork-1.2/rw/models/JointDevice.hpp
+vector
+-
+
+>>>>>>> ClosedFormIKSolver2
 /usr/share/robwork-1.2/cmake/../../../include/robwork-1.2/rw/models/WorkCell.hpp
 rw/core/Event.hpp
 -

@@ -22,6 +22,7 @@
 #include <future>
 #include "Gripper.h"
 #include "path.h"
+#include "DetectCollision.h"
 #include "Throw.h"
 
 
@@ -34,13 +35,10 @@ public:
         gripper.Init();
     }
 
-
     RobotControl(std::string ipAdress)
     {
         mIpAdress = ipAdress;
-
     }
-
 
     RobotControl(std::string ipAdress, rw::math::Vector3D<> calPos, rw::math::Rotation3D<> calRot)
     {
@@ -93,7 +91,13 @@ public:
         return mInvCalRot * worldPosition - mInvCalRot * mCalPos;
     }
 
+    rw::math::Vector3D<> robot2World(rw::math::Vector3D<> robotPosition)
+    {
+        return mCalRot * robotPosition + mCalPos;
+    }
 
+    /*
+   //std::thread control(RobotControl::moveJ, toolPositionStdVec, std::ref(rtdeControl), speed, acceleration);
    static void moveJ(std::vector<double> toolPosition, ur_rtde::RTDEControlInterface& rtde_control, double speed, double acceleration) // Used in own thread
    {
         rtde_control.moveJ(toolPosition,speed,acceleration);
@@ -102,23 +106,32 @@ public:
    static void moveL(std::vector<double> toolPosition, ur_rtde::RTDEControlInterface& rtde_control, double speed, double acceleration) // Used in own thread
    {
        rtde_control.moveL(toolPosition,speed,acceleration);
-   }
+   } */
 
    void fetchQValuesRob(std::promise<Path> && returnPath ,std::atomic<bool>& stop , ur_rtde::RTDEReceiveInterface &rtde_recieve, unsigned int msInterval) //Used in thread
    {
+
        Path path;
+       auto start = std::chrono::system_clock::now();
+
        while(!stop)
        {
+
            path.addJointPose(rtde_recieve.getActualQ());
            path.addJointVel(rtde_recieve.getActualQd());
            //insert targets here
            path.addToolPose(rtde_recieve.getActualTCPPose());
            path.addToolVel(rtde_recieve.getActualTCPSpeed());
            std::this_thread::sleep_for(std::chrono::milliseconds(msInterval));
+
+           auto stop = std::chrono::system_clock::now();
+           std::chrono::duration<double> elapsedTime = stop-start;
+
+           path.addElapsedTime(elapsedTime.count());
+
        }
        returnPath.set_value(path);
    }
-
 
 
     Path moveRobotL( rw::math::Vector3D<> position,rw::math::RPY<> orientation, unsigned int msInterval, ur_rtde::RTDEControlInterface& rtdeControl, ur_rtde::RTDEReceiveInterface &rtdeRecieve, double speed, double acceleration)
@@ -129,9 +142,23 @@ public:
         auto futureQVec = promiseQVec.get_future();
 
         std::thread recive(&RobotControl::fetchQValuesRob, this , std::move(promiseQVec), std::ref(stop), std::ref(rtdeRecieve), msInterval);
-        std::thread control(RobotControl::moveL, toolPositionStdVec, std::ref(rtdeControl), speed, acceleration);
+        rtdeControl.moveL(toolPositionStdVec, speed, acceleration);
 
-        control.join();
+        stop = true;
+        recive.join();
+        return futureQVec.get();
+    }
+
+    Path moveRobotL( rw::math::Q jointPose , unsigned int msInterval, ur_rtde::RTDEControlInterface& rtdeControl, ur_rtde::RTDEReceiveInterface &rtdeRecieve, double speed, double acceleration)
+    {
+        std::vector<double> toolPositionStdVec = jointPose.toStdVector();
+        std::atomic<bool> stop {false};
+        std::promise<Path> promiseQVec;
+        auto futureQVec = promiseQVec.get_future();
+
+        std::thread recive(&RobotControl::fetchQValuesRob, this , std::move(promiseQVec), std::ref(stop), std::ref(rtdeRecieve), msInterval);
+        rtdeControl.moveL_FK(toolPositionStdVec, speed, acceleration);
+
         stop = true;
         recive.join();
         return futureQVec.get();
@@ -145,15 +172,17 @@ public:
         auto futureQVec = promiseQVec.get_future();
 
         std::thread recive(&RobotControl::fetchQValuesRob, this , std::move(promiseQVec), std::ref(stop), std::ref(rtdeRecieve), msInterval);
-        std::thread control(RobotControl::moveJ, toolPositionStdVec, std::ref(rtdeControl), speed, acceleration);
+        rtdeControl.moveJ(toolPositionStdVec, speed, acceleration);
 
-        control.join();
         stop = true;
         recive.join();
         return futureQVec.get();
     }
 
 
+   /* void throwBallToTarget(rw::math::Vector3D<> targetPosition, ){
+
+    }*/
 
     // All movements to get ball
     void getBall(rw::math::Vector3D<> posBallW, double safeGribHeight)
@@ -161,9 +190,15 @@ public:
 
         rw::math::Q qHome(-1.151,-3.1415/2,0,-3.1415/2,0,0);                    // Hardcoded home for our robot
         rw::math::Q qSafeGrib(-1.151, -2.202, -0.935, -1.574, 1.571, -0.003);   // Hardcoded safe gripping position
+        rw::math::Q qBallReady(-1.256,-0.175,-2.591,-1.518,1.57,0.0175);        // Hardcode start acc ball throw
+        rw::math::Q qBallRelease(-1.256,-1.588,-0.7286,-1.518,1.57,0.0175);     // Hardcode end ball throw
+        std::cout << qBallRelease << std::endl;
 
         rw::math::RPY<> rpyBall(0.6, -3.09, 0);                                 // Hardcoded safe orientation
         rw::math::RPY<> rpyGribReady = rpyBall;
+
+        rw::math::RPY<> rpyRelease(0.455,-2.941,1.359);
+        rw::math::Vector3D<> positionRelease (60/1000 , -554/1000 , 697/1000);
 
         rw::math::Vector3D<> posGribReadyW = posBallW;
         posGribReadyW[2] += safeGribHeight;
@@ -171,14 +206,27 @@ public:
         rw::math::Vector3D<> posBallR = world2Robot(posBallW);
         rw::math::Vector3D<> posGribReadyR = world2Robot(posGribReadyW);
 
-       std::vector<std::vector<std::vector<double>>> QFullPath;
-       std::cout << "Starting sim" << std::endl;
+        std::vector<std::vector<std::vector<double>>> QFullPath;
+
+        std::string path = "../Scenes/XMLScenes/RobotOnTable/Scene.xml";
+        DetectCollision dc(path);
+
+        std::cout << "RobWork Collision check. Not yet tested" << std::endl;
+        std::cout << dc.isCollision(50, qHome) << std::endl;                                                      //for (rw::math::Q &qValues : dc.getQVec()){ std::cout << qValues << std::endl;}
+        std::cout << dc.isCollision(50, qSafeGrib) << std::endl;                                                  //for (rw::math::Q &qValues : dc.getQVec()){ std::cout << qValues << std::endl;}
+        std::cout << dc.isCollisionUR(50,rw::math::Transform3D<>(posGribReadyR, rpyGribReady)) << std::endl;      //for (rw::math::Q &qValues : dc.getQVec()){ std::cout << qValues << std::endl;}
+        std::cout << dc.isCollisionUR(50,rw::math::Transform3D<>(posBallR, rpyBall)) << std::endl;                //for (rw::math::Q &qValues : dc.getQVec()){ std::cout << qValues << std::endl;}
+        std::cout << dc.isCollisionUR(50,rw::math::Transform3D<>(posGribReadyR, rpyGribReady)) << std::endl;      //for (rw::math::Q &qValues : dc.getQVec()){ std::cout << qValues << std::endl;}
+        std::cout << dc.isCollision(50, qSafeGrib) << std::endl;                                                  //for (rw::math::Q &qValues : dc.getQVec()){ std::cout << qValues << std::endl;}
+        std::cout << dc.isCollision(50, qHome) << std::endl;                                                      //for (rw::math::Q &qValues : dc.getQVec()){ std::cout << qValues << std::endl;}
+        std::cout << std::endl;
 
        {
            double simSpeed = 3;
            double simAcc = 3;
            double msInterval = 10;
 
+           std::cout << "running sim" <<std::endl;
            ur_rtde::RTDEControlInterface rtdeControl("127.0.0.1");
            ur_rtde::RTDEReceiveInterface rtdeRecive("127.0.0.1");
            QFullPath.push_back(moveRobotJ(qHome,                        msInterval, rtdeControl, rtdeRecive, simSpeed, simAcc).getJointPoses());
@@ -188,23 +236,30 @@ public:
            QFullPath.push_back(moveRobotL(posGribReadyR, rpyGribReady,  msInterval, rtdeControl, rtdeRecive, simSpeed, simAcc).getJointPoses());
            QFullPath.push_back(moveRobotJ(qSafeGrib,                    msInterval, rtdeControl, rtdeRecive, simSpeed, simAcc).getJointPoses());
            QFullPath.push_back(moveRobotJ(qHome,                        msInterval, rtdeControl, rtdeRecive, simSpeed, simAcc).getJointPoses());
+
+           QFullPath.push_back(moveRobotJ(qBallReady,                   msInterval, rtdeControl, rtdeRecive, simSpeed, simAcc).getJointPoses());
+           QFullPath.push_back(moveRobotL(qBallRelease,                   msInterval, rtdeControl, rtdeRecive, simSpeed, simAcc).getJointPoses());
+
+
+           //QFullPath.push_back(moveRobotL(positionRelease,rpyRelease,   msInterval, rtdeControl, rtdeRecive, simSpeed, simAcc).getJointPoses());
+           //rtdeControl.moveL_FK(qBallRelease.toStdVector(), simSpeed, simAcc);
+
        }
 
-
-       std::string path = "../Scenes/XMLScenes/RobotOnTable/Scene.xml";
-       DetectCollision dc(path);
-       std::vector<bool> collisionList;
+        std::vector<bool> collisionList;
 
         for (std::vector<std::vector<double>> &qPath : QFullPath )
         {
-            for (std::vector<double> &qValues : qPath){
-               qValues[0] += 1.151;
-              /*  std::cout << "{";
-                for (double joint : qValues){
+           /* std::cout << "New Path" << std::endl;
+            for (std::vector<double> &qValues : qPath)
+            {
+                std::cout << "{";
+                for (double joint : qValues)
+                {
                     std::cout << joint << " ";
                 }
-                std::cout << "}"<< std::endl;*/
-            }
+                std::cout << "}"<< std::endl;
+            }*/
             collisionList.push_back(dc.isCollision(qPath));
         }
 
@@ -217,29 +272,32 @@ public:
             if (isColl) collision = true;
         }
 
-        if (!collision){
-            double simSpeed = 3;
-            double simAcc = 3;
-            double msInterval = 10;
 
-            ur_rtde::RTDEControlInterface rtdeControl(mIpAdress);
-            ur_rtde::RTDEReceiveInterface rtdeRecive(mIpAdress);
-            mThrow.addPath(moveRobotJ(qHome,                        msInterval, rtdeControl, rtdeRecive, simSpeed, simAcc));
-            mThrow.addPath(moveRobotJ(qSafeGrib,                    msInterval, rtdeControl, rtdeRecive, simSpeed, simAcc));
-            mThrow.addPath(moveRobotL(posGribReadyR, rpyGribReady,  msInterval, rtdeControl, rtdeRecive, simSpeed, simAcc));
-            mThrow.addPath(moveRobotL(posBallR, rpyBall,            msInterval, rtdeControl, rtdeRecive, 0.2,      0.05  ));
-            gripper.close();
-            //while (!gripper.hasGripped());
-            std::this_thread::sleep_for(std::chrono::milliseconds(2000));
-            mThrow.addPath(moveRobotL(posGribReadyR, rpyGribReady,  msInterval, rtdeControl, rtdeRecive, simSpeed, simAcc));
-            mThrow.addPath(moveRobotJ(qSafeGrib,                    msInterval, rtdeControl, rtdeRecive, simSpeed, simAcc));
-            mThrow.addPath(moveRobotJ(qHome,                        msInterval, rtdeControl, rtdeRecive, simSpeed, simAcc));
-            gripper.open();
+    if (!collision)
+    {
+        std::this_thread::sleep_for(std::chrono::milliseconds(300));
+        std::cout << "running robot" << std::endl;
+        double speed = 0.5;
+        double acceleration = 1;
+        double msInterval = 10;
+        ur_rtde::RTDEControlInterface rtdeControl(mIpAdress);
+        ur_rtde::RTDEReceiveInterface rtdeRecive(mIpAdress);
+        mThrow.addPath(moveRobotJ(qHome,                        msInterval, rtdeControl, rtdeRecive, speed, acceleration));
+        mThrow.addPath(moveRobotJ(qSafeGrib,                    msInterval, rtdeControl, rtdeRecive, speed, acceleration));
+        mThrow.addPath(moveRobotL(posGribReadyR, rpyGribReady,  msInterval, rtdeControl, rtdeRecive, speed, acceleration));
+        mThrow.addPath(moveRobotL(posBallR, rpyBall,            msInterval, rtdeControl, rtdeRecive, 0.2,      0.05  ));
+        gripper.close();
+        //while (!gripper.hasGripped());
+        std::this_thread::sleep_for(std::chrono::milliseconds(2000));
+        mThrow.addPath(moveRobotL(posGribReadyR, rpyGribReady,  msInterval, rtdeControl, rtdeRecive, speed, acceleration));
+        mThrow.addPath(moveRobotJ(qSafeGrib,                    msInterval, rtdeControl, rtdeRecive, speed, acceleration));
+        mThrow.addPath(moveRobotJ(qHome,                        msInterval, rtdeControl, rtdeRecive, speed, acceleration));
+        gripper.open();
 
-        } else
-        {
-            std::cout << "a collision has occured" << std::endl;
-        }
+    } else
+    {
+        std::cout << "a collision will occur" << std::endl;
+        std::cout << "exiting without moving robot" << std::endl;
     }
 
     void getBall(rw::math::Vector3D<> ballPositionW)
@@ -388,13 +446,15 @@ public:
     }
 
 private:
-std::string mIpAdress;
+ std::string mIpAdress;
  Gripper gripper;
  rw::math::Vector3D<> mCalPos;
  rw::math::Rotation3D<> mCalRot;
  rw::math::Rotation3D<> mInvCalRot;
  Throw mThrow;
 };
+
+
 
 
 

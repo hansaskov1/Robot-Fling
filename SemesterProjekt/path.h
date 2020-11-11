@@ -8,10 +8,12 @@ class Path
 public:
     Path()
     {
-        jointPoses.reserve(6);
-        jointVel.reserve(6);
-        toolPose.reserve(6);
-        toolVel.reserve(6);
+
+        jointPoses.reserve(100);
+        jointVel.reserve(100);
+        toolPose.reserve(100);
+        toolVel.reserve(100);
+        elapsedTime.reserve(100);
     }
 
     Path(const Path& path){
@@ -19,6 +21,7 @@ public:
         jointVel = path.getJointVel();
         toolPose = path.getToolPose();
         toolVel = path.getToolVel();
+        elapsedTime = path.getElapsedTime();
 
     }
 
@@ -37,6 +40,7 @@ public:
         jointVel = p.jointVel;
         toolPose = p.toolPose;
         toolVel = p.toolVel;
+        elapsedTime = p.elapsedTime;
 
         return *this;
     }
@@ -62,8 +66,14 @@ public:
     std::vector<std::vector<double> > getToolVel() const    {return toolVel;}
     void addToolVel(const std::vector<double> &value)       {toolVel.push_back(value);}
 
+    std::vector<double> getElapsedTime() const              {return elapsedTime;}
+    void addElapsedTime(const double &value)                {elapsedTime.push_back(value);}
+
 private:
     std::vector<std::vector<double>> jointPoses, jointVel, toolPose, toolVel;
+    std::vector<double> elapsedTime;
 };
 
 #endif // PATH_H
+
+
