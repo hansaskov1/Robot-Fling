@@ -163,10 +163,6 @@ mainwindow.h
 /home/christian/workspace/Robot-Fling/SemesterProjekt/mainwindow.h
 QApplication
 -
-iostream
--
-QtSql/QSqlDatabase
--
 
 /home/christian/workspace/Robot-Fling/SemesterProjekt/mainwindow.cpp
 mainwindow.h

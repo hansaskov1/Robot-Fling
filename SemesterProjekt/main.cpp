@@ -1,8 +1,6 @@
 #include "mainwindow.h"
 
 #include <QApplication>
-#include <iostream>
-#include <QtSql/QSqlDatabase>
 
 int main(int argc, char *argv[])
 {

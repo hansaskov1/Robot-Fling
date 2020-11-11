@@ -11,45 +11,45 @@ class Throw
 public:
     Throw() {}
 
-    Throw(unsigned int kastID, QString objekt, double vinkel, double hastighed, std::vector<Path> paths, bool success) {
-        mKastID = kastID;
-        mObjekt = objekt;
-        mVinkel = vinkel;
-        mHastighed = hastighed;
+    Throw(unsigned int throwID, QString object, double angle, double speed, std::vector<Path> paths, bool success) {
+        mThrowID = throwID;
+        mObject = object;
+        mAngle = angle;
+        mSpeed = speed;
         mPaths = paths;
         mSuccess = success;
     }
 
-    unsigned int getKastID() const {
-        return mKastID;
+    unsigned int getThrowID() const {
+        return mThrowID;
     }
 
-    void setKastID(unsigned int kastID) {
-        mKastID = kastID;
+    void setThrowID(unsigned int throwID) {
+        mThrowID = throwID;
     }
 
-    QString getObjekt() const {
-        return mObjekt;
+    QString getObject() const {
+        return mObject;
     }
 
-    void setObjekt(const QString &objekt) {
-        mObjekt = objekt;
+    void setObject(const QString &object) {
+        mObject = object;
     }
 
-    double getVinkel() const {
-        return mVinkel;
+    double getAngle() const {
+        return mAngle;
     }
 
-    void setVinkel(double vinkel) {
-        mVinkel = vinkel;
+    void setAngle(double angle) {
+        mAngle = angle;
     }
 
-    double getHastighed() const {
-        return mHastighed;
+    double getSpeed() const {
+        return mSpeed;
     }
 
-    void setHastighed(double hastighed) {
-        mHastighed = hastighed;
+    void setSpeed(double speed) {
+        mSpeed = speed;
     }
 
     bool isSuccess() const {
@@ -70,10 +70,10 @@ public:
     }
 
 private:
-    unsigned int mKastID;
-    QString mObjekt;
-    double mVinkel;
-    double mHastighed;
+    unsigned int mThrowID;
+    QString mObject;
+    double mAngle;
+    double mSpeed;
     std::vector<Path> mPaths;
     bool mSuccess;
 };

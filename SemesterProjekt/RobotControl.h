@@ -250,10 +250,10 @@ public:
     }
 
     Throw getThrow() {
-        mThrow.setKastID(1);
-        mThrow.setObjekt("Bold");
-        mThrow.setVinkel(45);
-        mThrow.setHastighed(200);
+        mThrow.setThrowID(1);
+        mThrow.setObject("Bold");
+        mThrow.setAngle(45);
+        mThrow.setSpeed(200);
         mThrow.setSuccess(1);
         return mThrow;
     }

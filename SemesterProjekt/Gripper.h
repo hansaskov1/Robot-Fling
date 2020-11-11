@@ -87,7 +87,6 @@ private slots:
                     connect(mySocket, SIGNAL(readyRead()), this, SLOT(ReceiveData()));
                     connect(mySocket,&QTcpSocket::connected,this,[=]()
                     {
-                        noAckTimes = 0;
                         connectFlag = true;
                     });
                     connect(mySocket,&QTcpSocket::disconnected,this,[=]()
@@ -104,7 +103,6 @@ private slots:
 
         void ReceiveData() //Socket receive data slot function
         {
-            noAckTimes = 0;
             if (mySocket->isReadable())
             {
                 if (mySocket->readAll() == "FIN GRIP\n")
@@ -136,7 +134,6 @@ private slots:
         QThread* myThread{ nullptr };//Own thread to prevent receiving and sending data from blocking other threads
         QTcpSocket* mySocket{ nullptr };
         bool connectFlag{false};//Connection status flag with server
-        quint16 noAckTimes{0};//The number of times the server did not receive a reply
         quint16 serverPort{0};//Server port
         QString serverIp;//Server Ip
         bool gripped {false};
