@@ -109,14 +109,24 @@ public:
 
    void fetchQValuesRob(std::promise<Path> && returnPath ,std::atomic<bool>& stop , ur_rtde::RTDEReceiveInterface &rtde_recieve, unsigned int msInterval) //Used in thread
    {
+
        Path path;
+       auto start = std::chrono::system_clock::now();
+
        while(!stop)
        {
+
            path.addJointPose(rtde_recieve.getActualQ());
            path.addJointVel(rtde_recieve.getActualQd());
            path.addToolPose(rtde_recieve.getActualTCPPose());
            path.addToolVel(rtde_recieve.getActualTCPSpeed());
            std::this_thread::sleep_for(std::chrono::milliseconds(msInterval));
+
+           auto stop = std::chrono::system_clock::now();
+           std::chrono::duration<double> elapsedTime = stop-start;
+
+           path.addElapsedTime(elapsedTime.count(););
+
        }
        returnPath.set_value(path);
    }
@@ -131,6 +141,21 @@ public:
 
         std::thread recive(&RobotControl::fetchQValuesRob, this , std::move(promiseQVec), std::ref(stop), std::ref(rtdeRecieve), msInterval);
         rtdeControl.moveL(toolPositionStdVec, speed, acceleration);
+
+        stop = true;
+        recive.join();
+        return futureQVec.get();
+    }
+
+    Path moveRobotL( rw::math::Q jointPose , unsigned int msInterval, ur_rtde::RTDEControlInterface& rtdeControl, ur_rtde::RTDEReceiveInterface &rtdeRecieve, double speed, double acceleration)
+    {
+        std::vector<double> toolPositionStdVec = jointPose.toStdVector();
+        std::atomic<bool> stop {false};
+        std::promise<Path> promiseQVec;
+        auto futureQVec = promiseQVec.get_future();
+
+        std::thread recive(&RobotControl::fetchQValuesRob, this , std::move(promiseQVec), std::ref(stop), std::ref(rtdeRecieve), msInterval);
+        rtdeControl.moveL_FK(toolPositionStdVec, speed, acceleration);
 
         stop = true;
         recive.join();
@@ -152,15 +177,26 @@ public:
         return futureQVec.get();
     }
 
+
+    void throwBallToTarget(rw::math::Vector3D<> targetPosition, ){
+
+    }
+
     // All movements to get ball
     void getBall(rw::math::Vector3D<> posBallW, double safeGribHeight)
     {
 
         rw::math::Q qHome(-1.151,-3.1415/2,0,-3.1415/2,0,0);                    // Hardcoded home for our robot
         rw::math::Q qSafeGrib(-1.151, -2.202, -0.935, -1.574, 1.571, -0.003);   // Hardcoded safe gripping position
+        rw::math::Q qBallReady(-1.256,-0.175,-2.591,-1.518,1.57,0.0175);        // Hardcode start acc ball throw
+        rw::math::Q qBallRelease(-1.256,-1.588,-0.7286,-1.518,1.57,0.0175);     // Hardcode end ball throw
+        std::cout << qBallRelease << std::endl;
 
         rw::math::RPY<> rpyBall(0.6, -3.09, 0);                                 // Hardcoded safe orientation
         rw::math::RPY<> rpyGribReady = rpyBall;
+
+        rw::math::RPY<> rpyRelease(0.455,-2.941,1.359);
+        rw::math::Vector3D<> positionRelease (60/1000 , -554/1000 , 697/1000);
 
         rw::math::Vector3D<> posGribReadyW = posBallW;
         posGribReadyW[2] += safeGribHeight;
@@ -198,6 +234,14 @@ public:
            QFullPath.push_back(moveRobotL(posGribReadyR, rpyGribReady,  msInterval, rtdeControl, rtdeRecive, simSpeed, simAcc).getJointPoses());
            QFullPath.push_back(moveRobotJ(qSafeGrib,                    msInterval, rtdeControl, rtdeRecive, simSpeed, simAcc).getJointPoses());
            QFullPath.push_back(moveRobotJ(qHome,                        msInterval, rtdeControl, rtdeRecive, simSpeed, simAcc).getJointPoses());
+
+           QFullPath.push_back(moveRobotJ(qBallReady,                   msInterval, rtdeControl, rtdeRecive, simSpeed, simAcc).getJointPoses());
+           QFullPath.push_back(moveRobotL(qBallRelease,                   msInterval, rtdeControl, rtdeRecive, simSpeed, simAcc).getJointPoses());
+
+
+           //QFullPath.push_back(moveRobotL(positionRelease,rpyRelease,   msInterval, rtdeControl, rtdeRecive, simSpeed, simAcc).getJointPoses());
+           //rtdeControl.moveL_FK(qBallRelease.toStdVector(), simSpeed, simAcc);
+
        }
 
         std::vector<bool> collisionList;
