@@ -12,7 +12,7 @@
 #include "calibration.h"
 #include "objectdetection.h"
 #include "showvideo.h"
-#include "DetectCollision.h"
+//#include "DetectCollision.h"
 #include "RobotControl.h"
 #include "sqlcontroller.h"
 

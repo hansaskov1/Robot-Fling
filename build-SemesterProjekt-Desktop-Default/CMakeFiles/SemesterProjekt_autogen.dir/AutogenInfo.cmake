@@ -1,6 +1,7 @@
 # Meta
 set(AM_MULTI_CONFIG "SINGLE")
 # Directories and files
+<<<<<<< HEAD
 set(AM_CMAKE_BINARY_DIR "/home/suspend/GitHub/Robot-Fling/build-SemesterProjekt-Desktop-Default/")
 set(AM_CMAKE_SOURCE_DIR "/home/suspend/GitHub/Robot-Fling/SemesterProjekt/")
 set(AM_CMAKE_CURRENT_SOURCE_DIR "/home/suspend/GitHub/Robot-Fling/SemesterProjekt/")
@@ -9,6 +10,16 @@ set(AM_CMAKE_INCLUDE_DIRECTORIES_PROJECT_BEFORE "")
 set(AM_BUILD_DIR "/home/suspend/GitHub/Robot-Fling/build-SemesterProjekt-Desktop-Default/SemesterProjekt_autogen")
 set(AM_SOURCES "/home/suspend/GitHub/Robot-Fling/SemesterProjekt/calibration.cpp;/home/suspend/GitHub/Robot-Fling/SemesterProjekt/main.cpp;/home/suspend/GitHub/Robot-Fling/SemesterProjekt/mainwindow.cpp;/home/suspend/GitHub/Robot-Fling/SemesterProjekt/objectdetection.cpp;/home/suspend/GitHub/Robot-Fling/SemesterProjekt/sqlcontroller.cpp")
 set(AM_HEADERS "/home/suspend/GitHub/Robot-Fling/SemesterProjekt/DetectCollision.h;/home/suspend/GitHub/Robot-Fling/SemesterProjekt/Gripper.h;/home/suspend/GitHub/Robot-Fling/SemesterProjekt/RobotControl.h;/home/suspend/GitHub/Robot-Fling/SemesterProjekt/Throw.h;/home/suspend/GitHub/Robot-Fling/SemesterProjekt/calibration.h;/home/suspend/GitHub/Robot-Fling/SemesterProjekt/mainwindow.h;/home/suspend/GitHub/Robot-Fling/SemesterProjekt/objectdetection.h;/home/suspend/GitHub/Robot-Fling/SemesterProjekt/path.h;/home/suspend/GitHub/Robot-Fling/SemesterProjekt/showvideo.h;/home/suspend/GitHub/Robot-Fling/SemesterProjekt/sqlcontroller.h")
+=======
+set(AM_CMAKE_BINARY_DIR "/home/kjohnsen/github/Robot-Fling/build-SemesterProjekt-Desktop-Default/")
+set(AM_CMAKE_SOURCE_DIR "/home/kjohnsen/github/Robot-Fling/SemesterProjekt/")
+set(AM_CMAKE_CURRENT_SOURCE_DIR "/home/kjohnsen/github/Robot-Fling/SemesterProjekt/")
+set(AM_CMAKE_CURRENT_BINARY_DIR "/home/kjohnsen/github/Robot-Fling/build-SemesterProjekt-Desktop-Default/")
+set(AM_CMAKE_INCLUDE_DIRECTORIES_PROJECT_BEFORE "")
+set(AM_BUILD_DIR "/home/kjohnsen/github/Robot-Fling/build-SemesterProjekt-Desktop-Default/SemesterProjekt_autogen")
+set(AM_SOURCES "/home/kjohnsen/github/Robot-Fling/SemesterProjekt/calibration.cpp;/home/kjohnsen/github/Robot-Fling/SemesterProjekt/main.cpp;/home/kjohnsen/github/Robot-Fling/SemesterProjekt/mainwindow.cpp;/home/kjohnsen/github/Robot-Fling/SemesterProjekt/objectdetection.cpp;/home/kjohnsen/github/Robot-Fling/SemesterProjekt/sqlcontroller.cpp")
+set(AM_HEADERS "/home/kjohnsen/github/Robot-Fling/SemesterProjekt/DetectCollision.h;/home/kjohnsen/github/Robot-Fling/SemesterProjekt/Gripper.h;/home/kjohnsen/github/Robot-Fling/SemesterProjekt/RobotControl.h;/home/kjohnsen/github/Robot-Fling/SemesterProjekt/Throw.h;/home/kjohnsen/github/Robot-Fling/SemesterProjekt/calibration.h;/home/kjohnsen/github/Robot-Fling/SemesterProjekt/mainwindow.h;/home/kjohnsen/github/Robot-Fling/SemesterProjekt/objectdetection.h;/home/kjohnsen/github/Robot-Fling/SemesterProjekt/path.h;/home/kjohnsen/github/Robot-Fling/SemesterProjekt/showvideo.h;/home/kjohnsen/github/Robot-Fling/SemesterProjekt/sqlcontroller.h")
+>>>>>>> ClosedFormIKSolver2
 # Qt environment
 set(AM_QT_VERSION_MAJOR "5")
 set(AM_QT_VERSION_MINOR "9")
@@ -16,16 +27,26 @@ set(AM_QT_MOC_EXECUTABLE "/usr/lib/qt5/bin/moc")
 set(AM_QT_UIC_EXECUTABLE "/usr/lib/qt5/bin/uic")
 set(AM_QT_RCC_EXECUTABLE "/usr/lib/qt5/bin/rcc")
 # MOC settings
+<<<<<<< HEAD
 set(AM_MOC_SKIP "/home/suspend/GitHub/Robot-Fling/build-SemesterProjekt-Desktop-Default/SemesterProjekt_autogen/mocs_compilation.cpp")
 set(AM_MOC_DEFINITIONS "QT_CORE_LIB;QT_GUI_LIB;QT_NETWORK_LIB;QT_NO_DEBUG;QT_SQL_LIB;QT_WIDGETS_LIB")
 set(AM_MOC_INCLUDES "/home/suspend/GitHub/Robot-Fling/build-SemesterProjekt-Desktop-Default;/home/suspend/GitHub/Robot-Fling/SemesterProjekt;/home/suspend/GitHub/Robot-Fling/build-SemesterProjekt-Desktop-Default/SemesterProjekt_autogen/include;/opt/pylon/include;/home/suspend/GitHub/Robot-Fling/SemesterProjekt/clientInfo.h;/usr/include/eigen3;/usr/share/robwork-1.2/cmake/../../../include/robwork-1.2;/usr/share/robwork-1.2/cmake/../../../include/robwork-1.2/ext/rwyaobi;/usr/share/robwork-1.2/cmake/../../../include/robwork-1.2/ext/rwpqp;/usr/include/lua5.3;/usr/share/robwork-1.2/cmake/../../../include/robwork-1.2/ext/qhull/src;/usr/share/robwork-1.2/cmake/../../../include/robwork-1.2/ext/csgjs/src;/usr/include/x86_64-linux-gnu/qt5;/usr/include/x86_64-linux-gnu/qt5/QtWidgets;/usr/include/x86_64-linux-gnu/qt5/QtGui;/usr/include/x86_64-linux-gnu/qt5/QtCore;/usr/lib/x86_64-linux-gnu/qt5/mkspecs/linux-g++;/usr/include/x86_64-linux-gnu/qt5/QtSql;/usr/include/x86_64-linux-gnu/qt5/QtNetwork;/usr/include/opencv;/usr/include")
+=======
+set(AM_MOC_SKIP "/home/kjohnsen/github/Robot-Fling/build-SemesterProjekt-Desktop-Default/SemesterProjekt_autogen/mocs_compilation.cpp")
+set(AM_MOC_DEFINITIONS "QT_CORE_LIB;QT_GUI_LIB;QT_NETWORK_LIB;QT_NO_DEBUG;QT_SQL_LIB;QT_WIDGETS_LIB")
+set(AM_MOC_INCLUDES "/home/kjohnsen/github/Robot-Fling/build-SemesterProjekt-Desktop-Default;/home/kjohnsen/github/Robot-Fling/SemesterProjekt;/home/kjohnsen/github/Robot-Fling/build-SemesterProjekt-Desktop-Default/SemesterProjekt_autogen/include;/opt/pylon/include;/home/kjohnsen/github/Robot-Fling/SemesterProjekt/clientInfo.h;/usr/include/eigen3;/usr/share/robwork-1.2/cmake/../../../include/robwork-1.2;/usr/share/robwork-1.2/cmake/../../../include/robwork-1.2/ext/rwyaobi;/usr/share/robwork-1.2/cmake/../../../include/robwork-1.2/ext/rwpqp;/usr/include/lua5.3;/usr/share/robwork-1.2/cmake/../../../include/robwork-1.2/ext/qhull/src;/usr/share/robwork-1.2/cmake/../../../include/robwork-1.2/ext/csgjs/src;/usr/local/include;/usr/include/x86_64-linux-gnu/qt5;/usr/include/x86_64-linux-gnu/qt5/QtWidgets;/usr/include/x86_64-linux-gnu/qt5/QtGui;/usr/include/x86_64-linux-gnu/qt5/QtCore;/usr/lib/x86_64-linux-gnu/qt5/mkspecs/linux-g++;/usr/include/x86_64-linux-gnu/qt5/QtSql;/usr/include/x86_64-linux-gnu/qt5/QtNetwork;/usr/include/opencv;/usr/include")
+>>>>>>> ClosedFormIKSolver2
 set(AM_MOC_OPTIONS "")
 set(AM_MOC_RELAXED_MODE "FALSE")
 set(AM_MOC_MACRO_NAMES "Q_OBJECT;Q_GADGET;Q_NAMESPACE")
 set(AM_MOC_DEPEND_FILTERS "")
 set(AM_MOC_PREDEFS_CMD "/usr/bin/g++;-dM;-E;-c;/usr/share/cmake-3.10/Modules/CMakeCXXCompilerABI.cpp")
 # UIC settings
+<<<<<<< HEAD
 set(AM_UIC_SKIP "/home/suspend/GitHub/Robot-Fling/build-SemesterProjekt-Desktop-Default/SemesterProjekt_autogen/mocs_compilation.cpp")
+=======
+set(AM_UIC_SKIP "/home/kjohnsen/github/Robot-Fling/build-SemesterProjekt-Desktop-Default/SemesterProjekt_autogen/mocs_compilation.cpp")
+>>>>>>> ClosedFormIKSolver2
 set(AM_UIC_TARGET_OPTIONS "")
 set(AM_UIC_OPTIONS_FILES "")
 set(AM_UIC_OPTIONS_OPTIONS "")

@@ -7,8 +7,13 @@ set(CMAKE_DEPENDS_GENERATOR "Unix Makefiles")
 # The top level Makefile was generated from the following files:
 set(CMAKE_MAKEFILE_DEPENDS
   "CMakeCache.txt"
+<<<<<<< HEAD
   "/home/suspend/GitHub/Robot-Fling/SemesterProjekt/CMakeLists.txt"
   "/home/suspend/GitHub/Robot-Fling/SemesterProjekt/FindPylon.cmake"
+=======
+  "/home/kjohnsen/github/Robot-Fling/SemesterProjekt/CMakeLists.txt"
+  "/home/kjohnsen/github/Robot-Fling/SemesterProjekt/FindPylon.cmake"
+>>>>>>> ClosedFormIKSolver2
   "CMakeFiles/3.10.2/CMakeCXXCompiler.cmake"
   "CMakeFiles/3.10.2/CMakeSystem.cmake"
   "CMakeFiles/feature_tests.cxx"
@@ -31,11 +36,11 @@ set(CMAKE_MAKEFILE_DEPENDS
   "/usr/lib/x86_64-linux-gnu/cmake/Qt5Widgets/Qt5WidgetsConfigExtras.cmake"
   "/usr/lib/x86_64-linux-gnu/cmake/Qt5Widgets/Qt5WidgetsConfigVersion.cmake"
   "/usr/lib/x86_64-linux-gnu/cmake/Qt5Widgets/Qt5WidgetsMacros.cmake"
-  "/usr/lib/x86_64-linux-gnu/cmake/ur_rtde/ur_rtdeBuildConfig.cmake"
-  "/usr/lib/x86_64-linux-gnu/cmake/ur_rtde/ur_rtdeConfig.cmake"
-  "/usr/lib/x86_64-linux-gnu/cmake/ur_rtde/ur_rtdeConfigVersion.cmake"
-  "/usr/lib/x86_64-linux-gnu/cmake/ur_rtde/ur_rtdeTargets-none.cmake"
-  "/usr/lib/x86_64-linux-gnu/cmake/ur_rtde/ur_rtdeTargets.cmake"
+  "/usr/local/lib/cmake/ur_rtde/ur_rtdeBuildConfig.cmake"
+  "/usr/local/lib/cmake/ur_rtde/ur_rtdeConfig.cmake"
+  "/usr/local/lib/cmake/ur_rtde/ur_rtdeConfigVersion.cmake"
+  "/usr/local/lib/cmake/ur_rtde/ur_rtdeTargets-noconfig.cmake"
+  "/usr/local/lib/cmake/ur_rtde/ur_rtdeTargets.cmake"
   "/usr/share/OpenCV/OpenCVConfig-version.cmake"
   "/usr/share/OpenCV/OpenCVConfig.cmake"
   "/usr/share/OpenCV/OpenCVModules-release.cmake"
