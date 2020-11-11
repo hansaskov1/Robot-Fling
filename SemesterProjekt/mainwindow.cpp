@@ -9,8 +9,8 @@ MainWindow::MainWindow(QWidget *parent)
 {
     ui->setupUi(this);
 
-    c.calibrate2();
     c.connectToCam();
+    c.calibrate();
 
     for(int i = 0; i < 4; i++) {
         cv::String path = "";
@@ -19,12 +19,13 @@ MainWindow::MainWindow(QWidget *parent)
     }
 
     c.createTranformMatrix(worldCalImg);
+    video = new showVideo(ui->lImage, &c);
 }
 
 MainWindow::~MainWindow()
 {
     delete ui;
-    //delete video;
+    delete video;
 }
 
 void MainWindow::on_bSend_clicked()
@@ -47,10 +48,10 @@ void MainWindow::on_bSend_clicked()
         break;
     }
 
-    //if (ballPos.x && ballPos.y)
+    if (ballPos.x && ballPos.y)
     {
-        //rw::math::Vector3D<> ballPosition(camToBall.at<float>(0,3)*0.01,camToBall.at<float>(1,3)*0.01,camToBall.at<float>(2,3)*0.01);
-        rw::math::Vector3D<> ballPosition(0.2,0.2,0.1);
+        rw::math::Vector3D<> ballPosition(camToBall.at<float>(0,3)*0.01,camToBall.at<float>(1,3)*0.01,camToBall.at<float>(2,3)*0.01);
+        //rw::math::Vector3D<> ballPosition(0.2,0.2,0.1);
         RC.getBall(ballPosition,0.05);
     }
 
@@ -66,14 +67,7 @@ void MainWindow::on_bOpenGrip_clicked()
 
 void MainWindow::on_bCloseGrip_clicked()
 {
-    /*
-    if (speed != 0)
-        gripper.close(force, size, speed);
-    else if (force != 0)
-        gripper.close(force);
-    else
-        gripper.close();
-    */
+    //gripper.close();
     ui->statusbar->showMessage("Closing Gripper", 2000);
 }
 
@@ -88,7 +82,6 @@ void MainWindow::on_bCalibrate_clicked()
 
 void MainWindow::on_bSaveConnect_clicked()
 {
-    showVideo *video = new showVideo(ui->lImage, &c);
     QThreadPool::globalInstance()->start(video);
 
     rw::math::Vector3D<> PCal(0.400624689065891, 0.901530744085863, 0.042187492976487);

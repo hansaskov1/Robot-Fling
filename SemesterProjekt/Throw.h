@@ -68,7 +68,7 @@ public:
         mPaths.shrink_to_fit();
         return mPaths;
     }
-
+/*
     double speed(double vinkel, rw::math::Vector3D<> throwPose, rw::math::Vector3D<> cupPose)
     {
         double xDistanceToCup = throwPose[0] - cupPose[0];
@@ -78,8 +78,8 @@ public:
         double den = gravity*(pow(xDistanceToCup,2)+pow(yDistanceToCup,2));
         double num = 2 * cos(pow(vinkel,2)) * tan(vinkel) * (sqrt(pow(xDistanceToCup,2)+pow(yDistanceToCup,2)))+zDistanceToCup;
 
-        hastighed = sqrt(den/num);
-        return hastighed;
+        mSpeed = sqrt(den/num);
+        return mSpeed;
     }
 
     rw::math::Vector3D<> rampPose(double hastighed, double acceleration, double vinkel, rw::math::Vector3D<> throwPose)
@@ -99,7 +99,7 @@ public:
 
         return startRampPose;
     }
-
+*/
 
 private:
     unsigned int mThrowID;

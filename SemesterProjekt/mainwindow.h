@@ -49,6 +49,7 @@ private:
     cv::Mat worldCalImg[4];
     RobotControl RC;
     SQLController sql;
+    showVideo *video;
 };
 
 #endif // MAINWINDOW_H
