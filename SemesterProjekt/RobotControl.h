@@ -249,10 +249,11 @@ public:
         for (std::vector<std::vector<double>> &qPath : QFullPath )
         {
            /* std::cout << "New Path" << std::endl;
-            for (std::vector<double> &qValues : qPath){
-            //   qValues[0] += 1.151;
+            for (std::vector<double> &qValues : qPath)
+            {
                 std::cout << "{";
-                for (double joint : qValues){
+                for (double joint : qValues)
+                {
                     std::cout << joint << " ";
                 }
                 std::cout << "}"<< std::endl;
@@ -260,7 +261,7 @@ public:
             collisionList.push_back(dc.isCollision(qPath));
         }
 
-        bool collision;
+        bool collision = false;
         for (bool isColl : collisionList)
         {
             (isColl)? std::cout << "true" : std::cout << "false";
@@ -272,6 +273,8 @@ public:
 
     if (!collision)
     {
+        std::this_thread::sleep_for(std::chrono::milliseconds(300));
+        std::cout << "running robot" << std::endl;
         double speed = 3;
         double acceleration = 3;
         double msInterval = 10;
