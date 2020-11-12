@@ -273,31 +273,32 @@ public:
         }
 
 
-    if (!collision)
-    {
-        std::this_thread::sleep_for(std::chrono::milliseconds(300));
-        std::cout << "running robot" << std::endl;
-        double speed = 0.5;
-        double acceleration = 1;
-        double msInterval = 10;
-        ur_rtde::RTDEControlInterface rtdeControl(mIpAdress);
-        ur_rtde::RTDEReceiveInterface rtdeRecive(mIpAdress);
-        mThrow.addPath(moveRobotJ(qHome,                        msInterval, rtdeControl, rtdeRecive, speed, acceleration));
-        mThrow.addPath(moveRobotJ(qSafeGrib,                    msInterval, rtdeControl, rtdeRecive, speed, acceleration));
-        mThrow.addPath(moveRobotL(posGribReadyR, rpyGribReady,  msInterval, rtdeControl, rtdeRecive, speed, acceleration));
-        mThrow.addPath(moveRobotL(posBallR, rpyBall,            msInterval, rtdeControl, rtdeRecive, 0.2,      0.05  ));
-        gripper.close();
-        //while (!gripper.hasGripped());
-        std::this_thread::sleep_for(std::chrono::milliseconds(2000));
-        mThrow.addPath(moveRobotL(posGribReadyR, rpyGribReady,  msInterval, rtdeControl, rtdeRecive, speed, acceleration));
-        mThrow.addPath(moveRobotJ(qSafeGrib,                    msInterval, rtdeControl, rtdeRecive, speed, acceleration));
-        mThrow.addPath(moveRobotJ(qHome,                        msInterval, rtdeControl, rtdeRecive, speed, acceleration));
-        gripper.open();
+        if (!collision)
+        {
+            std::this_thread::sleep_for(std::chrono::milliseconds(300));
+            std::cout << "running robot" << std::endl;
+            double speed = 0.5;
+            double acceleration = 1;
+            double msInterval = 10;
+            ur_rtde::RTDEControlInterface rtdeControl(mIpAdress);
+            ur_rtde::RTDEReceiveInterface rtdeRecive(mIpAdress);
+            mThrow.addPath(moveRobotJ(qHome,                        msInterval, rtdeControl, rtdeRecive, speed, acceleration));
+            mThrow.addPath(moveRobotJ(qSafeGrib,                    msInterval, rtdeControl, rtdeRecive, speed, acceleration));
+            mThrow.addPath(moveRobotL(posGribReadyR, rpyGribReady,  msInterval, rtdeControl, rtdeRecive, speed, acceleration));
+            mThrow.addPath(moveRobotL(posBallR, rpyBall,            msInterval, rtdeControl, rtdeRecive, 0.2,      0.05  ));
+            gripper.close();
+            //while (!gripper.hasGripped());
+            std::this_thread::sleep_for(std::chrono::milliseconds(2000));
+            mThrow.addPath(moveRobotL(posGribReadyR, rpyGribReady,  msInterval, rtdeControl, rtdeRecive, speed, acceleration));
+            mThrow.addPath(moveRobotJ(qSafeGrib,                    msInterval, rtdeControl, rtdeRecive, speed, acceleration));
+            mThrow.addPath(moveRobotJ(qHome,                        msInterval, rtdeControl, rtdeRecive, speed, acceleration));
+            gripper.open();
 
-    } else
-    {
-        std::cout << "a collision will occur" << std::endl;
-        std::cout << "exiting without moving robot" << std::endl;
+        } else
+        {
+            std::cout << "a collision will occur" << std::endl;
+            std::cout << "exiting without moving robot" << std::endl;
+        }
     }
 
     void getBall(rw::math::Vector3D<> ballPositionW)
