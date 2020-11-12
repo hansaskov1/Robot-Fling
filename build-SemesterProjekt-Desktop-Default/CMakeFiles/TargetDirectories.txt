@@ -1,4 +1,0 @@
-/home/kjohnsen/github/Robot-Fling/build-SemesterProjekt-Desktop-Default/CMakeFiles/rebuild_cache.dir
-/home/kjohnsen/github/Robot-Fling/build-SemesterProjekt-Desktop-Default/CMakeFiles/SemesterProjekt.dir
-/home/kjohnsen/github/Robot-Fling/build-SemesterProjekt-Desktop-Default/CMakeFiles/edit_cache.dir
-/home/kjohnsen/github/Robot-Fling/build-SemesterProjekt-Desktop-Default/CMakeFiles/SemesterProjekt_autogen.dir
