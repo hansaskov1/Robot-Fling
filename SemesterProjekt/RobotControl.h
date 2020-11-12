@@ -96,19 +96,7 @@ public:
         return mCalRot * robotPosition + mCalPos;
     }
 
-    /*
-   //std::thread control(RobotControl::moveJ, toolPositionStdVec, std::ref(rtdeControl), speed, acceleration);
-   static void moveJ(std::vector<double> toolPosition, ur_rtde::RTDEControlInterface& rtde_control, double speed, double acceleration) // Used in own thread
-   {
-        rtde_control.moveJ(toolPosition,speed,acceleration);
-   }
-
-   static void moveL(std::vector<double> toolPosition, ur_rtde::RTDEControlInterface& rtde_control, double speed, double acceleration) // Used in own thread
-   {
-       rtde_control.moveL(toolPosition,speed,acceleration);
-   } */
-
-   void fetchQValuesRob(std::promise<Path> && returnPath ,std::atomic<bool>& stop , ur_rtde::RTDEReceiveInterface &rtde_recieve, unsigned int msInterval) //Used in thread
+   void fetchPath(std::promise<Path> && returnPath ,std::atomic<bool>& stop , ur_rtde::RTDEReceiveInterface &rtde_recieve, unsigned int msInterval) //Used in thread
    {
 
        Path path;
@@ -116,10 +104,8 @@ public:
 
        while(!stop)
        {
-
            path.addJointPose(rtde_recieve.getActualQ());
            path.addJointVel(rtde_recieve.getActualQd());
-           //insert targets here
            path.addToolPose(rtde_recieve.getActualTCPPose());
            path.addToolVel(rtde_recieve.getActualTCPSpeed());
            std::this_thread::sleep_for(std::chrono::milliseconds(msInterval));
@@ -134,49 +120,46 @@ public:
    }
 
 
-    Path moveRobotL( rw::math::Vector3D<> position,rw::math::RPY<> orientation, unsigned int msInterval, ur_rtde::RTDEControlInterface& rtdeControl, ur_rtde::RTDEReceiveInterface &rtdeRecieve, double speed, double acceleration)
-    {
-        std::vector<double> toolPositionStdVec = vecRPY2stdVec(position,orientation);
-        std::atomic<bool> stop {false};
-        std::promise<Path> promiseQVec;
-        auto futureQVec = promiseQVec.get_future();
+Path moveRobotL( rw::math::Vector3D<> position,rw::math::RPY<> orientation, unsigned int msInterval, ur_rtde::RTDEControlInterface& rtdeControl, ur_rtde::RTDEReceiveInterface& rtdeRecieve, double speed, double acceleration)
+{
+    std::vector<double> toolPositionStdVec = vecRPY2stdVec(position,orientation);
+    std::atomic<bool> stop {false};
+    std::promise<Path> promisePath;
+    std::future<Path> futurePath = promisePath.get_future();
 
-        std::thread recive(&RobotControl::fetchQValuesRob, this , std::move(promiseQVec), std::ref(stop), std::ref(rtdeRecieve), msInterval);
-        rtdeControl.moveL(toolPositionStdVec, speed, acceleration);
-
-        stop = true;
-        recive.join();
-        return futureQVec.get();
-    }
+    std::thread recive(&RobotControl::fetchPath, this , std::move(promisePath), std::ref(stop), std::ref(rtdeRecieve), msInterval);
+    rtdeControl.moveL(toolPositionStdVec, speed, acceleration);
+    stop = true;
+    recive.join();
+    return futurePath.get();
+}
 
     Path moveRobotL( rw::math::Q jointPose , unsigned int msInterval, ur_rtde::RTDEControlInterface& rtdeControl, ur_rtde::RTDEReceiveInterface &rtdeRecieve, double speed, double acceleration)
     {
         std::vector<double> toolPositionStdVec = jointPose.toStdVector();
         std::atomic<bool> stop {false};
-        std::promise<Path> promiseQVec;
-        auto futureQVec = promiseQVec.get_future();
+        std::promise<Path> promisPath;
+        std::future<Path> futurePath = promisPath.get_future();
 
-        std::thread recive(&RobotControl::fetchQValuesRob, this , std::move(promiseQVec), std::ref(stop), std::ref(rtdeRecieve), msInterval);
+        std::thread recive(&RobotControl::fetchPath, this , std::move(promisPath), std::ref(stop), std::ref(rtdeRecieve), msInterval);
         rtdeControl.moveL_FK(toolPositionStdVec, speed, acceleration);
-
         stop = true;
         recive.join();
-        return futureQVec.get();
+        return futurePath.get();
     }
 
     Path moveRobotJ( rw::math::Q jointPose, unsigned int msInterval, ur_rtde::RTDEControlInterface& rtdeControl, ur_rtde::RTDEReceiveInterface &rtdeRecieve, double speed, double acceleration){ // For Linear movement in Tool Space
 
         std::vector<double> toolPositionStdVec = jointPose.toStdVector();
         std::atomic<bool> stop {false};
-        std::promise<Path> promiseQVec;
-        auto futureQVec = promiseQVec.get_future();
+        std::promise<Path> promisePath;
+        std::future<Path> futurePath = promisePath.get_future();
 
-        std::thread recive(&RobotControl::fetchQValuesRob, this , std::move(promiseQVec), std::ref(stop), std::ref(rtdeRecieve), msInterval);
+        std::thread recive(&RobotControl::fetchPath, this , std::move(promisePath), std::ref(stop), std::ref(rtdeRecieve), msInterval);
         rtdeControl.moveJ(toolPositionStdVec, speed, acceleration);
-
         stop = true;
         recive.join();
-        return futureQVec.get();
+        return futurePath.get();
     }
 
 
