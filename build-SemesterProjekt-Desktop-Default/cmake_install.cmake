@@ -1,8 +1,4 @@
-<<<<<<< HEAD
-# Install script for directory: /home/suspend/GitHub/Robot-Fling/SemesterProjekt
-=======
 # Install script for directory: /home/kjohnsen/github/Robot-Fling/SemesterProjekt
->>>>>>> ClosedFormIKSolver2
 
 # Set the install prefix
 if(NOT DEFINED CMAKE_INSTALL_PREFIX)
@@ -49,9 +45,5 @@ endif()
 
 string(REPLACE ";" "\n" CMAKE_INSTALL_MANIFEST_CONTENT
        "${CMAKE_INSTALL_MANIFEST_FILES}")
-<<<<<<< HEAD
-file(WRITE "/home/suspend/GitHub/Robot-Fling/build-SemesterProjekt-Desktop-Default/${CMAKE_INSTALL_MANIFEST}"
-=======
 file(WRITE "/home/kjohnsen/github/Robot-Fling/build-SemesterProjekt-Desktop-Default/${CMAKE_INSTALL_MANIFEST}"
->>>>>>> ClosedFormIKSolver2
      "${CMAKE_INSTALL_MANIFEST_CONTENT}")

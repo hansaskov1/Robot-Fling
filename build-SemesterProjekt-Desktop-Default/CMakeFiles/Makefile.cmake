@@ -7,13 +7,8 @@ set(CMAKE_DEPENDS_GENERATOR "Unix Makefiles")
 # The top level Makefile was generated from the following files:
 set(CMAKE_MAKEFILE_DEPENDS
   "CMakeCache.txt"
-<<<<<<< HEAD
-  "/home/suspend/GitHub/Robot-Fling/SemesterProjekt/CMakeLists.txt"
-  "/home/suspend/GitHub/Robot-Fling/SemesterProjekt/FindPylon.cmake"
-=======
   "/home/kjohnsen/github/Robot-Fling/SemesterProjekt/CMakeLists.txt"
   "/home/kjohnsen/github/Robot-Fling/SemesterProjekt/FindPylon.cmake"
->>>>>>> ClosedFormIKSolver2
   "CMakeFiles/3.10.2/CMakeCXXCompiler.cmake"
   "CMakeFiles/3.10.2/CMakeSystem.cmake"
   "CMakeFiles/feature_tests.cxx"

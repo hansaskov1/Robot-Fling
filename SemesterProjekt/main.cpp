@@ -19,6 +19,10 @@ int main(int argc, char *argv[])
 
 
     RC.getBall(ballPosition,0.2);
+    std::cout << "call throw ball" << std::endl;
+    RC.throwBall(0.05);
+
+
 
 
 

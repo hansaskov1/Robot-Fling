@@ -1,6 +1,2 @@
 # Hashes of file build rules.
-<<<<<<< HEAD
-0d8ededf8afec36e40f933559cd66991 CMakeFiles/SemesterProjekt_autogen
-=======
 6efcbb63ddf98f17db8f995ec913525e CMakeFiles/SemesterProjekt_autogen
->>>>>>> ClosedFormIKSolver2

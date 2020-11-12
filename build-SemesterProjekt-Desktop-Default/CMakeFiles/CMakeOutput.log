@@ -1,8 +1,4 @@
-<<<<<<< HEAD
-The system is: Linux - 5.4.0-53-generic - x86_64
-=======
 The system is: Linux - 5.4.0-48-generic - x86_64
->>>>>>> ClosedFormIKSolver2
 Compiling the CXX compiler identification source file "CMakeCXXCompilerId.cpp" succeeded.
 Compiler: /usr/bin/g++ 
 Build flags: 
@@ -14,63 +10,33 @@ The output was:
 
 Compilation of the CXX compiler identification source "CMakeCXXCompilerId.cpp" produced "a.out"
 
-<<<<<<< HEAD
-The CXX compiler identification is GNU, found in "/home/suspend/GitHub/Robot-Fling/build-SemesterProjekt-Desktop-Default/CMakeFiles/3.10.2/CompilerIdCXX/a.out"
-
-Determining if the CXX compiler works passed with the following output:
-Change Dir: /home/suspend/GitHub/Robot-Fling/build-SemesterProjekt-Desktop-Default/CMakeFiles/CMakeTmp
-
-Run Build Command:"/usr/bin/make" "cmTC_90aa3/fast"
-/usr/bin/make -f CMakeFiles/cmTC_90aa3.dir/build.make CMakeFiles/cmTC_90aa3.dir/build
-make[1]: Entering directory '/home/suspend/GitHub/Robot-Fling/build-SemesterProjekt-Desktop-Default/CMakeFiles/CMakeTmp'
-Building CXX object CMakeFiles/cmTC_90aa3.dir/testCXXCompiler.cxx.o
-/usr/bin/g++     -o CMakeFiles/cmTC_90aa3.dir/testCXXCompiler.cxx.o -c /home/suspend/GitHub/Robot-Fling/build-SemesterProjekt-Desktop-Default/CMakeFiles/CMakeTmp/testCXXCompiler.cxx
-Linking CXX executable cmTC_90aa3
-/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_90aa3.dir/link.txt --verbose=1
-/usr/bin/g++       CMakeFiles/cmTC_90aa3.dir/testCXXCompiler.cxx.o  -o cmTC_90aa3 
-make[1]: Leaving directory '/home/suspend/GitHub/Robot-Fling/build-SemesterProjekt-Desktop-Default/CMakeFiles/CMakeTmp'
-
-
-Detecting CXX compiler ABI info compiled with the following output:
-Change Dir: /home/suspend/GitHub/Robot-Fling/build-SemesterProjekt-Desktop-Default/CMakeFiles/CMakeTmp
-
-Run Build Command:"/usr/bin/make" "cmTC_9fba9/fast"
-/usr/bin/make -f CMakeFiles/cmTC_9fba9.dir/build.make CMakeFiles/cmTC_9fba9.dir/build
-make[1]: Entering directory '/home/suspend/GitHub/Robot-Fling/build-SemesterProjekt-Desktop-Default/CMakeFiles/CMakeTmp'
-Building CXX object CMakeFiles/cmTC_9fba9.dir/CMakeCXXCompilerABI.cpp.o
-/usr/bin/g++     -o CMakeFiles/cmTC_9fba9.dir/CMakeCXXCompilerABI.cpp.o -c /usr/share/cmake-3.10/Modules/CMakeCXXCompilerABI.cpp
-Linking CXX executable cmTC_9fba9
-/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_9fba9.dir/link.txt --verbose=1
-/usr/bin/g++      -v CMakeFiles/cmTC_9fba9.dir/CMakeCXXCompilerABI.cpp.o  -o cmTC_9fba9 
-=======
 The CXX compiler identification is GNU, found in "/home/kjohnsen/github/Robot-Fling/build-SemesterProjekt-Desktop-Default/CMakeFiles/3.10.2/CompilerIdCXX/a.out"
 
 Determining if the CXX compiler works passed with the following output:
 Change Dir: /home/kjohnsen/github/Robot-Fling/build-SemesterProjekt-Desktop-Default/CMakeFiles/CMakeTmp
 
-Run Build Command:"/usr/bin/make" "cmTC_8cd5a/fast"
-/usr/bin/make -f CMakeFiles/cmTC_8cd5a.dir/build.make CMakeFiles/cmTC_8cd5a.dir/build
+Run Build Command:"/usr/bin/make" "cmTC_55993/fast"
+/usr/bin/make -f CMakeFiles/cmTC_55993.dir/build.make CMakeFiles/cmTC_55993.dir/build
 make[1]: Entering directory '/home/kjohnsen/github/Robot-Fling/build-SemesterProjekt-Desktop-Default/CMakeFiles/CMakeTmp'
-Building CXX object CMakeFiles/cmTC_8cd5a.dir/testCXXCompiler.cxx.o
-/usr/bin/g++     -o CMakeFiles/cmTC_8cd5a.dir/testCXXCompiler.cxx.o -c /home/kjohnsen/github/Robot-Fling/build-SemesterProjekt-Desktop-Default/CMakeFiles/CMakeTmp/testCXXCompiler.cxx
-Linking CXX executable cmTC_8cd5a
-/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_8cd5a.dir/link.txt --verbose=1
-/usr/bin/g++       CMakeFiles/cmTC_8cd5a.dir/testCXXCompiler.cxx.o  -o cmTC_8cd5a 
+Building CXX object CMakeFiles/cmTC_55993.dir/testCXXCompiler.cxx.o
+/usr/bin/g++     -o CMakeFiles/cmTC_55993.dir/testCXXCompiler.cxx.o -c /home/kjohnsen/github/Robot-Fling/build-SemesterProjekt-Desktop-Default/CMakeFiles/CMakeTmp/testCXXCompiler.cxx
+Linking CXX executable cmTC_55993
+/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_55993.dir/link.txt --verbose=1
+/usr/bin/g++       CMakeFiles/cmTC_55993.dir/testCXXCompiler.cxx.o  -o cmTC_55993 
 make[1]: Leaving directory '/home/kjohnsen/github/Robot-Fling/build-SemesterProjekt-Desktop-Default/CMakeFiles/CMakeTmp'
 
 
 Detecting CXX compiler ABI info compiled with the following output:
 Change Dir: /home/kjohnsen/github/Robot-Fling/build-SemesterProjekt-Desktop-Default/CMakeFiles/CMakeTmp
 
-Run Build Command:"/usr/bin/make" "cmTC_c3795/fast"
-/usr/bin/make -f CMakeFiles/cmTC_c3795.dir/build.make CMakeFiles/cmTC_c3795.dir/build
+Run Build Command:"/usr/bin/make" "cmTC_3e34b/fast"
+/usr/bin/make -f CMakeFiles/cmTC_3e34b.dir/build.make CMakeFiles/cmTC_3e34b.dir/build
 make[1]: Entering directory '/home/kjohnsen/github/Robot-Fling/build-SemesterProjekt-Desktop-Default/CMakeFiles/CMakeTmp'
-Building CXX object CMakeFiles/cmTC_c3795.dir/CMakeCXXCompilerABI.cpp.o
-/usr/bin/g++     -o CMakeFiles/cmTC_c3795.dir/CMakeCXXCompilerABI.cpp.o -c /usr/share/cmake-3.10/Modules/CMakeCXXCompilerABI.cpp
-Linking CXX executable cmTC_c3795
-/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_c3795.dir/link.txt --verbose=1
-/usr/bin/g++      -v CMakeFiles/cmTC_c3795.dir/CMakeCXXCompilerABI.cpp.o  -o cmTC_c3795 
->>>>>>> ClosedFormIKSolver2
+Building CXX object CMakeFiles/cmTC_3e34b.dir/CMakeCXXCompilerABI.cpp.o
+/usr/bin/g++     -o CMakeFiles/cmTC_3e34b.dir/CMakeCXXCompilerABI.cpp.o -c /usr/share/cmake-3.10/Modules/CMakeCXXCompilerABI.cpp
+Linking CXX executable cmTC_3e34b
+/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_3e34b.dir/link.txt --verbose=1
+/usr/bin/g++      -v CMakeFiles/cmTC_3e34b.dir/CMakeCXXCompilerABI.cpp.o  -o cmTC_3e34b 
 Using built-in specs.
 COLLECT_GCC=/usr/bin/g++
 COLLECT_LTO_WRAPPER=/usr/lib/gcc/x86_64-linux-gnu/7/lto-wrapper
@@ -82,44 +48,24 @@ Thread model: posix
 gcc version 7.5.0 (Ubuntu 7.5.0-3ubuntu1~18.04) 
 COMPILER_PATH=/usr/lib/gcc/x86_64-linux-gnu/7/:/usr/lib/gcc/x86_64-linux-gnu/7/:/usr/lib/gcc/x86_64-linux-gnu/:/usr/lib/gcc/x86_64-linux-gnu/7/:/usr/lib/gcc/x86_64-linux-gnu/
 LIBRARY_PATH=/usr/lib/gcc/x86_64-linux-gnu/7/:/usr/lib/gcc/x86_64-linux-gnu/7/../../../x86_64-linux-gnu/:/usr/lib/gcc/x86_64-linux-gnu/7/../../../../lib/:/lib/x86_64-linux-gnu/:/lib/../lib/:/usr/lib/x86_64-linux-gnu/:/usr/lib/../lib/:/usr/lib/gcc/x86_64-linux-gnu/7/../../../:/lib/:/usr/lib/
-<<<<<<< HEAD
-COLLECT_GCC_OPTIONS='-v' '-o' 'cmTC_9fba9' '-shared-libgcc' '-mtune=generic' '-march=x86-64'
- /usr/lib/gcc/x86_64-linux-gnu/7/collect2 -plugin /usr/lib/gcc/x86_64-linux-gnu/7/liblto_plugin.so -plugin-opt=/usr/lib/gcc/x86_64-linux-gnu/7/lto-wrapper -plugin-opt=-fresolution=/tmp/ccOj5FOg.res -plugin-opt=-pass-through=-lgcc_s -plugin-opt=-pass-through=-lgcc -plugin-opt=-pass-through=-lc -plugin-opt=-pass-through=-lgcc_s -plugin-opt=-pass-through=-lgcc --build-id --eh-frame-hdr -m elf_x86_64 --hash-style=gnu --as-needed -dynamic-linker /lib64/ld-linux-x86-64.so.2 -pie -z now -z relro -o cmTC_9fba9 /usr/lib/gcc/x86_64-linux-gnu/7/../../../x86_64-linux-gnu/Scrt1.o /usr/lib/gcc/x86_64-linux-gnu/7/../../../x86_64-linux-gnu/crti.o /usr/lib/gcc/x86_64-linux-gnu/7/crtbeginS.o -L/usr/lib/gcc/x86_64-linux-gnu/7 -L/usr/lib/gcc/x86_64-linux-gnu/7/../../../x86_64-linux-gnu -L/usr/lib/gcc/x86_64-linux-gnu/7/../../../../lib -L/lib/x86_64-linux-gnu -L/lib/../lib -L/usr/lib/x86_64-linux-gnu -L/usr/lib/../lib -L/usr/lib/gcc/x86_64-linux-gnu/7/../../.. CMakeFiles/cmTC_9fba9.dir/CMakeCXXCompilerABI.cpp.o -lstdc++ -lm -lgcc_s -lgcc -lc -lgcc_s -lgcc /usr/lib/gcc/x86_64-linux-gnu/7/crtendS.o /usr/lib/gcc/x86_64-linux-gnu/7/../../../x86_64-linux-gnu/crtn.o
-COLLECT_GCC_OPTIONS='-v' '-o' 'cmTC_9fba9' '-shared-libgcc' '-mtune=generic' '-march=x86-64'
-make[1]: Leaving directory '/home/suspend/GitHub/Robot-Fling/build-SemesterProjekt-Desktop-Default/CMakeFiles/CMakeTmp'
-=======
-COLLECT_GCC_OPTIONS='-v' '-o' 'cmTC_c3795' '-shared-libgcc' '-mtune=generic' '-march=x86-64'
- /usr/lib/gcc/x86_64-linux-gnu/7/collect2 -plugin /usr/lib/gcc/x86_64-linux-gnu/7/liblto_plugin.so -plugin-opt=/usr/lib/gcc/x86_64-linux-gnu/7/lto-wrapper -plugin-opt=-fresolution=/tmp/ccDrhHHx.res -plugin-opt=-pass-through=-lgcc_s -plugin-opt=-pass-through=-lgcc -plugin-opt=-pass-through=-lc -plugin-opt=-pass-through=-lgcc_s -plugin-opt=-pass-through=-lgcc --build-id --eh-frame-hdr -m elf_x86_64 --hash-style=gnu --as-needed -dynamic-linker /lib64/ld-linux-x86-64.so.2 -pie -z now -z relro -o cmTC_c3795 /usr/lib/gcc/x86_64-linux-gnu/7/../../../x86_64-linux-gnu/Scrt1.o /usr/lib/gcc/x86_64-linux-gnu/7/../../../x86_64-linux-gnu/crti.o /usr/lib/gcc/x86_64-linux-gnu/7/crtbeginS.o -L/usr/lib/gcc/x86_64-linux-gnu/7 -L/usr/lib/gcc/x86_64-linux-gnu/7/../../../x86_64-linux-gnu -L/usr/lib/gcc/x86_64-linux-gnu/7/../../../../lib -L/lib/x86_64-linux-gnu -L/lib/../lib -L/usr/lib/x86_64-linux-gnu -L/usr/lib/../lib -L/usr/lib/gcc/x86_64-linux-gnu/7/../../.. CMakeFiles/cmTC_c3795.dir/CMakeCXXCompilerABI.cpp.o -lstdc++ -lm -lgcc_s -lgcc -lc -lgcc_s -lgcc /usr/lib/gcc/x86_64-linux-gnu/7/crtendS.o /usr/lib/gcc/x86_64-linux-gnu/7/../../../x86_64-linux-gnu/crtn.o
-COLLECT_GCC_OPTIONS='-v' '-o' 'cmTC_c3795' '-shared-libgcc' '-mtune=generic' '-march=x86-64'
+COLLECT_GCC_OPTIONS='-v' '-o' 'cmTC_3e34b' '-shared-libgcc' '-mtune=generic' '-march=x86-64'
+ /usr/lib/gcc/x86_64-linux-gnu/7/collect2 -plugin /usr/lib/gcc/x86_64-linux-gnu/7/liblto_plugin.so -plugin-opt=/usr/lib/gcc/x86_64-linux-gnu/7/lto-wrapper -plugin-opt=-fresolution=/tmp/ccWRkkP1.res -plugin-opt=-pass-through=-lgcc_s -plugin-opt=-pass-through=-lgcc -plugin-opt=-pass-through=-lc -plugin-opt=-pass-through=-lgcc_s -plugin-opt=-pass-through=-lgcc --build-id --eh-frame-hdr -m elf_x86_64 --hash-style=gnu --as-needed -dynamic-linker /lib64/ld-linux-x86-64.so.2 -pie -z now -z relro -o cmTC_3e34b /usr/lib/gcc/x86_64-linux-gnu/7/../../../x86_64-linux-gnu/Scrt1.o /usr/lib/gcc/x86_64-linux-gnu/7/../../../x86_64-linux-gnu/crti.o /usr/lib/gcc/x86_64-linux-gnu/7/crtbeginS.o -L/usr/lib/gcc/x86_64-linux-gnu/7 -L/usr/lib/gcc/x86_64-linux-gnu/7/../../../x86_64-linux-gnu -L/usr/lib/gcc/x86_64-linux-gnu/7/../../../../lib -L/lib/x86_64-linux-gnu -L/lib/../lib -L/usr/lib/x86_64-linux-gnu -L/usr/lib/../lib -L/usr/lib/gcc/x86_64-linux-gnu/7/../../.. CMakeFiles/cmTC_3e34b.dir/CMakeCXXCompilerABI.cpp.o -lstdc++ -lm -lgcc_s -lgcc -lc -lgcc_s -lgcc /usr/lib/gcc/x86_64-linux-gnu/7/crtendS.o /usr/lib/gcc/x86_64-linux-gnu/7/../../../x86_64-linux-gnu/crtn.o
+COLLECT_GCC_OPTIONS='-v' '-o' 'cmTC_3e34b' '-shared-libgcc' '-mtune=generic' '-march=x86-64'
 make[1]: Leaving directory '/home/kjohnsen/github/Robot-Fling/build-SemesterProjekt-Desktop-Default/CMakeFiles/CMakeTmp'
->>>>>>> ClosedFormIKSolver2
 
 
 Parsed CXX implicit link information from above output:
   link line regex: [^( *|.*[/\])(ld|CMAKE_LINK_STARTFILE-NOTFOUND|([^/\]+-)?ld|collect2)[^/\]*( |$)]
-<<<<<<< HEAD
-  ignore line: [Change Dir: /home/suspend/GitHub/Robot-Fling/build-SemesterProjekt-Desktop-Default/CMakeFiles/CMakeTmp]
-  ignore line: []
-  ignore line: [Run Build Command:"/usr/bin/make" "cmTC_9fba9/fast"]
-  ignore line: [/usr/bin/make -f CMakeFiles/cmTC_9fba9.dir/build.make CMakeFiles/cmTC_9fba9.dir/build]
-  ignore line: [make[1]: Entering directory '/home/suspend/GitHub/Robot-Fling/build-SemesterProjekt-Desktop-Default/CMakeFiles/CMakeTmp']
-  ignore line: [Building CXX object CMakeFiles/cmTC_9fba9.dir/CMakeCXXCompilerABI.cpp.o]
-  ignore line: [/usr/bin/g++     -o CMakeFiles/cmTC_9fba9.dir/CMakeCXXCompilerABI.cpp.o -c /usr/share/cmake-3.10/Modules/CMakeCXXCompilerABI.cpp]
-  ignore line: [Linking CXX executable cmTC_9fba9]
-  ignore line: [/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_9fba9.dir/link.txt --verbose=1]
-  ignore line: [/usr/bin/g++      -v CMakeFiles/cmTC_9fba9.dir/CMakeCXXCompilerABI.cpp.o  -o cmTC_9fba9 ]
-=======
   ignore line: [Change Dir: /home/kjohnsen/github/Robot-Fling/build-SemesterProjekt-Desktop-Default/CMakeFiles/CMakeTmp]
   ignore line: []
-  ignore line: [Run Build Command:"/usr/bin/make" "cmTC_c3795/fast"]
-  ignore line: [/usr/bin/make -f CMakeFiles/cmTC_c3795.dir/build.make CMakeFiles/cmTC_c3795.dir/build]
+  ignore line: [Run Build Command:"/usr/bin/make" "cmTC_3e34b/fast"]
+  ignore line: [/usr/bin/make -f CMakeFiles/cmTC_3e34b.dir/build.make CMakeFiles/cmTC_3e34b.dir/build]
   ignore line: [make[1]: Entering directory '/home/kjohnsen/github/Robot-Fling/build-SemesterProjekt-Desktop-Default/CMakeFiles/CMakeTmp']
-  ignore line: [Building CXX object CMakeFiles/cmTC_c3795.dir/CMakeCXXCompilerABI.cpp.o]
-  ignore line: [/usr/bin/g++     -o CMakeFiles/cmTC_c3795.dir/CMakeCXXCompilerABI.cpp.o -c /usr/share/cmake-3.10/Modules/CMakeCXXCompilerABI.cpp]
-  ignore line: [Linking CXX executable cmTC_c3795]
-  ignore line: [/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_c3795.dir/link.txt --verbose=1]
-  ignore line: [/usr/bin/g++      -v CMakeFiles/cmTC_c3795.dir/CMakeCXXCompilerABI.cpp.o  -o cmTC_c3795 ]
->>>>>>> ClosedFormIKSolver2
+  ignore line: [Building CXX object CMakeFiles/cmTC_3e34b.dir/CMakeCXXCompilerABI.cpp.o]
+  ignore line: [/usr/bin/g++     -o CMakeFiles/cmTC_3e34b.dir/CMakeCXXCompilerABI.cpp.o -c /usr/share/cmake-3.10/Modules/CMakeCXXCompilerABI.cpp]
+  ignore line: [Linking CXX executable cmTC_3e34b]
+  ignore line: [/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_3e34b.dir/link.txt --verbose=1]
+  ignore line: [/usr/bin/g++      -v CMakeFiles/cmTC_3e34b.dir/CMakeCXXCompilerABI.cpp.o  -o cmTC_3e34b ]
   ignore line: [Using built-in specs.]
   ignore line: [COLLECT_GCC=/usr/bin/g++]
   ignore line: [COLLECT_LTO_WRAPPER=/usr/lib/gcc/x86_64-linux-gnu/7/lto-wrapper]
@@ -131,22 +77,13 @@ Parsed CXX implicit link information from above output:
   ignore line: [gcc version 7.5.0 (Ubuntu 7.5.0-3ubuntu1~18.04) ]
   ignore line: [COMPILER_PATH=/usr/lib/gcc/x86_64-linux-gnu/7/:/usr/lib/gcc/x86_64-linux-gnu/7/:/usr/lib/gcc/x86_64-linux-gnu/:/usr/lib/gcc/x86_64-linux-gnu/7/:/usr/lib/gcc/x86_64-linux-gnu/]
   ignore line: [LIBRARY_PATH=/usr/lib/gcc/x86_64-linux-gnu/7/:/usr/lib/gcc/x86_64-linux-gnu/7/../../../x86_64-linux-gnu/:/usr/lib/gcc/x86_64-linux-gnu/7/../../../../lib/:/lib/x86_64-linux-gnu/:/lib/../lib/:/usr/lib/x86_64-linux-gnu/:/usr/lib/../lib/:/usr/lib/gcc/x86_64-linux-gnu/7/../../../:/lib/:/usr/lib/]
-<<<<<<< HEAD
-  ignore line: [COLLECT_GCC_OPTIONS='-v' '-o' 'cmTC_9fba9' '-shared-libgcc' '-mtune=generic' '-march=x86-64']
-  link line: [ /usr/lib/gcc/x86_64-linux-gnu/7/collect2 -plugin /usr/lib/gcc/x86_64-linux-gnu/7/liblto_plugin.so -plugin-opt=/usr/lib/gcc/x86_64-linux-gnu/7/lto-wrapper -plugin-opt=-fresolution=/tmp/ccOj5FOg.res -plugin-opt=-pass-through=-lgcc_s -plugin-opt=-pass-through=-lgcc -plugin-opt=-pass-through=-lc -plugin-opt=-pass-through=-lgcc_s -plugin-opt=-pass-through=-lgcc --build-id --eh-frame-hdr -m elf_x86_64 --hash-style=gnu --as-needed -dynamic-linker /lib64/ld-linux-x86-64.so.2 -pie -z now -z relro -o cmTC_9fba9 /usr/lib/gcc/x86_64-linux-gnu/7/../../../x86_64-linux-gnu/Scrt1.o /usr/lib/gcc/x86_64-linux-gnu/7/../../../x86_64-linux-gnu/crti.o /usr/lib/gcc/x86_64-linux-gnu/7/crtbeginS.o -L/usr/lib/gcc/x86_64-linux-gnu/7 -L/usr/lib/gcc/x86_64-linux-gnu/7/../../../x86_64-linux-gnu -L/usr/lib/gcc/x86_64-linux-gnu/7/../../../../lib -L/lib/x86_64-linux-gnu -L/lib/../lib -L/usr/lib/x86_64-linux-gnu -L/usr/lib/../lib -L/usr/lib/gcc/x86_64-linux-gnu/7/../../.. CMakeFiles/cmTC_9fba9.dir/CMakeCXXCompilerABI.cpp.o -lstdc++ -lm -lgcc_s -lgcc -lc -lgcc_s -lgcc /usr/lib/gcc/x86_64-linux-gnu/7/crtendS.o /usr/lib/gcc/x86_64-linux-gnu/7/../../../x86_64-linux-gnu/crtn.o]
-=======
-  ignore line: [COLLECT_GCC_OPTIONS='-v' '-o' 'cmTC_c3795' '-shared-libgcc' '-mtune=generic' '-march=x86-64']
-  link line: [ /usr/lib/gcc/x86_64-linux-gnu/7/collect2 -plugin /usr/lib/gcc/x86_64-linux-gnu/7/liblto_plugin.so -plugin-opt=/usr/lib/gcc/x86_64-linux-gnu/7/lto-wrapper -plugin-opt=-fresolution=/tmp/ccDrhHHx.res -plugin-opt=-pass-through=-lgcc_s -plugin-opt=-pass-through=-lgcc -plugin-opt=-pass-through=-lc -plugin-opt=-pass-through=-lgcc_s -plugin-opt=-pass-through=-lgcc --build-id --eh-frame-hdr -m elf_x86_64 --hash-style=gnu --as-needed -dynamic-linker /lib64/ld-linux-x86-64.so.2 -pie -z now -z relro -o cmTC_c3795 /usr/lib/gcc/x86_64-linux-gnu/7/../../../x86_64-linux-gnu/Scrt1.o /usr/lib/gcc/x86_64-linux-gnu/7/../../../x86_64-linux-gnu/crti.o /usr/lib/gcc/x86_64-linux-gnu/7/crtbeginS.o -L/usr/lib/gcc/x86_64-linux-gnu/7 -L/usr/lib/gcc/x86_64-linux-gnu/7/../../../x86_64-linux-gnu -L/usr/lib/gcc/x86_64-linux-gnu/7/../../../../lib -L/lib/x86_64-linux-gnu -L/lib/../lib -L/usr/lib/x86_64-linux-gnu -L/usr/lib/../lib -L/usr/lib/gcc/x86_64-linux-gnu/7/../../.. CMakeFiles/cmTC_c3795.dir/CMakeCXXCompilerABI.cpp.o -lstdc++ -lm -lgcc_s -lgcc -lc -lgcc_s -lgcc /usr/lib/gcc/x86_64-linux-gnu/7/crtendS.o /usr/lib/gcc/x86_64-linux-gnu/7/../../../x86_64-linux-gnu/crtn.o]
->>>>>>> ClosedFormIKSolver2
+  ignore line: [COLLECT_GCC_OPTIONS='-v' '-o' 'cmTC_3e34b' '-shared-libgcc' '-mtune=generic' '-march=x86-64']
+  link line: [ /usr/lib/gcc/x86_64-linux-gnu/7/collect2 -plugin /usr/lib/gcc/x86_64-linux-gnu/7/liblto_plugin.so -plugin-opt=/usr/lib/gcc/x86_64-linux-gnu/7/lto-wrapper -plugin-opt=-fresolution=/tmp/ccWRkkP1.res -plugin-opt=-pass-through=-lgcc_s -plugin-opt=-pass-through=-lgcc -plugin-opt=-pass-through=-lc -plugin-opt=-pass-through=-lgcc_s -plugin-opt=-pass-through=-lgcc --build-id --eh-frame-hdr -m elf_x86_64 --hash-style=gnu --as-needed -dynamic-linker /lib64/ld-linux-x86-64.so.2 -pie -z now -z relro -o cmTC_3e34b /usr/lib/gcc/x86_64-linux-gnu/7/../../../x86_64-linux-gnu/Scrt1.o /usr/lib/gcc/x86_64-linux-gnu/7/../../../x86_64-linux-gnu/crti.o /usr/lib/gcc/x86_64-linux-gnu/7/crtbeginS.o -L/usr/lib/gcc/x86_64-linux-gnu/7 -L/usr/lib/gcc/x86_64-linux-gnu/7/../../../x86_64-linux-gnu -L/usr/lib/gcc/x86_64-linux-gnu/7/../../../../lib -L/lib/x86_64-linux-gnu -L/lib/../lib -L/usr/lib/x86_64-linux-gnu -L/usr/lib/../lib -L/usr/lib/gcc/x86_64-linux-gnu/7/../../.. CMakeFiles/cmTC_3e34b.dir/CMakeCXXCompilerABI.cpp.o -lstdc++ -lm -lgcc_s -lgcc -lc -lgcc_s -lgcc /usr/lib/gcc/x86_64-linux-gnu/7/crtendS.o /usr/lib/gcc/x86_64-linux-gnu/7/../../../x86_64-linux-gnu/crtn.o]
     arg [/usr/lib/gcc/x86_64-linux-gnu/7/collect2] ==> ignore
     arg [-plugin] ==> ignore
     arg [/usr/lib/gcc/x86_64-linux-gnu/7/liblto_plugin.so] ==> ignore
     arg [-plugin-opt=/usr/lib/gcc/x86_64-linux-gnu/7/lto-wrapper] ==> ignore
-<<<<<<< HEAD
-    arg [-plugin-opt=-fresolution=/tmp/ccOj5FOg.res] ==> ignore
-=======
-    arg [-plugin-opt=-fresolution=/tmp/ccDrhHHx.res] ==> ignore
->>>>>>> ClosedFormIKSolver2
+    arg [-plugin-opt=-fresolution=/tmp/ccWRkkP1.res] ==> ignore
     arg [-plugin-opt=-pass-through=-lgcc_s] ==> ignore
     arg [-plugin-opt=-pass-through=-lgcc] ==> ignore
     arg [-plugin-opt=-pass-through=-lc] ==> ignore
@@ -164,11 +101,7 @@ Parsed CXX implicit link information from above output:
     arg [-znow] ==> ignore
     arg [-zrelro] ==> ignore
     arg [-o] ==> ignore
-<<<<<<< HEAD
-    arg [cmTC_9fba9] ==> ignore
-=======
-    arg [cmTC_c3795] ==> ignore
->>>>>>> ClosedFormIKSolver2
+    arg [cmTC_3e34b] ==> ignore
     arg [/usr/lib/gcc/x86_64-linux-gnu/7/../../../x86_64-linux-gnu/Scrt1.o] ==> ignore
     arg [/usr/lib/gcc/x86_64-linux-gnu/7/../../../x86_64-linux-gnu/crti.o] ==> ignore
     arg [/usr/lib/gcc/x86_64-linux-gnu/7/crtbeginS.o] ==> ignore
@@ -180,11 +113,7 @@ Parsed CXX implicit link information from above output:
     arg [-L/usr/lib/x86_64-linux-gnu] ==> dir [/usr/lib/x86_64-linux-gnu]
     arg [-L/usr/lib/../lib] ==> dir [/usr/lib/../lib]
     arg [-L/usr/lib/gcc/x86_64-linux-gnu/7/../../..] ==> dir [/usr/lib/gcc/x86_64-linux-gnu/7/../../..]
-<<<<<<< HEAD
-    arg [CMakeFiles/cmTC_9fba9.dir/CMakeCXXCompilerABI.cpp.o] ==> ignore
-=======
-    arg [CMakeFiles/cmTC_c3795.dir/CMakeCXXCompilerABI.cpp.o] ==> ignore
->>>>>>> ClosedFormIKSolver2
+    arg [CMakeFiles/cmTC_3e34b.dir/CMakeCXXCompilerABI.cpp.o] ==> ignore
     arg [-lstdc++] ==> lib [stdc++]
     arg [-lm] ==> lib [m]
     arg [-lgcc_s] ==> lib [gcc_s]
@@ -210,31 +139,17 @@ Parsed CXX implicit link information from above output:
 
 
 Detecting CXX [-std=c++1z] compiler features compiled with the following output:
-<<<<<<< HEAD
-Change Dir: /home/suspend/GitHub/Robot-Fling/build-SemesterProjekt-Desktop-Default/CMakeFiles/CMakeTmp
-
-Run Build Command:"/usr/bin/make" "cmTC_a8b98/fast"
-/usr/bin/make -f CMakeFiles/cmTC_a8b98.dir/build.make CMakeFiles/cmTC_a8b98.dir/build
-make[1]: Entering directory '/home/suspend/GitHub/Robot-Fling/build-SemesterProjekt-Desktop-Default/CMakeFiles/CMakeTmp'
-Building CXX object CMakeFiles/cmTC_a8b98.dir/feature_tests.cxx.o
-/usr/bin/g++    -std=c++1z -o CMakeFiles/cmTC_a8b98.dir/feature_tests.cxx.o -c /home/suspend/GitHub/Robot-Fling/build-SemesterProjekt-Desktop-Default/CMakeFiles/feature_tests.cxx
-Linking CXX executable cmTC_a8b98
-/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_a8b98.dir/link.txt --verbose=1
-/usr/bin/g++       CMakeFiles/cmTC_a8b98.dir/feature_tests.cxx.o  -o cmTC_a8b98 
-make[1]: Leaving directory '/home/suspend/GitHub/Robot-Fling/build-SemesterProjekt-Desktop-Default/CMakeFiles/CMakeTmp'
-=======
 Change Dir: /home/kjohnsen/github/Robot-Fling/build-SemesterProjekt-Desktop-Default/CMakeFiles/CMakeTmp
 
-Run Build Command:"/usr/bin/make" "cmTC_b0893/fast"
-/usr/bin/make -f CMakeFiles/cmTC_b0893.dir/build.make CMakeFiles/cmTC_b0893.dir/build
+Run Build Command:"/usr/bin/make" "cmTC_7575c/fast"
+/usr/bin/make -f CMakeFiles/cmTC_7575c.dir/build.make CMakeFiles/cmTC_7575c.dir/build
 make[1]: Entering directory '/home/kjohnsen/github/Robot-Fling/build-SemesterProjekt-Desktop-Default/CMakeFiles/CMakeTmp'
-Building CXX object CMakeFiles/cmTC_b0893.dir/feature_tests.cxx.o
-/usr/bin/g++    -std=c++1z -o CMakeFiles/cmTC_b0893.dir/feature_tests.cxx.o -c /home/kjohnsen/github/Robot-Fling/build-SemesterProjekt-Desktop-Default/CMakeFiles/feature_tests.cxx
-Linking CXX executable cmTC_b0893
-/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_b0893.dir/link.txt --verbose=1
-/usr/bin/g++       CMakeFiles/cmTC_b0893.dir/feature_tests.cxx.o  -o cmTC_b0893 
+Building CXX object CMakeFiles/cmTC_7575c.dir/feature_tests.cxx.o
+/usr/bin/g++    -std=c++1z -o CMakeFiles/cmTC_7575c.dir/feature_tests.cxx.o -c /home/kjohnsen/github/Robot-Fling/build-SemesterProjekt-Desktop-Default/CMakeFiles/feature_tests.cxx
+Linking CXX executable cmTC_7575c
+/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_7575c.dir/link.txt --verbose=1
+/usr/bin/g++       CMakeFiles/cmTC_7575c.dir/feature_tests.cxx.o  -o cmTC_7575c 
 make[1]: Leaving directory '/home/kjohnsen/github/Robot-Fling/build-SemesterProjekt-Desktop-Default/CMakeFiles/CMakeTmp'
->>>>>>> ClosedFormIKSolver2
 
 
     Feature record: CXX_FEATURE:1cxx_aggregate_default_initializers
@@ -297,31 +212,17 @@ make[1]: Leaving directory '/home/kjohnsen/github/Robot-Fling/build-SemesterProj
 
 
 Detecting CXX [-std=c++14] compiler features compiled with the following output:
-<<<<<<< HEAD
-Change Dir: /home/suspend/GitHub/Robot-Fling/build-SemesterProjekt-Desktop-Default/CMakeFiles/CMakeTmp
-
-Run Build Command:"/usr/bin/make" "cmTC_9bdfe/fast"
-/usr/bin/make -f CMakeFiles/cmTC_9bdfe.dir/build.make CMakeFiles/cmTC_9bdfe.dir/build
-make[1]: Entering directory '/home/suspend/GitHub/Robot-Fling/build-SemesterProjekt-Desktop-Default/CMakeFiles/CMakeTmp'
-Building CXX object CMakeFiles/cmTC_9bdfe.dir/feature_tests.cxx.o
-/usr/bin/g++    -std=c++14 -o CMakeFiles/cmTC_9bdfe.dir/feature_tests.cxx.o -c /home/suspend/GitHub/Robot-Fling/build-SemesterProjekt-Desktop-Default/CMakeFiles/feature_tests.cxx
-Linking CXX executable cmTC_9bdfe
-/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_9bdfe.dir/link.txt --verbose=1
-/usr/bin/g++       CMakeFiles/cmTC_9bdfe.dir/feature_tests.cxx.o  -o cmTC_9bdfe 
-make[1]: Leaving directory '/home/suspend/GitHub/Robot-Fling/build-SemesterProjekt-Desktop-Default/CMakeFiles/CMakeTmp'
-=======
 Change Dir: /home/kjohnsen/github/Robot-Fling/build-SemesterProjekt-Desktop-Default/CMakeFiles/CMakeTmp
 
-Run Build Command:"/usr/bin/make" "cmTC_2be77/fast"
-/usr/bin/make -f CMakeFiles/cmTC_2be77.dir/build.make CMakeFiles/cmTC_2be77.dir/build
+Run Build Command:"/usr/bin/make" "cmTC_aadc8/fast"
+/usr/bin/make -f CMakeFiles/cmTC_aadc8.dir/build.make CMakeFiles/cmTC_aadc8.dir/build
 make[1]: Entering directory '/home/kjohnsen/github/Robot-Fling/build-SemesterProjekt-Desktop-Default/CMakeFiles/CMakeTmp'
-Building CXX object CMakeFiles/cmTC_2be77.dir/feature_tests.cxx.o
-/usr/bin/g++    -std=c++14 -o CMakeFiles/cmTC_2be77.dir/feature_tests.cxx.o -c /home/kjohnsen/github/Robot-Fling/build-SemesterProjekt-Desktop-Default/CMakeFiles/feature_tests.cxx
-Linking CXX executable cmTC_2be77
-/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_2be77.dir/link.txt --verbose=1
-/usr/bin/g++       CMakeFiles/cmTC_2be77.dir/feature_tests.cxx.o  -o cmTC_2be77 
+Building CXX object CMakeFiles/cmTC_aadc8.dir/feature_tests.cxx.o
+/usr/bin/g++    -std=c++14 -o CMakeFiles/cmTC_aadc8.dir/feature_tests.cxx.o -c /home/kjohnsen/github/Robot-Fling/build-SemesterProjekt-Desktop-Default/CMakeFiles/feature_tests.cxx
+Linking CXX executable cmTC_aadc8
+/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_aadc8.dir/link.txt --verbose=1
+/usr/bin/g++       CMakeFiles/cmTC_aadc8.dir/feature_tests.cxx.o  -o cmTC_aadc8 
 make[1]: Leaving directory '/home/kjohnsen/github/Robot-Fling/build-SemesterProjekt-Desktop-Default/CMakeFiles/CMakeTmp'
->>>>>>> ClosedFormIKSolver2
 
 
     Feature record: CXX_FEATURE:1cxx_aggregate_default_initializers
@@ -384,31 +285,17 @@ make[1]: Leaving directory '/home/kjohnsen/github/Robot-Fling/build-SemesterProj
 
 
 Detecting CXX [-std=c++11] compiler features compiled with the following output:
-<<<<<<< HEAD
-Change Dir: /home/suspend/GitHub/Robot-Fling/build-SemesterProjekt-Desktop-Default/CMakeFiles/CMakeTmp
-
-Run Build Command:"/usr/bin/make" "cmTC_bfe2f/fast"
-/usr/bin/make -f CMakeFiles/cmTC_bfe2f.dir/build.make CMakeFiles/cmTC_bfe2f.dir/build
-make[1]: Entering directory '/home/suspend/GitHub/Robot-Fling/build-SemesterProjekt-Desktop-Default/CMakeFiles/CMakeTmp'
-Building CXX object CMakeFiles/cmTC_bfe2f.dir/feature_tests.cxx.o
-/usr/bin/g++    -std=c++11 -o CMakeFiles/cmTC_bfe2f.dir/feature_tests.cxx.o -c /home/suspend/GitHub/Robot-Fling/build-SemesterProjekt-Desktop-Default/CMakeFiles/feature_tests.cxx
-Linking CXX executable cmTC_bfe2f
-/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_bfe2f.dir/link.txt --verbose=1
-/usr/bin/g++       CMakeFiles/cmTC_bfe2f.dir/feature_tests.cxx.o  -o cmTC_bfe2f 
-make[1]: Leaving directory '/home/suspend/GitHub/Robot-Fling/build-SemesterProjekt-Desktop-Default/CMakeFiles/CMakeTmp'
-=======
 Change Dir: /home/kjohnsen/github/Robot-Fling/build-SemesterProjekt-Desktop-Default/CMakeFiles/CMakeTmp
 
-Run Build Command:"/usr/bin/make" "cmTC_4c13c/fast"
-/usr/bin/make -f CMakeFiles/cmTC_4c13c.dir/build.make CMakeFiles/cmTC_4c13c.dir/build
+Run Build Command:"/usr/bin/make" "cmTC_084c5/fast"
+/usr/bin/make -f CMakeFiles/cmTC_084c5.dir/build.make CMakeFiles/cmTC_084c5.dir/build
 make[1]: Entering directory '/home/kjohnsen/github/Robot-Fling/build-SemesterProjekt-Desktop-Default/CMakeFiles/CMakeTmp'
-Building CXX object CMakeFiles/cmTC_4c13c.dir/feature_tests.cxx.o
-/usr/bin/g++    -std=c++11 -o CMakeFiles/cmTC_4c13c.dir/feature_tests.cxx.o -c /home/kjohnsen/github/Robot-Fling/build-SemesterProjekt-Desktop-Default/CMakeFiles/feature_tests.cxx
-Linking CXX executable cmTC_4c13c
-/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_4c13c.dir/link.txt --verbose=1
-/usr/bin/g++       CMakeFiles/cmTC_4c13c.dir/feature_tests.cxx.o  -o cmTC_4c13c 
+Building CXX object CMakeFiles/cmTC_084c5.dir/feature_tests.cxx.o
+/usr/bin/g++    -std=c++11 -o CMakeFiles/cmTC_084c5.dir/feature_tests.cxx.o -c /home/kjohnsen/github/Robot-Fling/build-SemesterProjekt-Desktop-Default/CMakeFiles/feature_tests.cxx
+Linking CXX executable cmTC_084c5
+/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_084c5.dir/link.txt --verbose=1
+/usr/bin/g++       CMakeFiles/cmTC_084c5.dir/feature_tests.cxx.o  -o cmTC_084c5 
 make[1]: Leaving directory '/home/kjohnsen/github/Robot-Fling/build-SemesterProjekt-Desktop-Default/CMakeFiles/CMakeTmp'
->>>>>>> ClosedFormIKSolver2
 
 
     Feature record: CXX_FEATURE:0cxx_aggregate_default_initializers
@@ -471,31 +358,17 @@ make[1]: Leaving directory '/home/kjohnsen/github/Robot-Fling/build-SemesterProj
 
 
 Detecting CXX [-std=c++98] compiler features compiled with the following output:
-<<<<<<< HEAD
-Change Dir: /home/suspend/GitHub/Robot-Fling/build-SemesterProjekt-Desktop-Default/CMakeFiles/CMakeTmp
-
-Run Build Command:"/usr/bin/make" "cmTC_feab7/fast"
-/usr/bin/make -f CMakeFiles/cmTC_feab7.dir/build.make CMakeFiles/cmTC_feab7.dir/build
-make[1]: Entering directory '/home/suspend/GitHub/Robot-Fling/build-SemesterProjekt-Desktop-Default/CMakeFiles/CMakeTmp'
-Building CXX object CMakeFiles/cmTC_feab7.dir/feature_tests.cxx.o
-/usr/bin/g++    -std=c++98 -o CMakeFiles/cmTC_feab7.dir/feature_tests.cxx.o -c /home/suspend/GitHub/Robot-Fling/build-SemesterProjekt-Desktop-Default/CMakeFiles/feature_tests.cxx
-Linking CXX executable cmTC_feab7
-/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_feab7.dir/link.txt --verbose=1
-/usr/bin/g++       CMakeFiles/cmTC_feab7.dir/feature_tests.cxx.o  -o cmTC_feab7 
-make[1]: Leaving directory '/home/suspend/GitHub/Robot-Fling/build-SemesterProjekt-Desktop-Default/CMakeFiles/CMakeTmp'
-=======
 Change Dir: /home/kjohnsen/github/Robot-Fling/build-SemesterProjekt-Desktop-Default/CMakeFiles/CMakeTmp
 
-Run Build Command:"/usr/bin/make" "cmTC_38537/fast"
-/usr/bin/make -f CMakeFiles/cmTC_38537.dir/build.make CMakeFiles/cmTC_38537.dir/build
+Run Build Command:"/usr/bin/make" "cmTC_fc815/fast"
+/usr/bin/make -f CMakeFiles/cmTC_fc815.dir/build.make CMakeFiles/cmTC_fc815.dir/build
 make[1]: Entering directory '/home/kjohnsen/github/Robot-Fling/build-SemesterProjekt-Desktop-Default/CMakeFiles/CMakeTmp'
-Building CXX object CMakeFiles/cmTC_38537.dir/feature_tests.cxx.o
-/usr/bin/g++    -std=c++98 -o CMakeFiles/cmTC_38537.dir/feature_tests.cxx.o -c /home/kjohnsen/github/Robot-Fling/build-SemesterProjekt-Desktop-Default/CMakeFiles/feature_tests.cxx
-Linking CXX executable cmTC_38537
-/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_38537.dir/link.txt --verbose=1
-/usr/bin/g++       CMakeFiles/cmTC_38537.dir/feature_tests.cxx.o  -o cmTC_38537 
+Building CXX object CMakeFiles/cmTC_fc815.dir/feature_tests.cxx.o
+/usr/bin/g++    -std=c++98 -o CMakeFiles/cmTC_fc815.dir/feature_tests.cxx.o -c /home/kjohnsen/github/Robot-Fling/build-SemesterProjekt-Desktop-Default/CMakeFiles/feature_tests.cxx
+Linking CXX executable cmTC_fc815
+/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_fc815.dir/link.txt --verbose=1
+/usr/bin/g++       CMakeFiles/cmTC_fc815.dir/feature_tests.cxx.o  -o cmTC_fc815 
 make[1]: Leaving directory '/home/kjohnsen/github/Robot-Fling/build-SemesterProjekt-Desktop-Default/CMakeFiles/CMakeTmp'
->>>>>>> ClosedFormIKSolver2
 
 
     Feature record: CXX_FEATURE:0cxx_aggregate_default_initializers

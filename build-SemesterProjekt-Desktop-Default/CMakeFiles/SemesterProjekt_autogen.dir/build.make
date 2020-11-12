@@ -43,17 +43,10 @@ RM = /usr/bin/cmake -E remove -f
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-<<<<<<< HEAD
-CMAKE_SOURCE_DIR = /home/suspend/GitHub/Robot-Fling/SemesterProjekt
-
-# The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = /home/suspend/GitHub/Robot-Fling/build-SemesterProjekt-Desktop-Default
-=======
 CMAKE_SOURCE_DIR = /home/kjohnsen/github/Robot-Fling/SemesterProjekt
 
 # The top-level build directory on which CMake was run.
 CMAKE_BINARY_DIR = /home/kjohnsen/github/Robot-Fling/build-SemesterProjekt-Desktop-Default
->>>>>>> ClosedFormIKSolver2
 
 # Utility rule file for SemesterProjekt_autogen.
 
@@ -61,13 +54,8 @@ CMAKE_BINARY_DIR = /home/kjohnsen/github/Robot-Fling/build-SemesterProjekt-Deskt
 include CMakeFiles/SemesterProjekt_autogen.dir/progress.make
 
 CMakeFiles/SemesterProjekt_autogen:
-<<<<<<< HEAD
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold --progress-dir=/home/suspend/GitHub/Robot-Fling/build-SemesterProjekt-Desktop-Default/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Automatic MOC, UIC and RCC for target SemesterProjekt"
-	/usr/bin/cmake -E cmake_autogen /home/suspend/GitHub/Robot-Fling/build-SemesterProjekt-Desktop-Default/CMakeFiles/SemesterProjekt_autogen.dir ""
-=======
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold --progress-dir=/home/kjohnsen/github/Robot-Fling/build-SemesterProjekt-Desktop-Default/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Automatic MOC, UIC and RCC for target SemesterProjekt"
 	/usr/bin/cmake -E cmake_autogen /home/kjohnsen/github/Robot-Fling/build-SemesterProjekt-Desktop-Default/CMakeFiles/SemesterProjekt_autogen.dir ""
->>>>>>> ClosedFormIKSolver2
 
 SemesterProjekt_autogen: CMakeFiles/SemesterProjekt_autogen
 SemesterProjekt_autogen: CMakeFiles/SemesterProjekt_autogen.dir/build.make
@@ -84,10 +72,6 @@ CMakeFiles/SemesterProjekt_autogen.dir/clean:
 .PHONY : CMakeFiles/SemesterProjekt_autogen.dir/clean
 
 CMakeFiles/SemesterProjekt_autogen.dir/depend:
-<<<<<<< HEAD
-	cd /home/suspend/GitHub/Robot-Fling/build-SemesterProjekt-Desktop-Default && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" /home/suspend/GitHub/Robot-Fling/SemesterProjekt /home/suspend/GitHub/Robot-Fling/SemesterProjekt /home/suspend/GitHub/Robot-Fling/build-SemesterProjekt-Desktop-Default /home/suspend/GitHub/Robot-Fling/build-SemesterProjekt-Desktop-Default /home/suspend/GitHub/Robot-Fling/build-SemesterProjekt-Desktop-Default/CMakeFiles/SemesterProjekt_autogen.dir/DependInfo.cmake --color=$(COLOR)
-=======
 	cd /home/kjohnsen/github/Robot-Fling/build-SemesterProjekt-Desktop-Default && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" /home/kjohnsen/github/Robot-Fling/SemesterProjekt /home/kjohnsen/github/Robot-Fling/SemesterProjekt /home/kjohnsen/github/Robot-Fling/build-SemesterProjekt-Desktop-Default /home/kjohnsen/github/Robot-Fling/build-SemesterProjekt-Desktop-Default /home/kjohnsen/github/Robot-Fling/build-SemesterProjekt-Desktop-Default/CMakeFiles/SemesterProjekt_autogen.dir/DependInfo.cmake --color=$(COLOR)
->>>>>>> ClosedFormIKSolver2
 .PHONY : CMakeFiles/SemesterProjekt_autogen.dir/depend
 
