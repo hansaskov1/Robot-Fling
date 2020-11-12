@@ -98,10 +98,8 @@ public:
 
    void fetchPath(std::promise<Path> && returnPath ,std::atomic<bool>& stop , ur_rtde::RTDEReceiveInterface &rtde_recieve, unsigned int msInterval) //Used in thread
    {
-
        Path path;
        auto start = std::chrono::system_clock::now();
-
        while(!stop)
        {
            path.addJointPose(rtde_recieve.getActualQ());
@@ -114,25 +112,24 @@ public:
            std::chrono::duration<double> elapsedTime = stop-start;
 
            path.addElapsedTime(elapsedTime.count());
-
        }
        returnPath.set_value(std::move(path));
    }
 
 
-Path moveRobotL( rw::math::Vector3D<> position,rw::math::RPY<> orientation, unsigned int msInterval, ur_rtde::RTDEControlInterface& rtdeControl, ur_rtde::RTDEReceiveInterface& rtdeRecieve, double speed, double acceleration)
-{
-    std::vector<double> toolPositionStdVec = vecRPY2stdVec(position,orientation);
-    std::atomic<bool> stop {false};
-    std::promise<Path> promisePath;
-    std::future<Path> futurePath = promisePath.get_future();
+    Path moveRobotL( rw::math::Vector3D<> position,rw::math::RPY<> orientation, unsigned int msInterval, ur_rtde::RTDEControlInterface& rtdeControl, ur_rtde::RTDEReceiveInterface& rtdeRecieve, double speed, double acceleration)
+    {
+        std::vector<double> toolPositionStdVec = vecRPY2stdVec(position,orientation);
+        std::atomic<bool> stop {false};
+        std::promise<Path> promisePath;
+        std::future<Path> futurePath = promisePath.get_future();
 
-    std::thread recive(&RobotControl::fetchPath, this , std::move(promisePath), std::ref(stop), std::ref(rtdeRecieve), msInterval);
-    rtdeControl.moveL(toolPositionStdVec, speed, acceleration);
-    stop = true;
-    recive.join();
-    return futurePath.get();
-}
+        std::thread recive(&RobotControl::fetchPath, this , std::move(promisePath), std::ref(stop), std::ref(rtdeRecieve), msInterval);
+        rtdeControl.moveL(toolPositionStdVec, speed, acceleration);
+        stop = true;
+        recive.join();
+        return futurePath.get();
+    }
 
     Path moveRobotL( rw::math::Q jointPose , unsigned int msInterval, ur_rtde::RTDEControlInterface& rtdeControl, ur_rtde::RTDEReceiveInterface &rtdeRecieve, double speed, double acceleration)
     {
