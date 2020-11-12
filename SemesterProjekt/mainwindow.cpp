@@ -52,12 +52,12 @@ void MainWindow::on_bSend_clicked()
     {
         rw::math::Vector3D<> ballPosition(camToBall.at<float>(0,3)*0.01,camToBall.at<float>(1,3)*0.01,camToBall.at<float>(2,3)*0.01);
         //rw::math::Vector3D<> ballPosition(0.2,0.2,0.1);
+
         RC.getBall(ballPosition,0.05);
 
+        if (sql.insert(RC.getThrow()))
+            ui->statusbar->showMessage("Inserted to database", 3000);
     }
-
-    if (sql.insert(RC.getThrow()))
-        ui->statusbar->showMessage("Inserted to database", 3000);
 }
 
 void MainWindow::on_bOpenGrip_clicked()
@@ -90,8 +90,8 @@ void MainWindow::on_bSaveConnect_clicked()
 
     RC.setParam("127.0.0.1", "192.168.100.10", PCal, RCal);
 
-    //if (sql.connect("192.168.221.1", "ubuntu", "Tarzan12!", "kastdb"))
-        //ui->statusbar->showMessage("Connected", 3000);
+    if (sql.connect("192.168.221.1", "ubuntu", "Tarzan12!", "throwdb"))
+        ui->statusbar->showMessage("Connected", 3000);
 
     //gripper.Init();
     //gripper.ToConnectToHost("192.168.100.10", 1000);
