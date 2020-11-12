@@ -25,7 +25,7 @@ public:
 
     }
 
-/*
+
     Path(Path&& path){
         jointPoses = std::move(path.jointPoses);
         jointVel = std::move(path.jointVel);
@@ -33,7 +33,7 @@ public:
         toolVel = std::move(path.toolVel);
 
     }
-*/
+
 
     Path & operator = (const Path & p) {
         jointPoses = p.jointPoses;
@@ -43,6 +43,16 @@ public:
         elapsedTime = p.elapsedTime;
 
         return *this;
+    }
+
+    Path & operator = (Path&& path){
+        jointPoses = std::move(path.jointPoses);
+        jointVel = std::move(path.jointVel);
+        toolPose = std::move(path.toolPose);
+        toolVel = std::move(path.toolVel);
+
+        return *this;
+
     }
 
 

@@ -116,7 +116,7 @@ public:
            path.addElapsedTime(elapsedTime.count());
 
        }
-       returnPath.set_value(path);
+       returnPath.set_value(std::move(path));
    }
 
 
@@ -220,20 +220,13 @@ Path moveRobotL( rw::math::Vector3D<> position,rw::math::RPY<> orientation, unsi
            QFullPath.push_back(moveRobotJ(qSafeGrib,                    msInterval, rtdeControl, rtdeRecive, simSpeed, simAcc).getJointPoses());
            QFullPath.push_back(moveRobotJ(qHome,                        msInterval, rtdeControl, rtdeRecive, simSpeed, simAcc).getJointPoses());
 
-//           QFullPath.push_back(moveRobotJ(qBallReady,                   msInterval, rtdeControl, rtdeRecive, simSpeed, simAcc).getJointPoses());
-//           QFullPath.push_back(moveRobotL(qBallRelease,                   msInterval, rtdeControl, rtdeRecive, simSpeed, simAcc).getJointPoses());
-
-
-           //QFullPath.push_back(moveRobotL(positionRelease,rpyRelease,   msInterval, rtdeControl, rtdeRecive, simSpeed, simAcc).getJointPoses());
-           //rtdeControl.moveL_FK(qBallRelease.toStdVector(), simSpeed, simAcc);
-
        }
 
         std::vector<bool> collisionList;
 
         for (std::vector<std::vector<double>> &qPath : QFullPath )
         {
-           /* std::cout << "New Path" << std::endl;
+            std::cout << "New Path" << std::endl;
             for (std::vector<double> &qValues : qPath)
             {
                 std::cout << "{";
@@ -242,7 +235,7 @@ Path moveRobotL( rw::math::Vector3D<> position,rw::math::RPY<> orientation, unsi
                     std::cout << joint << " ";
                 }
                 std::cout << "}"<< std::endl;
-            }*/
+            }
             collisionList.push_back(dc.isCollision(qPath));
         }
 
