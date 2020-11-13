@@ -324,6 +324,60 @@ public:
 
 
 
+    rw::math::Rotation3D<> Rx(double angle)
+    {
+     return rw::math::Rotation3D<>(
+                                    1, 0, 0,
+                                    0, std::cos(angle), -std::sin(angle),
+                                    0, std::sin(angle),  std::cos(angle)
+                                   );
+    }
+
+    rw::math::Rotation3D<> Ry(double angle)
+    {
+     return rw::math::Rotation3D<>(
+                                    std::cos(angle), 0 ,  std::sin(angle),
+                                     0, 1, 0,
+                                    -std::sin(angle),0 , std::cos(angle)
+                                   );
+    }
+
+    rw::math::Rotation3D<> Rz(double angle)
+    {
+     return rw::math::Rotation3D<>(
+                                    std::cos(angle), -std::sin(angle), 0,
+                                    std::sin(angle),  std::cos(angle), 0,
+                                    0, 0, 1
+                                   );
+    }
+
+
+
+
+
+    void throwBallLinear(rw::math::Vector3D<> cupPos, rw::math::Vector3D<> releasePos, double angle, double lenghtOffset = 0.3)
+    {
+        rw::math::Vector3D<> posDiff = releasePos - cupPos;
+        posDiff[2] = 0;
+        rw::math::Vector3D<> eigenVec = posDiff.normalize();  //  std::cout << "1. " << eigenVec << std::endl;
+
+        double offsetAngle = std::acos(std::abs(eigenVec[0]));
+
+        eigenVec = Rz(offsetAngle).inverse()  * eigenVec;   // std::cout << "2. " << eigenVec << std::endl;
+        eigenVec = Ry(angle).inverse()        * eigenVec;   // std::cout << "3. " << eigenVec << std::endl;
+        eigenVec = Rz(offsetAngle)            * eigenVec;   // std::cout << "4. "<< eigenVec << std::endl;
+
+        double lenghtVal = -releasePos[2] / eigenVec[2];
+
+        rw::math::Vector3D<> rampPos = releasePos + (lenghtVal - lenghtOffset) * eigenVec;
+        rw::math::Vector3D<> endPos = releasePos - (lenghtVal - lenghtOffset) * eigenVec;
+
+       // std::cout << "EigenVec Result" <<eigenVec << std::endl;
+       // std::cout << rampPos << std::endl;
+       // std::cout << endPos << std::endl;
+
+    }
+
     void throwBall(double safeGribHeight)
         {
 
