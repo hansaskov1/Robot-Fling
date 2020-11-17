@@ -305,6 +305,26 @@ Path moveRobotL( rw::math::Vector3D<> position,rw::math::RPY<> orientation, unsi
         return speed;
     }
 
+    //8*18=40*90
+    //82.5+190
+    //94.75
+    //
+    //392
+    //680.5mm
+
+    //BL = R*Vinkel
+    void rotateThrow(double angleThrow, double speed, double acceleration, rw::math::Vector3D<double> cupPos){
+        rw::math::Vector3D<double> robBase(40,90,0);
+        rw::math::Vector3D<double> cupPosR = cupPos - robBase;
+        double angleBase = atan(cupPosR.y()/cupPosR.x());
+
+        double timeFromThrowPose = speed/acceleration;
+        double archLenth = 0.5 * acceleration * (timeFromThrowPose * timeFromThrowPose);
+
+
+
+    }
+
     rw::math::Vector3D<double> rampPose(double hastighed, double acceleration, double vinkel, rw::math::Vector3D<double> throwPose, rw::math::Vector3D<double> &stopPose)
     {
         double timeFromThrowPose = hastighed/acceleration;
