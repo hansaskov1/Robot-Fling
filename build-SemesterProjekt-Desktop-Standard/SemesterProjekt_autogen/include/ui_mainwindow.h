@@ -39,9 +39,7 @@ public:
     QPushButton *bSaveConnect;
     QWidget *widget_5;
     QGridLayout *gridLayout_2;
-    QLineEdit *liPort;
     QSpacerItem *horizontalSpacer_2;
-    QLabel *lPort;
     QLineEdit *liIP;
     QLabel *lIP;
     QLineEdit *liGripperIP;
@@ -94,19 +92,9 @@ public:
         widget_5->setObjectName(QStringLiteral("widget_5"));
         gridLayout_2 = new QGridLayout(widget_5);
         gridLayout_2->setObjectName(QStringLiteral("gridLayout_2"));
-        liPort = new QLineEdit(widget_5);
-        liPort->setObjectName(QStringLiteral("liPort"));
-
-        gridLayout_2->addWidget(liPort, 2, 1, 1, 1);
-
         horizontalSpacer_2 = new QSpacerItem(40, 20, QSizePolicy::Expanding, QSizePolicy::Minimum);
 
         gridLayout_2->addItem(horizontalSpacer_2, 1, 2, 1, 1);
-
-        lPort = new QLabel(widget_5);
-        lPort->setObjectName(QStringLiteral("lPort"));
-
-        gridLayout_2->addWidget(lPort, 2, 0, 1, 1);
 
         liIP = new QLineEdit(widget_5);
         liIP->setObjectName(QStringLiteral("liIP"));
@@ -121,12 +109,12 @@ public:
         liGripperIP = new QLineEdit(widget_5);
         liGripperIP->setObjectName(QStringLiteral("liGripperIP"));
 
-        gridLayout_2->addWidget(liGripperIP, 3, 1, 1, 1);
+        gridLayout_2->addWidget(liGripperIP, 2, 1, 1, 1);
 
         lGripperIP = new QLabel(widget_5);
         lGripperIP->setObjectName(QStringLiteral("lGripperIP"));
 
-        gridLayout_2->addWidget(lGripperIP, 3, 0, 1, 1);
+        gridLayout_2->addWidget(lGripperIP, 2, 0, 1, 1);
 
 
         gridLayout_3->addWidget(widget_5, 0, 0, 2, 1);
@@ -223,7 +211,6 @@ public:
         MainWindow->setWindowTitle(QApplication::translate("MainWindow", "MainWindow", Q_NULLPTR));
         bDisconnect->setText(QApplication::translate("MainWindow", " Disconnect", Q_NULLPTR));
         bSaveConnect->setText(QApplication::translate("MainWindow", "Connect", Q_NULLPTR));
-        lPort->setText(QApplication::translate("MainWindow", "Set Port", Q_NULLPTR));
         lIP->setText(QApplication::translate("MainWindow", "Set IP", Q_NULLPTR));
         lGripperIP->setText(QApplication::translate("MainWindow", "Set Gripper IP", Q_NULLPTR));
         bOpenGrip->setText(QApplication::translate("MainWindow", "Open Gripper", Q_NULLPTR));
