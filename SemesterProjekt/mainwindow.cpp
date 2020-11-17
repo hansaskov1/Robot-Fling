@@ -10,15 +10,7 @@ MainWindow::MainWindow(QWidget *parent)
     ui->setupUi(this);
 
     c.connectToCam();
-    c.calibrate();
 
-    for(int i = 0; i < 4; i++) {
-        cv::String path = "";
-        path = "../Images/BallWorldCordsROI/img" + std::to_string(i) + ".png";
-        worldCalImg[i] = cv::imread(path, cv::IMREAD_COLOR);
-    }
-
-    c.createTranformMatrix(worldCalImg);
     video = new showVideo(ui->lImage, &c);
 }
 
@@ -75,7 +67,6 @@ void MainWindow::on_bCloseGrip_clicked()
 void MainWindow::on_bCalibrate_clicked()
 {
     c.calibrate();
-    c.createTranformMatrix(worldCalImg);
     //gripper.home(); //Send code til server til at ændre status af gripperen
     //qDebug() << gripper.GetConnectStatus();
     ui->statusbar->showMessage("Calibrating Gripper", 3000);

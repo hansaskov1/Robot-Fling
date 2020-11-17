@@ -4,11 +4,10 @@
 
 int main(int argc, char *argv[])
 {
- /*   QApplication a(argc, argv);
+    QApplication a(argc, argv);
     MainWindow w;
     w.show();
     return a.exec();
-    */
 
 
     rw::math::Vector3D<> PCal(0.400624689065891, 0.901530744085863, 0.042187492976487);
@@ -21,10 +20,4 @@ int main(int argc, char *argv[])
     RC.getBall(ballPosition,0.2);
     std::cout << "call throw ball" << std::endl;
     RC.throwBall(0.05);
-
-
-
-
-
-
 }

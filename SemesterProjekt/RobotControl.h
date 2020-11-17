@@ -267,10 +267,10 @@ public:
             mThrow.addPath(moveRobotJ(qHome,                        msInterval, rtdeControl, rtdeRecive, speed, acceleration));
             gripper.open();
 
-        } else
+    } else
         {
-            std::cout << "a collision will occur" << std::endl;
-            std::cout << "exiting without moving robot" << std::endl;
+        std::cout << "a collision will occur" << std::endl;
+        std::cout << "exiting without moving robot" << std::endl;
         }
     }
 

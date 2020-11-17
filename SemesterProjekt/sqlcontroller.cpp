@@ -125,18 +125,20 @@ bool SQLController::insert(Throw t)
 
     QString sql = "";
     sql.append("INSERT INTO jointpose VALUES ");
-    //paths
-    for (unsigned int i = 0; i < t.getPaths().size(); i++) {
+    int paths = t.getPaths().size();
+    for (int path = 0; path < paths; path++) {
         //jointposevector
-        t.getPaths().at(i).getJointPoses().shrink_to_fit();
-        for (unsigned int j = 0; j < t.getPaths().at(i).getJointPoses().size(); j++) {
-            sql.append("(" + QString::number(j+1) + ", ");
+        t.getPaths().at(path).getJointPoses().shrink_to_fit();
+        int jointposevectors = t.getPaths().at(path).getJointPoses().size();
+        for (int jointposevector = 0; jointposevector < jointposevectors; jointposevector++) {
+            sql.append("(" + QString::number(jointposevector+1) + ", ");
             //jointpose
-            t.getPaths().at(i).getJointPoses().at(j).shrink_to_fit();
-            for (unsigned int u = 0; u < t.getPaths().at(i).getJointPoses().at(j).size(); u++)
-                sql.append(QString::number(t.getPaths().at(i).getJointPoses().at(j).at(u)) + ", ");
-            sql.append(QString::number(i+1) + ", " + QString::number(t.getThrowID()));
-            (i == t.getPaths().size() - 1 && j == t.getPaths().at(i).getJointPoses().size() - 1) ? sql.append("); ") : sql.append("), ");
+            t.getPaths().at(path).getJointPoses().at(jointposevector).shrink_to_fit();
+            int jointposes = t.getPaths().at(path).getJointPoses().at(jointposevector).size();
+            for (int jointpose = 0; jointpose < jointposes; jointpose++)
+                sql.append(QString::number(t.getPaths().at(path).getJointPoses().at(jointposevector).at(jointpose)) + ", ");
+            sql.append(QString::number(path+1) + ", " + QString::number(t.getThrowID()));
+            (path == paths - 1 && jointposevector == jointposevectors - 1) ? sql.append("); ") : sql.append("), ");
         }
     }
 
