@@ -33,13 +33,13 @@ int main()
         }else if(keyPressed == 'p'){
             image = c.getImage();
             cv::String path = "";
-            path = "../Images/BallWorldCordsROI/img" + std::to_string(imgNr) + ".png";
+            path = "../../Images/BallWorldCordsROI4/img" + std::to_string(imgNr) + ".png";
             cv::imwrite(path, image);
             imgNr++;
         }else if(keyPressed == 'r'){
             image = c.getRawImage();
             cv::String path = "";
-            path = "../Images/CalibrationImages/img" + std::to_string(rImgNr) + ".png";
+            path = "../../Images/CalibrationImages4/img" + std::to_string(rImgNr) + ".png";
             cv::imwrite(path, image);
             rImgNr++;
         }else if(keyPressed == 'c'){
@@ -47,13 +47,13 @@ int main()
             cv::Mat worldCalImg[4];
             for(int i = 0; i < 4; i++){
                 cv::String path = "";
-                path = "../Images/BallWorldCordsROI/img" + std::to_string(i) + ".png";
+                path = "../../Images/BallWorldCordsROI4/img" + std::to_string(i) + ".png";
                 worldCalImg[i] = cv::imread(path, cv::IMREAD_COLOR);
             }
             c.createTranformMatrix(worldCalImg);
         }else{
             std::vector<cv::String> FileNames;
-            cv::glob("../Images/CalibrationImages/img*.png", FileNames, false);
+            cv::glob("../../Images/CalibrationImages4/img*.png", FileNames, false);
             c.setFileNames(FileNames);
             image = c.getImage();
             /*std::string r;
