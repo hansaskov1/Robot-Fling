@@ -4,6 +4,16 @@
 
 Calibration::Calibration()
 {
+
+}
+
+Calibration::~Calibration()
+{
+    delete &mtx;
+}
+
+void Calibration::init(int celleNr)
+{
     cv::glob("../Images/CalibrationImages/img*.png", mFileNames, false);
     if(calibrate()){
         cv::Mat worldCalImg[4];
@@ -20,11 +30,6 @@ Calibration::Calibration()
     }else {
         std::cout << "callibration failed" << std::endl;
     }
-}
-
-Calibration::~Calibration()
-{
-    delete &mtx;
 }
 
 bool Calibration::createTranformMatrix(cv::Mat undisWorldCalImg[4])
