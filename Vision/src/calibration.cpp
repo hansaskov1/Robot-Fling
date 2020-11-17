@@ -4,12 +4,12 @@
 
 Calibration::Calibration()
 {
-    cv::glob("../Images/CalibrationImages/img*.png", mFileNames, false);
+    cv::glob("../../Images/CalibrationImages4/img*.png", mFileNames, false);
     if(calibrate()){
         cv::Mat worldCalImg[4];
         for(int i = 0; i < 4; i++){
             cv::String path = "";
-            path = "../Images/BallWorldCordsROI/img" + std::to_string(i) + ".png";
+            path = "../../Images/BallWorldCordsROI4/img" + std::to_string(i) + ".png";
             worldCalImg[i] = cv::imread(path, cv::IMREAD_COLOR);
         }
         if (createTranformMatrix(worldCalImg)){
@@ -85,7 +85,7 @@ bool Calibration::connectToCam()
         //std::cout << "fisk" << std::endl;
         nuTid = std::chrono::high_resolution_clock::now();
         if(std::chrono::duration_cast<std::chrono::microseconds>(nuTid - startTid) > std::chrono::milliseconds(10000)){
-            mCvImage = cv::imread("../Images/CalibrationImages/img0.png", cv::IMREAD_COLOR);
+            mCvImage = cv::imread("../../Images/CalibrationImages4/img0.png", cv::IMREAD_COLOR);
             return false;
         }
     }
@@ -157,20 +157,28 @@ bool Calibration::calibrate()
 
 cv::Mat Calibration::getImage()
 {
+
+    // Top, buttom, left right
+    // Celle 2 : -190 , -200 , -430 , -300
+
+
+    // Celle 4 : -185 , -190 , -400 , -345
+
     cv::Mat imageIn, imageOut;
     //std::cout << "mtx locking for out.." << std::endl;
     while(!mtx.try_lock()){
     }
     //td::cout << "mtx locked for out" << std::endl;
     if(!mCvImage.data || !camRunning){
-        return cv::imread("../Images/BallWorldCords/img0.png",cv::IMREAD_COLOR);
+        return cv::imread("../../Images/BallWorldCords4/img0.png",cv::IMREAD_COLOR);
     }else{
         imageIn = mCvImage;
     }
     mtx.unlock();
     //std::cout << "mtx unlocked for out" << std::endl;
     cv::remap(imageIn,imageOut,mMapX,mMapY,1,1);
-    imageOut.adjustROI(-190,-200,-430,-300);
+    imageOut.adjustROI(-185,-190,-400,-345);
+    //imageOut.adjustROI(-190,-200,-430,-300);
     return imageOut;
 }
 
@@ -179,9 +187,9 @@ cv::Mat Calibration::getRawImage()
     cv::Mat imageIn;
     while(!mtx.try_lock()){
     }
+
     imageIn = mCvImage;
     mtx.unlock();
-    //imageIn.adjustROI(-180,-190,-420,-290);
 
     return imageIn;
 }
