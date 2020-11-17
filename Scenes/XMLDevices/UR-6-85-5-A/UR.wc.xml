@@ -1,6 +1,6 @@
 <SerialDevice name="UR-6-85-5-A">
  <Frame name="Base">
-  <RPY> 66 0 0 </RPY> <Pos> 0 0 0</Pos> 
+  <RPY> 66.6 0 0 </RPY> <Pos> 0 0 0</Pos> 
  </Frame>
 
 <Frame name="BaseMov" type="Movable">
