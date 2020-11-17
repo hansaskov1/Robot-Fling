@@ -70,9 +70,6 @@ public:
         return mPaths;
     }
 
-
-
-
 private:
     unsigned int mThrowID;
     QString mObject;

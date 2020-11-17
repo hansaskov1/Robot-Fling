@@ -41,7 +41,7 @@ public:
 
         void disconnect() {
             qDebug() << "Disconnect called";
-            ToSendData("BYE()\n");
+            ToCloseSocket();
         }
 
         void open() {

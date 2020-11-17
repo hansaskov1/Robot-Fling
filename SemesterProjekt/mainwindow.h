@@ -46,7 +46,6 @@ private:
     Calibration c;
     ObjectDetection o;
     cv::Mat image;
-    cv::Mat worldCalImg[4];
     RobotControl RC;
     SQLController sql;
     showVideo *video;

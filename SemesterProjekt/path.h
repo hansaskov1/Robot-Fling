@@ -9,11 +9,11 @@ public:
     Path()
     {
 
-        jointPoses.reserve(100);
-        jointVel.reserve(100);
-        toolPose.reserve(100);
-        toolVel.reserve(100);
-        elapsedTime.reserve(100);
+        jointPoses.reserve(reservedMem);
+        jointVel.reserve(reservedMem);
+        toolPose.reserve(reservedMem);
+        toolVel.reserve(reservedMem);
+        elapsedTime.reserve(reservedMem);
     }
 
     Path(const Path& path){
@@ -25,7 +25,7 @@ public:
 
     }
 
-/*
+
     Path(Path&& path){
         jointPoses = std::move(path.jointPoses);
         jointVel = std::move(path.jointVel);
@@ -33,7 +33,7 @@ public:
         toolVel = std::move(path.toolVel);
 
     }
-*/
+
 
     Path & operator = (const Path & p) {
         jointPoses = p.jointPoses;
@@ -43,6 +43,16 @@ public:
         elapsedTime = p.elapsedTime;
 
         return *this;
+    }
+
+    Path & operator = (Path&& path){
+        jointPoses = std::move(path.jointPoses);
+        jointVel = std::move(path.jointVel);
+        toolPose = std::move(path.toolPose);
+        toolVel = std::move(path.toolVel);
+
+        return *this;
+
     }
 
 
@@ -72,6 +82,7 @@ public:
 private:
     std::vector<std::vector<double>> jointPoses, jointVel, toolPose, toolVel;
     std::vector<double> elapsedTime;
+    const unsigned int reservedMem = 80;
 };
 
 #endif // PATH_H
