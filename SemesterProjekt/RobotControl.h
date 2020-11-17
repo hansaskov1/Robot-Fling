@@ -98,10 +98,8 @@ public:
 
    void fetchPath(std::promise<Path> && returnPath ,std::atomic<bool>& stop , ur_rtde::RTDEReceiveInterface &rtde_recieve, unsigned int msInterval) //Used in thread
    {
-
        Path path;
        auto start = std::chrono::system_clock::now();
-
        while(!stop)
        {
            path.addJointPose(rtde_recieve.getActualQ());
@@ -114,25 +112,24 @@ public:
            std::chrono::duration<double> elapsedTime = stop-start;
 
            path.addElapsedTime(elapsedTime.count());
-
        }
        returnPath.set_value(std::move(path));
    }
 
 
-Path moveRobotL( rw::math::Vector3D<> position,rw::math::RPY<> orientation, unsigned int msInterval, ur_rtde::RTDEControlInterface& rtdeControl, ur_rtde::RTDEReceiveInterface& rtdeRecieve, double speed, double acceleration)
-{
-    std::vector<double> toolPositionStdVec = vecRPY2stdVec(position,orientation);
-    std::atomic<bool> stop {false};
-    std::promise<Path> promisePath;
-    std::future<Path> futurePath = promisePath.get_future();
+    Path moveRobotL( rw::math::Vector3D<> position,rw::math::RPY<> orientation, unsigned int msInterval, ur_rtde::RTDEControlInterface& rtdeControl, ur_rtde::RTDEReceiveInterface& rtdeRecieve, double speed, double acceleration)
+    {
+        std::vector<double> toolPositionStdVec = vecRPY2stdVec(position,orientation);
+        std::atomic<bool> stop {false};
+        std::promise<Path> promisePath;
+        std::future<Path> futurePath = promisePath.get_future();
 
-    std::thread recive(&RobotControl::fetchPath, this , std::move(promisePath), std::ref(stop), std::ref(rtdeRecieve), msInterval);
-    rtdeControl.moveL(toolPositionStdVec, speed, acceleration);
-    stop = true;
-    recive.join();
-    return futurePath.get();
-}
+        std::thread recive(&RobotControl::fetchPath, this , std::move(promisePath), std::ref(stop), std::ref(rtdeRecieve), msInterval);
+        rtdeControl.moveL(toolPositionStdVec, speed, acceleration);
+        stop = true;
+        recive.join();
+        return futurePath.get();
+    }
 
     Path moveRobotL( rw::math::Q jointPose , unsigned int msInterval, ur_rtde::RTDEControlInterface& rtdeControl, ur_rtde::RTDEReceiveInterface &rtdeRecieve, double speed, double acceleration)
     {
@@ -270,10 +267,10 @@ Path moveRobotL( rw::math::Vector3D<> position,rw::math::RPY<> orientation, unsi
             mThrow.addPath(moveRobotJ(qHome,                        msInterval, rtdeControl, rtdeRecive, speed, acceleration));
             gripper.open();
 
-        } else
+    } else
         {
-            std::cout << "a collision will occur" << std::endl;
-            std::cout << "exiting without moving robot" << std::endl;
+        std::cout << "a collision will occur" << std::endl;
+        std::cout << "exiting without moving robot" << std::endl;
         }
     }
 
@@ -346,6 +343,60 @@ Path moveRobotL( rw::math::Vector3D<> position,rw::math::RPY<> orientation, unsi
     }
 
 
+
+    rw::math::Rotation3D<> Rx(double angle)
+    {
+     return rw::math::Rotation3D<>(
+                                    1, 0, 0,
+                                    0, std::cos(angle), -std::sin(angle),
+                                    0, std::sin(angle),  std::cos(angle)
+                                   );
+    }
+
+    rw::math::Rotation3D<> Ry(double angle)
+    {
+     return rw::math::Rotation3D<>(
+                                    std::cos(angle), 0 ,  std::sin(angle),
+                                     0, 1, 0,
+                                    -std::sin(angle),0 , std::cos(angle)
+                                   );
+    }
+
+    rw::math::Rotation3D<> Rz(double angle)
+    {
+     return rw::math::Rotation3D<>(
+                                    std::cos(angle), -std::sin(angle), 0,
+                                    std::sin(angle),  std::cos(angle), 0,
+                                    0, 0, 1
+                                   );
+    }
+
+
+
+
+
+    void throwBallLinear(rw::math::Vector3D<> cupPos, rw::math::Vector3D<> releasePos, double angle, double lenghtOffset = 0.3)
+    {
+        rw::math::Vector3D<> posDiff = releasePos - cupPos;
+        posDiff[2] = 0;
+        rw::math::Vector3D<> eigenVec = posDiff.normalize();  //  std::cout << "1. " << eigenVec << std::endl;
+
+        double offsetAngle = std::acos(std::abs(eigenVec[0]));
+
+        eigenVec = Rz(offsetAngle).inverse()  * eigenVec;   // std::cout << "2. " << eigenVec << std::endl;
+        eigenVec = Ry(angle).inverse()        * eigenVec;   // std::cout << "3. " << eigenVec << std::endl;
+        eigenVec = Rz(offsetAngle)            * eigenVec;   // std::cout << "4. "<< eigenVec << std::endl;
+
+        double lenghtVal = -releasePos[2] / eigenVec[2];
+
+        rw::math::Vector3D<> rampPos = releasePos + (lenghtVal - lenghtOffset) * eigenVec;
+        rw::math::Vector3D<> endPos = releasePos - (lenghtVal - lenghtOffset) * eigenVec;
+
+       // std::cout << "EigenVec Result" <<eigenVec << std::endl;
+       // std::cout << rampPos << std::endl;
+       // std::cout << endPos << std::endl;
+
+    }
 
     void throwBall(double safeGribHeight)
         {

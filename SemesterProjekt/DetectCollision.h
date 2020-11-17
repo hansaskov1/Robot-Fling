@@ -175,6 +175,12 @@ public:
     rw::math::Q getState() const { return mDevice->getQ(mState);}
     std::vector<rw::math::Q> getQVec() const { return mQVec; }
     rw::math::Transform3D<> getTransform() const {return mDevice->baseTend(mState);}
+    rw::math::Transform3D<> getTransform(rw::math::Q jointPose)
+    {
+        setState(jointPose);
+        return mDevice->baseTend(mState);
+    }
+
 
 private:
 

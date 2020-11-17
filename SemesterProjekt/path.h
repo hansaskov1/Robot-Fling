@@ -9,11 +9,11 @@ public:
     Path()
     {
 
-        jointPoses.reserve(100);
-        jointVel.reserve(100);
-        toolPose.reserve(100);
-        toolVel.reserve(100);
-        elapsedTime.reserve(100);
+        jointPoses.reserve(reservedMem);
+        jointVel.reserve(reservedMem);
+        toolPose.reserve(reservedMem);
+        toolVel.reserve(reservedMem);
+        elapsedTime.reserve(reservedMem);
     }
 
     Path(const Path& path){
@@ -82,6 +82,7 @@ public:
 private:
     std::vector<std::vector<double>> jointPoses, jointVel, toolPose, toolVel;
     std::vector<double> elapsedTime;
+    const unsigned int reservedMem = 80;
 };
 
 #endif // PATH_H

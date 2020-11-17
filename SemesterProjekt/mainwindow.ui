@@ -41,9 +41,6 @@
        <item row="0" column="0" rowspan="2">
         <widget class="QWidget" name="widget_5" native="true">
          <layout class="QGridLayout" name="gridLayout_2">
-          <item row="2" column="1">
-           <widget class="QLineEdit" name="liPort"/>
-          </item>
           <item row="1" column="2">
            <spacer name="horizontalSpacer_2">
             <property name="orientation">
@@ -57,13 +54,6 @@
             </property>
            </spacer>
           </item>
-          <item row="2" column="0">
-           <widget class="QLabel" name="lPort">
-            <property name="text">
-             <string>Set Port</string>
-            </property>
-           </widget>
-          </item>
           <item row="1" column="1">
            <widget class="QLineEdit" name="liIP"/>
           </item>
@@ -74,10 +64,10 @@
             </property>
            </widget>
           </item>
-          <item row="3" column="1">
+          <item row="2" column="1">
            <widget class="QLineEdit" name="liGripperIP"/>
           </item>
-          <item row="3" column="0">
+          <item row="2" column="0">
            <widget class="QLabel" name="lGripperIP">
             <property name="text">
              <string>Set Gripper IP</string>
