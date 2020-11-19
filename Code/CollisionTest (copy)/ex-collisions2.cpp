@@ -16,6 +16,7 @@
 #include <ur_rtde/rtde_control_interface.h>
 #include <ur_rtde/rtde.h>
 #include <ur_rtde/rtde_receive_interface.h>
+#include "DetectCollision.h"
 #include "RobotControl.h"
 #include <vector>
 #include <chrono>
@@ -33,7 +34,6 @@ int main(int argc, char** argv)
 
     RobotControl RC("127.0.0.1",PCal,RCal);
     rw::math::Vector3D<> ballPosition(0.20,0.20,0.01);
-
 
     RC.getBall(ballPosition,0.2);
 

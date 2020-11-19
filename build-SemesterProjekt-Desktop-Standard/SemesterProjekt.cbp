@@ -11,20 +11,20 @@
 				<Option working_dir="/home/christian/workspace/Robot-Fling/build-SemesterProjekt-Desktop-Standard"/>
 				<Option type="4"/>
 				<MakeCommands>
-					<Build command="/usr/bin/make -j6 -f &quot;/home/christian/workspace/Robot-Fling/build-SemesterProjekt-Desktop-Standard/Makefile&quot;  VERBOSE=1 all"/>
-					<CompileFile command="/usr/bin/make -j6 -f &quot;/home/christian/workspace/Robot-Fling/build-SemesterProjekt-Desktop-Standard/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
-					<Clean command="/usr/bin/make -j6 -f &quot;/home/christian/workspace/Robot-Fling/build-SemesterProjekt-Desktop-Standard/Makefile&quot;  VERBOSE=1 clean"/>
-					<DistClean command="/usr/bin/make -j6 -f &quot;/home/christian/workspace/Robot-Fling/build-SemesterProjekt-Desktop-Standard/Makefile&quot;  VERBOSE=1 clean"/>
+					<Build command="/usr/bin/make -j4 -f &quot;/home/christian/workspace/Robot-Fling/build-SemesterProjekt-Desktop-Standard/Makefile&quot;  VERBOSE=1 all"/>
+					<CompileFile command="/usr/bin/make -j4 -f &quot;/home/christian/workspace/Robot-Fling/build-SemesterProjekt-Desktop-Standard/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j4 -f &quot;/home/christian/workspace/Robot-Fling/build-SemesterProjekt-Desktop-Standard/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j4 -f &quot;/home/christian/workspace/Robot-Fling/build-SemesterProjekt-Desktop-Standard/Makefile&quot;  VERBOSE=1 clean"/>
 				</MakeCommands>
 			</Target>
 			<Target title="rebuild_cache">
 				<Option working_dir="/home/christian/workspace/Robot-Fling/build-SemesterProjekt-Desktop-Standard"/>
 				<Option type="4"/>
 				<MakeCommands>
-					<Build command="/usr/bin/make -j6 -f &quot;/home/christian/workspace/Robot-Fling/build-SemesterProjekt-Desktop-Standard/Makefile&quot;  VERBOSE=1 rebuild_cache"/>
-					<CompileFile command="/usr/bin/make -j6 -f &quot;/home/christian/workspace/Robot-Fling/build-SemesterProjekt-Desktop-Standard/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
-					<Clean command="/usr/bin/make -j6 -f &quot;/home/christian/workspace/Robot-Fling/build-SemesterProjekt-Desktop-Standard/Makefile&quot;  VERBOSE=1 clean"/>
-					<DistClean command="/usr/bin/make -j6 -f &quot;/home/christian/workspace/Robot-Fling/build-SemesterProjekt-Desktop-Standard/Makefile&quot;  VERBOSE=1 clean"/>
+					<Build command="/usr/bin/make -j4 -f &quot;/home/christian/workspace/Robot-Fling/build-SemesterProjekt-Desktop-Standard/Makefile&quot;  VERBOSE=1 rebuild_cache"/>
+					<CompileFile command="/usr/bin/make -j4 -f &quot;/home/christian/workspace/Robot-Fling/build-SemesterProjekt-Desktop-Standard/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j4 -f &quot;/home/christian/workspace/Robot-Fling/build-SemesterProjekt-Desktop-Standard/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j4 -f &quot;/home/christian/workspace/Robot-Fling/build-SemesterProjekt-Desktop-Standard/Makefile&quot;  VERBOSE=1 clean"/>
 				</MakeCommands>
 			</Target>
 			<Target title="SemesterProjekt">
@@ -70,10 +70,10 @@
 					<Add directory="/usr/include"/>
 				</Compiler>
 				<MakeCommands>
-					<Build command="/usr/bin/make -j6 -f &quot;/home/christian/workspace/Robot-Fling/build-SemesterProjekt-Desktop-Standard/Makefile&quot;  VERBOSE=1 SemesterProjekt"/>
-					<CompileFile command="/usr/bin/make -j6 -f &quot;/home/christian/workspace/Robot-Fling/build-SemesterProjekt-Desktop-Standard/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
-					<Clean command="/usr/bin/make -j6 -f &quot;/home/christian/workspace/Robot-Fling/build-SemesterProjekt-Desktop-Standard/Makefile&quot;  VERBOSE=1 clean"/>
-					<DistClean command="/usr/bin/make -j6 -f &quot;/home/christian/workspace/Robot-Fling/build-SemesterProjekt-Desktop-Standard/Makefile&quot;  VERBOSE=1 clean"/>
+					<Build command="/usr/bin/make -j4 -f &quot;/home/christian/workspace/Robot-Fling/build-SemesterProjekt-Desktop-Standard/Makefile&quot;  VERBOSE=1 SemesterProjekt"/>
+					<CompileFile command="/usr/bin/make -j4 -f &quot;/home/christian/workspace/Robot-Fling/build-SemesterProjekt-Desktop-Standard/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j4 -f &quot;/home/christian/workspace/Robot-Fling/build-SemesterProjekt-Desktop-Standard/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j4 -f &quot;/home/christian/workspace/Robot-Fling/build-SemesterProjekt-Desktop-Standard/Makefile&quot;  VERBOSE=1 clean"/>
 				</MakeCommands>
 			</Target>
 			<Target title="SemesterProjekt/fast">
@@ -119,30 +119,30 @@
 					<Add directory="/usr/include"/>
 				</Compiler>
 				<MakeCommands>
-					<Build command="/usr/bin/make -j6 -f &quot;/home/christian/workspace/Robot-Fling/build-SemesterProjekt-Desktop-Standard/Makefile&quot;  VERBOSE=1 SemesterProjekt/fast"/>
-					<CompileFile command="/usr/bin/make -j6 -f &quot;/home/christian/workspace/Robot-Fling/build-SemesterProjekt-Desktop-Standard/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
-					<Clean command="/usr/bin/make -j6 -f &quot;/home/christian/workspace/Robot-Fling/build-SemesterProjekt-Desktop-Standard/Makefile&quot;  VERBOSE=1 clean"/>
-					<DistClean command="/usr/bin/make -j6 -f &quot;/home/christian/workspace/Robot-Fling/build-SemesterProjekt-Desktop-Standard/Makefile&quot;  VERBOSE=1 clean"/>
+					<Build command="/usr/bin/make -j4 -f &quot;/home/christian/workspace/Robot-Fling/build-SemesterProjekt-Desktop-Standard/Makefile&quot;  VERBOSE=1 SemesterProjekt/fast"/>
+					<CompileFile command="/usr/bin/make -j4 -f &quot;/home/christian/workspace/Robot-Fling/build-SemesterProjekt-Desktop-Standard/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j4 -f &quot;/home/christian/workspace/Robot-Fling/build-SemesterProjekt-Desktop-Standard/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j4 -f &quot;/home/christian/workspace/Robot-Fling/build-SemesterProjekt-Desktop-Standard/Makefile&quot;  VERBOSE=1 clean"/>
 				</MakeCommands>
 			</Target>
 			<Target title="edit_cache">
 				<Option working_dir="/home/christian/workspace/Robot-Fling/build-SemesterProjekt-Desktop-Standard"/>
 				<Option type="4"/>
 				<MakeCommands>
-					<Build command="/usr/bin/make -j6 -f &quot;/home/christian/workspace/Robot-Fling/build-SemesterProjekt-Desktop-Standard/Makefile&quot;  VERBOSE=1 edit_cache"/>
-					<CompileFile command="/usr/bin/make -j6 -f &quot;/home/christian/workspace/Robot-Fling/build-SemesterProjekt-Desktop-Standard/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
-					<Clean command="/usr/bin/make -j6 -f &quot;/home/christian/workspace/Robot-Fling/build-SemesterProjekt-Desktop-Standard/Makefile&quot;  VERBOSE=1 clean"/>
-					<DistClean command="/usr/bin/make -j6 -f &quot;/home/christian/workspace/Robot-Fling/build-SemesterProjekt-Desktop-Standard/Makefile&quot;  VERBOSE=1 clean"/>
+					<Build command="/usr/bin/make -j4 -f &quot;/home/christian/workspace/Robot-Fling/build-SemesterProjekt-Desktop-Standard/Makefile&quot;  VERBOSE=1 edit_cache"/>
+					<CompileFile command="/usr/bin/make -j4 -f &quot;/home/christian/workspace/Robot-Fling/build-SemesterProjekt-Desktop-Standard/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j4 -f &quot;/home/christian/workspace/Robot-Fling/build-SemesterProjekt-Desktop-Standard/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j4 -f &quot;/home/christian/workspace/Robot-Fling/build-SemesterProjekt-Desktop-Standard/Makefile&quot;  VERBOSE=1 clean"/>
 				</MakeCommands>
 			</Target>
 			<Target title="SemesterProjekt_autogen">
 				<Option working_dir="/home/christian/workspace/Robot-Fling/build-SemesterProjekt-Desktop-Standard"/>
 				<Option type="4"/>
 				<MakeCommands>
-					<Build command="/usr/bin/make -j6 -f &quot;/home/christian/workspace/Robot-Fling/build-SemesterProjekt-Desktop-Standard/Makefile&quot;  VERBOSE=1 SemesterProjekt_autogen"/>
-					<CompileFile command="/usr/bin/make -j6 -f &quot;/home/christian/workspace/Robot-Fling/build-SemesterProjekt-Desktop-Standard/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
-					<Clean command="/usr/bin/make -j6 -f &quot;/home/christian/workspace/Robot-Fling/build-SemesterProjekt-Desktop-Standard/Makefile&quot;  VERBOSE=1 clean"/>
-					<DistClean command="/usr/bin/make -j6 -f &quot;/home/christian/workspace/Robot-Fling/build-SemesterProjekt-Desktop-Standard/Makefile&quot;  VERBOSE=1 clean"/>
+					<Build command="/usr/bin/make -j4 -f &quot;/home/christian/workspace/Robot-Fling/build-SemesterProjekt-Desktop-Standard/Makefile&quot;  VERBOSE=1 SemesterProjekt_autogen"/>
+					<CompileFile command="/usr/bin/make -j4 -f &quot;/home/christian/workspace/Robot-Fling/build-SemesterProjekt-Desktop-Standard/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j4 -f &quot;/home/christian/workspace/Robot-Fling/build-SemesterProjekt-Desktop-Standard/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j4 -f &quot;/home/christian/workspace/Robot-Fling/build-SemesterProjekt-Desktop-Standard/Makefile&quot;  VERBOSE=1 clean"/>
 				</MakeCommands>
 			</Target>
 		</Build>
@@ -164,6 +164,9 @@
 		<Unit filename="/home/christian/workspace/Robot-Fling/SemesterProjekt/calibration.h">
 			<Option target="SemesterProjekt"/>
 		</Unit>
+		<Unit filename="/home/christian/workspace/Robot-Fling/SemesterProjekt/clientInfo.h">
+			<Option target="SemesterProjekt"/>
+		</Unit>
 		<Unit filename="/home/christian/workspace/Robot-Fling/SemesterProjekt/main.cpp">
 			<Option target="SemesterProjekt"/>
 		</Unit>
@@ -180,9 +183,6 @@
 			<Option target="SemesterProjekt"/>
 		</Unit>
 		<Unit filename="/home/christian/workspace/Robot-Fling/SemesterProjekt/objectdetection.h">
-			<Option target="SemesterProjekt"/>
-		</Unit>
-		<Unit filename="/home/christian/workspace/Robot-Fling/SemesterProjekt/path.h">
 			<Option target="SemesterProjekt"/>
 		</Unit>
 		<Unit filename="/home/christian/workspace/Robot-Fling/SemesterProjekt/showvideo.h">

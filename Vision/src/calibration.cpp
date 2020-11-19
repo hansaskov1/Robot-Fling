@@ -4,22 +4,7 @@
 
 Calibration::Calibration()
 {
-    cv::glob("../../Images/CalibrationImages4/img*.png", mFileNames, false);
-    if(calibrate()){
-        cv::Mat worldCalImg[4];
-        for(int i = 0; i < 4; i++){
-            cv::String path = "";
-            path = "../../Images/BallWorldCordsROI4/img" + std::to_string(i) + ".png";
-            worldCalImg[i] = cv::imread(path, cv::IMREAD_COLOR);
-        }
-        if (createTranformMatrix(worldCalImg)){
-            std::cout << "calibration sucess & transformMatrix Sucess" << std::endl;
-        }else{
-            std::cout << "calibration sucess & transformMatrix failed" << std::endl;
-        }
-    }else {
-        std::cout << "callibration failed" << std::endl;
-    }
+    cv::glob("../Images/CalibrationImages/img*.png", mFileNames, false);
 }
 
 Calibration::~Calibration()
@@ -37,10 +22,10 @@ bool Calibration::createTranformMatrix(cv::Mat undisWorldCalImg[4])
 
     ObjectDetection o;
 
-    pixelCords[0] = o.colorMorphLineByLine(undisWorldCalImg[0]);
-    pixelCords[1] = o.colorMorphLineByLine(undisWorldCalImg[1]);
-    pixelCords[2] = o.colorMorphLineByLine(undisWorldCalImg[2]);
-    pixelCords[3] = o.colorMorphLineByLine(undisWorldCalImg[3]);
+    pixelCords[0] = o.hcBallCenterPosition(undisWorldCalImg[0],10,30);
+    pixelCords[1] = o.hcBallCenterPosition(undisWorldCalImg[1],10,30);
+    pixelCords[2] = o.hcBallCenterPosition(undisWorldCalImg[2],10,30);
+    pixelCords[3] = o.hcBallCenterPosition(undisWorldCalImg[3],10,30);
 
     //World coordinats
     cv::Point2f worldCords[4];
@@ -53,9 +38,6 @@ bool Calibration::createTranformMatrix(cv::Mat undisWorldCalImg[4])
     //get perspektive transformation Matrix
     tMat = cv::getPerspectiveTransform(pixelCords,worldCords);
     pixelToWorld = tMat;
-    bool success;
-    (pixelToWorld.empty()) ? success=false : success=true;
-    return success;
 }
 
 cv::Mat Calibration::calcTransMatCamToWorld(cv::Point2f targetPixelPos)
@@ -85,11 +67,10 @@ bool Calibration::connectToCam()
         //std::cout << "fisk" << std::endl;
         nuTid = std::chrono::high_resolution_clock::now();
         if(std::chrono::duration_cast<std::chrono::microseconds>(nuTid - startTid) > std::chrono::milliseconds(10000)){
-            mCvImage = cv::imread("../../Images/CalibrationImages4/img0.png", cv::IMREAD_COLOR);
-            return false;
+            mCvImage = cv::imread("../Images/CalibrationImages/img0.png", cv::IMREAD_COLOR);
+            break;
         }
     }
-    return true;
 }
 
 bool Calibration::calibrate()
@@ -110,7 +91,7 @@ bool Calibration::calibrate()
       //std::cout << std::string(f) << std::endl;
       img = cv::imread(f,CV_8UC3);
 
-      bool patternFound = false;
+      bool patternFound;
 
       // 1. Read in the image an call cv::findChessboardCorners()
       patternFound = cv::findChessboardCorners(img,cv::Size(mPatternSize.width-1,mPatternSize.height-1), q[i],cv::CALIB_CB_FAST_CHECK | cv::CALIB_CB_ADAPTIVE_THRESH | cv::CALIB_CB_NORMALIZE_IMAGE);
@@ -136,11 +117,9 @@ bool Calibration::calibrate()
 
 
     std::cout << "Calibrating..." << std::endl;
-    float error = cv::calibrateCamera(objpoints ,q ,frameSize , K, k, rvecs, tvecs,
-                                      stdIntrinsics, stdExtrinsics,
-                                      perViewErrors,flags,
-                                      cv::TermCriteria(cv::TermCriteria::COUNT + cv::TermCriteria::EPS,
-                                                       5,DBL_EPSILON));
+    float error = cv::calibrateCamera(objpoints ,q ,frameSize , K, k, rvecs, tvecs, stdIntrinsics, stdExtrinsics,
+                                      perViewErrors,flags,cv::TermCriteria(cv::TermCriteria::COUNT + cv::TermCriteria::EPS, 5,
+                                                                          DBL_EPSILON));
     // 4. Call "float error = cv::calibrateCamera()" with the input coordinates
     // and output parameters as declared above...
 
@@ -150,35 +129,98 @@ bool Calibration::calibrate()
 
     cv::initUndistortRectifyMap(K, k, cv::Matx33f::eye(), K, frameSize, CV_32FC1,
                                 mMapX, mMapY);
-    bool success;
-    (mMapX.empty() && mMapY.empty()) ? success=false : success=true;
-    return success;
+
+
+}
+
+bool Calibration::calibrate2()
+{
+//    std::vector<cv::String> fileNames;
+//    cv::glob("../calibrationImages/Image*.png", fileNames, false);
+    cv::Size patternSize(10 - 1, 7 - 1);
+    std::vector<std::vector<cv::Point2f>> q(mFileNames.size());
+
+    // Detect feature points
+
+    std::size_t i = 0;
+    for (auto const &f : mFileNames) {
+      std::cout << std::string(f) << std::endl;
+
+      cv::Mat img = cv::imread(f, cv::IMREAD_COLOR);
+      cv::Mat imgGray;
+      cv::cvtColor(img, imgGray, CV_BGR2GRAY);
+      bool success = cv::findChessboardCorners(imgGray, patternSize, q[i],
+                                               cv::CALIB_CB_ADAPTIVE_THRESH +
+                                                   cv::CALIB_CB_NORMALIZE_IMAGE);
+
+      if (!success) {
+        std::cout << "Could not find chessboard!" << std::endl;
+        continue;
+      }
+
+      cv::cornerSubPix(imgGray, q[i], cv::Size(5, 5), cv::Size(2, 2),
+                       cv::TermCriteria());
+
+      // Display
+//      cv::drawChessboardCorners(img, patternSize, q[i], success);
+//      cv::imshow("chessboard detection", img);
+//      cv::waitKey(0);
+
+      i++;
+    }
+
+    std::vector<cv::Point3f> Qview;
+    for (int i = 0; i < patternSize.height; i++) {
+      for (int j = 0; j < patternSize.width; j++) {
+        Qview.push_back(cv::Point3f(i * 0.015f, j * 0.015f, 0.0f));
+      }
+    }
+    std::vector<std::vector<cv::Point3f>> Q;
+    for (size_t i = 0; i < q.size(); i++)
+      Q.push_back(Qview);
+
+    cv::Matx33f K(cv::Matx33f::eye());  // intrinsic camera matrix
+    cv::Vec<float, 5> k(0, 0, 0, 0, 0); // distortion coefficients
+
+    std::vector<cv::Mat> rvecs, tvecs;
+    std::vector<double> stdIntrinsics, stdExtrinsics, perViewErrors;
+    int flags = cv::CALIB_FIX_ASPECT_RATIO + cv::CALIB_FIX_K3 +
+                cv::CALIB_ZERO_TANGENT_DIST + cv::CALIB_FIX_PRINCIPAL_POINT;
+    cv::Size frameSize(1440, 1080);
+
+    std::cout << "Calibrating..." << std::endl;
+    double error = cv::calibrateCamera(
+        Q, q, frameSize, K, k, rvecs, tvecs, stdIntrinsics, stdExtrinsics,
+        perViewErrors, flags,
+        cv::TermCriteria(cv::TermCriteria::COUNT + cv::TermCriteria::EPS, 5,
+                         DBL_EPSILON));
+
+    std::cout << "Reprojection error = " << error << "\nK =\n"
+              << K << "\nk=\n"
+              << k << std::endl;
+
+    // Precompute lens correction interpolation
+    //cv::Mat mapX, mapY;
+    cv::initUndistortRectifyMap(K, k, cv::Matx33f::eye(), K, frameSize, CV_32FC1,
+                                mMapX, mMapY);
 }
 
 cv::Mat Calibration::getImage()
 {
-
-    // Top, buttom, left right
-    // Celle 2 : -190 , -200 , -430 , -300
-
-
-    // Celle 4 : -185 , -190 , -400 , -345
-
     cv::Mat imageIn, imageOut;
     //std::cout << "mtx locking for out.." << std::endl;
     while(!mtx.try_lock()){
     }
     //td::cout << "mtx locked for out" << std::endl;
     if(!mCvImage.data || !camRunning){
-        return cv::imread("../../Images/BallWorldCords4/img0.png",cv::IMREAD_COLOR);
+        return cv::imread("../Images/BallWorldCords/img0.png",cv::IMREAD_COLOR);
     }else{
         imageIn = mCvImage;
     }
     mtx.unlock();
     //std::cout << "mtx unlocked for out" << std::endl;
     cv::remap(imageIn,imageOut,mMapX,mMapY,1,1);
-    imageOut.adjustROI(-185,-190,-400,-345);
-    //imageOut.adjustROI(-190,-200,-430,-300);
+    imageOut.adjustROI(-190,-200,-430,-300);
     return imageOut;
 }
 
@@ -187,11 +229,34 @@ cv::Mat Calibration::getRawImage()
     cv::Mat imageIn;
     while(!mtx.try_lock()){
     }
-
     imageIn = mCvImage;
     mtx.unlock();
+    //imageIn.adjustROI(-180,-190,-420,-290);
 
     return imageIn;
+}
+
+cv::Mat tranformMatrix(cv::Mat undistortedImage, cv::Point2f pixelCords[4], cv::Point2f worldCords[4])
+{
+
+    //Define mat size and type
+    cv::Mat tMat = cv::Mat::zeros(undistortedImage.rows,undistortedImage.cols,undistortedImage.type());
+
+    //pixel coordiants
+    pixelCords[0] = cv::Point2f();
+    pixelCords[1] = cv::Point2f();
+    pixelCords[2] = cv::Point2f();
+    pixelCords[3] = cv::Point2f();
+
+    //World coordinats
+    worldCords[0] = cv::Point2f();
+    worldCords[1] = cv::Point2f();
+    worldCords[2] = cv::Point2f();
+    worldCords[3] = cv::Point2f();
+
+    //get perspektive transformation Matrix
+    tMat = cv::getPerspectiveTransform(pixelCords,worldCords);
+    return tMat;
 }
 
 void Calibration::grapPictures()

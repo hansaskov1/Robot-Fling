@@ -25,8 +25,6 @@ public:
 
     //cv::Point2f hcBallCenterPosition(cv::Mat image,int innerCircleSize, int outCircleSize);
 
-    void init(int);
-
     bool createTranformMatrix(cv::Mat undisWorldCalImg[4]);
 
     cv::Mat calcTransMatCamToWorld(cv::Point2f targetPixelPos);

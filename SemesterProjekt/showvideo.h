@@ -4,31 +4,29 @@
 #include <QThread>
 #include <QThreadPool>
 #include <QLabel>
-#include <thread>
-#include <chrono>
 #include "mainwindow.h"
 
 class showVideo : public QRunnable
 {
 public:
-    showVideo (QLabel *label, Calibration *value) {
+    showVideo (QLabel *label) {
         mLabel = label;
-        c = value;
-        mLabel->setScaledContents(true);
     }
-
     void run() {
-        while(c->mRun) {
-            image = c->getImage();
-            mLabel->setPixmap(QPixmap::fromImage(QImage((const uchar*)image.data, image.cols, image.rows, image.step, QImage::Format_RGB888).rgbSwapped()));
-            std::this_thread::sleep_for (std::chrono::milliseconds(100));
+        while(true) {
+            image = c.getImage();
+            const uchar *qImageBuffer = (const uchar*)image.data;
+            QImage img(qImageBuffer, image.cols, image.rows, image.step, QImage::Format_RGB888);
+            pixmap = QPixmap::fromImage(img.rgbSwapped());
+            mLabel->setPixmap(pixmap);
+            mLabel->setScaledContents(true);
         }
     }
-
 private:
     QLabel *mLabel;
-    Calibration *c;
+    Calibration c;
     cv::Mat image;
+    QPixmap pixmap;
 };
 
 #endif // SHOWVIDEO_H

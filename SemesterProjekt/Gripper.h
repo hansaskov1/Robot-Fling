@@ -35,19 +35,14 @@ public:
             return connectFlag;
         }
 
-        bool hasGripped() {
-            return gripped;
-        }
-
         void disconnect() {
             qDebug() << "Disconnect called";
-            ToCloseSocket();
+            ToSendData("BYE()\n");
         }
 
         void open() {
             qDebug() << "Open called";
             ToSendData("RELEASE()\n");
-            gripped = false;
         }
 
         void close() {
@@ -87,6 +82,7 @@ private slots:
                     connect(mySocket, SIGNAL(readyRead()), this, SLOT(ReceiveData()));
                     connect(mySocket,&QTcpSocket::connected,this,[=]()
                     {
+                        noAckTimes = 0;
                         connectFlag = true;
                     });
                     connect(mySocket,&QTcpSocket::disconnected,this,[=]()
@@ -103,11 +99,10 @@ private slots:
 
         void ReceiveData() //Socket receive data slot function
         {
+            noAckTimes = 0;
             if (mySocket->isReadable())
             {
-                if (mySocket->readAll() == "FIN GRIP\n")
-                    gripped = true;
-                qDebug(mySocket->readAll());
+                qDebug() << mySocket->readAll();
             }
         }
 
@@ -117,7 +112,7 @@ private slots:
                 {
                     if (data.size() != mySocket->write(data))
                     {
-                        qDebug() << "Der er noget der driller";
+                        qDebug() << "Noget gik gal";
                     }
                 }
         }
@@ -135,9 +130,63 @@ private slots:
         QThread* myThread{ nullptr };//Own thread to prevent receiving and sending data from blocking other threads
         QTcpSocket* mySocket{ nullptr };
         bool connectFlag{false};//Connection status flag with server
+        quint16 noAckTimes{0};//The number of times the server did not receive a reply
         quint16 serverPort{0};//Server port
         QString serverIp;//Server Ip
-        bool gripped {false};
+/*
+    void connectGripper(std::string IP) {
+        qDebug() << "Trying to connect";
+        QString newIP = QString::fromStdString(IP);
+        gripperSocket.connectToHost(QHostAddress(newIP), port);
+        //connect(&gripperSocket, SIGNAL(readyRead()), this, SLOT(onReadyRead()));
+        if (gripperSocket.waitForConnected(3000))
+            qDebug() << "Connected";
+        else {
+            qDebug() << "Den gik ikke";
+        }
+    }
+
+    void disconnect() {
+       qDebug() << gripperSocket.write("BYE()\n");
+       gripperSocket.close();
+    }
+
+    void open() {
+        qDebug() << "Open called";
+        qDebug() << gripperSocket.write("RELEASE()\n");
+    }
+
+    void close() {
+        qDebug() << "Close called";
+        qDebug() << gripperSocket.write("GRIP()\n");
+    }
+
+    void close(double force) {
+        qDebug() << "Close called";
+        QByteArray grip = QByteArray::fromStdString("GRIP(" + std::to_string(force) + ")\n");
+        qDebug() << gripperSocket.write(grip);
+    }
+
+    void close(double force, double size, double speed) {
+        qDebug() << "Close called";
+        QByteArray grip = QByteArray::fromStdString("GRIP(" + std::to_string(force) + ", " + std::to_string(size) + ", " + std::to_string(speed) + ")\n");
+        qDebug() << gripperSocket.write(grip);
+    }
+
+    void home() {
+        qDebug() << "Home called";
+        qDebug() << gripperSocket.write("HOME()\n");
+    }
+
+    void setPort(int value) { port = value; }
+
+private:
+    int port = 42069;
+    QTcpSocket gripperSocket;
+
+
+public slots:
+    void onReadyRead() { QByteArray datas = gripperSocket.readAll(); }*/
 };
 
 #endif // GRIPPER_H

@@ -5,17 +5,34 @@ using namespace std::chrono;
 
 MainWindow::MainWindow(QWidget *parent)
     : QMainWindow(parent)
-    , ui(new Ui::MainWindow)
+    , ui(new Ui::MainWindow),
+      _socket(this)
 {
     ui->setupUi(this);
 
-    video = new showVideo(ui->lImage, &c);
+    c.calibrate2();
+    c.connectToCam();
+
+    //showVideo *video = new showVideo(ui->lImage, c);
+    //QThreadPool::globalInstance()->start(video);
+
+    for(int i = 0; i < 4; i++){
+        cv::String path = "";
+        path = "../Images/BallWorldCordsROI/img" + std::to_string(i) + ".png";
+        worldCalImg[i] = cv::imread(path, cv::IMREAD_COLOR);
+    }
+
+    c.createTranformMatrix(worldCalImg);
 }
 
 MainWindow::~MainWindow()
 {
     delete ui;
-    delete video;
+}
+
+void MainWindow::onReadyRead()
+{
+    QByteArray datas = _socket.readAll();
 }
 
 void MainWindow::on_bSend_clicked()
@@ -38,74 +55,68 @@ void MainWindow::on_bSend_clicked()
         break;
     }
 
+    const uchar *qImageBuffer = (const uchar*)image.data;
+    QImage img(qImageBuffer, image.cols, image.rows, image.step, QImage::Format_RGB888);
+    pixmap = QPixmap::fromImage(img.rgbSwapped());
+    ui->lImage->setPixmap(pixmap);
+    ui->lImage->setScaledContents(true);
+
     if (ballPos.x && ballPos.y)
     {
         rw::math::Vector3D<> ballPosition(camToBall.at<float>(0,3)*0.01,camToBall.at<float>(1,3)*0.01,camToBall.at<float>(2,3)*0.01);
-        //rw::math::Vector3D<> ballPosition(0.2,0.2,0.1);
-
-        RC.getBall(ballPosition,0.05);
-
-        //if (sql.insert(RC.getThrow()))
-            //ui->statusbar->showMessage("Inserted to database", 3000);
+        RC.getBall(ballPosition,0.2);
     }
 }
 
 void MainWindow::on_bOpenGrip_clicked()
 {
-    //gripper.open();
+    gripper.open();
     ui->statusbar->showMessage("Opening Gripper", 2000);
 }
 
 void MainWindow::on_bCloseGrip_clicked()
 {
-    //gripper.close();
+    if (speed != 0)
+        gripper.close(force, size, speed);
+    else if (force != 0)
+        gripper.close(force);
+    else
+        gripper.close();
     ui->statusbar->showMessage("Closing Gripper", 2000);
 }
 
 void MainWindow::on_bCalibrate_clicked()
 {
     c.calibrate();
-    //gripper.home(); //Send code til server til at ændre status af gripperen
-    //qDebug() << gripper.GetConnectStatus();
-    ui->statusbar->showMessage("Calibrating", 3000);
+    c.createTranformMatrix(worldCalImg);
+    gripper.home(); //Send code til server til at ændre status af gripperen
+    qDebug() << gripper.GetConnectStatus();
+    ui->statusbar->showMessage("Calibrating Gripper", 3000);
 }
 
 void MainWindow::on_bSaveConnect_clicked()
 {
-    std::string robotIP = ui->liIP->text().toStdString();
-    QString gripperIP = ui->liGripperIP->text();
-    if (robotIP == "192.168.100.49") {
-        if (gripperIP == "192.168.100.20")
-            c.init(1);
-        if (gripperIP == "192.168.100.10")
-            c.init(4);
-    }
-    if (robotIP == "192.168.100.53")
-        c.init(2);
+    clientInfo client;
+    //c.setIP(ui->liIP->text().toStdString());
+    //c.setPort(ui->liPort->text().toInt());
 
-    c.connectToCam();
+    //QString newIP = QString::fromStdString(c.getIP());
 
-    QThreadPool::globalInstance()->start(video);
+    //_socket.connectToHost(QHostAddress(newIP), c.getPort());
+    //connect(&_socket, SIGNAL(readyRead()), this, SLOT(onReadyRead()));
 
-    // Robot cal for table 4
-    rw::math::Vector3D<> PCal(0.404933521031581,0.911568253889385,0.040065747515709);
-    rw::math::Rotation3D<double> RCal(0.927485860124202,0.373761533519894,-0.008502666083409,-0.373842123595955,0.927417138009057,-0.011811805634918,0.003470719656776,0.014133937453771,0.999894087349814);
+    rw::math::Vector3D<> PCal(0.400624689065891, 0.901530744085863, 0.042187492976487);
+    rw::math::Rotation3D<double> RCal(0.923890908941640 ,0.382647484711815,-0.002547708521920,-0.382655561588167,0.923879135480505,-0.004697255522142,0.000556381736091,0.005314646509101,0.999985722383999);
 
-    // Robot cal for table 2
-    //rw::math::Vector3D<> PCal(0.400624689065891, 0.901530744085863, 0.042187492976487);
-    //rw::math::Rotation3D<double> RCal(0.923890908941640 ,0.382647484711815,-0.002547708521920,-0.382655561588167,0.923879135480505,-0.004697255522142,0.000556381736091,0.005314646509101,0.999985722383999);
+    RC.setParam("127.0.0.1",PCal,RCal);
 
-    RC.setParam(robotIP, gripperIP, PCal, RCal);
-
-    if (sql.connect("192.168.221.1", "ubuntu", "Tarzan12!", "throwdb"))
-        ui->statusbar->showMessage("Connected", 3000);
-
-    //gripper.Init();
-    //gripper.ToConnectToHost("192.168.100.10", 1000);
+    gripper.Init();
+    gripper.ToConnectToHost("192.168.100.10", 1000);
+    ui->statusbar->showMessage("Connected", 3000);
 }
 
 void MainWindow::on_bDisconnect_clicked()
 {
-    //gripper.disconnect();
+    gripper.disconnect();
     c.mRun = false;
 }
