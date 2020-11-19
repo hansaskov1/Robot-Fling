@@ -1,7 +1,6 @@
 #ifndef MAINWINDOW_H
 #define MAINWINDOW_H
 
-#include "clientInfo.h"
 #include "Gripper.h"
 #include <string.h>
 #include <QMainWindow>
@@ -9,11 +8,13 @@
 #include <QDebug>
 #include <QHostAddress>
 #include <QString>
+#include <QTimer>
 #include "calibration.h"
 #include "objectdetection.h"
 #include "showvideo.h"
-#include "DetectCollision.h"
+//#include "DetectCollision.h"
 #include "RobotControl.h"
+#include "sqlcontroller.h"
 
 QT_BEGIN_NAMESPACE
 namespace Ui { class MainWindow; }
@@ -26,9 +27,6 @@ class MainWindow : public QMainWindow
 public:
     MainWindow(QWidget *parent = 0);
     ~MainWindow();
-
-public slots:
-    void onReadyRead();
 
 private slots:
     void on_bSend_clicked();
@@ -45,16 +43,12 @@ private slots:
 
 private:
     Ui::MainWindow *ui;
-    QTcpSocket _socket;
-    quint32 newIP;
-    double force = 0, speed = 0, size = 0;
     Calibration c;
     ObjectDetection o;
     cv::Mat image;
-    cv::Mat worldCalImg[4];
-    QPixmap pixmap;
-    Gripper gripper;
     RobotControl RC;
+    SQLController sql;
+    showVideo *video;
 };
 
 #endif // MAINWINDOW_H
