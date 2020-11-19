@@ -1,0 +1,139 @@
+<TreeDevice name="WSG50">
+
+  <!--BASE-->
+  <Frame name="Base1" type="Fixed">
+    <RPY> 0 0 0 </RPY>
+    <Pos> 0 0 0 </Pos>
+  </Frame>
+
+  <!--####################################################-->
+
+  <!--LEFT FINGER-->
+  <Joint name="Finger1" refframe="Base1" type="Prismatic">
+    <RPY>0 90 180</RPY> <Pos>0 0 0</Pos>
+  </Joint>
+
+  <!--LEFT FINGER TCP FRAME-->
+  <Frame name="TCPFinger1" refframe="Finger1" type="EndEffector">
+  </Frame>
+
+  <Frame name="FingerTipMount1" refframe="Finger1" type="Fixed">
+    <RPY>0 0 0</RPY> <Pos>-0.072 0 0</Pos>
+  </Frame>
+
+
+  
+  <!--####################################################-->
+
+  <!--RIGHT FINGER-->
+  <Joint name="Finger2" refframe="Base1" type="Prismatic">
+    <RPY>0 90 0</RPY> <Pos>0 0 0</Pos>
+    <Depend on="Finger1" gain="1" offset="0" />
+  </Joint>
+
+  <!--RIGHT FINGER TCP FRAME-->
+  <Frame name="TCPFinger2" refframe="Finger2" type="EndEffector">
+  </Frame>
+
+  <Frame name="FingerTipMount2" refframe="Finger2" type="Fixed">
+    <RPY>0 0 0</RPY> <Pos>-0.072 0 0</Pos>
+  </Frame>
+
+  <!--####################################################-->
+
+  <Frame name="TCP" refframe="Base1" type="EndEffector">
+    <RPY>0 0 0</RPY> <Pos>0 0 0.01</Pos>
+  </Frame>
+
+
+  <!-- JOINT POSITION AND VELOCITY LIMITS-->
+
+  <PosLimit refjoint="Finger1" min="0.0" max="0.055" />  
+  <VelLimit refjoint="Finger1" max="0.42" /> 
+<!--  <PosLimit refjoint="Finger2" min="0.0" max="0.055" /> -->
+<!--  <VelLimit refjoint="Finger2" max="0.42"/> -->
+
+	<!--####################################################-->
+
+	<!--Plastik box-->
+
+	<Frame name="BoxBot" refframe="Base1" >
+		<RPY> 0 0 0 </RPY>
+		<Pos> -0.091 -0.0005 -0.052 </Pos>
+	</Frame>
+	<Drawable name="BoxBot" refframe="BoxBot">
+		<RPY> 0 0 0 </RPY>
+		<Pos> 0 0 0 </Pos>
+		<Box x="0.035" y="0.042" z="0.004" />
+	</Drawable>
+
+	<Frame name="BoxSideL" refframe="Base1" >
+		<RPY> 0 0 0 </RPY>
+		<Pos> -0.091 -0.024 -0.08 </Pos>
+	</Frame>
+	<Drawable name="BoxSideL" refframe="BoxSideL">
+		<RPY> 0 0 0 </RPY>
+		<Pos> 0 0 0 </Pos>
+		<Box x="0.035" y="0.004" z="0.06" />
+	</Drawable>
+
+	<Frame name="BoxSideR" refframe="Base1" >
+		<RPY> 0 0 0 </RPY>
+		<Pos> -0.091 0.023 -0.08 </Pos>
+	</Frame>
+	<Drawable name="BoxSideR" refframe="BoxSideR">
+		<RPY> 0 0 0 </RPY>
+		<Pos> 0 0 0 </Pos>
+		<Box x="0.035" y="0.004" z="0.06" />
+	</Drawable>
+
+	<!--####################################################-->
+
+  <!-- DRAWABLES-->
+
+  <Drawable name="BaseGeo1" refframe="Base1">
+    <RPY> 0 0 -90 </RPY>
+    <Pos> 0 0 -0.0719 </Pos>
+    <Polytope file="geometry/wsg50base" />
+  </Drawable>
+  
+    <Drawable name="Finger1MountGeo" refframe="Finger1">
+    <RPY>180 -90 90</RPY>
+    <Pos>0 0 0</Pos>
+    <Polytope file="geometry/FingerWeiss50_mount" />
+  </Drawable>
+
+    <Drawable name="Finger2MountGeo" refframe="Finger2">
+    <RPY>180 -90 90</RPY>
+    <Pos>0 0 0</Pos>
+    <Polytope file="geometry/FingerWeiss50_mount" />
+  </Drawable>
+
+  <Drawable name="Finger1Geo" refframe="Finger1">
+	<RPY>180 -90 -90</RPY><Pos>-0.024 0 0</Pos>
+	<Polytope file="geometry/FingerWeiss50" />
+  </Drawable>
+
+  <Drawable name="Finger2Geo" refframe="Finger2">
+	<RPY>180 -90 -90</RPY><Pos>-0.024 0 0</Pos>
+	<Polytope file="geometry/FingerWeiss50" />
+  </Drawable>
+
+  <Drawable name="Finger1TipGeo" refframe="FingerTipMount1">
+	<RPY>0 0 90</RPY><Pos>0 0 -0.00001</Pos>
+	<Polytope file="geometry/FingerWeiss50_tip" />
+  </Drawable>
+
+  <Drawable name="Finger2TipGeo" refframe="FingerTipMount2">
+	<RPY>0 0 90</RPY><Pos>0 0 -0.00001</Pos>
+	<Polytope file="geometry/FingerWeiss50_tip" />
+  </Drawable>
+  
+
+
+  <!-- collision setup -->
+  <CollisionSetup file ="GripperCollisionSetup.xml"/>
+
+  <Q name="Home">0.025</Q>	
+
+</TreeDevice>

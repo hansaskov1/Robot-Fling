@@ -48,6 +48,7 @@ public:
         mCalPos = calPos;
         mCalRot = calRot;
         mInvCalRot = calRot.inverse();
+
     }
 
     void setParam(std::string ipAdress, QString gripIpAdress, rw::math::Vector3D<> calPos, rw::math::Rotation3D<> calRot) {
@@ -190,10 +191,9 @@ public:
 
         std::vector<std::vector<std::vector<double>>> QFullPath;
 
-        std::string path = "../Scenes/XMLScenes/RobotOnTable/Scene.xml";
-        DetectCollision dc(path);
+        DetectCollision dc(scenePath);
 
-        std::cout << "RobWork Collision check. Not yet tested" << std::endl;
+        std::cout << "RobWork Collision check" << std::endl;
         std::cout << dc.isCollision(50, qHome) << std::endl;                                                      //for (rw::math::Q &qValues : dc.getQVec()){ std::cout << qValues << std::endl;}
         std::cout << dc.isCollision(50, qSafeGrib) << std::endl;                                                  //for (rw::math::Q &qValues : dc.getQVec()){ std::cout << qValues << std::endl;}
         std::cout << dc.isCollisionUR(50,rw::math::Transform3D<>(posGribReadyR, rpyGribReady)) << std::endl;      //for (rw::math::Q &qValues : dc.getQVec()){ std::cout << qValues << std::endl;}
@@ -225,7 +225,7 @@ public:
 
         for (std::vector<std::vector<double>> &qPath : QFullPath )
         {
-            std::cout << "New Path" << std::endl;
+           /* std::cout << "New Path" << std::endl;
             for (std::vector<double> &qValues : qPath)
             {
                 std::cout << "{";
@@ -234,7 +234,7 @@ public:
                     std::cout << joint << " ";
                 }
                 std::cout << "}"<< std::endl;
-            }
+            }*/
             collisionList.push_back(dc.isCollision(qPath));
         }
 
@@ -312,6 +312,7 @@ public:
     //680.5mm
 
     //BL = R*Vinkel
+    /*
     void rotateThrow(double angleThrow, double speed, double acceleration, rw::math::Vector3D<double> cupPos){
         rw::math::Vector3D<double> robBase(40,90,0);
         rw::math::Vector3D<double> cupPosR = cupPos - robBase;
@@ -324,6 +325,7 @@ public:
 
     }
 
+    */
     rw::math::Vector3D<double> rampPose(double hastighed, double acceleration, double vinkel, rw::math::Vector3D<double> throwPose, rw::math::Vector3D<double> &stopPose)
     {
         double timeFromThrowPose = hastighed/acceleration;
@@ -559,6 +561,7 @@ private:
  rw::math::Rotation3D<> mCalRot;
  rw::math::Rotation3D<> mInvCalRot;
  Throw mThrow;
+ const std::string  scenePath = "../Scenes/XMLScenes/RobotOnTable/Scene.xml";
 };
 
 

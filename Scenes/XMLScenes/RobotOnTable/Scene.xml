@@ -39,15 +39,17 @@
 	</Drawable>
 	
 	<Frame name="URMount">
-		<RPY>90 0 0</RPY>
-		<Pos>-0.425 -0.925 0.017</Pos>
+		<RPY>157.14 0 0</RPY>
+		<Pos>-0.425 -0.925 0.035</Pos>
 	</Frame>
-	<Include file="../../XMLDevices/UR-6-85-5-A/UR.wc.xml" />
-
-	<Frame name="Griber" refframe="UR-6-85-5-A.Joint5">
+	<Include file="../../XMLDevices/UR5_2017/UR5.xml" />
+	
+	<Frame name="Griber" refframe="UR5_2017.Joint5">
 		<RPY> 0 0 0 </RPY>
-		<Pos> 0 0 0.154 </Pos>
+		<Pos> 0 0 0.175 </Pos>
 	</Frame>
-	<Include file="../../XMLDevices/UR-6-85-5-A/wsg50/wsg50.xml" />
+	<Include file="../../XMLDevices/UR5_2017/wsg50/wsg50.xml" />
+
+
 
 </WorkCell>

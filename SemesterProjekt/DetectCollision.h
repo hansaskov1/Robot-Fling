@@ -40,7 +40,7 @@ public:
              mDevice = workcell->getDevices().front();
              mState = workcell->getDefaultState();
              mDetector = rw::common::ownedPtr(new rw::proximity::CollisionDetector(workcell, rwlibs::proximitystrategies::ProximityStrategyFactory::makeDefaultCollisionStrategy()));
-             mSerialDevice = workcell->findDevice<rw::models::SerialDevice>("UR-6-85-5-A");
+             mSerialDevice = workcell->findDevice<rw::models::SerialDevice>("UR5_2017");
         } else
         {
             RW_THROW("WorkCell could not be loaded.");
@@ -121,7 +121,9 @@ public:
             setState(closestPose);
             if (checkCollision())
             {
-                std::cout << "Collision occured at" << T << std::endl;
+                std::cout << "Collision occured at" << closestPose << std::endl;
+                 QVec.push_back(closestPose);
+                 mQVec = QVec;
                 return true;
             }
 
