@@ -11,11 +11,28 @@ Calibration::~Calibration()
 {
     delete &mtx;
 }
-
+//imageOut.adjustROI(-180,-190,-420,-290);
+//imageOut.adjustROI(-190,-200,-430,-300);
 void Calibration::init(int celleNr)
 {
     std::string path = "../Images/CalibrationImages" + std::to_string(celleNr) + "/img*.png";
     cv::glob(path, mFileNames, false);
+    switch (celleNr) {
+    case 2:
+        mROI[0] = -180;
+        mROI[1] = -190;
+        mROI[2] = -420;
+        mROI[3] = -290;
+        break;
+    case 4:
+        mROI[0] = -190;
+        mROI[1] = -200;
+        mROI[2] = -430;
+        mROI[3] = -300;
+        break;
+    default:
+        break;
+    }
     if(calibrate()){
         cv::Mat worldCalImg[4];
         for(int i = 0; i < 4; i++){
@@ -175,7 +192,7 @@ cv::Mat Calibration::getImage()
     mtx.unlock();
     //std::cout << "mtx unlocked for out" << std::endl;
     cv::remap(imageIn,imageOut,mMapX,mMapY,1,1);
-    imageOut.adjustROI(-180,-190,-420,-290);
+    imageOut.adjustROI(mROI[0],mROI[1],mROI[2],mROI[3]);
     //imageOut.adjustROI(-190,-200,-430,-300);
     return imageOut;
 }
