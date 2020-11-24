@@ -14,12 +14,13 @@ Calibration::~Calibration()
 
 void Calibration::init(int celleNr)
 {
-    cv::glob("../Images/CalibrationImages2/img*.png", mFileNames, false);
+    std::string path = "../Images/CalibrationImages" + std::to_string(celleNr) + "/img*.png";
+    cv::glob(path, mFileNames, false);
     if(calibrate()){
         cv::Mat worldCalImg[4];
         for(int i = 0; i < 4; i++){
             cv::String path = "";
-            path = "../Images/BallWorldCordsROI2/img" + std::to_string(i) + ".png";
+            path = "../Images/BallWorldCordsROI" + std::to_string(celleNr) + "/img" + std::to_string(i) + ".png";
             worldCalImg[i] = cv::imread(path, cv::IMREAD_COLOR);
         }
         if (createTranformMatrix(worldCalImg)){
@@ -89,7 +90,7 @@ bool Calibration::connectToCam()
         //std::cout << "fisk" << std::endl;
         nuTid = std::chrono::high_resolution_clock::now();
         if(std::chrono::duration_cast<std::chrono::microseconds>(nuTid - startTid) > std::chrono::milliseconds(10000)){
-            mCvImage = cv::imread("../Images/CalibrationImages2/img0.png", cv::IMREAD_COLOR);
+            mCvImage = cv::imread("../Images/Warning.png", cv::IMREAD_COLOR);
             return false;
         }
     }
@@ -167,7 +168,7 @@ cv::Mat Calibration::getImage()
     }
     //td::cout << "mtx locked for out" << std::endl;
     if(!mCvImage.data || !camRunning){
-        return cv::imread("../Images/BallWorldCords2/img0.png",cv::IMREAD_COLOR);
+        return cv::imread("../Images/Warning.png",cv::IMREAD_COLOR);
     }else{
         imageIn = mCvImage;
     }
