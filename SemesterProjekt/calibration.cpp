@@ -14,12 +14,12 @@ Calibration::~Calibration()
 
 void Calibration::init(int celleNr)
 {
-    cv::glob("../Images/CalibrationImages/img*.png", mFileNames, false);
+    cv::glob("../Images/CalibrationImages2/img*.png", mFileNames, false);
     if(calibrate()){
         cv::Mat worldCalImg[4];
         for(int i = 0; i < 4; i++){
             cv::String path = "";
-            path = "../Images/BallWorldCordsROI/img" + std::to_string(i) + ".png";
+            path = "../Images/BallWorldCordsROI2/img" + std::to_string(i) + ".png";
             worldCalImg[i] = cv::imread(path, cv::IMREAD_COLOR);
         }
         if (createTranformMatrix(worldCalImg)){
@@ -85,12 +85,11 @@ bool Calibration::connectToCam()
     auto startTid = std::chrono::high_resolution_clock::now();
     auto nuTid = std::chrono::high_resolution_clock::now();
     grapThread = new std::thread (&Calibration::grapPictures, this);
-
     while(!camRunning){
         //std::cout << "fisk" << std::endl;
         nuTid = std::chrono::high_resolution_clock::now();
         if(std::chrono::duration_cast<std::chrono::microseconds>(nuTid - startTid) > std::chrono::milliseconds(10000)){
-            mCvImage = cv::imread("../Images/CalibrationImages/img0.png", cv::IMREAD_COLOR);
+            mCvImage = cv::imread("../Images/CalibrationImages2/img0.png", cv::IMREAD_COLOR);
             return false;
         }
     }
@@ -168,14 +167,15 @@ cv::Mat Calibration::getImage()
     }
     //td::cout << "mtx locked for out" << std::endl;
     if(!mCvImage.data || !camRunning){
-        return cv::imread("../Images/BallWorldCords/img0.png",cv::IMREAD_COLOR);
+        return cv::imread("../Images/BallWorldCords2/img0.png",cv::IMREAD_COLOR);
     }else{
         imageIn = mCvImage;
     }
     mtx.unlock();
     //std::cout << "mtx unlocked for out" << std::endl;
     cv::remap(imageIn,imageOut,mMapX,mMapY,1,1);
-    imageOut.adjustROI(-190,-200,-430,-300);
+    imageOut.adjustROI(-180,-190,-420,-290);
+    //imageOut.adjustROI(-190,-200,-430,-300);
     return imageOut;
 }
 
@@ -271,6 +271,7 @@ void Calibration::grapPictures()
             // Image grabbed successfully?
             if (ptrGrabResult->GrabSucceeded())
             {
+
                 // Access the image data.
                 //cout << "SizeX: " << ptrGrabResult->GetWidth() << endl;
                 //cout << "SizeY: " << ptrGrabResult->GetHeight() << endl;
