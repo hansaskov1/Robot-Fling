@@ -17,9 +17,11 @@ int main(int argc, char *argv[])
     RobotControl RC("127.0.0.1",PCal,RCal);
     rw::math::Vector3D<> ballPosition(0.20,0.20,0.05);
 
+    rw::math::Vector3D<> pCup(0.4, 0.2, 0.05);
+    rw::math::Vector3D<> pThrow(0.3 , 0.7, 0.4);
 
-    RC.getBall(ballPosition,0.2);
-    //std::cout << "call throw ball" << std::endl;
-    //RC.throwBall(0.05);
+    const double pi = 3.1415;
+
+    RC.throwBallLinear(pCup, pThrow, pi/4, 0.3);
 
 }
