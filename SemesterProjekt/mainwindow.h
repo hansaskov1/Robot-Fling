@@ -31,10 +31,6 @@ public:
 private slots:
     void on_bSend_clicked();
 
-    void on_bOpenGrip_clicked();
-
-    void on_bCloseGrip_clicked();
-
     void on_bCalibrate_clicked();
 
     void on_bSaveConnect_clicked();

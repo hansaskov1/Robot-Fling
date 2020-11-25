@@ -45,43 +45,21 @@ void MainWindow::on_bSend_clicked()
 
         RC.getBall(ballPosition,0.05);
 
-        //if (sql.insert(RC.getThrow()))
-            //ui->statusbar->showMessage("Inserted to database", 3000);
+        if (ui->cbDB->currentIndex())
+            if (sql.insert(RC.getThrow()))
+                ui->statusbar->showMessage("Inserted to database", 3000);
     }
-}
-
-void MainWindow::on_bOpenGrip_clicked()
-{
-    //gripper.open();
-    ui->statusbar->showMessage("Opening Gripper", 2000);
-}
-
-void MainWindow::on_bCloseGrip_clicked()
-{
-    //gripper.close();
-    ui->statusbar->showMessage("Closing Gripper", 2000);
 }
 
 void MainWindow::on_bCalibrate_clicked()
 {
     c.calibrate();
-    //gripper.home(); //Send code til server til at ændre status af gripperen
-    //qDebug() << gripper.GetConnectStatus();
     ui->statusbar->showMessage("Calibrating", 3000);
 }
 
 void MainWindow::on_bSaveConnect_clicked()
 {
-    std::string robotIP = ui->liIP->text().toStdString();
-    QString gripperIP = ui->liGripperIP->text();
-    if (robotIP == "192.168.100.49") {
-        if (gripperIP == "192.168.100.20")
-            c.init(1);
-        if (gripperIP == "192.168.100.10")
-            c.init(4);
-    }
-    if (robotIP == "192.168.100.53")
-        c.init(2);
+    c.init(ui->cbCell->currentIndex()+1);
 
     c.connectToCam();
 
@@ -95,17 +73,14 @@ void MainWindow::on_bSaveConnect_clicked()
     //rw::math::Vector3D<> PCal(0.400624689065891, 0.901530744085863, 0.042187492976487);
     //rw::math::Rotation3D<double> RCal(0.923890908941640 ,0.382647484711815,-0.002547708521920,-0.382655561588167,0.923879135480505,-0.004697255522142,0.000556381736091,0.005314646509101,0.999985722383999);
 
-    RC.setParam(robotIP, gripperIP, PCal, RCal);
+    RC.setParam(ui->liIP->text().toStdString(), ui->liGripperIP->text(), PCal, RCal);
 
-    if (sql.connect("192.168.221.1", "ubuntu", "Tarzan12!", "throwdb"))
-        ui->statusbar->showMessage("Connected", 3000);
-
-    //gripper.Init();
-    //gripper.ToConnectToHost("192.168.100.10", 1000);
+    if (ui->cbDB->currentIndex())
+        if (sql.connect("192.168.221.1", "ubuntu", "Tarzan12!", "throwdb"))
+            ui->statusbar->showMessage("Connected", 3000);
 }
 
 void MainWindow::on_bDisconnect_clicked()
 {
-    //gripper.disconnect();
     c.mRun = false;
 }

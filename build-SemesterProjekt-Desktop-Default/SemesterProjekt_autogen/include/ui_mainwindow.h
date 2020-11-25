@@ -48,13 +48,14 @@ public:
     QGridLayout *gridLayout_4;
     QWidget *widget_2;
     QVBoxLayout *verticalLayout;
-    QPushButton *bOpenGrip;
-    QPushButton *bCloseGrip;
+    QLabel *lDB;
+    QComboBox *cbDB;
     QPushButton *bCalibrate;
     QSpacerItem *verticalSpacer_2;
     QWidget *widget_4;
     QVBoxLayout *verticalLayout_2;
     QComboBox *cbMethod;
+    QComboBox *cbCell;
     QPushButton *bSend;
     QSpacerItem *verticalSpacer;
     QWidget *widget_6;
@@ -130,15 +131,15 @@ public:
         widget_2->setObjectName(QStringLiteral("widget_2"));
         verticalLayout = new QVBoxLayout(widget_2);
         verticalLayout->setObjectName(QStringLiteral("verticalLayout"));
-        bOpenGrip = new QPushButton(widget_2);
-        bOpenGrip->setObjectName(QStringLiteral("bOpenGrip"));
+        lDB = new QLabel(widget_2);
+        lDB->setObjectName(QStringLiteral("lDB"));
 
-        verticalLayout->addWidget(bOpenGrip);
+        verticalLayout->addWidget(lDB);
 
-        bCloseGrip = new QPushButton(widget_2);
-        bCloseGrip->setObjectName(QStringLiteral("bCloseGrip"));
+        cbDB = new QComboBox(widget_2);
+        cbDB->setObjectName(QStringLiteral("cbDB"));
 
-        verticalLayout->addWidget(bCloseGrip);
+        verticalLayout->addWidget(cbDB);
 
         bCalibrate = new QPushButton(widget_2);
         bCalibrate->setObjectName(QStringLiteral("bCalibrate"));
@@ -160,6 +161,11 @@ public:
         cbMethod->setObjectName(QStringLiteral("cbMethod"));
 
         verticalLayout_2->addWidget(cbMethod);
+
+        cbCell = new QComboBox(widget_4);
+        cbCell->setObjectName(QStringLiteral("cbCell"));
+
+        verticalLayout_2->addWidget(cbCell);
 
         bSend = new QPushButton(widget_4);
         bSend->setObjectName(QStringLiteral("bSend"));
@@ -215,13 +221,24 @@ public:
         lIP->setText(QApplication::translate("MainWindow", "Set IP", Q_NULLPTR));
         liGripperIP->setText(QApplication::translate("MainWindow", "192.168.100.xx", Q_NULLPTR));
         lGripperIP->setText(QApplication::translate("MainWindow", "Set Gripper IP", Q_NULLPTR));
-        bOpenGrip->setText(QApplication::translate("MainWindow", "Open Gripper", Q_NULLPTR));
-        bCloseGrip->setText(QApplication::translate("MainWindow", "Close Gripper", Q_NULLPTR));
+        lDB->setText(QApplication::translate("MainWindow", "Database", Q_NULLPTR));
+        cbDB->clear();
+        cbDB->insertItems(0, QStringList()
+         << QApplication::translate("MainWindow", "Nej", Q_NULLPTR)
+         << QApplication::translate("MainWindow", "Ja", Q_NULLPTR)
+        );
         bCalibrate->setText(QApplication::translate("MainWindow", "Calibrate", Q_NULLPTR));
         cbMethod->clear();
         cbMethod->insertItems(0, QStringList()
          << QApplication::translate("MainWindow", "Alex", Q_NULLPTR)
          << QApplication::translate("MainWindow", "Kenneth", Q_NULLPTR)
+        );
+        cbCell->clear();
+        cbCell->insertItems(0, QStringList()
+         << QApplication::translate("MainWindow", "Celle 1", Q_NULLPTR)
+         << QApplication::translate("MainWindow", "Celle 2", Q_NULLPTR)
+         << QApplication::translate("MainWindow", "Celle 3", Q_NULLPTR)
+         << QApplication::translate("MainWindow", "Celle 4", Q_NULLPTR)
         );
         bSend->setText(QApplication::translate("MainWindow", "Start", Q_NULLPTR));
         lImage->setText(QString());

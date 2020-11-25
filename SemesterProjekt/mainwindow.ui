@@ -95,17 +95,24 @@
         <widget class="QWidget" name="widget_2" native="true">
          <layout class="QVBoxLayout" name="verticalLayout">
           <item>
-           <widget class="QPushButton" name="bOpenGrip">
+           <widget class="QLabel" name="lDB">
             <property name="text">
-             <string>Open Gripper</string>
+             <string>Database</string>
             </property>
            </widget>
           </item>
           <item>
-           <widget class="QPushButton" name="bCloseGrip">
-            <property name="text">
-             <string>Close Gripper</string>
-            </property>
+           <widget class="QComboBox" name="cbDB">
+            <item>
+             <property name="text">
+              <string>Nej</string>
+             </property>
+            </item>
+            <item>
+             <property name="text">
+              <string>Ja</string>
+             </property>
+            </item>
            </widget>
           </item>
           <item>
@@ -144,6 +151,30 @@
             <item>
              <property name="text">
               <string>Kenneth</string>
+             </property>
+            </item>
+           </widget>
+          </item>
+          <item>
+           <widget class="QComboBox" name="cbCell">
+            <item>
+             <property name="text">
+              <string>Celle 1</string>
+             </property>
+            </item>
+            <item>
+             <property name="text">
+              <string>Celle 2</string>
+             </property>
+            </item>
+            <item>
+             <property name="text">
+              <string>Celle 3</string>
+             </property>
+            </item>
+            <item>
+             <property name="text">
+              <string>Celle 4</string>
              </property>
             </item>
            </widget>

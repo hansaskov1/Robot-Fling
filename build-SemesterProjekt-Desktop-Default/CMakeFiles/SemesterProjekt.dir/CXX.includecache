@@ -130,11 +130,19 @@ path.h
 DetectCollision.h
 /home/suspend/GitHub/Robot-Fling/SemesterProjekt/DetectCollision.h
 Throw.h
+<<<<<<< Updated upstream:build-SemesterProjekt-Desktop-Default/CMakeFiles/SemesterProjekt.dir/CXX.includecache
 /home/suspend/GitHub/Robot-Fling/SemesterProjekt/Throw.h
 math.h
 /home/suspend/GitHub/Robot-Fling/SemesterProjekt/math.h
 cmath
 /home/suspend/GitHub/Robot-Fling/SemesterProjekt/cmath
+=======
+/home/christian/workspace/Robot-Fling/SemesterProjekt/Throw.h
+math.h
+/home/christian/workspace/Robot-Fling/SemesterProjekt/math.h
+cmath
+/home/christian/workspace/Robot-Fling/SemesterProjekt/cmath
+>>>>>>> Stashed changes:build-SemesterProjekt-Desktop-Standard/CMakeFiles/SemesterProjekt.dir/CXX.includecache
 
 /home/suspend/GitHub/Robot-Fling/SemesterProjekt/Throw.h
 QString
