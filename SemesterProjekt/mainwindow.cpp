@@ -74,13 +74,16 @@ void MainWindow::on_bSaveConnect_clicked()
     //rw::math::Rotation3D<double> RCal(0.923890908941640 ,0.382647484711815,-0.002547708521920,-0.382655561588167,0.923879135480505,-0.004697255522142,0.000556381736091,0.005314646509101,0.999985722383999);
 
     RC.setParam(ui->liIP->text().toStdString(), ui->liGripperIP->text(), PCal, RCal);
-
-    if (ui->cbDB->currentIndex())
-        if (sql.connect("192.168.221.1", "ubuntu", "Tarzan12!", "throwdb"))
-            ui->statusbar->showMessage("Connected", 3000);
 }
 
 void MainWindow::on_bDisconnect_clicked()
 {
     c.mRun = false;
+}
+
+void MainWindow::on_cbDB_currentIndexChanged(const QString &arg1)
+{
+    if (ui->cbDB->currentIndex())
+        if (sql.connect("192.168.221.1", "ubuntu", "Tarzan12!", "throwdb"))
+            ui->statusbar->showMessage("Connected", 3000);
 }

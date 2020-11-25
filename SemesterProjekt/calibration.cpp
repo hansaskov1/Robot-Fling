@@ -33,7 +33,7 @@ void Calibration::init(int celleNr)
     default:
         break;
     }
-    if(calibrate()){
+    if (calibrate()) {
         cv::Mat worldCalImg[4];
         for(int i = 0; i < 4; i++){
             cv::String path = "";
@@ -42,10 +42,10 @@ void Calibration::init(int celleNr)
         }
         if (createTranformMatrix(worldCalImg)){
             std::cout << "calibration sucess & transformMatrix Sucess" << std::endl;
-        }else{
+        } else{
             std::cout << "calibration sucess & transformMatrix failed" << std::endl;
         }
-    }else {
+    } else {
         std::cout << "callibration failed" << std::endl;
     }
 }
