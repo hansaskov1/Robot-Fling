@@ -35,12 +35,12 @@ public:
 
     RobotControl() {
         gripper.Init();
+        scenePath[0] = "../Scenes/XMLScenes/RobotOnTable/Scene.xml";
+        scenePath[1] = "../Scenes/XMLScenes/RobotOnTable/Scene.xml";
+        scenePath[2] = "../Scenes/XMLScenes/RobotOnTable/Scene.xml";
+        scenePath[3] = "../Scenes/XMLScenes/RobotOnTable/Scene.xml";
     }
 
-    RobotControl(std::string ipAdress)
-    {
-        mIpAdress = ipAdress;
-    }
 
     RobotControl(std::string ipAdress, rw::math::Vector3D<> calPos, rw::math::Rotation3D<> calRot)
     {
@@ -181,13 +181,13 @@ public:
     }*/
 
     // All movements to get ball
-    void getBall(rw::math::Vector3D<> posBallW, double safeGribHeight)
+    void getBall(rw::math::Vector3D<> posBallW, rw::math::RPY<> gripOrientation, double safeGribHeight)
     {
 
         rw::math::Q qHome(-1.151,-3.1415/2,0,-3.1415/2,0,0);                    // Hardcoded home for our robot
         rw::math::Q qSafeGrib(-1.151, -2.202, -0.935, -1.574, 1.571, -0.003);   // Hardcoded safe gripping position
 
-        rw::math::RPY<> rpyBall(0.6, -3.09, 0);                                 // Hardcoded safe orientation
+        rw::math::RPY<> rpyBall = gripOrientation;                  //rw::math::RPY<> rpyBall(0.6, -3.09, 0)  // Hardcoded safe orientation
         rw::math::RPY<> rpyGribReady = rpyBall;
 
         rw::math::Vector3D<> posGribReadyW = posBallW;
@@ -198,7 +198,7 @@ public:
 
 
         DetectCollision dc(scenePath);
-
+/*
         std::cout << "RobWork Collision check" << std::endl;
         std::cout << dc.isCollision(50, qHome) << std::endl;                                                      //for (rw::math::Q &qValues : dc.getQVec()){ std::cout << qValues << std::endl;}
         std::cout << dc.isCollision(50, qSafeGrib) << std::endl;                                                  //for (rw::math::Q &qValues : dc.getQVec()){ std::cout << qValues << std::endl;}
@@ -208,7 +208,7 @@ public:
         std::cout << dc.isCollision(50, qSafeGrib) << std::endl;                                                  //for (rw::math::Q &qValues : dc.getQVec()){ std::cout << qValues << std::endl;}
         std::cout << dc.isCollision(50, qHome) << std::endl;                                                      //for (rw::math::Q &qValues : dc.getQVec()){ std::cout << qValues << std::endl;}
         std::cout << std::endl;
-
+*/
         bool isNormalMode;
        {
            double simSpeed = 3;
@@ -260,11 +260,43 @@ public:
         }
     }
 
+    void getBall(rw::math::Vector3D<> ballPositionW, rw::math::RPY<> gripOrientation)
+    {
+      double distance = 0.2;    //Hardcoded a distance of 20cm above ball
+      return getBall(ballPositionW, gripOrientation,distance);
+    }
+
     void getBall(rw::math::Vector3D<> ballPositionW)
     {
       double distance = 0.2;    //Hardcoded a distance of 20cm above ball
-      getBall(ballPositionW,distance);
+      return getBall(ballPositionW,distance);
     }
+
+    void getBall(rw::math::Vector3D<> ballPositionW, double distance)
+    {
+      rw::math::RPY<> rpyBall;
+
+      switch (cellNr)
+      {
+      case 2:
+        rpyBall = rw::math::RPY<> (0.6, -3.09, 0);          //Celle 2
+      break;
+      case 4:
+        rpyBall = rw::math::RPY<> (2.6, -1.69, 0);          //Celle 4 //x += 2, y-= 2
+      break;
+      default:
+        std::cout << "Non valid cellNR in RobotControl -> getBall" << std::endl;
+      return;
+      }
+
+     return getBall(ballPositionW, rpyBall ,distance);
+    }
+
+
+
+
+
+
 
     Throw getThrow() {
         mThrow.setThrowID(1);
@@ -299,7 +331,7 @@ public:
     /*
     void rotateThrow(double angleThrow, double speed, double acceleration, rw::math::Vector3D<double> cupPos){
         rw::math::Vector3D<double> robBase(40,90,0);
-        rw::math::Vector3D<double> cupPosR = cupPos - robBase;
+        rw::math::Vector3D<double> cupPw::math::RPY<> gripOrientationosR = cupPos - robBase;
         double angleBase = atan(cupPosR.y()/cupPosR.x());
 
         double timeFromThrowPose = speed/acceleration;
@@ -453,10 +485,8 @@ public:
         }
 
         for (double speed : pathSpeed){
-            std::cout <<  speed << std::endl;
+           // std::cout <<  speed << std::endl;
         }
-
-
 
         if (!dc.getHasCollided() && isNormalMode)
         {
@@ -476,8 +506,6 @@ public:
             gripper.open();
 
             std::cout << "calculated throw speed: " <<throwSpeed << std::endl;
-
-
 
     } else
         {
@@ -631,6 +659,9 @@ public:
             }
         }
 
+    int getCellNr() const{return cellNr;}
+    void setCellNr(int value){cellNr = value;}
+
 private:
  std::string mIpAdress;
  Gripper gripper;
@@ -639,10 +670,9 @@ private:
  rw::math::Rotation3D<> mInvCalRot;
  Throw mThrow;
  const rw::math::Q qHome = rw::math::Q(-1.151,-3.1415/2,0,-3.1415/2,0,0);
- const std::string  scenePath = "../Scenes/XMLScenes/RobotOnTable/Scene.xml";
+ //const std::string  scenePath = "../Scenes/XMLScenes/RobotOnTable/Scene.xml";
+ std::array<std::string, 4> scenePath;
+ int cellNr = 4;
 };
-
-
-
 
 

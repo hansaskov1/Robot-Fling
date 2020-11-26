@@ -59,11 +59,16 @@ void MainWindow::on_bCalibrate_clicked()
 
 void MainWindow::on_bSaveConnect_clicked()
 {
-    c.init(ui->cbCell->currentIndex()+1);
+    int cellNr = ui->cbCell->currentIndex()+1;
+
+    c.init(cellNr);
 
     c.connectToCam();
 
+
     QThreadPool::globalInstance()->start(video);
+
+
 
     // Robot cal for table 4
     //rw::math::Vector3D<> PCal(0.404933521031581,0.911568253889385,0.040065747515709);
@@ -73,6 +78,7 @@ void MainWindow::on_bSaveConnect_clicked()
     rw::math::Vector3D<> PCal(0.400624689065891, 0.901530744085863, 0.042187492976487);
     rw::math::Rotation3D<double> RCal(0.923890908941640 ,0.382647484711815,-0.002547708521920,-0.382655561588167,0.923879135480505,-0.004697255522142,0.000556381736091,0.005314646509101,0.999985722383999);
 
+    RC.setCellNr(cellNr);
     RC.setParam(ui->liIP->text().toStdString(), ui->liGripperIP->text(), PCal, RCal);
 }
 
