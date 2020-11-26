@@ -55,7 +55,11 @@
            </spacer>
           </item>
           <item row="1" column="1">
-           <widget class="QLineEdit" name="liIP"/>
+           <widget class="QLineEdit" name="liIP">
+            <property name="text">
+             <string>192.168.100.xx</string>
+            </property>
+           </widget>
           </item>
           <item row="1" column="0">
            <widget class="QLabel" name="lIP">
@@ -65,7 +69,11 @@
            </widget>
           </item>
           <item row="2" column="1">
-           <widget class="QLineEdit" name="liGripperIP"/>
+           <widget class="QLineEdit" name="liGripperIP">
+            <property name="text">
+             <string>192.168.100.xx</string>
+            </property>
+           </widget>
           </item>
           <item row="2" column="0">
            <widget class="QLabel" name="lGripperIP">
@@ -87,17 +95,24 @@
         <widget class="QWidget" name="widget_2" native="true">
          <layout class="QVBoxLayout" name="verticalLayout">
           <item>
-           <widget class="QPushButton" name="bOpenGrip">
+           <widget class="QLabel" name="lDB">
             <property name="text">
-             <string>Open Gripper</string>
+             <string>Database</string>
             </property>
            </widget>
           </item>
           <item>
-           <widget class="QPushButton" name="bCloseGrip">
-            <property name="text">
-             <string>Close Gripper</string>
-            </property>
+           <widget class="QComboBox" name="cbDB">
+            <item>
+             <property name="text">
+              <string>Nej</string>
+             </property>
+            </item>
+            <item>
+             <property name="text">
+              <string>Ja</string>
+             </property>
+            </item>
            </widget>
           </item>
           <item>
@@ -141,6 +156,30 @@
            </widget>
           </item>
           <item>
+           <widget class="QComboBox" name="cbCell">
+            <item>
+             <property name="text">
+              <string>Celle 1</string>
+             </property>
+            </item>
+            <item>
+             <property name="text">
+              <string>Celle 2</string>
+             </property>
+            </item>
+            <item>
+             <property name="text">
+              <string>Celle 3</string>
+             </property>
+            </item>
+            <item>
+             <property name="text">
+              <string>Celle 4</string>
+             </property>
+            </item>
+           </widget>
+          </item>
+          <item>
            <widget class="QPushButton" name="bSend">
             <property name="text">
              <string>Start</string>
@@ -170,6 +209,9 @@
            <widget class="QLabel" name="lImage">
             <property name="text">
              <string/>
+            </property>
+            <property name="scaledContents">
+             <bool>true</bool>
             </property>
            </widget>
           </item>

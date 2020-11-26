@@ -8,7 +8,6 @@ class Path
 public:
     Path()
     {
-
         jointPoses.reserve(reservedMem);
         jointVel.reserve(reservedMem);
         toolPose.reserve(reservedMem);
@@ -22,7 +21,6 @@ public:
         toolPose = path.getToolPose();
         toolVel = path.getToolVel();
         elapsedTime = path.getElapsedTime();
-
     }
 
 
@@ -31,7 +29,6 @@ public:
         jointVel = std::move(path.jointVel);
         toolPose = std::move(path.toolPose);
         toolVel = std::move(path.toolVel);
-
     }
 
 
@@ -41,7 +38,6 @@ public:
         toolPose = p.toolPose;
         toolVel = p.toolVel;
         elapsedTime = p.elapsedTime;
-
         return *this;
     }
 
@@ -50,7 +46,6 @@ public:
         jointVel = std::move(path.jointVel);
         toolPose = std::move(path.toolPose);
         toolVel = std::move(path.toolVel);
-
         return *this;
 
     }

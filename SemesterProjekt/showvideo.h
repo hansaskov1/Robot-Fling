@@ -14,7 +14,6 @@ public:
     showVideo (QLabel *label, Calibration *value) {
         mLabel = label;
         c = value;
-        mLabel->setScaledContents(true);
     }
 
     void run() {

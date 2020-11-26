@@ -1,14 +1,14 @@
-create database kastDB;
+create database throwDB;
 
-use kastDB;
+use throwDB;
 
-create table Kast (
-kastID int not null,
-objekt char(255) not null,
-vinkel double not null,
-hastighed double not null,
+create table Throw (
+throwID int not null auto_increment,
+object char(255) not null,
+angle double not null,
+speed double not null,
 success bool not null,
-primary key (kastID)
+primary key (throwID)
 );
 
 create table Jointpose (
@@ -19,9 +19,9 @@ elbow double not null,
 wrist1 double not null,
 wrist2 double not null,
 wrist3 double not null,
-stiNr int not null,
-kastID int not null,
-foreign key (kastID) references Kast(kastID)
+pathNo int not null,
+throwID int not null,
+foreign key (throwID) references Throw(throwID)
 );
 
 create table Jointvelocity (
@@ -32,9 +32,9 @@ elbow double not null,
 wrist1 double not null,
 wrist2 double not null,
 wrist3 double not null,
-stiNr int not null,
-kastID int not null,
-foreign key (kastID) references Kast(kastID)
+pathNo int not null,
+throwID int not null,
+foreign key (throwID) references Throw(throwID)
 );
 
 create table Toolpose (
@@ -45,9 +45,9 @@ z double not null,
 RX double not null,
 RY double not null,
 RZ double not null,
-stiNr int not null,
-kastID int not null,
-foreign key (kastID) references Kast(kastID)
+pathNo int not null,
+throwID int not null,
+foreign key (throwID) references Throw(throwID)
 );
 
 create table Toolvelocity (
@@ -58,7 +58,7 @@ z double not null,
 RX double not null,
 RY double not null,
 RZ double not null,
-stiNr int not null,
-kastID int not null,
-foreign key (kastID) references Kast(kastID)
+pathNo int not null,
+throwID int not null,
+foreign key (throwID) references Throw(throwID)
 );
