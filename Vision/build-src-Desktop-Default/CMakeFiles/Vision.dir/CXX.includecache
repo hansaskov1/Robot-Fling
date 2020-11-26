@@ -6,13 +6,13 @@
 
 #IncludeRegexTransform: 
 
-/home/suspend/workspace/Vision/src/calibration.cpp
+/home/suspend/GitHub/Robot-Fling/Vision/src/calibration.cpp
 calibration.h
-/home/suspend/workspace/Vision/src/calibration.h
+/home/suspend/GitHub/Robot-Fling/Vision/src/calibration.h
 objectdetection.h
-/home/suspend/workspace/Vision/src/objectdetection.h
+/home/suspend/GitHub/Robot-Fling/Vision/src/objectdetection.h
 
-/home/suspend/workspace/Vision/src/calibration.h
+/home/suspend/GitHub/Robot-Fling/Vision/src/calibration.h
 opencv2/core/core.hpp
 -
 opencv2/highgui/highgui.hpp
@@ -40,21 +40,21 @@ opencv2/imgproc.hpp
 thread
 -
 
-/home/suspend/workspace/Vision/src/main.cpp
+/home/suspend/GitHub/Robot-Fling/Vision/src/main.cpp
 stdio.h
 -
 chrono
 -
 calibration.h
-/home/suspend/workspace/Vision/src/calibration.h
+/home/suspend/GitHub/Robot-Fling/Vision/src/calibration.h
 objectdetection.h
-/home/suspend/workspace/Vision/src/objectdetection.h
+/home/suspend/GitHub/Robot-Fling/Vision/src/objectdetection.h
 
-/home/suspend/workspace/Vision/src/objectdetection.cpp
+/home/suspend/GitHub/Robot-Fling/Vision/src/objectdetection.cpp
 objectdetection.h
-/home/suspend/workspace/Vision/src/objectdetection.h
+/home/suspend/GitHub/Robot-Fling/Vision/src/objectdetection.h
 
-/home/suspend/workspace/Vision/src/objectdetection.h
+/home/suspend/GitHub/Robot-Fling/Vision/src/objectdetection.h
 opencv2/core/core.hpp
 -
 opencv2/highgui/highgui.hpp
@@ -82,11 +82,11 @@ opencv2/imgproc.hpp
 thread
 -
 
-/opt/pylon/include/Base/GCArray.h
+/opt/pylon5/include/Base/GCArray.h
 Base/GCTypes.h
 -
 
-/opt/pylon/include/Base/GCBase.h
+/opt/pylon5/include/Base/GCBase.h
 Base/GCTypes.h
 -
 Base/GCString.h
@@ -100,7 +100,7 @@ Base/GCException.h
 Base/GCUtilities.h
 -
 
-/opt/pylon/include/Base/GCException.h
+/opt/pylon5/include/Base/GCException.h
 cassert
 -
 cstdarg
@@ -118,17 +118,17 @@ Base/GCTypes.h
 Base/GCString.h
 -
 
-/opt/pylon/include/Base/GCLinkage.h
+/opt/pylon5/include/Base/GCLinkage.h
 GenICamVersion.h
 -
 
-/opt/pylon/include/Base/GCNamespace.h
+/opt/pylon5/include/Base/GCNamespace.h
 GenICamVersion.h
 -
 
-/opt/pylon/include/Base/GCRTSSUtilities.h
+/opt/pylon5/include/Base/GCRTSSUtilities.h
 crtdefs.h
-/opt/pylon/include/Base/crtdefs.h
+/opt/pylon5/include/Base/crtdefs.h
 stdio.h
 -
 errno.h
@@ -136,9 +136,9 @@ errno.h
 io.h
 -
 windows.h
-/opt/pylon/include/Base/windows.h
+/opt/pylon5/include/Base/windows.h
 
-/opt/pylon/include/Base/GCString.h
+/opt/pylon5/include/Base/GCString.h
 new
 -
 string
@@ -148,13 +148,13 @@ iostream
 Base/GCTypes.h
 -
 
-/opt/pylon/include/Base/GCStringVector.h
+/opt/pylon5/include/Base/GCStringVector.h
 Base/GCTypes.h
 -
 Base/GCString.h
 -
 
-/opt/pylon/include/Base/GCTypes.h
+/opt/pylon5/include/Base/GCTypes.h
 Base/GCNamespace.h
 -
 stddef.h
@@ -166,7 +166,7 @@ stdint.h
 stdint.h
 -
 
-/opt/pylon/include/Base/GCUtilities.h
+/opt/pylon5/include/Base/GCUtilities.h
 windows.h
 -
 GenICamVersion.h
@@ -184,7 +184,7 @@ Base/GCLinkage.h
 Base/GCRTSSUtilities.h
 -
 
-/opt/pylon/include/GenApi/Autovector.h
+/opt/pylon5/include/GenApi/Autovector.h
 vector
 -
 Base/GCTypes.h
@@ -192,11 +192,11 @@ Base/GCTypes.h
 GenApi/GenApiDll.h
 -
 
-/opt/pylon/include/GenApi/Compatibility.h
+/opt/pylon5/include/GenApi/Compatibility.h
 stdint.h
 -
 
-/opt/pylon/include/GenApi/Container.h
+/opt/pylon5/include/GenApi/Container.h
 GenApi/GenApiDll.h
 -
 GenICamFwd.h
@@ -208,7 +208,13 @@ stdint.h
 cstddef
 -
 
-/opt/pylon/include/GenApi/GenApi.h
+/opt/pylon5/include/GenApi/DLLLoad.h
+GenApi/INodeMap.h
+-
+GenApi/GenApiVersion.h
+-
+
+/opt/pylon5/include/GenApi/GenApi.h
 Base/GCBase.h
 -
 Base/GCUtilities.h
@@ -272,23 +278,23 @@ GenApi/SelectorSet.h
 GenApi/GenApiLinkage.h
 -
 
-/opt/pylon/include/GenApi/GenApiDll.h
+/opt/pylon5/include/GenApi/GenApiDll.h
 GenApi/GenApiNamespace.h
 -
 
-/opt/pylon/include/GenApi/GenApiLinkage.h
+/opt/pylon5/include/GenApi/GenApiLinkage.h
 Base/GCLinkage.h
 -
 
-/opt/pylon/include/GenApi/GenApiNamespace.h
+/opt/pylon5/include/GenApi/GenApiNamespace.h
 GenICamVersion.h
 -
 
-/opt/pylon/include/GenApi/GenApiVersion.h
+/opt/pylon5/include/GenApi/GenApiVersion.h
 GenICamVersion.h
 -
 
-/opt/pylon/include/GenApi/IBase.h
+/opt/pylon5/include/GenApi/IBase.h
 GenApi/GenApiDll.h
 -
 GenApi/Types.h
@@ -296,7 +302,7 @@ GenApi/Types.h
 GenApi/Reference.h
 -
 
-/opt/pylon/include/GenApi/IBoolean.h
+/opt/pylon5/include/GenApi/IBoolean.h
 GenApi/GenApiDll.h
 -
 GenApi/Types.h
@@ -304,7 +310,7 @@ GenApi/Types.h
 GenApi/IValue.h
 -
 
-/opt/pylon/include/GenApi/ICategory.h
+/opt/pylon5/include/GenApi/ICategory.h
 Base/GCString.h
 -
 GenApi/GenApiDll.h
@@ -318,7 +324,7 @@ GenApi/Container.h
 assert.h
 -
 
-/opt/pylon/include/GenApi/IChunkPort.h
+/opt/pylon5/include/GenApi/IChunkPort.h
 Base/GCBase.h
 -
 GenApi/GenApiDll.h
@@ -328,7 +334,7 @@ GenApi/Types.h
 GenApi/IPort.h
 -
 
-/opt/pylon/include/GenApi/ICommand.h
+/opt/pylon5/include/GenApi/ICommand.h
 GenApi/GenApiDll.h
 -
 GenApi/Types.h
@@ -336,15 +342,15 @@ GenApi/Types.h
 GenApi/IValue.h
 -
 
-/opt/pylon/include/GenApi/IDestroy.h
+/opt/pylon5/include/GenApi/IDestroy.h
 GenApi/GenApiDll.h
 -
 
-/opt/pylon/include/GenApi/IDeviceInfo.h
+/opt/pylon5/include/GenApi/IDeviceInfo.h
 Base/GCBase.h
 -
 
-/opt/pylon/include/GenApi/IEnumEntry.h
+/opt/pylon5/include/GenApi/IEnumEntry.h
 Base/GCString.h
 -
 GenApi/GenApiDll.h
@@ -352,7 +358,7 @@ GenApi/GenApiDll.h
 GenApi/IValue.h
 -
 
-/opt/pylon/include/GenApi/IEnumeration.h
+/opt/pylon5/include/GenApi/IEnumeration.h
 Base/GCStringVector.h
 -
 GenApi/GenApiDll.h
@@ -364,7 +370,7 @@ GenApi/Types.h
 GenApi/IValue.h
 -
 
-/opt/pylon/include/GenApi/IEnumerationT.h
+/opt/pylon5/include/GenApi/IEnumerationT.h
 GenApi/GenApiDll.h
 -
 GenApi/Types.h
@@ -378,7 +384,7 @@ GenApi/Compatibility.h
 vector
 -
 
-/opt/pylon/include/GenApi/IFloat.h
+/opt/pylon5/include/GenApi/IFloat.h
 GenApi/GenApiDll.h
 -
 GenApi/Types.h
@@ -386,7 +392,7 @@ GenApi/Types.h
 GenApi/IValue.h
 -
 
-/opt/pylon/include/GenApi/IInteger.h
+/opt/pylon5/include/GenApi/IInteger.h
 Base/GCUtilities.h
 -
 GenApi/GenApiDll.h
@@ -396,7 +402,7 @@ GenApi/Types.h
 GenApi/IValue.h
 -
 
-/opt/pylon/include/GenApi/INode.h
+/opt/pylon5/include/GenApi/INode.h
 Base/GCString.h
 -
 GenApi/GenApiDll.h
@@ -410,7 +416,7 @@ GenApi/Container.h
 assert.h
 -
 
-/opt/pylon/include/GenApi/INodeMap.h
+/opt/pylon5/include/GenApi/INodeMap.h
 Base/GCBase.h
 -
 GenApi/INode.h
@@ -420,7 +426,7 @@ GenApi/IPort.h
 GenApi/Synch.h
 -
 
-/opt/pylon/include/GenApi/IPort.h
+/opt/pylon5/include/GenApi/IPort.h
 Base/GCException.h
 -
 GenApi/GenApiDll.h
@@ -430,7 +436,7 @@ GenApi/Types.h
 GenApi/IBase.h
 -
 
-/opt/pylon/include/GenApi/IPortConstruct.h
+/opt/pylon5/include/GenApi/IPortConstruct.h
 GenApi/GenApiDll.h
 -
 GenApi/Types.h
@@ -438,11 +444,11 @@ GenApi/Types.h
 GenApi/IPort.h
 -
 
-/opt/pylon/include/GenApi/IPortRecorder.h
+/opt/pylon5/include/GenApi/IPortRecorder.h
 GenApi/IPort.h
 -
 
-/opt/pylon/include/GenApi/IRegister.h
+/opt/pylon5/include/GenApi/IRegister.h
 GenApi/GenApiDll.h
 -
 GenApi/Types.h
@@ -450,11 +456,11 @@ GenApi/Types.h
 GenApi/IValue.h
 -
 
-/opt/pylon/include/GenApi/ISelector.h
+/opt/pylon5/include/GenApi/ISelector.h
 GenApi/GenApiDll.h
 -
 
-/opt/pylon/include/GenApi/ISelectorDigit.h
+/opt/pylon5/include/GenApi/ISelectorDigit.h
 GenApi/GenApiDll.h
 -
 GenApi/Types.h
@@ -462,7 +468,7 @@ GenApi/Types.h
 GenApi/Container.h
 -
 
-/opt/pylon/include/GenApi/IString.h
+/opt/pylon5/include/GenApi/IString.h
 Base/GCString.h
 -
 GenApi/GenApiDll.h
@@ -472,11 +478,11 @@ GenApi/Types.h
 GenApi/IValue.h
 -
 
-/opt/pylon/include/GenApi/IUserData.h
+/opt/pylon5/include/GenApi/IUserData.h
 GenApi/GenApiDll.h
 -
 
-/opt/pylon/include/GenApi/IValue.h
+/opt/pylon5/include/GenApi/IValue.h
 GenApi/GenApiDll.h
 -
 GenApi/Types.h
@@ -490,11 +496,11 @@ Base/GCString.h
 Base/GCException.h
 -
 
-/opt/pylon/include/GenApi/NodeCallback.h
+/opt/pylon5/include/GenApi/NodeCallback.h
 GenApi/INode.h
 -
 
-/opt/pylon/include/GenApi/NodeMapFactory.h
+/opt/pylon5/include/GenApi/NodeMapFactory.h
 GenApi/GenApiVersion.h
 -
 GenApi/GenApiDll.h
@@ -506,7 +512,7 @@ Base/GCStringVector.h
 memory
 -
 
-/opt/pylon/include/GenApi/NodeMapRef.h
+/opt/pylon5/include/GenApi/NodeMapRef.h
 GenICamVersion.h
 -
 Base/GCString.h
@@ -524,7 +530,7 @@ GenApi/NodeMapFactory.h
 cstdlib
 -
 
-/opt/pylon/include/GenApi/Persistence.h
+/opt/pylon5/include/GenApi/Persistence.h
 GenApi/Types.h
 -
 GenApi/Pointer.h
@@ -536,7 +542,7 @@ list
 iostream
 -
 
-/opt/pylon/include/GenApi/Pointer.h
+/opt/pylon5/include/GenApi/Pointer.h
 assert.h
 -
 GenICamFwd.h
@@ -548,7 +554,7 @@ GenApi/IFloat.h
 GenApi/IInteger.h
 -
 
-/opt/pylon/include/GenApi/PortImpl.h
+/opt/pylon5/include/GenApi/PortImpl.h
 Base/GCException.h
 -
 GenApi/GenApiDll.h
@@ -562,13 +568,13 @@ GenApi/IPortRecorder.h
 GenApi/Pointer.h
 -
 
-/opt/pylon/include/GenApi/Reference.h
+/opt/pylon5/include/GenApi/Reference.h
 GenApi/Types.h
 -
 GenApi/GenApiDll.h
 -
 
-/opt/pylon/include/GenApi/SelectorSet.h
+/opt/pylon5/include/GenApi/SelectorSet.h
 GenApi/GenApiDll.h
 -
 GenApi/ISelectorDigit.h
@@ -578,7 +584,7 @@ GenApi/IBase.h
 GenApi/Pointer.h
 -
 
-/opt/pylon/include/GenApi/StructPort.h
+/opt/pylon5/include/GenApi/StructPort.h
 cstring
 -
 string.h
@@ -586,7 +592,7 @@ string.h
 GenApi/PortImpl.h
 -
 
-/opt/pylon/include/GenApi/Synch.h
+/opt/pylon5/include/GenApi/Synch.h
 GenApi/GenApiDll.h
 -
 Base/GCException.h
@@ -608,7 +614,7 @@ intLib.h
 taskLib.h
 -
 
-/opt/pylon/include/GenApi/Types.h
+/opt/pylon5/include/GenApi/Types.h
 Base/GCTypes.h
 -
 Base/GCStringVector.h
@@ -620,7 +626,7 @@ GenApi/Autovector.h
 GenICamFwd.h
 -
 
-/opt/pylon/include/GenICamFwd.h
+/opt/pylon5/include/GenICamFwd.h
 objbase.h
 -
 Base/GCNamespace.h
@@ -628,53 +634,29 @@ Base/GCNamespace.h
 GenApi/GenApiNamespace.h
 -
 
-/opt/pylon/include/GenICamVersion.h
+/opt/pylon5/include/GenICamVersion.h
 _GenICamVersion.h
 -
 
-/opt/pylon/include/_GenICamVersion.h
+/opt/pylon5/include/_GenICamVersion.h
 
-/opt/pylon/include/pylon/AcquireContinuousConfiguration.h
+/opt/pylon5/include/pylon/AcquireContinuousConfiguration.h
 pylon/Platform.h
 -
 pylon/InstantCamera.h
 -
-pylon/ParameterIncludes.h
--
-pylon/ConfigurationHelper.h
--
 
-/opt/pylon/include/pylon/AcquireSingleFrameConfiguration.h
+/opt/pylon5/include/pylon/AcquireSingleFrameConfiguration.h
 pylon/Platform.h
 -
 pylon/InstantCamera.h
 -
-pylon/ParameterIncludes.h
--
-pylon/ConfigurationHelper.h
--
 
-/opt/pylon/include/pylon/ArrayParameter.h
-pylon/PylonBase.h
--
-GenApi/IRegister.h
--
-pylon/Parameter.h
--
-
-/opt/pylon/include/pylon/BooleanParameter.h
-pylon/PylonBase.h
--
-GenApi/IBoolean.h
--
-pylon/Parameter.h
--
-
-/opt/pylon/include/pylon/BufferFactory.h
+/opt/pylon5/include/pylon/BufferFactory.h
 pylon/stdinclude.h
 -
 
-/opt/pylon/include/pylon/Callback.h
+/opt/pylon5/include/pylon/Callback.h
 cassert
 -
 cstddef
@@ -682,13 +664,13 @@ cstddef
 pylon/Platform.h
 -
 
-/opt/pylon/include/pylon/CameraEventHandler.h
+/opt/pylon5/include/pylon/CameraEventHandler.h
 pylon/stdinclude.h
 -
 GenApi/INode.h
 -
 
-/opt/pylon/include/pylon/ChunkParser.h
+/opt/pylon5/include/pylon/ChunkParser.h
 pylon/Platform.h
 -
 GenICamFwd.h
@@ -698,25 +680,11 @@ pylon/stdinclude.h
 pylon/PylonBase.h
 -
 
-/opt/pylon/include/pylon/CommandParameter.h
-pylon/PylonBase.h
--
-GenApi/ICommand.h
--
-pylon/Parameter.h
--
-
-/opt/pylon/include/pylon/ConfigurationEventHandler.h
+/opt/pylon5/include/pylon/ConfigurationEventHandler.h
 pylon/stdinclude.h
 -
 
-/opt/pylon/include/pylon/ConfigurationHelper.h
-pylon/Platform.h
--
-pylon/ParameterIncludes.h
--
-
-/opt/pylon/include/pylon/Container.h
+/opt/pylon5/include/pylon/Container.h
 pylon/Platform.h
 -
 pylon/PylonBase.h
@@ -730,7 +698,7 @@ pylon/InterfaceInfo.h
 vector
 -
 
-/opt/pylon/include/pylon/Device.h
+/opt/pylon5/include/pylon/Device.h
 pylon/Platform.h
 -
 GenICamFwd.h
@@ -754,7 +722,7 @@ pylon/Callback.h
 pylon/DeviceAccessMode.h
 -
 
-/opt/pylon/include/pylon/DeviceAccessMode.h
+/opt/pylon5/include/pylon/DeviceAccessMode.h
 pylon/PylonBase.h
 -
 pylon/PylonVersionNumber.h
@@ -764,11 +732,11 @@ string
 iomanip
 -
 
-/opt/pylon/include/pylon/DeviceClass.h
-pylon/Platform.h
+/opt/pylon5/include/pylon/DeviceClass.h
+pylon/PylonBase.h
 -
 
-/opt/pylon/include/pylon/DeviceFactory.h
+/opt/pylon5/include/pylon/DeviceFactory.h
 pylon/Platform.h
 -
 pylon/stdinclude.h
@@ -780,7 +748,7 @@ pylon/Container.h
 pylon/DeviceAccessMode.h
 -
 
-/opt/pylon/include/pylon/DeviceInfo.h
+/opt/pylon5/include/pylon/DeviceInfo.h
 pylon/Platform.h
 -
 pylon/PylonBase.h
@@ -790,25 +758,13 @@ pylon/stdinclude.h
 pylon/Info.h
 -
 
-/opt/pylon/include/pylon/EnumParameter.h
-pylon/PylonBase.h
--
-GenApi/IEnumeration.h
--
-pylon/Parameter.h
--
-
-/opt/pylon/include/pylon/EnumParameterT.h
-pylon/EnumParameter.h
--
-
-/opt/pylon/include/pylon/EventAdapter.h
+/opt/pylon5/include/pylon/EventAdapter.h
 pylon/Platform.h
 -
 pylon/stdinclude.h
 -
 
-/opt/pylon/include/pylon/EventGrabber.h
+/opt/pylon5/include/pylon/EventGrabber.h
 pylon/Platform.h
 -
 GenICamFwd.h
@@ -816,17 +772,17 @@ GenICamFwd.h
 pylon/stdinclude.h
 -
 
-/opt/pylon/include/pylon/EventGrabberProxy.h
+/opt/pylon5/include/pylon/EventGrabberProxy.h
 pylon/Platform.h
 -
 Base/GCException.h
 -
 EventGrabber.h
-/opt/pylon/include/pylon/EventGrabber.h
+/opt/pylon5/include/pylon/EventGrabber.h
 NodeMapProxy.h
-/opt/pylon/include/pylon/NodeMapProxy.h
+/opt/pylon5/include/pylon/NodeMapProxy.h
 
-/opt/pylon/include/pylon/FeaturePersistence.h
+/opt/pylon5/include/pylon/FeaturePersistence.h
 pylon/Platform.h
 -
 GenICamFwd.h
@@ -836,15 +792,7 @@ pylon/stdinclude.h
 pylon/PylonUtility.h
 -
 
-/opt/pylon/include/pylon/FloatParameter.h
-pylon/PylonBase.h
--
-GenApi/IFloat.h
--
-pylon/Parameter.h
--
-
-/opt/pylon/include/pylon/GrabResultData.h
+/opt/pylon5/include/pylon/GrabResultData.h
 pylon/Platform.h
 -
 pylon/PylonBase.h
@@ -858,7 +806,7 @@ GenApi/GenApiDll.h
 GenICamFwd.h
 -
 
-/opt/pylon/include/pylon/GrabResultPtr.h
+/opt/pylon5/include/pylon/GrabResultPtr.h
 pylon/Platform.h
 -
 pylon/PylonBase.h
@@ -868,7 +816,7 @@ pylon/GrabResultData.h
 pylon/Image.h
 -
 
-/opt/pylon/include/pylon/Image.h
+/opt/pylon5/include/pylon/Image.h
 pylon/Platform.h
 -
 pylon/PylonBase.h
@@ -876,29 +824,23 @@ pylon/PylonBase.h
 pylon/PixelType.h
 -
 
-/opt/pylon/include/pylon/ImageDecompressor.h
-pylon/Platform.h
--
-GenApi/INodeMap.h
--
-pylon/PylonUtility.h
--
-pylon/ReusableImage.h
--
-pylon/Result.h
--
-pylon/PixelType.h
--
-pylon/GrabResultPtr.h
--
-
-/opt/pylon/include/pylon/ImageEventHandler.h
+/opt/pylon5/include/pylon/ImageEventHandler.h
 pylon/stdinclude.h
 -
 pylon/GrabResultPtr.h
 -
 
-/opt/pylon/include/pylon/ImageFormatConverter.h
+/opt/pylon5/include/pylon/ImageFormat.h
+pylon/Platform.h
+-
+pylon/PylonUtility.h
+-
+pylon/PixelType.h
+-
+pylon/Pixel.h
+-
+
+/opt/pylon5/include/pylon/ImageFormatConverter.h
 pylon/Platform.h
 -
 pylon/stdinclude.h
@@ -910,7 +852,7 @@ pylon/_ImageFormatConverterParams.h
 pylon/ReusableImage.h
 -
 
-/opt/pylon/include/pylon/ImagePersistence.h
+/opt/pylon5/include/pylon/ImagePersistence.h
 pylon/Platform.h
 -
 pylon/stdinclude.h
@@ -920,7 +862,7 @@ pylon/PylonUtility.h
 pylon/ReusableImage.h
 -
 
-/opt/pylon/include/pylon/Info.h
+/opt/pylon5/include/pylon/Info.h
 pylon/Platform.h
 -
 pylon/stdinclude.h
@@ -928,7 +870,7 @@ pylon/stdinclude.h
 pylon/PylonBase.h
 -
 
-/opt/pylon/include/pylon/InstantCamera.h
+/opt/pylon5/include/pylon/InstantCamera.h
 pylon/Platform.h
 -
 pylon/stdinclude.h
@@ -966,57 +908,19 @@ pylon/DeviceClass.h
 pylon/DeviceClass.h
 -
 
-/opt/pylon/include/pylon/InstantCameraArray.h
+/opt/pylon5/include/pylon/InstantCameraArray.h
 pylon/Platform.h
 -
 pylon/InstantCamera.h
 -
 
-/opt/pylon/include/pylon/InstantInterface.h
-pylon/Platform.h
--
-pylon/stdinclude.h
--
-pylon/PylonBase.h
--
-pylon/InterfaceInfo.h
--
-pylon/DeviceInfo.h
--
-pylon/TransportLayer.h
--
-pylon/Interface.h
--
-pylon/_BaslerUniversalInterfaceParams.h
--
-
-/opt/pylon/include/pylon/IntegerParameter.h
-pylon/PylonBase.h
--
-GenApi/IInteger.h
--
-pylon/Parameter.h
--
-
-/opt/pylon/include/pylon/Interface.h
-pylon/Platform.h
--
-GenICamFwd.h
--
-pylon/stdinclude.h
--
-pylon/DeviceFactory.h
--
-pylon/InterfaceInfo.h
--
-
-/opt/pylon/include/pylon/InterfaceInfo.h
+/opt/pylon5/include/pylon/InterfaceInfo.h
 pylon/stdinclude.h
 -
 pylon/Info.h
 -
 
-/opt/pylon/include/pylon/NodeMapProxy.h
+/opt/pylon5/include/pylon/NodeMapProxy.h
 pylon/Platform.h
 -
 Base/GCException.h
@@ -1026,51 +930,97 @@ GenApi/INodeMap.h
 GenApi/INode.h
 -
 
-/opt/pylon/include/pylon/Parameter.h
-pylon/PylonBase.h
--
-GenApi/IValue.h
--
-
-/opt/pylon/include/pylon/ParameterIncludes.h
-pylon/ArrayParameter.h
--
-pylon/BooleanParameter.h
--
-pylon/CommandParameter.h
--
-pylon/EnumParameter.h
--
-pylon/FloatParameter.h
--
-pylon/IntegerParameter.h
--
-pylon/StringParameter.h
--
-
-/opt/pylon/include/pylon/PayloadType.h
+/opt/pylon5/include/pylon/PayloadType.h
 pylon/Platform.h
 -
 
-/opt/pylon/include/pylon/Pixel.h
+/opt/pylon5/include/pylon/Pixel.h
 pylon/Platform.h
 -
 pylon/PylonBase.h
 -
 
-/opt/pylon/include/pylon/PixelData.h
+/opt/pylon5/include/pylon/PixelData.h
 pylon/Platform.h
 -
 pylon/PylonBase.h
 -
 
-/opt/pylon/include/pylon/PixelType.h
+/opt/pylon5/include/pylon/PixelFormatConverter.h
+pylon/Platform.h
+-
+pylon/ImageFormatConverter.h
+-
+pylon/ImageFormat.h
+-
+
+/opt/pylon5/include/pylon/PixelFormatConverterBayer.h
+pylon/Platform.h
+-
+pylon/PixelFormatConverter.h
+-
+
+/opt/pylon5/include/pylon/PixelFormatConverterBayer16.h
+pylon/Platform.h
+-
+pylon/PixelFormatConverter.h
+-
+
+/opt/pylon5/include/pylon/PixelFormatConverterGamma.h
+pylon/Platform.h
+-
+pylon/PixelFormatConverterMonoXX.h
+-
+
+/opt/pylon5/include/pylon/PixelFormatConverterGammaPacked.h
+pylon/Platform.h
+-
+pylon/PixelFormatConverterMonoPacked.h
+-
+
+/opt/pylon5/include/pylon/PixelFormatConverterMonoPacked.h
+pylon/Platform.h
+-
+pylon/PixelFormatConverter.h
+-
+
+/opt/pylon5/include/pylon/PixelFormatConverterMonoXX.h
+pylon/Platform.h
+-
+pylon/PixelFormatConverter.h
+-
+
+/opt/pylon5/include/pylon/PixelFormatConverterRGB.h
+pylon/Platform.h
+-
+pylon/PixelFormatConverter.h
+-
+
+/opt/pylon5/include/pylon/PixelFormatConverterTruncate.h
+pylon/Platform.h
+-
+pylon/PixelFormatConverterMonoXX.h
+-
+
+/opt/pylon5/include/pylon/PixelFormatConverterTruncatePacked.h
+pylon/Platform.h
+-
+pylon/PixelFormatConverterMonoPacked.h
+-
+
+/opt/pylon5/include/pylon/PixelFormatConverterYUV422.h
+pylon/Platform.h
+-
+pylon/PixelFormatConverter.h
+-
+
+/opt/pylon5/include/pylon/PixelType.h
 pylon/Platform.h
 -
 pylon/PylonBase.h
 -
 
-/opt/pylon/include/pylon/PixelTypeMapper.h
+/opt/pylon5/include/pylon/PixelTypeMapper.h
 pylon/Platform.h
 -
 GenApi/IEnumerationT.h
@@ -1080,13 +1030,13 @@ pylon/PylonBase.h
 pylon/PixelType.h
 -
 
-/opt/pylon/include/pylon/Platform.h
+/opt/pylon5/include/pylon/Platform.h
 pylon/api_autoconf.h
 -
 stdint.h
 -
 
-/opt/pylon/include/pylon/PylonBase.h
+/opt/pylon5/include/pylon/PylonBase.h
 pylon/Platform.h
 -
 pylon/stdinclude.h
@@ -1094,7 +1044,7 @@ pylon/stdinclude.h
 pylon/TlFactory.h
 -
 
-/opt/pylon/include/pylon/PylonImage.h
+/opt/pylon5/include/pylon/PylonImage.h
 pylon/Platform.h
 -
 pylon/stdinclude.h
@@ -1104,7 +1054,7 @@ pylon/PylonUtility.h
 pylon/PylonImageBase.h
 -
 
-/opt/pylon/include/pylon/PylonImageBase.h
+/opt/pylon5/include/pylon/PylonImageBase.h
 pylon/Platform.h
 -
 pylon/stdinclude.h
@@ -1118,7 +1068,7 @@ pylon/ImagePersistence.h
 pylon/PixelData.h
 -
 
-/opt/pylon/include/pylon/PylonIncludes.h
+/opt/pylon5/include/pylon/PylonIncludes.h
 pylon/Platform.h
 -
 pylon/PylonLinkage.h
@@ -1189,16 +1139,12 @@ pylon/AcquireContinuousConfiguration.h
 -
 pylon/SoftwareTriggerConfiguration.h
 -
-pylon/InstantInterface.h
--
-pylon/ParameterIncludes.h
--
 pylon/PylonUtilityIncludes.h
 -
 GenApi/GenApiDll.h
 -
 
-/opt/pylon/include/pylon/PylonLinkage.h
+/opt/pylon5/include/pylon/PylonLinkage.h
 pylon/Platform.h
 -
 GenICamVersion.h
@@ -1206,18 +1152,18 @@ GenICamVersion.h
 Base/GCLinkage.h
 -
 
-/opt/pylon/include/pylon/PylonUtility.h
+/opt/pylon5/include/pylon/PylonUtility.h
 pylon/Platform.h
 -
 
-/opt/pylon/include/pylon/PylonUtilityIncludes.h
+/opt/pylon5/include/pylon/PylonUtilityIncludes.h
 pylon/Platform.h
 -
 pylon/PylonUtility.h
 -
-pylon/PylonImage.h
+pylon/ImageFormat.h
 -
-pylon/ImageDecompressor.h
+pylon/PylonImage.h
 -
 pylon/ImageFormatConverter.h
 -
@@ -1231,25 +1177,47 @@ pylon/AviWriter.h
 -
 pylon/VideoWriter.h
 -
+pylon/PixelFormatConverter.h
+-
+pylon/PixelFormatConverterBayer.h
+-
+pylon/PixelFormatConverterBayer16.h
+-
+pylon/PixelFormatConverterMonoXX.h
+-
+pylon/PixelFormatConverterGamma.h
+-
+pylon/PixelFormatConverterMonoPacked.h
+-
+pylon/PixelFormatConverterGammaPacked.h
+-
+pylon/PixelFormatConverterRGB.h
+-
+pylon/PixelFormatConverterTruncate.h
+-
+pylon/PixelFormatConverterTruncatePacked.h
+-
+pylon/PixelFormatConverterYUV422.h
+-
 pylon/PylonLinkage.h
 -
 
-/opt/pylon/include/pylon/PylonVersionInfo.h
+/opt/pylon5/include/pylon/PylonVersionInfo.h
 pylon/Platform.h
 -
 pylon/PylonBase.h
 -
 
-/opt/pylon/include/pylon/PylonVersionNumber.h
+/opt/pylon5/include/pylon/PylonVersionNumber.h
 
-/opt/pylon/include/pylon/Result.h
+/opt/pylon5/include/pylon/Result.h
 limits.h
--
-memory.h
 -
 Base/GCTypes.h
 -
 Base/GCException.h
+-
+pylon/Platform.h
 -
 pylon/Platform.h
 -
@@ -1262,11 +1230,11 @@ pylon/PayloadType.h
 pylon/ResultImage.h
 -
 
-/opt/pylon/include/pylon/ResultImage.h
+/opt/pylon5/include/pylon/ResultImage.h
 pylon/Image.h
 -
 
-/opt/pylon/include/pylon/ReusableImage.h
+/opt/pylon5/include/pylon/ReusableImage.h
 pylon/Platform.h
 -
 pylon/PylonBase.h
@@ -1274,7 +1242,7 @@ pylon/PylonBase.h
 pylon/Image.h
 -
 
-/opt/pylon/include/pylon/SfncVersion.h
+/opt/pylon5/include/pylon/SfncVersion.h
 pylon/Platform.h
 -
 pylon/PylonVersionInfo.h
@@ -1286,17 +1254,13 @@ GenApi/Pointer.h
 GenApi/INodeMap.h
 -
 
-/opt/pylon/include/pylon/SoftwareTriggerConfiguration.h
+/opt/pylon5/include/pylon/SoftwareTriggerConfiguration.h
 pylon/Platform.h
 -
 pylon/InstantCamera.h
 -
-pylon/ParameterIncludes.h
--
-pylon/ConfigurationHelper.h
--
 
-/opt/pylon/include/pylon/StreamGrabber.h
+/opt/pylon5/include/pylon/StreamGrabber.h
 pylon/Platform.h
 -
 GenICamFwd.h
@@ -1304,15 +1268,7 @@ GenICamFwd.h
 pylon/stdinclude.h
 -
 
-/opt/pylon/include/pylon/StringParameter.h
-pylon/PylonBase.h
--
-GenApi/IString.h
--
-pylon/Parameter.h
--
-
-/opt/pylon/include/pylon/TlFactory.h
+/opt/pylon5/include/pylon/TlFactory.h
 pylon/Platform.h
 -
 pylon/stdinclude.h
@@ -1326,7 +1282,7 @@ pylon/TransportLayer.h
 pylon/DeviceFactory.h
 -
 
-/opt/pylon/include/pylon/TlInfo.h
+/opt/pylon5/include/pylon/TlInfo.h
 pylon/Platform.h
 -
 pylon/stdinclude.h
@@ -1334,7 +1290,7 @@ pylon/stdinclude.h
 pylon/Info.h
 -
 
-/opt/pylon/include/pylon/TransportLayer.h
+/opt/pylon5/include/pylon/TransportLayer.h
 pylon/Platform.h
 -
 GenICamFwd.h
@@ -1347,10 +1303,8 @@ pylon/DeviceFactory.h
 -
 pylon/TlInfo.h
 -
-pylon/Interface.h
--
 
-/opt/pylon/include/pylon/TypeMappings.h
+/opt/pylon5/include/pylon/TypeMappings.h
 Base/GCNamespace.h
 -
 Base/GCTypes.h
@@ -1368,7 +1322,7 @@ GenApi/Synch.h
 pylon/Platform.h
 -
 
-/opt/pylon/include/pylon/VideoWriter.h
+/opt/pylon5/include/pylon/VideoWriter.h
 pylon/Platform.h
 -
 pylon/stdinclude.h
@@ -1382,7 +1336,7 @@ pylon/_VideoWriterParams.h
 GenApi/INodeMap.h
 -
 
-/opt/pylon/include/pylon/WaitObject.h
+/opt/pylon5/include/pylon/WaitObject.h
 pylon/Platform.h
 -
 pylon/stdinclude.h
@@ -1390,39 +1344,93 @@ pylon/stdinclude.h
 pylon/PylonBase.h
 -
 
-/opt/pylon/include/pylon/WaitObjects.h
+/opt/pylon5/include/pylon/WaitObjects.h
 pylon/Platform.h
 -
 pylon/WaitObject.h
 -
 
-/opt/pylon/include/pylon/_BaslerUniversalInterfaceParams.h
-pylon/ParameterIncludes.h
+/opt/pylon5/include/pylon/_ImageFormatConverterParams.h
+GenApi/IEnumerationT.h
 -
-pylon/EnumParameterT.h
+GenApi/NodeMapRef.h
+-
+GenApi/DLLLoad.h
+-
+GenApi/IBoolean.h
+-
+GenApi/ICategory.h
+-
+GenApi/ICommand.h
+-
+GenApi/IEnumeration.h
+-
+GenApi/IEnumEntry.h
+-
+GenApi/IFloat.h
+-
+GenApi/IInteger.h
+-
+GenApi/IString.h
+-
+GenApi/IRegister.h
 -
 
-/opt/pylon/include/pylon/_ImageFormatConverterParams.h
-pylon/ParameterIncludes.h
+/opt/pylon5/include/pylon/_InstantCameraParams.h
+GenApi/IEnumerationT.h
 -
-pylon/EnumParameterT.h
+GenApi/NodeMapRef.h
+-
+GenApi/DLLLoad.h
+-
+GenApi/IBoolean.h
+-
+GenApi/ICategory.h
+-
+GenApi/ICommand.h
+-
+GenApi/IEnumeration.h
+-
+GenApi/IEnumEntry.h
+-
+GenApi/IFloat.h
+-
+GenApi/IInteger.h
+-
+GenApi/IString.h
+-
+GenApi/IRegister.h
 -
 
-/opt/pylon/include/pylon/_InstantCameraParams.h
-pylon/ParameterIncludes.h
+/opt/pylon5/include/pylon/_VideoWriterParams.h
+GenApi/IEnumerationT.h
 -
-pylon/EnumParameterT.h
+GenApi/NodeMapRef.h
+-
+GenApi/DLLLoad.h
+-
+GenApi/IBoolean.h
+-
+GenApi/ICategory.h
+-
+GenApi/ICommand.h
+-
+GenApi/IEnumeration.h
+-
+GenApi/IEnumEntry.h
+-
+GenApi/IFloat.h
+-
+GenApi/IInteger.h
+-
+GenApi/IString.h
+-
+GenApi/IRegister.h
 -
 
-/opt/pylon/include/pylon/_VideoWriterParams.h
-pylon/ParameterIncludes.h
--
-pylon/EnumParameterT.h
--
+/opt/pylon5/include/pylon/api_autoconf.h
 
-/opt/pylon/include/pylon/api_autoconf.h
-
-/opt/pylon/include/pylon/stdinclude.h
+/opt/pylon5/include/pylon/stdinclude.h
 assert.h
 -
 pylon/Platform.h

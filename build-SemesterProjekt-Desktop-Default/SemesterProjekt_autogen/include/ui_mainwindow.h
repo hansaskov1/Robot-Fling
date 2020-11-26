@@ -185,6 +185,7 @@ public:
         gridLayout->setObjectName(QStringLiteral("gridLayout"));
         lImage = new QLabel(widget_6);
         lImage->setObjectName(QStringLiteral("lImage"));
+        lImage->setScaledContents(true);
 
         gridLayout->addWidget(lImage, 0, 0, 1, 1);
 

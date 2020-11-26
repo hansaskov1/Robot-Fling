@@ -1,3 +1,0 @@
-/home/christian/workspace/Robot-Fling/Vision/build-src-Desktop-Standard/CMakeFiles/rebuild_cache.dir
-/home/christian/workspace/Robot-Fling/Vision/build-src-Desktop-Standard/CMakeFiles/Vision.dir
-/home/christian/workspace/Robot-Fling/Vision/build-src-Desktop-Standard/CMakeFiles/edit_cache.dir

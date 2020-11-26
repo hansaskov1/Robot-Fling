@@ -6,5 +6,5 @@ CXX_FLAGS =  -std=c++11
 
 CXX_DEFINES = 
 
-CXX_INCLUDES = -I/opt/pylon/include -isystem /usr/include/opencv 
+CXX_INCLUDES = -I/opt/pylon5/include -isystem /usr/include/opencv 
 

@@ -11,24 +11,28 @@ Calibration::~Calibration()
 {
     delete &mtx;
 }
-//imageOut.adjustROI(-180,-190,-420,-290);
-//imageOut.adjustROI(-190,-200,-430,-300);
+// Top, buttom, left right
+// Celle 2 : -190 , -200 , -430 , -300
+
+// Celle 4 : -185 , -190 , -400 , -345
 void Calibration::init(int celleNr)
 {
     std::string path = "../Images/CalibrationImages" + std::to_string(celleNr) + "/img*.png";
     cv::glob(path, mFileNames, false);
     switch (celleNr) {
     case 2:
-        mROI[0] = -180;
-        mROI[1] = -190;
-        mROI[2] = -420;
-        mROI[3] = -290;
-        break;
-    case 4:
+        std::cout << "cell 2" << std::endl;
         mROI[0] = -190;
         mROI[1] = -200;
         mROI[2] = -430;
         mROI[3] = -300;
+        break;
+    case 4:
+        std::cout << "cell 4" << std::endl;
+        mROI[0] = -185;
+        mROI[1] = -190;
+        mROI[2] = -400;
+        mROI[3] = -345;
         break;
     default:
         break;
