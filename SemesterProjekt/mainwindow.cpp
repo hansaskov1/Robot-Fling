@@ -64,9 +64,11 @@ void MainWindow::on_bSaveConnect_clicked()
     c.init(celleNr);
     c.connectToCam();
 
+
     QThreadPool::globalInstance()->start(video);
 
     RC.setParam(ui->liIP->text().toStdString(), ui->liGripperIP->text(), celleNr);
+    RC.setCellNr(cellNr);
 }
 
 void MainWindow::on_bDisconnect_clicked()

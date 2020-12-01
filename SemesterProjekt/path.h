@@ -2,6 +2,8 @@
 #define PATH_H
 
 #include <vector>
+#include <iostream>
+#include <iomanip>
 
 class Path
 {
@@ -29,6 +31,8 @@ public:
         jointVel = std::move(path.jointVel);
         toolPose = std::move(path.toolPose);
         toolVel = std::move(path.toolVel);
+        elapsedTime = std::move(path.elapsedTime);
+
     }
 
 
@@ -46,9 +50,36 @@ public:
         jointVel = std::move(path.jointVel);
         toolPose = std::move(path.toolPose);
         toolVel = std::move(path.toolVel);
+        elapsedTime = std::move(path.elapsedTime);
+
         return *this;
 
     }
+
+
+
+    friend std::ostream &operator<<( std::ostream &os, const Path &p )
+    {
+
+
+
+        os << "size" << p.elapsedTime.size() << "\n";
+
+        for (unsigned int i = 0; i < p.elapsedTime.size(); i++)
+        {
+            os << std::fixed;
+            os << std::setprecision(5);
+            os << "t " << p.elapsedTime[i] << " ";
+            os << "q["  << p.jointPoses[0].size() << "]{"; for (double value : p.jointPoses[i]) { (value == p.jointPoses[i][0])? os << "" : os << ", "; os << std::setw(8) << std::left << value;}  os << "} ";
+            os << "dq[" << p.jointVel[0].size()   << "]{"; for (double value : p.jointVel[i])   { (value == p.jointVel[i][0])?   os << "" : os << ", "; os << std::setw(8) << std::left << value;}  os << "} ";
+            os << "p["  << p.toolPose[0].size()   << "]{"; for (double value : p.toolPose[i])   { (value == p.toolPose[i][0])?   os << "" : os << ", "; os << std::setw(8) << std::left << value;}  os << "} ";
+            os << "dp[" << p.toolVel[0].size()    << "]{"; for (double value : p.toolVel[i])    { (value == p.toolVel[i][0])?    os << "" : os << ", "; os << std::setw(8) << std::left << value;}  os << "} \n";
+            //os << "\n";
+        }
+        return os;
+    }
+
+
 
 
     void addPoint (const std::vector<double> &jointPosesValue, const std::vector<double> &jointVelValue, const std::vector<double> &toolPoseValue, const std::vector<double> &toolVelValue)

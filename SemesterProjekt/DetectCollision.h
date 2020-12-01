@@ -167,7 +167,8 @@ public:
             rw::math::Q q(stdQ);
             if (checkCollision(q))
             {
-                return true;
+               hasCollided = true;
+               return true;
             }
         }
         return false;
@@ -175,6 +176,8 @@ public:
 
     void setState(const rw::math::Q jointPosition){mDevice->setQ(jointPosition,mState);}
     rw::math::Q getState() const { return mDevice->getQ(mState);}
+    bool getHasCollided() const { return hasCollided;}
+    void setHasCollided(bool value){hasCollided = value;}
     std::vector<rw::math::Q> getQVec() const { return mQVec; }
     rw::math::Transform3D<> getTransform() const {return mDevice->baseTend(mState);}
     rw::math::Transform3D<> getTransform(rw::math::Q jointPose)
@@ -182,6 +185,7 @@ public:
         setState(jointPose);
         return mDevice->baseTend(mState);
     }
+
 
 
 private:
@@ -210,7 +214,9 @@ private:
     {
         rw::proximity::CollisionDetector::QueryResult resEnd;
         mDetector->inCollision(mState, &resEnd);
-        return !resEnd.collidingFrames.empty();
+        bool isCol =  !resEnd.collidingFrames.empty();
+       if (isCol) hasCollided = true;
+        return isCol;
     }
 
     bool checkCollision(const rw::math::Q& q)
@@ -224,4 +230,5 @@ private:
     rw::kinematics::State mState;
     rw::proximity::CollisionDetector::Ptr mDetector;
     std::vector<rw::math::Q> mQVec;
+    bool hasCollided = false;
 };
