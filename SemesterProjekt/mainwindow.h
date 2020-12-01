@@ -37,7 +37,7 @@ private slots:
 
     void on_bDisconnect_clicked();
 
-    void on_cbDB_currentIndexChanged(const QString &arg1);
+    void on_cbDB_currentIndexChanged(const QString&);
 
 private:
     Ui::MainWindow *ui;

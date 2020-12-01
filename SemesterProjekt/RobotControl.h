@@ -51,12 +51,25 @@ public:
 
     }
 
-    void setParam(std::string ipAdress, QString gripIpAdress, rw::math::Vector3D<> calPos, rw::math::Rotation3D<> calRot) {
+    void setParam(std::string ipAdress, QString gripIpAdress, int celleNr) {
         mIpAdress = ipAdress;
-        mCalPos = calPos;
-        mCalRot = calRot;
-        mInvCalRot = calRot.inverse();
         gripper.ToConnectToHost(gripIpAdress, 1000);
+        switch (celleNr)
+        {
+        case 2:
+            // Robot cal for table 2
+            mCalPos = rw::math::Vector3D<>(0.400624689065891, 0.901530744085863, 0.042187492976487);
+            mCalRot = rw::math::Rotation3D<double>(0.923890908941640 ,0.382647484711815,-0.002547708521920,-0.382655561588167,0.923879135480505,-0.004697255522142,0.000556381736091,0.005314646509101,0.999985722383999);
+            break;
+        case 4:
+            // Robot cal for table 4
+            mCalPos = rw::math::Vector3D<>(0.404933521031581,0.911568253889385,0.040065747515709);
+            mCalRot = rw::math::Rotation3D<double>(0.927485860124202,0.373761533519894,-0.008502666083409,-0.373842123595955,0.927417138009057,-0.011811805634918,0.003470719656776,0.014133937453771,0.999894087349814);
+            break;
+        default:
+            std::cerr << "Den er ikke lavet endnu" << std::endl;
+        }
+        mInvCalRot = mCalRot.inverse();
     }
 
     std::vector<double> TObj2TVec(rw::math::Transform3D<> TObject)
@@ -289,6 +302,10 @@ public:
         mThrow.setSpeed(200);
         mThrow.setSuccess(1);
         return mThrow;
+    }
+
+    void disconnect() {
+        gripper.disconnect();
     }
 
     double speed(double vinkel, rw::math::Vector3D<> throwPose, rw::math::Vector3D<> cupPose)

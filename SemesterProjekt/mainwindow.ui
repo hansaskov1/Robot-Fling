@@ -157,6 +157,9 @@
           </item>
           <item>
            <widget class="QComboBox" name="cbCell">
+            <property name="currentIndex">
+             <number>3</number>
+            </property>
             <item>
              <property name="text">
               <string>Celle 1</string>
