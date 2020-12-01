@@ -31,15 +31,13 @@ public:
 private slots:
     void on_bSend_clicked();
 
-    void on_bOpenGrip_clicked();
-
-    void on_bCloseGrip_clicked();
-
     void on_bCalibrate_clicked();
 
     void on_bSaveConnect_clicked();
 
     void on_bDisconnect_clicked();
+
+    void on_cbDB_currentIndexChanged(const QString &arg1);
 
 private:
     Ui::MainWindow *ui;

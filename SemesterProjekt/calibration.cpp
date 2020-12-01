@@ -11,23 +11,45 @@ Calibration::~Calibration()
 {
     delete &mtx;
 }
+// Top, buttom, left right
+// Celle 2 : -190 , -200 , -430 , -300
 
+// Celle 4 : -185 , -190 , -400 , -345
 void Calibration::init(int celleNr)
 {
-    cv::glob("../Images/CalibrationImages2/img*.png", mFileNames, false);
-    if(calibrate()){
+    std::string path = "../Images/CalibrationImages" + std::to_string(celleNr) + "/img*.png";
+    cv::glob(path, mFileNames, false);
+    switch (celleNr) {
+    case 2:
+        std::cout << "cell 2" << std::endl;
+        mROI[0] = -190;
+        mROI[1] = -200;
+        mROI[2] = -430;
+        mROI[3] = -300;
+        break;
+    case 4:
+        std::cout << "cell 4" << std::endl;
+        mROI[0] = -185;
+        mROI[1] = -190;
+        mROI[2] = -400;
+        mROI[3] = -345;
+        break;
+    default:
+        break;
+    }
+    if (calibrate()) {
         cv::Mat worldCalImg[4];
         for(int i = 0; i < 4; i++){
             cv::String path = "";
-            path = "../Images/BallWorldCordsROI2/img" + std::to_string(i) + ".png";
+            path = "../Images/BallWorldCordsROI" + std::to_string(celleNr) + "/img" + std::to_string(i) + ".png";
             worldCalImg[i] = cv::imread(path, cv::IMREAD_COLOR);
         }
         if (createTranformMatrix(worldCalImg)){
             std::cout << "calibration sucess & transformMatrix Sucess" << std::endl;
-        }else{
+        } else{
             std::cout << "calibration sucess & transformMatrix failed" << std::endl;
         }
-    }else {
+    } else {
         std::cout << "callibration failed" << std::endl;
     }
 }
@@ -89,7 +111,7 @@ bool Calibration::connectToCam()
         //std::cout << "fisk" << std::endl;
         nuTid = std::chrono::high_resolution_clock::now();
         if(std::chrono::duration_cast<std::chrono::microseconds>(nuTid - startTid) > std::chrono::milliseconds(10000)){
-            mCvImage = cv::imread("../Images/CalibrationImages2/img0.png", cv::IMREAD_COLOR);
+            mCvImage = cv::imread("../Images/Warning.png", cv::IMREAD_COLOR);
             return false;
         }
     }
@@ -167,14 +189,14 @@ cv::Mat Calibration::getImage()
     }
     //td::cout << "mtx locked for out" << std::endl;
     if(!mCvImage.data || !camRunning){
-        return cv::imread("../Images/BallWorldCords2/img0.png",cv::IMREAD_COLOR);
+        return cv::imread("../Images/Warning.png",cv::IMREAD_COLOR);
     }else{
         imageIn = mCvImage;
     }
     mtx.unlock();
     //std::cout << "mtx unlocked for out" << std::endl;
     cv::remap(imageIn,imageOut,mMapX,mMapY,1,1);
-    imageOut.adjustROI(-180,-190,-420,-290);
+    imageOut.adjustROI(mROI[0],mROI[1],mROI[2],mROI[3]);
     //imageOut.adjustROI(-190,-200,-430,-300);
     return imageOut;
 }

@@ -74,12 +74,12 @@ public:
 
     signals:
         //Signaling is used to ensure that slot functions are executed in child threads
-        void ToConnectToHost(QString hostIp,quint16 hostPort); //Try to connect the server with random Ip port (no guarantee of successful connection)
-        void ToSendData(QByteArray data);//Try to send data
-        void ToCloseSocket();//Try to close Socket
+        void ToConnectToHost(QString hostIp,quint16 hostPort); //Try to connect the server
+        void ToSendData(QByteArray data); //Try to send data
+        void ToCloseSocket(); //Try to close Socket
 
 private slots:
-        void ConnectToHost(QString hostIp,quint16 hostPort)//Random Ip port connects to the server
+        void ConnectToHost(QString hostIp,quint16 hostPort)
         {
             if(!mySocket)//Create Socket
                 {
@@ -114,12 +114,8 @@ private slots:
         void SendData(QByteArray data)//Send data to the server
         {
             if(connectFlag&&mySocket->isWritable())
-                {
-                    if (data.size() != mySocket->write(data))
-                    {
-                        qDebug() << "Der er noget der driller";
-                    }
-                }
+                if (data.size() != mySocket->write(data))
+                    qDebug() << "Der er noget der driller";
         }
 
         void CloseSocket()//Try to close Socket

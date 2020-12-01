@@ -47,7 +47,6 @@ public:
 private:
     void grapPictures();
 
-
     bool isCalibrated;
     bool camRunning = false;
 
@@ -63,6 +62,7 @@ private:
     cv::Mat transMatCamToBall;
     cv::Mat mCvImage;
     cv::Mat mMapX, mMapY;
+    int mROI[4];
 
 };
 

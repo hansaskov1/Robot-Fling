@@ -33,7 +33,7 @@ int main()
         }else if(keyPressed == 'p'){
             image = c.getImage();
             cv::String path = "";
-            path = "../../Images/BallWorldCordsROI4/img" + std::to_string(imgNr) + ".png";
+            path = "../../Images/BallWorldCordsROI2/img" + std::to_string(imgNr) + ".png";
             cv::imwrite(path, image);
             imgNr++;
         }else if(keyPressed == 'r'){
