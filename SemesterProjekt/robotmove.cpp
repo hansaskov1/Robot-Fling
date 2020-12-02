@@ -107,6 +107,7 @@ void RobotMove::fetchPathJRelease(std::promise<Path> &&returnPath, std::atomic<b
         std::chrono::duration<double> elapsedTime = stop-start;
         path.addElapsedTime(elapsedTime.count());
 
+
        rw::math::Q estimatedJoint = releasePose;
        estimatedJoint[1] = (mMsInterval/1000) * toolV[1] + toolP[1];
 
@@ -194,9 +195,18 @@ Path RobotMove::moveRobotLRelease(rw::math::Vector3D<> position, rw::math::RPY<>
     return futurePath.get();
 }
 
-Path RobotMove::moveRobotJRelease(rw::math::Q joint, rw::math::Vector3D<> releasePos, double maxOffset)
+Path RobotMove::moveRobotJRelease(rw::math::Q jointPos, rw::math::Q releasePos, double maxOffset)
 {
+    std::vector<double> JointstdVec = jointPos.toStdVector();
+    std::atomic<bool> stop {false};
+    std::promise<Path> promisePath;
+    std::future<Path> futurePath = promisePath.get_future();
 
+    std::thread recive(&RobotMove::fetchPathJRelease, this , std::move(promisePath), std::ref(stop), releasePos, maxOffset);
+    mControl->moveJ(JointstdVec, mSpeed, mAcc);
+    stop = true;
+    recive.join();
+    return futurePath.get();
 }
 
 double RobotMove::getSpeed() const{return mSpeed;}

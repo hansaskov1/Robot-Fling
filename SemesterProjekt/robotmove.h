@@ -28,7 +28,7 @@ public:
     Path moveRobotJ(rw::math::Q);
     Path moveRobotJ(rw::math::Vector3D<> position ,rw::math::RPY<> orientation);
     Path moveRobotLRelease(rw::math::Vector3D<> position,rw::math::RPY<> orientation, rw::math::Vector3D<> releasePos, double maxOffset);
-    Path moveRobotJRelease(rw::math::Q joint, rw::math::Vector3D<> releasePos, double maxOffset);
+    Path moveRobotJRelease(rw::math::Q joint, rw::math::Q releasePose, double maxOffset);
 
 
     double getSpeed() const;
