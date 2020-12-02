@@ -69,6 +69,8 @@ if(ANDROID)
     objectdetection.h
     objectdetection.cpp
     RobotControl.h
+    robotmove.h
+    robotmove.cpp
     DetectCollision.h
     path.h
   )
@@ -87,6 +89,8 @@ else()
     objectdetection.h
     objectdetection.cpp
     RobotControl.h
+    robotmove.h
+    robotmove.cpp
     DetectCollision.h
     path.h
   )
