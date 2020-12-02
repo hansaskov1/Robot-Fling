@@ -68,7 +68,6 @@ if(ANDROID)
     calibration.cpp
     objectdetection.h
     objectdetection.cpp
-    showvideo.h
     RobotControl.h
     DetectCollision.h
     path.h
@@ -87,7 +86,6 @@ else()
     calibration.cpp
     objectdetection.h
     objectdetection.cpp
-    showvideo.h
     RobotControl.h
     DetectCollision.h
     path.h

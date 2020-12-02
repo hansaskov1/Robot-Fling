@@ -11,7 +11,6 @@
 #include <QTimer>
 #include "calibration.h"
 #include "objectdetection.h"
-#include "showvideo.h"
 //#include "DetectCollision.h"
 #include "RobotControl.h"
 #include "sqlcontroller.h"
@@ -26,7 +25,10 @@ class MainWindow : public QMainWindow
 
 public:
     MainWindow(QWidget *parent = 0);
-    ~MainWindow();
+    virtual ~MainWindow();
+
+private:
+    void showVideo();
 
 private slots:
     void on_bSend_clicked();
@@ -46,7 +48,7 @@ private:
     cv::Mat image;
     RobotControl RC;
     SQLController sql;
-    showVideo *video;
+    std::thread thread;
 };
 
 #endif // MAINWINDOW_H

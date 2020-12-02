@@ -8,14 +8,20 @@ MainWindow::MainWindow(QWidget *parent)
     , ui(new Ui::MainWindow)
 {
     ui->setupUi(this);
-
-    video = new showVideo(ui->lImage, &c);
 }
 
 MainWindow::~MainWindow()
 {
     delete ui;
-    delete video;
+}
+
+void MainWindow::showVideo()
+{
+    while(c.mRun) {
+        image = c.getImage();
+        ui->lImage->setPixmap(QPixmap::fromImage(QImage((const uchar*)image.data, image.cols, image.rows, image.step, QImage::Format_RGB888).rgbSwapped()));
+        std::this_thread::sleep_for (std::chrono::milliseconds(100));
+    }
 }
 
 void MainWindow::on_bSend_clicked()
@@ -64,8 +70,7 @@ void MainWindow::on_bSaveConnect_clicked()
     c.init(celleNr);
     c.connectToCam();
 
-
-    QThreadPool::globalInstance()->start(video);
+    thread = std::thread(&MainWindow::showVideo, this);
 
     RC.setParam(ui->liIP->text().toStdString(), ui->liGripperIP->text(), celleNr);
 }
@@ -74,6 +79,8 @@ void MainWindow::on_bDisconnect_clicked()
 {
     RC.disconnect();
     c.mRun = false;
+    if (thread.joinable())
+        thread.join();
 }
 
 void MainWindow::on_cbDB_currentIndexChanged(const QString &arg1)

@@ -9,7 +9,7 @@ Calibration::Calibration()
 
 Calibration::~Calibration()
 {
-    delete &mtx;
+    //delete &mtx;
 }
 // Top, buttom, left right
 // Celle 2 : -190 , -200 , -430 , -300

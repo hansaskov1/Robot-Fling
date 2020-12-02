@@ -243,8 +243,8 @@ public:
         {
             std::this_thread::sleep_for(std::chrono::milliseconds(300));
             std::cout << "running robot" << std::endl;
-            double speed = 0.2;
-            double acceleration = 0.05;
+            double speed = 2;
+            double acceleration = 0.5;
             double msInterval = 10;
             ur_rtde::RTDEControlInterface rtdeControl(mIpAdress);
             ur_rtde::RTDEReceiveInterface rtdeRecive(mIpAdress);
