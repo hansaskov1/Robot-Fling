@@ -8,6 +8,16 @@ MainWindow::MainWindow(QWidget *parent)
     , ui(new Ui::MainWindow)
 {
     ui->setupUi(this);
+
+    mBallPosition = rw::math::Vector3D<>(0.2, 0.2, 0.1);
+    mCupPosition = rw::math::Vector3D<>(0.55, 0.5, 0.1);
+    mReleasePosition = rw::math::Vector3D<>(0.6, 0.95, 0.7);
+    mAngle = 3.1415/8;
+    mOffset = 0.5;
+
+    ui->lXValue->setText(QString::number(mBallPosition[0]));
+    ui->lYValue->setText(QString::number(mBallPosition[1]));
+    ui->lZValue->setText(QString::number(mBallPosition[2]));
 }
 
 MainWindow::~MainWindow()
@@ -47,7 +57,6 @@ void MainWindow::on_bSend_clicked()
     if (ballPos.x && ballPos.y)
     {
         rw::math::Vector3D<> ballPosition(camToBall.at<float>(0,3)*0.01,camToBall.at<float>(1,3)*0.01,camToBall.at<float>(2,3)*0.01);
-        //rw::math::Vector3D<> ballPosition(0.2,0.2,0.1);
 
         RC.getBall(ballPosition,0.05);
 
@@ -88,4 +97,86 @@ void MainWindow::on_cbDB_currentIndexChanged(const QString &arg1)
     if (ui->cbDB->currentIndex())
         if (sql.connect("192.168.221.1", "ubuntu", "Tarzan12!", "throwdb"))
             ui->statusbar->showMessage("Connected", 3000);
+}
+
+void MainWindow::on_cbManual_currentIndexChanged(const QString &arg1)
+{
+    switch (ui->cbManual->currentIndex()) {
+    case 0:
+        ui->lXValue->setText(QString::number(mBallPosition[0]));
+        ui->lYValue->show();
+        ui->lYValue->setText(QString::number(mBallPosition[1]));
+        ui->lZValue->show();
+        ui->lZValue->setText(QString::number(mBallPosition[2]));
+        break;
+    case 1:
+        ui->lXValue->setText(QString::number(mCupPosition[0]));
+        ui->lYValue->show();
+        ui->lYValue->setText(QString::number(mCupPosition[1]));
+        ui->lZValue->show();
+        ui->lZValue->setText(QString::number(mCupPosition[2]));
+        break;
+    case 2:
+        ui->lXValue->setText(QString::number(mReleasePosition[0]));
+        ui->lYValue->show();
+        ui->lYValue->setText(QString::number(mReleasePosition[1]));
+        ui->lZValue->show();
+        ui->lZValue->setText(QString::number(mReleasePosition[2]));
+        break;
+    case 3:
+        ui->lXValue->setText(QString::number(mAngle));
+        ui->lYValue->hide();
+        ui->lZValue->hide();
+        break;
+    case 4:
+        ui->lXValue->setText(QString::number(mOffset));
+        ui->lYValue->hide();
+        ui->lZValue->hide();
+        break;
+    }
+}
+
+void MainWindow::on_pbManualApply_clicked()
+{
+    switch (ui->cbManual->currentIndex()) {
+    case 0:
+        mBallPosition[0] = ui->lXValue->text().toDouble();
+        mBallPosition[1] = ui->lYValue->text().toDouble();
+        mBallPosition[2] = ui->lZValue->text().toDouble();
+        break;
+    case 1:
+        mCupPosition[0] = ui->lXValue->text().toDouble();
+        mCupPosition[1] = ui->lYValue->text().toDouble();
+        mCupPosition[2] = ui->lZValue->text().toDouble();
+        break;
+    case 2:
+        mReleasePosition[0] = ui->lXValue->text().toDouble();
+        mReleasePosition[1] = ui->lYValue->text().toDouble();
+        mReleasePosition[2] = ui->lZValue->text().toDouble();
+        break;
+    case 3:
+        mAngle = ui->lXValue->text().toDouble();
+        break;
+    case 4:
+        mOffset = ui->lXValue->text().toDouble();
+        break;
+    }
+}
+
+void MainWindow::on_pbManualStart_clicked()
+{
+    RC.throwBallLinear(mCupPosition, mReleasePosition, mAngle, mOffset);
+
+    if (ui->cbDB->currentIndex())
+        if (sql.insert(RC.getThrow()))
+            ui->statusbar->showMessage("Inserted to database", 3000);
+}
+
+void MainWindow::on_pbGetBall_clicked()
+{
+    RC.getBall(mBallPosition, 0.05);
+
+    if (ui->cbDB->currentIndex())
+        if (sql.insert(RC.getThrow()))
+            ui->statusbar->showMessage("Inserted to database", 3000);
 }
