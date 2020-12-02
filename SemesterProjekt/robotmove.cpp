@@ -111,7 +111,7 @@ void RobotMove::fetchPathJRelease(std::promise<Path> &&returnPath, std::atomic<b
        rw::math::Q estimatedJoint = releasePose;
        estimatedJoint[1] = (mMsInterval/1000) * toolV[1] + toolP[1];
 
-       rw::math::Q jointDiff;
+       rw::math::Q jointDiff(0,0,0,0,0,0);
        jointDiff[1] = abs(estimatedJoint[1] - releasePose[1]);
 
        std::cout << "Diffrence: " << jointDiff << "Estimated: " << estimatedJoint << "Diffrence from " << releasePose << std::endl;
@@ -121,6 +121,7 @@ void RobotMove::fetchPathJRelease(std::promise<Path> &&returnPath, std::atomic<b
            mGripper->open();
            hasThrown = true;
        }
+
     }
     returnPath.set_value(std::move(path));
 }
