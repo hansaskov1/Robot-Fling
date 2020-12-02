@@ -74,12 +74,13 @@ void RobotMove::fetchPathLRelease(std::promise<Path> &&returnPath, std::atomic<b
        vecDiff[1] = abs(estimatedPos[1] - releasePos[1]);
        vecDiff[2] = abs(estimatedPos[2] - releasePos[2]);
 
-       std::cout << "Diffrence: " << vecDiff << "Estimated: " << estimatedPos << "Diffrence from " << releasePos << std::endl;
+
 
        if (vecDiff[0] < maxOffset && vecDiff[1] < maxOffset && vecDiff[2] < maxOffset && !hasThrown)
        {
            mGripper->open();
            hasThrown = true;
+           std::cout << "Diffrence: " << vecDiff << "Estimated: " << estimatedPos << "Diffrence from " << releasePos << std::endl;
        }
     }
     returnPath.set_value(std::move(path));
@@ -114,12 +115,13 @@ void RobotMove::fetchPathJRelease(std::promise<Path> &&returnPath, std::atomic<b
        rw::math::Q jointDiff(0,0,0,0,0,0);
        jointDiff[1] = abs(estimatedJoint[1] - releasePose[1]);
 
-       std::cout << "Diffrence: " << jointDiff << "Estimated: " << estimatedJoint << "Diffrence from " << releasePose << std::endl;
+
 
        if (jointDiff[1] < maxOffset && !hasThrown)
        {
            mGripper->open();
            hasThrown = true;
+           std::cout << "Diffrence: " << jointDiff << "Estimated: " << estimatedJoint << "Diffrence from " << releasePose << "TCP speed" <<  << std::endl;
        }
 
     }
@@ -215,6 +217,12 @@ void RobotMove::setSpeed(double speed){mSpeed = speed;}
 
 double RobotMove::getAcc() const{ return mAcc;}
 void RobotMove::setAcc(double acc){mAcc = acc;}
+
+void RobotMove::setSpeedAcc(double speed, double acc)
+{
+    mSpeed = speed;
+    mAcc = acc;
+}
 
 unsigned int RobotMove::getMsInterval() const{ return mMsInterval;}
 void RobotMove::setMsInterval(unsigned int msInterval){mMsInterval = msInterval;}
