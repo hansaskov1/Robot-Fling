@@ -41,6 +41,14 @@ private slots:
 
     void on_cbDB_currentIndexChanged(const QString&);
 
+    void on_cbManual_currentIndexChanged(const QString &arg1);
+
+    void on_pbManualApply_clicked();
+
+    void on_pbManualStart_clicked();
+
+    void on_pbGetBall_clicked();
+
 private:
     Ui::MainWindow *ui;
     Calibration c;
@@ -49,6 +57,11 @@ private:
     RobotControl RC;
     SQLController sql;
     std::thread thread;
+    rw::math::Vector3D<> mBallPosition;
+    rw::math::Vector3D<> mCupPosition;
+    rw::math::Vector3D<> mReleasePosition;
+    double mAngle;
+    double mOffset;
 };
 
 #endif // MAINWINDOW_H
