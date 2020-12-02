@@ -156,8 +156,8 @@ public:
         {
             std::this_thread::sleep_for(std::chrono::milliseconds(300));
             std::cout << "running robot" << std::endl;
-            double speed = 0.5;
-            double acceleration = 0.3;
+            double speed = 1;
+            double acceleration = 0.6;
             double msInterval = 10;
             ur_rtde::RTDEControlInterface rtdeControl(mIpAdress);
             ur_rtde::RTDEReceiveInterface rtdeRecive(mIpAdress);
@@ -307,11 +307,15 @@ public:
 
 
         rw::math::Vector3D<>robotPosition (0.40,0.90,0);
-        rw::math::Q qStartPose((-1.1847) , (0) , (0) , (-0.3346) , (1.5708) , (0)); // Joint pos start
-        rw::math::Q qStopPose((-1.1847) , (-1.5708) , (0) , (-0.3346) , (1.5708) , (0)); // Joint pos start
-        rw::math::Q qReleaseBallBeforeRotate((-1.1847) , (-0.7854) , (0) , (-0.3346) , (1.5708) , (0)); // Joint pos release
-        rw::math::Q qReleaseBall((-1.1847) , (-0.7854) , (0) , (-0.3346) , (1.5708) , (0)); // Joint pos release
-        qReleaseBall[0] += rotateBaseToCupAngle(cupPosition,robotPosition);
+        rw::math::Q qStartPose((-1.1847) , (0) , (0) , (-0.3346) , (1.5708) , (0-3.1415/2)); // Joint pos start
+        rw::math::Q qStopPose((-1.1847) , (-1.5708) , (0) , (-0.3346) , (1.5708) , (0-3.1415/2)); // Joint pos start
+        rw::math::Q qReleaseBallBeforeRotate((-1.1847) , (-0.7854) , (0) , (-0.3346) , (1.5708) , (0-3.1415/2)); // Joint pos release
+        rw::math::Q qReleaseBall((-1.1847) , (-0.7854) , (0) , (-0.3346) , (1.5708) , (0-3.1415/2)); // Joint pos release
+        qReleaseBall[0] -= rotateBaseToCupAngle(cupPosition,robotPosition);
+        qStartPose[0] -= rotateBaseToCupAngle(cupPosition,robotPosition);
+        qStopPose[0] -= rotateBaseToCupAngle(cupPosition,robotPosition);
+
+
         // Get tcp coords from q value
         coli.setState(qReleaseBall);
         rw::math::Transform3D<> tcpTrans = coli.getTransform();
@@ -393,7 +397,7 @@ public:
 
 
 
-             double simSpeed = 1;
+             double simSpeed = 0.5;
              double simAcc = 1;
              double msInterval = 10;
              ur_rtde::RTDEControlInterface rtdeControl(mIpAdress);
@@ -406,7 +410,7 @@ public:
              QFullPath.push_back(Robot.moveRobotJ(qReleaseBall).getJointPoses());
              QFullPath.push_back(Robot.moveRobotJ(qStartPose).getJointPoses());
              Robot.setAcc(3);
-             Robot.setSpeed(3.14);
+             Robot.setSpeed(1.14);
              QFullPath.push_back(Robot.moveRobotJRelease(qStopPose,qReleaseBall,0.01).getJointPoses());
 
 

@@ -59,11 +59,13 @@ void MainWindow::on_bSend_clicked()
         rw::math::Vector3D<> ballPosition(camToBall.at<float>(0,3)*0.01,camToBall.at<float>(1,3)*0.01,camToBall.at<float>(2,3)*0.01);
 
         RC.getBall(ballPosition,0.05);
-
-        if (ui->cbDB->currentIndex())
-            if (sql.insert(RC.getThrow()))
-                ui->statusbar->showMessage("Inserted to database", 3000);
     }
+
+    RC.circleThrow(rw::math::Vector3D<>(0.2, 0.2, 0.05), 3.1415/4);
+
+    if (ui->cbDB->currentIndex())
+        if (sql.insert(RC.getThrow()))
+            ui->statusbar->showMessage("Inserted to database", 3000);
 }
 
 void MainWindow::on_bCalibrate_clicked()
@@ -86,18 +88,18 @@ void MainWindow::on_bSaveConnect_clicked()
 
 void MainWindow::on_bDisconnect_clicked()
 {
-    RC.disconnect();
     c.mRun = false;
+    RC.disconnect();
     if (thread.joinable())
         thread.join();
-    close();
+    this->setDisabled(1);
 }
 
 void MainWindow::on_cbDB_currentIndexChanged(const QString &arg1)
 {
     if (ui->cbDB->currentIndex())
-        if (sql.connect("192.168.221.1", "ubuntu", "Tarzan12!", "throwdb"))
-            ui->statusbar->showMessage("Connected", 3000);
+        if (!sql.connect("192.168.221.1", "ubuntu", "Tarzan12!", "throwdb"))
+            ui->cbDB->setCurrentIndex(0);
 }
 
 void MainWindow::on_cbManual_currentIndexChanged(const QString &arg1)
