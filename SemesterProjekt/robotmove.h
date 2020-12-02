@@ -37,6 +37,8 @@ public:
     double getAcc() const;
     void setAcc(double getAcc);
 
+    void setSpeedAcc(double speed, double acc);
+
     unsigned int getMsInterval() const;
     void setMsInterval(unsigned int getMsInterval);
 

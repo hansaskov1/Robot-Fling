@@ -121,7 +121,11 @@ void RobotMove::fetchPathJRelease(std::promise<Path> &&returnPath, std::atomic<b
        {
            mGripper->open();
            hasThrown = true;
-           std::cout << "Diffrence: " << jointDiff << "Estimated: " << estimatedJoint << "Diffrence from " << releasePose << "TCP speed" <<  << std::endl;
+           std::cout << "Diffrence: " << jointDiff << "Estimated: " << estimatedJoint << "Diffrence from " << releasePose << "TCP speed";
+           for (double v : tcpV){
+               std::cout << v << " ";
+           }
+           std::cout << std::endl;
        }
 
     }
