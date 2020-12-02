@@ -58,7 +58,7 @@ public:
         default:
             std::cerr << "Den er ikke lavet endnu" << std::endl;
         }
-        mInvCalRot = mCalRot.inverse();
+        mInvCalRot = rw::math::inverse(mCalRot);
     }
 
     std::vector<double> TObj2TVec(rw::math::Transform3D<> TObject)
