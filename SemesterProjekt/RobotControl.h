@@ -231,7 +231,7 @@ public:
         double zDistanceToCup = throwPose[2] - cupPose[2];
 
         double den = 9.82*(pow(xDistanceToCup,2)+pow(yDistanceToCup,2));
-        double num = 2 * cos(pow(vinkel,2)) * tan(vinkel) * (sqrt(pow(xDistanceToCup,2)+pow(yDistanceToCup,2))) - zDistanceToCup;
+        double num = 2 * pow(cos(vinkel),2) * tan(vinkel) * (sqrt(pow(xDistanceToCup,2)+pow(yDistanceToCup,2))) - zDistanceToCup;
 
         double speed = sqrt(den/num);
         return speed;
