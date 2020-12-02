@@ -90,6 +90,7 @@ void MainWindow::on_bDisconnect_clicked()
     c.mRun = false;
     if (thread.joinable())
         thread.join();
+    close();
 }
 
 void MainWindow::on_cbDB_currentIndexChanged(const QString &arg1)
