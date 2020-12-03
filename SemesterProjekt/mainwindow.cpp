@@ -61,7 +61,7 @@ void MainWindow::on_bSend_clicked()
         RC.getBall(ballPosition,0.05);
     }
 
-    RC.circleThrow(rw::math::Vector3D<>(0.2, 0.2, 0.05), 75*3.1415/180);
+    RC.circleThrow(rw::math::Vector3D<>(0.4, 0.2, 0.05), 75*3.1415/180);
 
     if (ui->cbDB->currentIndex())
         if (sql.insert(RC.getThrow()))

@@ -121,6 +121,7 @@ void RobotMove::fetchPathJRelease(std::promise<Path> &&returnPath, std::atomic<b
 
        if (!hasThrown && isWithin)
        {
+           std::cout << mGripper->GetConnectStatus() << std::endl << mGripper->hasGripped() << std::endl;
            mGripper->open();
            hasThrown = true;
            std::cout << "Diffrence: " << jointDiff << "Estimated: " << estimatedJoint << "Diffrence from " << releasePose << "TCP speed" << std::sqrt(tcpV[0]*tcpV[0] + tcpV[1]*tcpV[1] + tcpV[2]*tcpV[2]) << std::endl;

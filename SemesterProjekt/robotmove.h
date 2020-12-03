@@ -15,7 +15,7 @@ class RobotMove
 {
 public:
     RobotMove();
-    RobotMove(unsigned int  getMsInterval, Gripper * gripper ,ur_rtde::RTDEControlInterface * rtdeControl, ur_rtde::RTDEReceiveInterface * rtdeRecieve, double getSpeed, double acceleration);
+    RobotMove(unsigned int  getMsInterval, Gripper *gripper ,ur_rtde::RTDEControlInterface * rtdeControl, ur_rtde::RTDEReceiveInterface * rtdeRecieve, double getSpeed, double acceleration);
 
     std::vector<double> vecRPY2stdVec(rw::math::Vector3D<> position, rw::math::RPY<> RPY);
 

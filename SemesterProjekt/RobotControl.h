@@ -176,6 +176,7 @@ public:
             mThrow.addPath(Robot.moveRobotL(posGribReadyR, rpyGribReady));
             mThrow.addPath(Robot.moveRobotL(qSafeGrib));
             mThrow.addPath(Robot.moveRobotJ(qHome));
+            gripper.open();
 
     } else
         {
@@ -335,7 +336,7 @@ public:
         double acc = 3;
         std::cout << "Joint speed at throw is : " << throwSpeed << std::endl;
 
-
+        DetectCollision dc(scenePath);
 
         // STart the simulation
 
@@ -349,16 +350,16 @@ public:
             ur_rtde::RTDEReceiveInterface rtdeRecive("127.0.0.1");
 
             RobotMove Robot(msInterval,&gripper,&rtdeControl,&rtdeRecive,simSpeed,simAcc);
-
-            QFullPath.push_back(Robot.moveRobotJ(qHome).getJointPoses());
-            QFullPath.push_back(Robot.moveRobotJ(qReleaseBallBeforeRotate).getJointPoses());            
-            QFullPath.push_back(Robot.moveRobotJ(qReleaseBall).getJointPoses());
-            QFullPath.push_back(Robot.moveRobotJ(qStartPoseTiltAngle).getJointPoses());
+            dc.setHasCollided(false);
+            dc.isCollision(Robot.moveRobotJ(qHome).getJointPoses());
+            dc.isCollision(Robot.moveRobotJ(qReleaseBallBeforeRotate).getJointPoses());
+            dc.isCollision(Robot.moveRobotJ(qReleaseBall).getJointPoses());
+            dc.isCollision(Robot.moveRobotJ(qStartPoseTiltAngle).getJointPoses());
             Robot.setAcc(3);
             Robot.setSpeed(3.14);
             //Robot.moveRobotJ(qStopPose).getJointPoses();
-            QFullPath.push_back(Robot.moveRobotJ(qStopPoseTiltAngle).getJointPoses());
-            QFullPath.push_back(Robot.moveRobotJ(qSafeGrib).getJointPoses());
+            dc.isCollision(Robot.moveRobotJ(qStopPoseTiltAngle).getJointPoses());
+            dc.isCollision(Robot.moveRobotJ(qSafeGrib).getJointPoses());
 
 
 
@@ -376,35 +377,11 @@ public:
 
         }
 
-        DetectCollision dc(scenePath);
-        std::vector<bool> collisionList;
-
-         for (std::vector<std::vector<double>> &qPath : QFullPath )
-         {
-             for (std::vector<double> &qValues : qPath){
-                qValues[0] += 1.151;
-               /*  std::cout << "{";
-                 for (double joint : qValues){
-                     std::cout << joint << " ";
-                 }
-                 std::cout << "}"<< std::endl;*/
-             }
-             collisionList.push_back(dc.isCollision(qPath));
-         }
-
-         bool collision = false;
-         for (bool isColl : collisionList)
-         {
-             (isColl)? std::cout << "true" : std::cout << "false";
-             std::cout << std::endl;
-
-             if (isColl) collision = true;
-         }
 
 
          // DO IT ROBOT MAN!
 
-         if(!collision){
+         if(!dc.getHasCollided()){
 
              double simSpeed = 0.5;
              double simAcc = 1;
