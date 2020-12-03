@@ -171,7 +171,8 @@ public:
             mThrow.addPath(Robot.moveRobotL(posBallR, rpyBall));
             Robot.setSpeedAcc(speed, acceleration);
             gripper.close();
-            std::this_thread::sleep_for(std::chrono::milliseconds(2000));
+            //std::this_thread::sleep_for(std::chrono::milliseconds(2000));
+            while(!gripper.hasGripped());
             mThrow.addPath(Robot.moveRobotL(posGribReadyR, rpyGribReady));
             mThrow.addPath(Robot.moveRobotL(qSafeGrib));
             mThrow.addPath(Robot.moveRobotJ(qHome));
@@ -308,7 +309,7 @@ public:
 
         rw::math::Vector3D<>robotPosition (0.40,0.90,0);
         rw::math::Q qStartPose((-1.1847) , (0) , (0) , (-0.3346) , (1.5708) , (0-3.1415/2)); // Joint pos start
-        rw::math::Q qStopPose((-1.1847) , (-1.5708) , (0) , (-0.3346) , (1.5708) , (0-3.1415/2)); // Joint pos start
+        rw::math::Q qStopPose((-1.1847) , (-115*3.1415/180) , (0) , (-0.3346) , (1.5708) , (0-3.1415/2)); // Joint pos start
         rw::math::Q qReleaseBallBeforeRotate((-1.1847) , (-0.7854) , (0) , (-0.3346) , (1.5708) , (0-3.1415/2)); // Joint pos release
         rw::math::Q qReleaseBall((-1.1847) , (-0.7854) , (0) , (-0.3346) , (1.5708) , (0-3.1415/2)); // Joint pos release
         qReleaseBall[0] -= rotateBaseToCupAngle(cupPosition,robotPosition);
@@ -410,7 +411,7 @@ public:
              QFullPath.push_back(Robot.moveRobotJ(qReleaseBall).getJointPoses());
              QFullPath.push_back(Robot.moveRobotJ(qStartPose).getJointPoses());
              Robot.setAcc(3);
-             Robot.setSpeed(1.14);
+             Robot.setSpeed(3.14);
              QFullPath.push_back(Robot.moveRobotJRelease(qStopPose,qReleaseBall,0.01).getJointPoses());
 
 
