@@ -108,16 +108,18 @@ void RobotMove::fetchPathJRelease(std::promise<Path> &&returnPath, std::atomic<b
         std::chrono::duration<double> elapsedTime = stop-start;
         path.addElapsedTime(elapsedTime.count());
 
-
+       rw::math::Q jointDiff = releasePose;
        rw::math::Q estimatedJoint = releasePose;
-       estimatedJoint[1] = (mMsInterval/1000) * toolV[1] + toolP[1];
+       for (unsigned int i = 0; i < estimatedJoint.size(); i++){
+            estimatedJoint[i] = (mMsInterval*2/1000) * toolV[i] + toolP[i];
+            jointDiff[i] = abs(estimatedJoint[i] - releasePose[i]);
+       }
+       bool isWithin;
+       for (unsigned int i = 0; i < jointDiff.size(); i++){
+           if (jointDiff[i] < maxOffset) isWithin = true;
+       }
 
-       rw::math::Q jointDiff(0,0,0,0,0,0);
-       jointDiff[1] = abs(estimatedJoint[1] - releasePose[1]);
-
-
-
-       if (jointDiff[1] < maxOffset && !hasThrown)
+       if (!hasThrown && isWithin)
        {
            mGripper->open();
            hasThrown = true;

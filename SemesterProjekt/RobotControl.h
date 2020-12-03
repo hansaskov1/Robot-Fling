@@ -136,12 +136,12 @@ public:
            dc.setHasCollided(false);
            ur_rtde::RTDEControlInterface rtdeControl("127.0.0.1");
            ur_rtde::RTDEReceiveInterface rtdeRecive("127.0.0.1");
+           ur_rtde::RTDEReceiveInterface RealRobotRecieve(mIpAdress);
 
            RobotMove Robot(msInterval, &gripper, &rtdeControl, &rtdeRecive, simSpeed, simAcc);
 
-           rw::math::Q startPos = rw::math::Q(rtdeRecive.getActualQ());
-
-           dc.isCollision(Robot.moveRobotJ(startPos).getJointPoses());
+           rw::math::Q startPos = rw::math::Q(RealRobotRecieve.getActualQ());
+           Robot.moveRobotJ(startPos).getJointPoses();
            dc.isCollision(Robot.moveRobotJ(qHome).getJointPoses());
            dc.isCollision(Robot.moveRobotJ(qSafeGrib).getJointPoses());
            dc.isCollision(Robot.moveRobotL(posGribReadyR, rpyGribReady).getJointPoses());
@@ -405,8 +405,6 @@ public:
 
          if(!collision){
 
-
-
              double simSpeed = 0.5;
              double simAcc = 1;
              double msInterval = 10;
@@ -415,14 +413,14 @@ public:
 
              RobotMove Robot(msInterval,&gripper,&rtdeControl,&rtdeRecive,simSpeed,simAcc);
 
-             mThrow.addPath(Robot.moveRobotJ(qHome).getJointPoses());
-             mThrow.addPath(Robot.moveRobotJ(qReleaseBallBeforeRotate).getJointPoses());
-             mThrow.addPath(Robot.moveRobotJ(qReleaseBall).getJointPoses());
-             mThrow.addPath(Robot.moveRobotJ(qStartPoseTiltAngle).getJointPoses());
+             mThrow.addPath(Robot.moveRobotJ(qHome));
+             mThrow.addPath(Robot.moveRobotJ(qReleaseBallBeforeRotate));
+             mThrow.addPath(Robot.moveRobotJ(qReleaseBall));
+             mThrow.addPath(Robot.moveRobotJ(qStartPoseTiltAngle));
              Robot.setAcc(1);
              Robot.setSpeed(1.1);
-             mThrow.addPath(Robot.moveRobotJRelease(qStopPoseTiltAngle,qReleaseBall,0.01).getJointPoses());
-             mThrow.addPath(Robot.moveRobotJ(qSafeGrib).getJointPoses());
+             mThrow.addPath(Robot.moveRobotJRelease(qStopPoseTiltAngle,qReleaseBall,0.01));
+             mThrow.addPath(Robot.moveRobotJ(qSafeGrib));
 
 
 
@@ -675,8 +673,9 @@ public:
         rw::math::Vector3D<> endPosR = world2Robot(endPosW);                              //std::cout << "End ramp pose coordinates R"endPosR << std::endl;
 
         //BEGIN THROW HERE
-        rw::math::RPY<> throwOrientation(0, 0, -1.157);
-        //rw::math::RPY<> throwOrientation(2.6, -1.69, 0);
+        //rw::math::RPY<> throwOrientation(0, 0, -1.157);
+        rw::math::RPY<> throwOrientation(2.6, -1.69, 0);
+         //rw::math::RPY<> throwOrientation(0.733, -1.477, 0);
         DetectCollision dc(scenePath);
 
         Path throwPath;
