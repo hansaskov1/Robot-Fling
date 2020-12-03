@@ -227,9 +227,10 @@ public:
 
     double speed(double vinkel, rw::math::Vector3D<> throwPose, rw::math::Vector3D<> cupPose)
     {
-        double xDistanceToCup = throwPose[0] - cupPose[0];
-        double yDistanceToCup = throwPose[1] - cupPose[1];
-        double zDistanceToCup = throwPose[2] - cupPose[2];
+
+        double xDistanceToCup = cupPose[0] - throwPose[0];
+        double yDistanceToCup = cupPose[1] - throwPose[1];
+        double zDistanceToCup = cupPose[2] - throwPose[2];
 
         double den = 9.82*(pow(xDistanceToCup,2)+pow(yDistanceToCup,2));
         double num = 2 * pow(cos(vinkel),2) * tan(vinkel) * (sqrt(pow(xDistanceToCup,2)+pow(yDistanceToCup,2))) - zDistanceToCup;
