@@ -303,19 +303,27 @@ public:
     }
 
     void circleThrow(rw::math::Vector3D<> cupPosition, double angle){
-
+        double degrees = 3.1415/180;
         DetectCollision coli(scenePath);
 
+        rw::math::Q qHome(-1.151,-3.1415/2,0,-3.1415/2,0,0);
+        rw::math::Q qSafeGrib(-1.151, -2.202, -0.935, -1.574, 1.571, -0.003);   // Hardcoded safe gripping position
 
         rw::math::Vector3D<>robotPosition (0.40,0.90,0);
         rw::math::Q qStartPose((-1.1847) , (0) , (0) , (-0.3346) , (1.5708) , (0-3.1415/2)); // Joint pos start
-        rw::math::Q qStopPose((-1.1847) , (-115*3.1415/180) , (0) , (-0.3346) , (1.5708) , (0-3.1415/2)); // Joint pos start
-        rw::math::Q qReleaseBallBeforeRotate((-1.1847) , (-0.7854) , (0) , (-0.3346) , (1.5708) , (0-3.1415/2)); // Joint pos release
+        rw::math::Q qStopPose((-1.1847) , (-1.5708) , (0) , (-0.3346) , (1.5708) , (0-3.1415/2)); // Joint pos stop
+
+        rw::math::Q qStartPoseTiltAngle((-1.1847) , (-45*degrees) , (45*degrees) , (25*degrees) , (1.5708) , (0-3.1415/2));
+        rw::math::Q qStopPoseTiltAngle((-1.1847) , (-135*degrees) , (-45*degrees) , (-25*degrees) , (1.5708) , (0-3.1415/2));
+
+
+        rw::math::Q qReleaseBallBeforeRotate((-1.1847) , (-0.7854) , (0) , (-0.3346) , (1.5708) , (0-3.1415/2)); // Joint pos release before rotate
         rw::math::Q qReleaseBall((-1.1847) , (-0.7854) , (0) , (-0.3346) , (1.5708) , (0-3.1415/2)); // Joint pos release
         qReleaseBall[0] -= rotateBaseToCupAngle(cupPosition,robotPosition);
         qStartPose[0] -= rotateBaseToCupAngle(cupPosition,robotPosition);
         qStopPose[0] -= rotateBaseToCupAngle(cupPosition,robotPosition);
-
+        qStartPoseTiltAngle[0] -= rotateBaseToCupAngle(cupPosition,robotPosition);
+        qStopPoseTiltAngle[0] -= rotateBaseToCupAngle(cupPosition,robotPosition);
 
         // Get tcp coords from q value
         coli.setState(qReleaseBall);
@@ -341,14 +349,15 @@ public:
 
             RobotMove Robot(msInterval,&gripper,&rtdeControl,&rtdeRecive,simSpeed,simAcc);
 
-
-            QFullPath.push_back(Robot.moveRobotJ(qReleaseBallBeforeRotate).getJointPoses());
+            QFullPath.push_back(Robot.moveRobotJ(qHome).getJointPoses());
+            QFullPath.push_back(Robot.moveRobotJ(qReleaseBallBeforeRotate).getJointPoses());            
             QFullPath.push_back(Robot.moveRobotJ(qReleaseBall).getJointPoses());
-            QFullPath.push_back(Robot.moveRobotJ(qStartPose).getJointPoses());
+            QFullPath.push_back(Robot.moveRobotJ(qStartPoseTiltAngle).getJointPoses());
             Robot.setAcc(3);
             Robot.setSpeed(3.14);
             //Robot.moveRobotJ(qStopPose).getJointPoses();
-            QFullPath.push_back(Robot.moveRobotJ(qStopPose).getJointPoses());
+            QFullPath.push_back(Robot.moveRobotJ(qStopPoseTiltAngle).getJointPoses());
+            QFullPath.push_back(Robot.moveRobotJ(qSafeGrib).getJointPoses());
 
 
 
@@ -406,13 +415,14 @@ public:
 
              RobotMove Robot(msInterval,&gripper,&rtdeControl,&rtdeRecive,simSpeed,simAcc);
 
-
-             QFullPath.push_back(Robot.moveRobotJ(qReleaseBallBeforeRotate).getJointPoses());
-             QFullPath.push_back(Robot.moveRobotJ(qReleaseBall).getJointPoses());
-             QFullPath.push_back(Robot.moveRobotJ(qStartPose).getJointPoses());
-             Robot.setAcc(3);
-             Robot.setSpeed(3.14);
-             QFullPath.push_back(Robot.moveRobotJRelease(qStopPose,qReleaseBall,0.01).getJointPoses());
+             mThrow.addPath(Robot.moveRobotJ(qHome).getJointPoses());
+             mThrow.addPath(Robot.moveRobotJ(qReleaseBallBeforeRotate).getJointPoses());
+             mThrow.addPath(Robot.moveRobotJ(qReleaseBall).getJointPoses());
+             mThrow.addPath(Robot.moveRobotJ(qStartPoseTiltAngle).getJointPoses());
+             Robot.setAcc(1);
+             Robot.setSpeed(1.1);
+             mThrow.addPath(Robot.moveRobotJRelease(qStopPoseTiltAngle,qReleaseBall,0.01).getJointPoses());
+             mThrow.addPath(Robot.moveRobotJ(qSafeGrib).getJointPoses());
 
 
 
