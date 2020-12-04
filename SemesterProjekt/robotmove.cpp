@@ -115,9 +115,9 @@ void RobotMove::fetchPathJRelease(std::promise<Path> &&returnPath, std::atomic<b
             jointDiff[i] = abs(estimatedJoint[i] - releasePose[i]);
        }
        bool isWithin;
-       for (unsigned int i = 0; i < jointDiff.size(); i++){
-           if (jointDiff[i] < maxOffset) isWithin = true;
-       }
+       //for (unsigned int i = 0; i < jointDiff.size(); i++){
+       if (jointDiff[1] < maxOffset) isWithin = true;
+       //}
 
        if (!hasThrown && isWithin)
        {

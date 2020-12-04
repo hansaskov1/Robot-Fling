@@ -58,7 +58,7 @@ void MainWindow::on_bSend_clicked()
     {
         rw::math::Vector3D<> ballPosition(camToBall.at<float>(0,3)*0.01,camToBall.at<float>(1,3)*0.01,camToBall.at<float>(2,3)*0.01);
 
-        RC.getBall(ballPosition,0.05);
+        RC.getBall(ballPosition,0.02);
     }
 
     RC.circleThrow(rw::math::Vector3D<>(0.4, 0.2, 0.05), 75*3.1415/180);

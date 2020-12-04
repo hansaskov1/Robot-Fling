@@ -113,9 +113,8 @@ private slots:
 
         void SendData(QByteArray data)//Send data to the server
         {
-            if(connectFlag&&mySocket->isWritable())
-                if (data.size() != mySocket->write(data))
-                    qDebug() << "Der er noget der driller";
+            if (data.size() != mySocket->write(data))
+                qDebug() << "Der er noget der driller";
         }
 
         void CloseSocket()//Try to close Socket

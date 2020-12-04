@@ -111,7 +111,9 @@ bool Calibration::connectToCam()
         //std::cout << "fisk" << std::endl;
         nuTid = std::chrono::high_resolution_clock::now();
         if(std::chrono::duration_cast<std::chrono::microseconds>(nuTid - startTid) > std::chrono::milliseconds(10000)){
-            mCvImage = cv::imread("../Images/Warning.png", cv::IMREAD_COLOR);
+            cv::Mat warning = cv::imread("../Images/Warning.png", cv::IMREAD_COLOR);
+            cv::resize(warning,warning,cv::Size(100,100));
+            mCvImage = warning;
             return false;
         }
     }
@@ -189,7 +191,9 @@ cv::Mat Calibration::getImage()
     }
     //td::cout << "mtx locked for out" << std::endl;
     if(!mCvImage.data || !camRunning){
-        return cv::imread("../Images/Warning.png",cv::IMREAD_COLOR);
+        cv::Mat warning = cv::imread("../Images/Warning.png",cv::IMREAD_COLOR);
+        cv::resize(warning,warning,cv::Size(500,500));
+        return warning;
     }else{
         imageIn = mCvImage;
     }

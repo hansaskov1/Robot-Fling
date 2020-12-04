@@ -176,7 +176,6 @@ public:
             mThrow.addPath(Robot.moveRobotL(posGribReadyR, rpyGribReady));
             mThrow.addPath(Robot.moveRobotL(qSafeGrib));
             mThrow.addPath(Robot.moveRobotJ(qHome));
-            gripper.open();
 
     } else
         {
@@ -319,8 +318,8 @@ public:
         rw::math::Q qStopPoseTiltAngle((-1.1847) , (-135*degrees) , (-45*degrees) , (-25*degrees) , (1.5708) , (0-3.1415/2));
 
 
-        rw::math::Q qReleaseBallBeforeRotate((-1.1847) , (-0.7854) , (0) , (-0.3346) , (1.5708) , (0-3.1415/2)); // Joint pos release before rotate
-        rw::math::Q qReleaseBall((-1.1847) , (-0.7854) , (0) , (-0.3346) , (1.5708) , (0-3.1415/2)); // Joint pos release
+        rw::math::Q qReleaseBallBeforeRotate((-1.1847) , (-80*degrees) , (0) , (-0.3346) , (1.5708) , (0-3.1415/2)); // Joint pos release before rotate
+        rw::math::Q qReleaseBall((-1.1847) , (-80*degrees) , (0) , (-0.3346) , (1.5708) , (0-3.1415/2)); // Joint pos release
         qReleaseBall[0] -= rotateBaseToCupAngle(cupPosition,robotPosition);
         qStartPose[0] -= rotateBaseToCupAngle(cupPosition,robotPosition);
         qStopPose[0] -= rotateBaseToCupAngle(cupPosition,robotPosition);
@@ -395,8 +394,8 @@ public:
              mThrow.addPath(Robot.moveRobotJ(qReleaseBallBeforeRotate));
              mThrow.addPath(Robot.moveRobotJ(qReleaseBall));
              mThrow.addPath(Robot.moveRobotJ(qStartPoseTiltAngle));
-             Robot.setAcc(1);
-             Robot.setSpeed(1.1);
+             Robot.setAcc(3);
+             Robot.setSpeed(throwSpeed);
              mThrow.addPath(Robot.moveRobotJRelease(qStopPoseTiltAngle,qReleaseBall,0.01));
              mThrow.addPath(Robot.moveRobotJ(qSafeGrib));
 
