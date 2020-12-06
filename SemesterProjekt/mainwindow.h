@@ -56,7 +56,10 @@ private:
     cv::Mat image;
     RobotControl RC;
     SQLController sql;
-    std::thread thread;
+    std::thread cameraConnect;
+    std::thread videoThread;
+    std::thread RCthread;
+    std::thread SQLThread;
     rw::math::Vector3D<> mBallPosition;
     rw::math::Vector3D<> mCupPosition;
     rw::math::Vector3D<> mReleasePosition;

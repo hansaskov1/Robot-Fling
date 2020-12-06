@@ -22,6 +22,14 @@ MainWindow::MainWindow(QWidget *parent)
 
 MainWindow::~MainWindow()
 {
+    c.mRun = false;
+    RC.disconnect();
+    if (RCthread.joinable())
+        RCthread.join();
+    if (SQLThread.joinable())
+        SQLThread.join();
+    if (videoThread.joinable())
+        videoThread.join();
     delete ui;
 }
 
@@ -36,6 +44,9 @@ void MainWindow::showVideo()
 
 void MainWindow::on_bSend_clicked()
 {
+    if (cameraConnect.joinable())
+        cameraConnect.join();
+
     cv::Point ballPos;
     cv::Mat camToBall;
 
@@ -56,21 +67,24 @@ void MainWindow::on_bSend_clicked()
 
     if (ballPos.x && ballPos.y)
     {
+        if (RCthread.joinable())
+            RCthread.join();
+        if (SQLThread.joinable())
+            SQLThread.join();
         rw::math::Vector3D<> ballPosition(camToBall.at<float>(0,3)*0.01,camToBall.at<float>(1,3)*0.01,camToBall.at<float>(2,3)*0.01);
+        double gripHeight = 0.01;
 
-        RC.getBall(ballPosition,0.02);
+        RCthread = std::thread([=] {RC.getBall(ballPosition, gripHeight); RC.circleThrow(rw::math::Vector3D<>(0.4, 0.2, 0.05), 75*3.1415/180);});
+
+        if (ui->cbDB->currentIndex()) {
+            SQLThread = std::thread([=] {RCthread.join(); sql.insert(RC.getThrow());});
+        }
     }
-
-    RC.circleThrow(rw::math::Vector3D<>(0.4, 0.2, 0.05), 75*3.1415/180);
-
-    if (ui->cbDB->currentIndex())
-        if (sql.insert(RC.getThrow()))
-            ui->statusbar->showMessage("Inserted to database", 3000);
 }
 
 void MainWindow::on_bCalibrate_clicked()
 {
-    c.calibrate();
+    cameraConnect = std::thread([=] {c.calibrate();});
     ui->statusbar->showMessage("Calibrating", 3000);
 }
 
@@ -78,21 +92,27 @@ void MainWindow::on_bSaveConnect_clicked()
 {
     int celleNr = ui->cbCell->currentIndex()+1;
 
-    c.init(celleNr);
-    c.connectToCam();
+    cameraConnect = std::thread([=] {c.init(celleNr); c.connectToCam();});
 
-    thread = std::thread(&MainWindow::showVideo, this);
+    videoThread = std::thread([=] {cameraConnect.join(); showVideo();});
 
     RC.setParam(ui->liIP->text().toStdString(), ui->liGripperIP->text(), celleNr);
+
+    ui->bSaveConnect->setDisabled(1);
 }
 
 void MainWindow::on_bDisconnect_clicked()
 {
     c.mRun = false;
+    ui->bDisconnect->setDisabled(1);
     RC.disconnect();
-    if (thread.joinable())
-        thread.join();
-    this->setDisabled(1);
+    if (RCthread.joinable())
+        RCthread.join();
+    if (SQLThread.joinable())
+        SQLThread.join();
+    if (videoThread.joinable())
+        videoThread.join();
+    ui->bSaveConnect->setEnabled(1);
 }
 
 void MainWindow::on_cbDB_currentIndexChanged(const QString &arg1)
@@ -168,18 +188,20 @@ void MainWindow::on_pbManualApply_clicked()
 
 void MainWindow::on_pbManualStart_clicked()
 {
-    RC.throwBallLinear(mCupPosition, mReleasePosition, mAngle, mOffset);
+    if (RCthread.joinable())
+        RCthread.join();
+    if (SQLThread.joinable())
+        SQLThread.join();
+    RCthread = std::thread([=] {RC.throwBallLinear(mCupPosition, mReleasePosition, mAngle, mOffset);});
 
-    if (ui->cbDB->currentIndex())
-        if (sql.insert(RC.getThrow()))
-            ui->statusbar->showMessage("Inserted to database", 3000);
+    if (ui->cbDB->currentIndex()) {
+        SQLThread = std::thread([=] {RCthread.join(); sql.insert(RC.getThrow());});
+    }
 }
 
 void MainWindow::on_pbGetBall_clicked()
 {
-    RC.getBall(mBallPosition, 0.05);
-
-    if (ui->cbDB->currentIndex())
-        if (sql.insert(RC.getThrow()))
-            ui->statusbar->showMessage("Inserted to database", 3000);
+    if (RCthread.joinable())
+        RCthread.join();
+    RCthread = std::thread([=] {RC.getBall(mBallPosition, 0.05);});
 }

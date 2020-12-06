@@ -171,8 +171,8 @@ public:
             mThrow.addPath(Robot.moveRobotL(posBallR, rpyBall));
             Robot.setSpeedAcc(speed, acceleration);
             gripper.close();
-            //std::this_thread::sleep_for(std::chrono::milliseconds(2000));
-            while(!gripper.hasGripped());
+            std::this_thread::sleep_for(std::chrono::milliseconds(2000));
+            //while(!gripper.hasGripped());
             mThrow.addPath(Robot.moveRobotL(posGribReadyR, rpyGribReady));
             mThrow.addPath(Robot.moveRobotL(qSafeGrib));
             mThrow.addPath(Robot.moveRobotJ(qHome));
@@ -213,7 +213,7 @@ public:
       return;
       }
 
-     return getBall(ballPositionW, rpyBall ,distance);
+     return getBall(ballPositionW, rpyBall , distance);
     }
 
     Throw getThrow() {
@@ -340,6 +340,7 @@ public:
         // STart the simulation
 
         std::vector<std::vector<std::vector<double>>> QFullPath;
+        bool isNormalMode;
 
         {
             double simSpeed = 1;
@@ -359,7 +360,7 @@ public:
             //Robot.moveRobotJ(qStopPose).getJointPoses();
             dc.isCollision(Robot.moveRobotJ(qStopPoseTiltAngle).getJointPoses());
             dc.isCollision(Robot.moveRobotJ(qSafeGrib).getJointPoses());
-
+            isNormalMode = rtdeRecive.getSafetyMode() == 1;
 
 
 //            Old with no relaease ball
@@ -380,7 +381,7 @@ public:
 
          // DO IT ROBOT MAN!
 
-         if(!dc.getHasCollided()){
+         if(!dc.getHasCollided() && isNormalMode){
 
              double simSpeed = 0.5;
              double simAcc = 1;
@@ -740,7 +741,6 @@ public:
     void releaseBall(double releaseTime){
      std::this_thread::sleep_for(std::chrono::microseconds( (long int)((releaseTime+0.1) * 1000000)));
      gripper.open();
-     std::cout << gripper.GetConnectStatus() << std::endl;
     }
 
     double mod(std::vector<double> vec){

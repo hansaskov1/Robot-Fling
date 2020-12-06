@@ -24,6 +24,40 @@
        <property name="bottomMargin">
         <number>9</number>
        </property>
+       <item row="1" column="5">
+        <widget class="QPushButton" name="bSaveConnect">
+         <property name="text">
+          <string>Connect</string>
+         </property>
+        </widget>
+       </item>
+       <item row="1" column="3">
+        <widget class="QComboBox" name="cbCell">
+         <property name="currentIndex">
+          <number>3</number>
+         </property>
+         <item>
+          <property name="text">
+           <string>Celle 1</string>
+          </property>
+         </item>
+         <item>
+          <property name="text">
+           <string>Celle 2</string>
+          </property>
+         </item>
+         <item>
+          <property name="text">
+           <string>Celle 3</string>
+          </property>
+         </item>
+         <item>
+          <property name="text">
+           <string>Celle 4</string>
+          </property>
+         </item>
+        </widget>
+       </item>
        <item row="1" column="0" rowspan="4">
         <widget class="QWidget" name="widget_5" native="true">
          <layout class="QGridLayout" name="gridLayout_2">
@@ -76,40 +110,6 @@
          <property name="text">
           <string> Disconnect</string>
          </property>
-        </widget>
-       </item>
-       <item row="1" column="5">
-        <widget class="QPushButton" name="bSaveConnect">
-         <property name="text">
-          <string>Connect</string>
-         </property>
-        </widget>
-       </item>
-       <item row="1" column="3">
-        <widget class="QComboBox" name="cbCell">
-         <property name="currentIndex">
-          <number>3</number>
-         </property>
-         <item>
-          <property name="text">
-           <string>Celle 1</string>
-          </property>
-         </item>
-         <item>
-          <property name="text">
-           <string>Celle 2</string>
-          </property>
-         </item>
-         <item>
-          <property name="text">
-           <string>Celle 3</string>
-          </property>
-         </item>
-         <item>
-          <property name="text">
-           <string>Celle 4</string>
-          </property>
-         </item>
         </widget>
        </item>
        <item row="4" column="3">
