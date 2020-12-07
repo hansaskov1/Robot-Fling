@@ -21,7 +21,7 @@ public:
 
     void fetchPath(std::promise<Path> && returnPath ,std::atomic<bool>& stop);
     void fetchPathLRelease(std::promise<Path> && returnPath ,std::atomic<bool>& stop,  rw::math::Vector3D<> releasePosi, double maxOffset);
-    void fetchPathJRelease(std::promise<Path> && returnPath ,std::atomic<bool>& stop,  rw::math::Q releasePose, double maxOffset);
+    void fetchPathJRelease(std::promise<Path> && returnPath ,std::atomic<bool>& stop,  rw::math::Q releasePose, double maxOffset, unsigned int msTimestep);
 
     Path moveRobotL(rw::math::Vector3D<> position ,rw::math::RPY<> orientation);
     Path moveRobotL(rw::math::Q);
@@ -29,6 +29,7 @@ public:
     Path moveRobotJ(rw::math::Vector3D<> position ,rw::math::RPY<> orientation);
     Path moveRobotLRelease(rw::math::Vector3D<> position,rw::math::RPY<> orientation, rw::math::Vector3D<> releasePos, double maxOffset);
     Path moveRobotJRelease(rw::math::Q joint, rw::math::Q releasePose, double maxOffset);
+    Path moveRobotJRelease(rw::math::Q joint, rw::math::Q releasePose, double maxOffset, unsigned int msTimestep);
 
 
     double getSpeed() const;

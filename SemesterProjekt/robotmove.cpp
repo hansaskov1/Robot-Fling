@@ -86,7 +86,7 @@ void RobotMove::fetchPathLRelease(std::promise<Path> &&returnPath, std::atomic<b
     returnPath.set_value(std::move(path));
 }
 
-void RobotMove::fetchPathJRelease(std::promise<Path> &&returnPath, std::atomic<bool> &stop, rw::math::Q releasePose, double maxOffset)
+void RobotMove::fetchPathJRelease(std::promise<Path> &&returnPath, std::atomic<bool> &stop, rw::math::Q releasePose, double maxOffset, unsigned int timestep)
 {
     bool hasThrown = false;
     Path path;
@@ -102,7 +102,7 @@ void RobotMove::fetchPathJRelease(std::promise<Path> &&returnPath, std::atomic<b
         path.addJointVel(toolV);
         path.addToolPose(tcpP);
         path.addToolVel(tcpV);
-        std::this_thread::sleep_for(std::chrono::milliseconds(mMsInterval));
+
 
         auto stop = std::chrono::system_clock::now();
         std::chrono::duration<double> elapsedTime = stop-start;
@@ -111,13 +111,13 @@ void RobotMove::fetchPathJRelease(std::promise<Path> &&returnPath, std::atomic<b
        rw::math::Q jointDiff = releasePose;
        rw::math::Q estimatedJoint = releasePose;
        for (unsigned int i = 0; i < estimatedJoint.size(); i++){
-            estimatedJoint[i] = (mMsInterval*2/1000) * toolV[i] + toolP[i];
+            estimatedJoint[i] = (timestep*mMsInterval/1000) * toolV[i] + toolP[i];
             jointDiff[i] = abs(estimatedJoint[i] - releasePose[i]);
        }
-       bool isWithin;
-       //for (unsigned int i = 0; i < jointDiff.size(); i++){
-       if (jointDiff[1] < maxOffset) isWithin = true;
-       //}
+        bool isWithin = true;
+        for (unsigned int i = 0; i < jointDiff.size(); i++){
+           if (jointDiff[i] > maxOffset) isWithin = false;
+        }
 
        if (!hasThrown && isWithin)
        {
@@ -126,7 +126,7 @@ void RobotMove::fetchPathJRelease(std::promise<Path> &&returnPath, std::atomic<b
            hasThrown = true;
            std::cout << "Diffrence: " << jointDiff << "Estimated: " << estimatedJoint << "Diffrence from " << releasePose << "TCP speed" << std::sqrt(tcpV[0]*tcpV[0] + tcpV[1]*tcpV[1] + tcpV[2]*tcpV[2]) << std::endl;
        }
-
+       std::this_thread::sleep_for(std::chrono::milliseconds(mMsInterval));
     }
     returnPath.set_value(std::move(path));
 }
@@ -203,16 +203,22 @@ Path RobotMove::moveRobotLRelease(rw::math::Vector3D<> position, rw::math::RPY<>
 
 Path RobotMove::moveRobotJRelease(rw::math::Q jointPos, rw::math::Q releasePos, double maxOffset)
 {
+    moveRobotJRelease(jointPos, releasePos, maxOffset, 2);
+}
+
+Path RobotMove::moveRobotJRelease(rw::math::Q jointPos, rw::math::Q releasePos, double maxOffset, unsigned int timestep)
+{
     std::vector<double> JointstdVec = jointPos.toStdVector();
     std::atomic<bool> stop {false};
     std::promise<Path> promisePath;
     std::future<Path> futurePath = promisePath.get_future();
 
-    std::thread recive(&RobotMove::fetchPathJRelease, this , std::move(promisePath), std::ref(stop), releasePos, maxOffset);
+    std::thread recive(&RobotMove::fetchPathJRelease, this , std::move(promisePath), std::ref(stop), releasePos, maxOffset, timestep);
     mControl->moveJ(JointstdVec, mSpeed, mAcc);
     stop = true;
     recive.join();
     return futurePath.get();
+
 }
 
 double RobotMove::getSpeed() const{return mSpeed;}
