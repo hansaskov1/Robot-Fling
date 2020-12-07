@@ -14,6 +14,8 @@ MainWindow::MainWindow(QWidget *parent)
     mReleasePosition = rw::math::Vector3D<>(0.6, 0.95, 0.7);
     mAngle = 3.1415/8;
     mOffset = 0.5;
+    mAcceleration = 3;
+    mSpeed = 3;
 
     ui->lXValue->setText(QString::number(mBallPosition[0]));
     ui->lYValue->setText(QString::number(mBallPosition[1]));
