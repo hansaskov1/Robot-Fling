@@ -171,8 +171,8 @@ public:
             mThrow.addPath(Robot.moveRobotL(posBallR, rpyBall));
             Robot.setSpeedAcc(speed, acceleration);
             gripper.close();
-            //std::this_thread::sleep_for(std::chrono::milliseconds(2000));
-            while(!gripper.hasGripped());
+            std::this_thread::sleep_for(std::chrono::milliseconds(2000));
+            //while(!gripper.hasGripped());
             mThrow.addPath(Robot.moveRobotL(posGribReadyR, rpyGribReady));
             mThrow.addPath(Robot.moveRobotL(qSafeGrib));
             mThrow.addPath(Robot.moveRobotJ(qHome));
@@ -330,19 +330,16 @@ public:
         rw::math::Vector3D<> tcpPosRobot = tcpTrans.P();
         rw::math::Vector3D<> tcpPosWorld = robot2World(tcpPosRobot);
         double throwSpeed = speed(angle,tcpPosWorld,cupPosition);
-        double acc = 3;
         std::cout << "Joint speed at throw is : " << throwSpeed << std::endl;
 
         DetectCollision dc(scenePath);
 
         // Start the simulation
-
-        std::vector<std::vector<std::vector<double>>> QFullPath;
         bool isNormalMode;
 
         {
-            double simSpeed = 1;
-            double simAcc = 1;
+            double simSpeed = 3;
+            double simAcc = 3;
             double msInterval = 10;
             ur_rtde::RTDEControlInterface rtdeControl("127.0.0.1");
             ur_rtde::RTDEReceiveInterface rtdeRecive("127.0.0.1");
@@ -363,21 +360,23 @@ public:
 
          if(!dc.getHasCollided() && isNormalMode){
 
-             double simSpeed = 0.5;
-             double simAcc = 1;
+             double speed = 1;
+             double acc = 0.5;
              double msInterval = 5;
              ur_rtde::RTDEControlInterface rtdeControl(mIpAdress);
              ur_rtde::RTDEReceiveInterface rtdeRecive(mIpAdress);
 
-             RobotMove Robot(msInterval,&gripper,&rtdeControl,&rtdeRecive,simSpeed,simAcc);
+             RobotMove Robot(msInterval,&gripper,&rtdeControl,&rtdeRecive,speed,acc);
 
              mThrow.addPath(Robot.moveRobotJ(qHome));
              mThrow.addPath(Robot.moveRobotJ(qReleaseBallBeforeRotate));
              mThrow.addPath(Robot.moveRobotJ(qReleaseBall));
              mThrow.addPath(Robot.moveRobotJ(qStartPoseTiltAngle));
-             Robot.setAcc(3);
-             Robot.setSpeed(throwSpeed);
-             mThrow.addPath(Robot.moveRobotJRelease(qStopPoseTiltAngle,qReleaseBall,0.01));
+             Robot.setSpeedAcc(1, 3.14);
+             mThrow.addPath(Robot.moveRobotJRelease(qStopPoseTiltAngle,qReleaseBall,0.015));
+             std::cout << mThrow.getPaths().back();
+             Robot.setSpeedAcc(speed, acc);
+             mThrow.addPath(Robot.moveRobotJ(qSafeGrib));
              mThrow.addPath(Robot.moveRobotJ(qHome));
         }
     }
@@ -574,16 +573,22 @@ public:
     int getCellNr() const{return cellNr;}
     void setCellNr(int value){cellNr = value;}
 
+    double getThrowAcc() const {return mThrowAcc;}
+    void setThrowAcc(double throwAcc) {mThrowAcc = throwAcc;}
+
+    double getThrowSpeed() const{return mThrowSpeed;}
+    void setThrowSpeed(double throwSpeed) {mThrowSpeed = throwSpeed;}
+
 private:
- std::string mIpAdress;
- Gripper gripper;
- rw::math::Vector3D<> mCalPos;
+    std::string mIpAdress;
+    Gripper gripper;
+    rw::math::Vector3D<> mCalPos;
  rw::math::Rotation3D<> mCalRot;
  rw::math::Rotation3D<> mInvCalRot;
  Throw mThrow;
  const rw::math::Q qHome = rw::math::Q(-1.151,-3.1415/2,0,-3.1415/2,0,0);
  std::string  scenePath;
  int cellNr;
+ double mThrowSpeed = 3.14, mThrowAcc = 3.14;
 };
-
 

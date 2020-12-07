@@ -111,7 +111,7 @@ void RobotMove::fetchPathJRelease(std::promise<Path> &&returnPath, std::atomic<b
        rw::math::Q jointDiff = releasePose;
        rw::math::Q estimatedJoint = releasePose;
        for (unsigned int i = 0; i < estimatedJoint.size(); i++){
-            estimatedJoint[i] = (mMsInterval*4/1000) * toolV[i] + toolP[i];
+            estimatedJoint[i] = (mMsInterval*8/1000) * toolV[i] + toolP[i];
             jointDiff[i] = abs(estimatedJoint[i] - releasePose[i]);
        }
        bool isWithin;
@@ -119,12 +119,13 @@ void RobotMove::fetchPathJRelease(std::promise<Path> &&returnPath, std::atomic<b
        if (jointDiff[1] < maxOffset) isWithin = true;
        //}
 
+       std::cout << " TCP speed" << std::sqrt(tcpV[0]*tcpV[0] + tcpV[1]*tcpV[1] + tcpV[2]*tcpV[2]) << std::endl;
        if (!hasThrown && isWithin)
        {
            std::cout << mGripper->GetConnectStatus() << std::endl << mGripper->hasGripped() << std::endl;
            mGripper->open();
            hasThrown = true;
-           std::cout << "Diffrence: " << jointDiff << "Estimated: " << estimatedJoint << "Release pose" << releasePose << "TCP speed" << std::sqrt(tcpV[0]*tcpV[0] + tcpV[1]*tcpV[1] + tcpV[2]*tcpV[2]) << std::endl;
+           std::cout << "Time: " << elapsedTime.count() << "Diffrence: " << jointDiff << "Estimated: " << estimatedJoint << "Release pose" << releasePose << " TCP speed" << std::sqrt(tcpV[0]*tcpV[0] + tcpV[1]*tcpV[1] + tcpV[2]*tcpV[2]) << std::endl;
        }
     std::this_thread::sleep_for(std::chrono::milliseconds(mMsInterval));
     }
