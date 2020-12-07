@@ -171,8 +171,8 @@ public:
             mThrow.addPath(Robot.moveRobotL(posBallR, rpyBall));
             Robot.setSpeedAcc(speed, acceleration);
             gripper.close();
-            std::this_thread::sleep_for(std::chrono::milliseconds(2000));
-            //while(!gripper.hasGripped());
+            //std::this_thread::sleep_for(std::chrono::milliseconds(2000));
+            while(!gripper.hasGripped());
             mThrow.addPath(Robot.moveRobotL(posGribReadyR, rpyGribReady));
             mThrow.addPath(Robot.moveRobotL(qSafeGrib));
             mThrow.addPath(Robot.moveRobotJ(qHome));
@@ -360,6 +360,7 @@ public:
             //Robot.moveRobotJ(qStopPose).getJointPoses();
             dc.isCollision(Robot.moveRobotJ(qStopPoseTiltAngle).getJointPoses());
             dc.isCollision(Robot.moveRobotJ(qSafeGrib).getJointPoses());
+            dc.isCollision(Robot.moveRobotJ(qHome).getJointPoses());
             isNormalMode = rtdeRecive.getSafetyMode() == 1;
 
 
@@ -385,7 +386,7 @@ public:
 
              double simSpeed = 0.5;
              double simAcc = 1;
-             double msInterval = 10;
+             double msInterval = 5;
              ur_rtde::RTDEControlInterface rtdeControl(mIpAdress);
              ur_rtde::RTDEReceiveInterface rtdeRecive(mIpAdress);
 
@@ -399,6 +400,7 @@ public:
              Robot.setSpeed(throwSpeed);
              mThrow.addPath(Robot.moveRobotJRelease(qStopPoseTiltAngle,qReleaseBall,0.01));
              mThrow.addPath(Robot.moveRobotJ(qSafeGrib));
+             mThrow.addPath(Robot.moveRobotJ(qHome));
 
 
 
