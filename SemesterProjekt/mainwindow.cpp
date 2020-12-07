@@ -147,6 +147,16 @@ void MainWindow::on_cbManual_currentIndexChanged(const QString &arg1)
         ui->lYValue->hide();
         ui->lZValue->hide();
         break;
+    case 5:
+        ui->lXValue->setText(QString::number(mAcceleration));
+        ui->lYValue->hide();
+        ui->lZValue->hide();
+        break;
+    case 6:
+        ui->lXValue->setText(QString::number(mSpeed));
+        ui->lYValue->hide();
+        ui->lZValue->hide();
+        break;
     }
 }
 
@@ -174,6 +184,12 @@ void MainWindow::on_pbManualApply_clicked()
     case 4:
         mOffset = ui->lXValue->text().toDouble();
         break;
+    case 5:
+        mAcceleration = ui->lXValue->text().toDouble();
+        break;
+    case 6:
+        mSpeed = ui->lXValue->text().toDouble();
+        break;
     }
 }
 
@@ -183,7 +199,14 @@ void MainWindow::on_pbManualStart_clicked()
         RCthread.join();
     if (SQLThread.joinable())
         SQLThread.join();
-    RCthread = std::thread([=] {RC.throwBallLinear(mCupPosition, mReleasePosition, mAngle, mOffset);});
+
+    RC.setThrowAcc(mAcceleration);
+    RC.setThrowSpeed(mSpeed);
+
+    if (ui->cbThrow->currentIndex())
+        RCthread = std::thread([=] {RC.throwBallLinear(mCupPosition, mReleasePosition, mAngle, mOffset);});
+    else
+        RCthread = std::thread([=] {RC.circleThrow(mCupPosition, mAngle);});
 
     if (ui->cbDB->currentIndex()) {
         SQLThread = std::thread([=] {RCthread.join(); sql.insert(RC.getThrow());});

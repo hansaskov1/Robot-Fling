@@ -67,6 +67,8 @@ private:
     rw::math::Vector3D<> mReleasePosition;
     double mAngle;
     double mOffset;
+    double mAcceleration;
+    double mSpeed;
 };
 
 #endif // MAINWINDOW_H
