@@ -372,7 +372,7 @@ public:
              mThrow.addPath(Robot.moveRobotJ(qReleaseBallBeforeRotate));
              mThrow.addPath(Robot.moveRobotJ(qReleaseBall));
              mThrow.addPath(Robot.moveRobotJ(qStartPoseTiltAngle));
-             Robot.setSpeedAcc(1, 3.14);
+             Robot.setSpeedAcc(mThrowSpeed, mThrowAcc);
              mThrow.addPath(Robot.moveRobotJRelease(qStopPoseTiltAngle,qReleaseBall,0.015));
              std::cout << mThrow.getPaths().back();
              Robot.setSpeedAcc(speed, acc);
