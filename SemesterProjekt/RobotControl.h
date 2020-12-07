@@ -304,25 +304,23 @@ public:
     }
 
     void circleThrow(rw::math::Vector3D<> cupPosition, double angle){
-        double degrees = 3.1415/180;
+        double degrees = 0.0174532925;
         DetectCollision coli(scenePath);
+        //Base Q[0] er roteret til center!
 
-        rw::math::Q qHome(-1.151,-3.1415/2,0,-3.1415/2,0,0);
+        rw::math::Q qHome(-1.151,-3.1415/2,0,-3.1415/2,0,0); // Home pos
         rw::math::Q qSafeGrib(-1.151, -2.202, -0.935, -1.574, 1.571, -0.003);   // Hardcoded safe gripping position
+        std::cout << "Angle is : " << angle << std::endl;
+        //                                  Base         Shoulder                        Elbow                         Wrist1                           Wrist 2    Wrist 3
+        rw::math::Q qReleaseBall            ((-1.1847) , (-angle*degrees)                  , (0)                          , (0*degrees)                , (1.5708) , (0-3.1415/2));
+        rw::math::Q qReleaseBallBeforeRotate((-1.1847) , (-angle*degrees)                  , (0)                          , (0*degrees)                , (1.5708) , (0-3.1415/2));
+        rw::math::Q qStartPoseTiltAngle     ((-1.1847) , ((45-angle)*degrees)              , (45*degrees)                 , (45*degrees)               , (1.5708) , (0-3.1415/2));
+        rw::math::Q qStopPoseTiltAngle      ((-1.1847) , ((-135+90-angle)*degrees)         , (-45*degrees)                , (-45*degrees)              , (1.5708) , (0-3.1415/2));
 
         rw::math::Vector3D<>robotPosition (0.40,0.90,0);
-        rw::math::Q qStartPose((-1.1847) , (0) , (0) , (-0.3346) , (1.5708) , (0-3.1415/2)); // Joint pos start
-        rw::math::Q qStopPose((-1.1847) , (-1.5708) , (0) , (-0.3346) , (1.5708) , (0-3.1415/2)); // Joint pos stop
 
-        rw::math::Q qStartPoseTiltAngle((-1.1847) , (-45*degrees) , (45*degrees) , (25*degrees) , (1.5708) , (0-3.1415/2));
-        rw::math::Q qStopPoseTiltAngle((-1.1847) , (-135*degrees) , (-45*degrees) , (-25*degrees) , (1.5708) , (0-3.1415/2));
-
-
-        rw::math::Q qReleaseBallBeforeRotate((-1.1847) , (-80*degrees) , (0) , (-0.3346) , (1.5708) , (0-3.1415/2)); // Joint pos release before rotate
-        rw::math::Q qReleaseBall((-1.1847) , (-80*degrees) , (0) , (-0.3346) , (1.5708) , (0-3.1415/2)); // Joint pos release
+        //Rotate base to target
         qReleaseBall[0] -= rotateBaseToCupAngle(cupPosition,robotPosition);
-        qStartPose[0] -= rotateBaseToCupAngle(cupPosition,robotPosition);
-        qStopPose[0] -= rotateBaseToCupAngle(cupPosition,robotPosition);
         qStartPoseTiltAngle[0] -= rotateBaseToCupAngle(cupPosition,robotPosition);
         qStopPoseTiltAngle[0] -= rotateBaseToCupAngle(cupPosition,robotPosition);
 
@@ -337,7 +335,7 @@ public:
 
         DetectCollision dc(scenePath);
 
-        // STart the simulation
+        // Start the simulation
 
         std::vector<std::vector<std::vector<double>>> QFullPath;
         bool isNormalMode;
@@ -357,29 +355,10 @@ public:
             dc.isCollision(Robot.moveRobotJ(qStartPoseTiltAngle).getJointPoses());
             Robot.setAcc(3);
             Robot.setSpeed(3.14);
-            //Robot.moveRobotJ(qStopPose).getJointPoses();
             dc.isCollision(Robot.moveRobotJ(qStopPoseTiltAngle).getJointPoses());
-            dc.isCollision(Robot.moveRobotJ(qSafeGrib).getJointPoses());
             dc.isCollision(Robot.moveRobotJ(qHome).getJointPoses());
             isNormalMode = rtdeRecive.getSafetyMode() == 1;
-
-
-//            Old with no relaease ball
-//            std::cout << "Go to release position before rotate" << std::endl;
-//            QFullPath.push_back(moveRobotJ(qReleaseBallBeforeRotate,              msInterval, rtdeControl, rtdeRecive, simSpeed, simAcc).getJointPoses());
-//            std::cout << "Go to release position" << std::endl;
-//            QFullPath.push_back(moveRobotJ(qReleaseBall,              msInterval, rtdeControl, rtdeRecive, simSpeed, simAcc).getJointPoses());
-//            std::cout << "Go to throw pose" << std::endl;
-//            QFullPath.push_back(moveRobotJ(qStartPose,              msInterval, rtdeControl, rtdeRecive, simSpeed, simAcc).getJointPoses());
-//            std::cout << "Throw ball, release at 45 degrees" << std::endl;
-//            QFullPath.push_back(moveRobotJ(qStopPose,              msInterval, rtdeControl, rtdeRecive, throwSpeed, simAcc).getJointPoses());
-
-
-
         }
-
-
-
          // DO IT ROBOT MAN!
 
          if(!dc.getHasCollided() && isNormalMode){
@@ -399,184 +378,9 @@ public:
              Robot.setAcc(3);
              Robot.setSpeed(throwSpeed);
              mThrow.addPath(Robot.moveRobotJRelease(qStopPoseTiltAngle,qReleaseBall,0.01));
-             mThrow.addPath(Robot.moveRobotJ(qSafeGrib));
              mThrow.addPath(Robot.moveRobotJ(qHome));
-
-
-
-
-            // Old no release ball
-
-//             std::cout << "Go to release position before rotate" << std::endl;
-//             mThrow.addPath(moveRobotJ(qReleaseBallBeforeRotate,              msInterval, rtdeControl, rtdeRecive, translationSpeed, acc).getJointPoses());
-//             std::cout << "Go to release position" << std::endl;
-//             mThrow.addPath(moveRobotJ(qReleaseBall,              msInterval, rtdeControl, rtdeRecive, translationSpeed, acc).getJointPoses());
-//             std::cout << "Go to throw pose" << std::endl;
-//             mThrow.addPath(moveRobotJ(qStartPose,              msInterval, rtdeControl, rtdeRecive, translationSpeed, acc).getJointPoses());
-//             std::cout << "Throw ball, release at 45 degrees" << std::endl;
-//             mThrow.addPath(moveRobotJ(qStopPose,              msInterval, rtdeControl, rtdeRecive, throwSpeed, acc).getJointPoses());
-
-         }
-    }
-
-/*
-    void throwBall(rw::math::Vector3D<> cupPosition,double safeGribHeight)
-        {
-
-        rw::math::Q qHome(-1.151,-3.1415/2,0,-3.1415/2,0,0);                    // Hardcoded home for our robot
-
-
-        //Vi arbejder i Y Z
-        DetectCollision coli(scenePath);
-        rw::math::Vector3D<>robotPosition (0.40,0.90,0);
-        rw::math::Q qReleaseBallBeforeRotate((-67.88*3.1415/180) , (-41.79*3.1415/180) , (-108*3.1415/180) , (-56.88*3.1415/180) , (90.15*3.1415/180) , (0.09*3.1415/180)); // Joint pos
-        rw::math::Q qReleaseBall((-67.88*3.1415/180) , (-41.79*3.1415/180) , (-108*3.1415/180) , (-56.88*3.1415/180) , (90.15*3.1415/180) , (0.09*3.1415/180)); // Joint pos
-        qReleaseBall[0]+=rotateBaseToCupAngle(cupPosition,robotPosition); // Q value, offset to ball
-        coli.setState(qReleaseBall);
-        std::cout << "Basevalue before calc : " << qReleaseBallBeforeRotate[0] << " \n"
-                  << "Basevalue after calc : " << qReleaseBall[0] << std::endl;
-        rw::math::Transform3D<> tcpTrans = coli.getTransform();
-        rw::math::Vector3D<> tcpPosRobot = tcpTrans.P();
-        rw::math::Vector3D<> tcpPosWorld = robot2World(tcpPosRobot);
-
-        // New calc
-
-
-
-
-        double angle = 3.1415/4;
-        double throwSpeed = speed(angle,tcpPosWorld,cupPosition);
-
-        rw::math::Vector3D<> stopPosition;
-        double acc = 3;
-
-        rw::math::Vector3D<> startPosition = rampPose(throwSpeed,acc,angle,tcpPosWorld,stopPosition);
-        rw::math::RPY<> rpyRelease(0.547,-2.802,-1.729);
-
-
-
- /*       std::cout << "Trying to throw ball" << std::endl;
-            rw::math::Vector3D<double> releaseBallPositionRobot = rw::math::Vector3D<double>(0.1299,-0.32740,0.53299);
-
-            rw::math::Vector3D<>releaseBallPosition = robot2World(releaseBallPositionRobot);
-
-            rw::math::RPY<> rpyRelease(0.547,-2.802,-1.729);
-            rw::math::Vector3D<double> cupPosition = rw::math::Vector3D<double>(0.10, 0.10, 0);
-
-
-            double throwSpeed = speed(3.1415/4, releaseBallPosition, cupPosition);
-
-            rw::math::Vector3D<double> endPos;
-            rw::math::Vector3D<double> startPos = rampPose(throwSpeed, 3, 3.1415/4, releaseBallPosition, endPos);
-
-            rw::math::RPY<> rpyBall(0.6, -3.09, 0);                                 // Hardcoded safe orientation
-            rw::math::RPY<> rpyGribReady = rpyBall;
-
-            rw::math::Vector3D<> posGribReadyW = posBallW;
-            posGribReadyW[2] += safeGribHeight;
-
-            rw::math::Vector3D<> posBallR = world2Robot(posBallW);
-            rw::math::Vector3D<> posGribReadyR = world2Robot(posGribReadyW);
-
-            rw::math::Vector3D<> robStartPos = world2Robot(startPos);
-            rw::math::Vector3D<> robEndPos = world2Robot(endPos);
-
-
-
-           std::vector<std::vector<std::vector<double>>> QFullPath;
-           std::cout << "Starting sim" << std::endl;
-
-           {
-               double simSpeed = 0.5;
-               double simAcc = 0.5;
-               double msInterval = 10;
-
-               ur_rtde::RTDEControlInterface rtdeControl("127.0.0.1");
-               ur_rtde::RTDEReceiveInterface rtdeRecive("127.0.0.1");
-
-//                std::cout << "Release ball pos : " << releaseBallPosition << std::endl;
-//                std::cout << "Robstart : " << robStartPos << std::endl;
-//                std::cout << "RpyRelease : " << rpyRelease << std::endl;
-//                std::cout << "RobEndPos : " << robEndPos << std::endl;
-
-
-               std::cout << "Go to release position before rotate" << std::endl;
-               QFullPath.push_back(moveRobotJ(qReleaseBallBeforeRotate,              msInterval, rtdeControl, rtdeRecive, simSpeed, simAcc).getJointPoses());
-               std::cout << "Go to release position" << std::endl;
-               QFullPath.push_back(moveRobotJ(qReleaseBall,              msInterval, rtdeControl, rtdeRecive, simSpeed, simAcc).getJointPoses());
-               std::vector<double> TCPPosR = rtdeRecive.getActualTCPPose();
-               rw::math::Vector3D<> TCPPos;
-               for(int i = 0 ; i < 3 ; i++){
-                  TCPPos[i] = TCPPosR[i];
-                  std::cout << "TCPPosR: " << TCPPosR[i] << std::endl;
-               }
-               TCPPos = robot2World(TCPPos);
-               std::cout << "TCPPos: " << TCPPos << std::endl;
-               std::cout << "Go to start position" << std::endl;
-           //    QFullPath.push_back(moveRobotL(startPosition,rpyRelease, msInterval, rtdeControl, rtdeRecive, simSpeed, simAcc).getJointPoses());
-               std::cout << "Go to END position" << std::endl;
-             //  QFullPath.push_back(moveRobotL(stopPosition,rpyRelease,                        msInterval, rtdeControl, rtdeRecive, throwSpeed, simAcc).getJointPoses());
-
-               //QFullPath.push_back(moveRobotJ(qHome,                        msInterval, rtdeControl, rtdeRecive, simSpeed, simAcc).getJointPoses());
-           }
-
-
-           DetectCollision dc(scenePath);
-           std::vector<bool> collisionList;
-
-            for (std::vector<std::vector<double>> &qPath : QFullPath )
-            {
-                for (std::vector<double> &qValues : qPath){
-                   qValues[0] += 1.151;
-                  /*  std::cout << "{";
-                    for (double joint : qValues){
-                        std::cout << joint << " ";
-                    }
-                    std::cout << "}"<< std::endl;
-                }
-                collisionList.push_back(dc.isCollision(qPath));
-            }
-
-            bool collision = false;
-            for (bool isColl : collisionList)
-            {
-                (isColl)? std::cout << "true" : std::cout << "false";
-                std::cout << std::endl;
-
-                if (isColl) collision = true;
-            }
-
-            if (!collision){
-                double simSpeed = 3;
-                double simAcc = 3;
-                double msInterval = 10;
-
-                ur_rtde::RTDEControlInterface rtdeControl(mIpAdress);
-                ur_rtde::RTDEReceiveInterface rtdeRecive(mIpAdress);
-
-//                mThrow.addPath(moveRobotJ(qReleaseBall,                        msInterval, rtdeControl, rtdeRecive, simSpeed, simAcc));
-//                mThrow.addPath(moveRobotL(startPos,rpyRelease,                        msInterval, rtdeControl, rtdeRecive, simSpeed, simAcc));
-//                mThrow.addPath(moveRobotL(endPos,rpyRelease,                        msInterval, rtdeControl, rtdeRecive, throwSpeed, simAcc));
-
-//                mThrow.addPath(moveRobotJ(qHome,                        msInterval, rtdeControl, rtdeRecive, simSpeed, simAcc));
-//                mThrow.addPath(moveRobotJ(qSafeGrib,                    msInterval, rtdeControl, rtdeRecive, simSpeed, simAcc));
-//                mThrow.addPath(moveRobotL(posGribReadyR, rpyGribReady,  msInterval, rtdeControl, rtdeRecive, simSpeed, simAcc));
-//                mThrow.addPath(moveRobotL(posBallR, rpyBall,            msInterval, rtdeControl, rtdeRecive, 0.2,      0.05  ));
-//                gripper.close();
-//                //while (!gripper.hasGripped());
-//                std::this_thread::sleep_for(std::chrono::milliseconds(2000));
-//                mThrow.addPath(moveRobotL(posGribReadyR, rpyGribReady,  msInterval, rtdeControl, rtdeRecive, simSpeed, simAcc));
-//                mThrow.addPath(moveRobotJ(qSafeGrib,                    msInterval, rtdeControl, rtdeRecive, simSpeed, simAcc));
-//                mThrow.addPath(moveRobotJ(qHome,                        msInterval, rtdeControl, rtdeRecive, simSpeed, simAcc));
-//                gripper.open();
-
-            } else
-            {
-                std::cout << "a collision has occured" << std::endl;
-            }
         }
-
-*/
+    }
 
 
     rw::math::Rotation3D<> Rx(double angle)
