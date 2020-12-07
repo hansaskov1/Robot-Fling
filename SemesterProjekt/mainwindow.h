@@ -49,6 +49,8 @@ private slots:
 
     void on_pbGetBall_clicked();
 
+    void on_pbOpenClose_clicked();
+
 private:
     Ui::MainWindow *ui;
     Calibration c;

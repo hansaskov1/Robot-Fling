@@ -230,6 +230,13 @@
            </widget>
           </item>
           <item>
+           <widget class="QPushButton" name="pbOpenClose">
+            <property name="text">
+             <string>Toggle Griber</string>
+            </property>
+           </widget>
+          </item>
+          <item>
            <spacer name="verticalSpacer_2">
             <property name="orientation">
              <enum>Qt::Vertical</enum>

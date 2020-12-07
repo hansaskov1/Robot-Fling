@@ -753,6 +753,19 @@ public:
         return std::sqrt(res);
     }
 
+    void toggleGripper() {
+        if (gripper.hasGripped())
+            gripper.open();
+        else
+            gripper.close();
+    }
+
+    void closeOpenGripper() {
+        gripper.close();
+        while(!gripper.hasGripped());
+        gripper.open();
+    }
+
 
     int getCellNr() const{return cellNr;}
     void setCellNr(int value){cellNr = value;}

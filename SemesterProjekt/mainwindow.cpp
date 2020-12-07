@@ -30,7 +30,7 @@ void MainWindow::showVideo()
     while(c.mRun) {
         image = c.getImage();
         ui->lImage->setPixmap(QPixmap::fromImage(QImage((const uchar*)image.data, image.cols, image.rows, image.step, QImage::Format_RGB888).rgbSwapped()));
-        std::this_thread::sleep_for (std::chrono::milliseconds(100));
+        std::this_thread::sleep_for (std::chrono::milliseconds(50));
     }
 }
 
@@ -195,4 +195,11 @@ void MainWindow::on_pbGetBall_clicked()
     if (RCthread.joinable())
         RCthread.join();
     RCthread = std::thread([=] {RC.getBall(mBallPosition, 0.05);});
+}
+
+void MainWindow::on_pbOpenClose_clicked()
+{
+    if (RCthread.joinable())
+        RCthread.join();
+    RCthread = std::thread([=] {RC.toggleGripper();});
 }
