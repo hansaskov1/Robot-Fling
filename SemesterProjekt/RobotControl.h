@@ -52,8 +52,10 @@ public:
             break;
         case 4:
             // Robot cal for table 4
-            mCalPos = rw::math::Vector3D<>(0.404933521031581,0.911568253889385,0.040065747515709);
-            mCalRot = rw::math::Rotation3D<double>(0.927485860124202,0.373761533519894,-0.008502666083409,-0.373842123595955,0.927417138009057,-0.011811805634918,0.003470719656776,0.014133937453771,0.999894087349814);
+            //mCalPos = rw::math::Vector3D<>(0.404933521031581,0.911568253889385,0.040065747515709);
+            //mCalRot = rw::math::Rotation3D<double>(0.927485860124202,0.373761533519894,-0.008502666083409,-0.373842123595955,0.927417138009057,-0.011811805634918,0.003470719656776,0.014133937453771,0.999894087349814);
+            mCalPos = rw::math::Vector3D<>(0.400730889942685,0.900365353141075,0.032991050184961);
+            mCalRot = rw::math::Rotation3D<double>(0.925046191228014,0.379853504820559,-0.0009268063888123179,-0.379851766471063,0.925045933946366,0.001629600597276,0.001476347979860,-0.001155406781766,0.999998242714361);
             scenePath = "../Scenes/XMLScenesCelle4/RobotOnTable/Scene.xml";
             break;
         default:
@@ -312,7 +314,7 @@ public:
         // robot base = x = 40 , y = 90
         rw::math::Vector3D<> lengthFromCupToBase = robotBasePosition-cupPosition;
         double cLength = std::sqrt((lengthFromCupToBase[0] * lengthFromCupToBase[0]) + (lengthFromCupToBase[1] * lengthFromCupToBase[1]));
-        double aLength = std::abs(cupPosition[0]-robotBasePosition[0]);
+        double aLength = cupPosition[0]-robotBasePosition[0];
         double angleA = asin(aLength/cLength);
         return angleA;
     }
@@ -427,7 +429,6 @@ public:
              mThrow.addPath(Robot.moveRobotJRelease(qStopPoseTiltAngle,qReleaseBall,0.015));
              //std::cout << mThrow.getPaths().back();
              Robot.setSpeedAcc(mThrowSpeed, acc);
-             mThrow.addPath(Robot.moveRobotJ(qSafeGrib));
              mThrow.addPath(Robot.moveRobotJ(qHome));
              mThrow.setSuccess(1);
         }

@@ -114,13 +114,9 @@ void RobotMove::fetchPathJRelease(std::promise<Path> &&returnPath, std::atomic<b
             estimatedJoint[i] = (mMsInterval*8/1000) * toolV[i] + toolP[i];
             jointDiff[i] = abs(estimatedJoint[i] - releasePose[i]);
        }
-       bool isWithin;
-       //for (unsigned int i = 0; i < jointDiff.size(); i++){
-       if (jointDiff[1] < maxOffset) isWithin = true;
-       //}
 
        std::cout << " TCP speed" << std::sqrt(tcpV[0]*tcpV[0] + tcpV[1]*tcpV[1] + tcpV[2]*tcpV[2]) << std::endl;
-       if (!hasThrown && isWithin)
+       if (!hasThrown && jointDiff[1] < maxOffset)
        {
            std::cout << mGripper->GetConnectStatus() << std::endl << mGripper->hasGripped() << std::endl;
            mGripper->open();

@@ -116,7 +116,12 @@ bool SQLController::insert(Throw t)
         std::cout << t.getThrowID() << std::endl;
     }
     int throwID = t.getThrowID();
-    QString throwString = "INSERT INTO throw (throwID, object, angle, speed, throwTime, success) VALUES (" + QString::number(throwID) + ", '" + t.getObject() + "', " + QString::number(t.getAngle()) + ", " + QString::number(t.getSpeed()) + ", " + QString::number(t.getPaths().at(4).getThrowTime()) + ", " + QString::number(t.isSuccess()) + ");";
+    t.getPaths().shrink_to_fit();
+    double throwTime = 0;
+    for (unsigned int i = 0; i < t.getPaths().size(); i++)
+        if (t.getPaths().at(i).getThrowTime() != 0)
+            throwTime = t.getPaths().at(i).getThrowTime();
+    QString throwString = "INSERT INTO throw (throwID, object, angle, speed, throwTime, success) VALUES (" + QString::number(throwID) + ", '" + t.getObject() + "', " + QString::number(t.getAngle()) + ", " + QString::number(t.getSpeed()) + ", " + QString::number(throwTime) + ", " + QString::number(t.isSuccess()) + ");";
     QSqlQuery throwQuery;
 
     throwQuery.prepare(throwString);
@@ -133,9 +138,7 @@ bool SQLController::insert(Throw t)
     QString toolpose = "INSERT INTO toolpose VALUES ";
     QString toolvel = "INSERT INTO toolvelocity VALUES ";
     //paths
-    t.getPaths().shrink_to_fit();
     for (unsigned int i = 0; i < t.getPaths().size(); i++) {
-        std::cout << "ThrowTime " << i << ": " << t.getPaths().at(i).getThrowTime() << std::endl;
         //jointposevector
         t.getPaths().at(i).getJointPoses().shrink_to_fit();
         for (unsigned int j = 0; j < t.getPaths().at(i).getJointPoses().size(); j++) {
