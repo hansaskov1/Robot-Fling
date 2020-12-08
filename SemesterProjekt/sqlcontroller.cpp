@@ -115,83 +115,64 @@ bool SQLController::insert(Throw t)
             t.setThrowID(selectQuery.value(0).toUInt() + 1);
         std::cout << t.getThrowID() << std::endl;
     }
-
+    int throwID = t.getThrowID();
+    QString throwString = "INSERT INTO throw (throwID, object, angle, speed, throwTime, success) VALUES (" + QString::number(throwID) + ", '" + t.getObject() + "', " + QString::number(t.getAngle()) + ", " + QString::number(t.getSpeed()) + ", " + QString::number(t.getPaths().at(4).getThrowTime()) + ", " + QString::number(t.isSuccess()) + ");";
     QSqlQuery throwQuery;
 
-    throwQuery.prepare("INSERT INTO throw (object, angle, speed, success) VALUES ('" + t.getObject() + "', " + QString::number(t.getAngle()) + ", " + QString::number(t.getSpeed()) + ", " + QString::number(t.isSuccess()) + ");");
+    throwQuery.prepare(throwString);
+    std::cout << throwString.toStdString() << std::endl;
     throwQuery.exec();
 
-    QSqlQuery query;
+    QSqlQuery query1;
+    QSqlQuery query2;
+    QSqlQuery query3;
+    QSqlQuery query4;
 
-    QString sql = "";
-    sql.append("INSERT INTO jointpose VALUES ");
-    int paths = t.getPaths().size();
-    for (int path = 0; path < paths; path++) {
-        //jointposevector
-        t.getPaths().at(path).getJointPoses().shrink_to_fit();
-        int jointposevectors = t.getPaths().at(path).getJointPoses().size();
-        for (int jointposevector = 0; jointposevector < jointposevectors; jointposevector++) {
-            sql.append("(" + QString::number(jointposevector+1) + ", ");
-            //jointpose
-            t.getPaths().at(path).getJointPoses().at(jointposevector).shrink_to_fit();
-            int jointposes = t.getPaths().at(path).getJointPoses().at(jointposevector).size();
-            for (int jointpose = 0; jointpose < jointposes; jointpose++)
-                sql.append(QString::number(t.getPaths().at(path).getJointPoses().at(jointposevector).at(jointpose)) + ", ");
-            sql.append(QString::number(path+1) + ", " + QString::number(t.getThrowID()));
-            (path == paths - 1 && jointposevector == jointposevectors - 1) ? sql.append("); ") : sql.append("), ");
-        }
-    }
-
-    sql.append("INSERT INTO jointvelocity VALUES ");
+    QString jointpose = "INSERT INTO jointpose VALUES ";
+    QString jointvel = "INSERT INTO jointvelocity VALUES ";
+    QString toolpose = "INSERT INTO toolpose VALUES ";
+    QString toolvel = "INSERT INTO toolvelocity VALUES ";
     //paths
+    t.getPaths().shrink_to_fit();
     for (unsigned int i = 0; i < t.getPaths().size(); i++) {
+        std::cout << "ThrowTime " << i << ": " << t.getPaths().at(i).getThrowTime() << std::endl;
         //jointposevector
-        t.getPaths().at(i).getJointVel().shrink_to_fit();
-        for (unsigned int j = 0; j < t.getPaths().at(i).getJointVel().size(); j++) {
-            sql.append("(" + QString::number(j+1) + ", ");
+        t.getPaths().at(i).getJointPoses().shrink_to_fit();
+        for (unsigned int j = 0; j < t.getPaths().at(i).getJointPoses().size(); j++) {
+            jointpose.append("(" + QString::number(j+1) + ", ");
+            jointvel.append("(" + QString::number(j+1) + ", ");
+            toolpose.append("(" + QString::number(j+1) + ", ");
+            toolvel.append("(" + QString::number(j+1) + ", ");
             //jointpose
-            t.getPaths().at(i).getJointVel().at(j).shrink_to_fit();
-            for (unsigned int u = 0; u < t.getPaths().at(i).getJointVel().at(j).size(); u++)
-                sql.append(QString::number(t.getPaths().at(i).getJointVel().at(j).at(u)) + ", ");
-            sql.append(QString::number(i+1) + ", " + QString::number(t.getThrowID()));
-            (i == t.getPaths().size() - 1 && j == t.getPaths().at(i).getJointVel().size() - 1) ? sql.append("); ") : sql.append("), ");
+            for (unsigned int u = 0; u < 6; u++) {
+                jointpose.append(QString::number(t.getPaths().at(i).getJointPoses().at(j).at(u)) + ", ");
+                jointvel.append(QString::number(t.getPaths().at(i).getJointVel().at(j).at(u)) + ", ");
+                toolpose.append(QString::number(t.getPaths().at(i).getToolPose().at(j).at(u)) + ", ");
+                toolvel.append(QString::number(t.getPaths().at(i).getToolVel().at(j).at(u)) + ", ");
+            }
+            jointpose.append(QString::number(t.getPaths().at(i).getElapsedTime().at(j)) + ", " + QString::number(i+1) + ", " + QString::number(throwID));
+            jointvel.append(QString::number(t.getPaths().at(i).getElapsedTime().at(j)) + ", " + QString::number(i+1) + ", " + QString::number(throwID));
+            toolpose.append(QString::number(t.getPaths().at(i).getElapsedTime().at(j)) + ", " + QString::number(i+1) + ", " + QString::number(throwID));
+            toolvel.append(QString::number(t.getPaths().at(i).getElapsedTime().at(j)) + ", " + QString::number(i+1) + ", " + QString::number(throwID));
+            (i == t.getPaths().size() - 1 && j == t.getPaths().at(i).getJointPoses().size() - 1) ? jointpose.append("); ") : jointpose.append("), ");
+            (i == t.getPaths().size() - 1 && j == t.getPaths().at(i).getJointVel().size() - 1) ? jointvel.append("); ") : jointvel.append("), ");
+            (i == t.getPaths().size() - 1 && j == t.getPaths().at(i).getToolPose().size() - 1) ? toolpose.append("); ") : toolpose.append("), ");
+            (i == t.getPaths().size() - 1 && j == t.getPaths().at(i).getToolVel().size() - 1) ? toolvel.append("); ") : toolvel.append("), ");
         }
+        std::cout << "Path: " << i << std::endl;
     }
+    query1.prepare(jointpose);
+    std::cout << jointpose.toStdString() << std::endl << std::endl;
+    query1.exec();
+    query2.prepare(jointvel);
+    std::cout << jointvel.toStdString() << std::endl << std::endl;
+    query2.exec();
+    query3.prepare(toolpose);
+    std::cout << toolpose.toStdString() << std::endl << std::endl;
+    query3.exec();
+    query4.prepare(toolvel);
+    std::cout << toolvel.toStdString() << std::endl << std::endl;
+    query4.exec();
 
-    sql.append("INSERT INTO toolpose VALUES ");
-    //paths
-    for (unsigned int i = 0; i < t.getPaths().size(); i++) {
-        //jointposevector
-        t.getPaths().at(i).getToolPose().shrink_to_fit();
-        for (unsigned int j = 0; j < t.getPaths().at(i).getToolPose().size(); j++) {
-            sql.append("(" + QString::number(j+1) + ", ");
-            //jointpose
-            t.getPaths().at(i).getToolPose().at(j).shrink_to_fit();
-            for (unsigned int u = 0; u < t.getPaths().at(i).getToolPose().at(j).size(); u++)
-                sql.append(QString::number(t.getPaths().at(i).getToolPose().at(j).at(u)) + ", ");
-            sql.append(QString::number(i+1) + ", " + QString::number(t.getThrowID()));
-            (i == t.getPaths().size() - 1 && j == t.getPaths().at(i).getToolPose().size() - 1) ? sql.append("); ") : sql.append("), ");
-        }
-    }
-
-    sql.append("INSERT INTO toolvelocity VALUES ");
-    //paths
-    for (unsigned int i = 0; i < t.getPaths().size(); i++) {
-        //jointposevector
-        t.getPaths().at(i).getToolVel().shrink_to_fit();
-        for (unsigned int j = 0; j < t.getPaths().at(i).getToolVel().size(); j++) {
-            sql.append("(" + QString::number(j+1) + ", ");
-            //jointpose
-            t.getPaths().at(i).getToolVel().at(j).shrink_to_fit();
-            for (unsigned int u = 0; u < t.getPaths().at(i).getToolVel().at(j).size(); u++)
-                sql.append(QString::number(t.getPaths().at(i).getToolVel().at(j).at(u)) + ", ");
-            sql.append(QString::number(i+1) + ", " + QString::number(t.getThrowID()));
-            (i == t.getPaths().size() - 1 && j == t.getPaths().at(i).getToolVel().size() - 1) ? sql.append("); ") : sql.append("), ");
-        }
-    }
-
-    //std::cout << sql.toStdString() << std::endl;
-
-    query.prepare(sql);
-    return query.exec();
+    return true;
 }

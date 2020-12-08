@@ -34,7 +34,7 @@ void RobotMove::fetchPath(std::promise<Path> && returnPath ,std::atomic<bool>& s
         path.addJointVel(mReceive->getActualQd());
         path.addToolPose(mReceive->getActualTCPPose());
         path.addToolVel(mReceive->getActualTCPSpeed());
-        std::this_thread::sleep_for(std::chrono::milliseconds(mMsInterval));
+        std::this_thread::sleep_for(std::chrono::milliseconds(mMsInterval*3));
 
         auto stop = std::chrono::system_clock::now();
         std::chrono::duration<double> elapsedTime = stop-start;
@@ -125,6 +125,7 @@ void RobotMove::fetchPathJRelease(std::promise<Path> &&returnPath, std::atomic<b
            std::cout << mGripper->GetConnectStatus() << std::endl << mGripper->hasGripped() << std::endl;
            mGripper->open();
            hasThrown = true;
+           path.addThrowTime(elapsedTime.count());
            std::cout << "Time: " << elapsedTime.count() << "Diffrence: " << jointDiff << "Estimated: " << estimatedJoint << "Release pose" << releasePose << " TCP speed" << std::sqrt(tcpV[0]*tcpV[0] + tcpV[1]*tcpV[1] + tcpV[2]*tcpV[2]) << std::endl;
        }
     std::this_thread::sleep_for(std::chrono::milliseconds(mMsInterval));

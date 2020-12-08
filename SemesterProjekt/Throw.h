@@ -70,6 +70,10 @@ public:
         return mPaths;
     }
 
+    void resetPaths() {
+        mPaths.clear();
+    }
+
 private:
     unsigned int mThrowID;
     QString mObject;

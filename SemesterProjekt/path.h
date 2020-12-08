@@ -15,6 +15,7 @@ public:
         toolPose.reserve(reservedMem);
         toolVel.reserve(reservedMem);
         elapsedTime.reserve(reservedMem);
+        throwTime = 0;
     }
 
     Path(const Path& path){
@@ -23,6 +24,7 @@ public:
         toolPose = path.getToolPose();
         toolVel = path.getToolVel();
         elapsedTime = path.getElapsedTime();
+        throwTime = path.getThrowTime();
     }
 
 
@@ -32,7 +34,7 @@ public:
         toolPose = std::move(path.toolPose);
         toolVel = std::move(path.toolVel);
         elapsedTime = std::move(path.elapsedTime);
-
+        throwTime = std::move(path.throwTime);
     }
 
 
@@ -42,6 +44,7 @@ public:
         toolPose = p.toolPose;
         toolVel = p.toolVel;
         elapsedTime = p.elapsedTime;
+        throwTime = p.throwTime;
         return *this;
     }
 
@@ -51,6 +54,7 @@ public:
         toolPose = std::move(path.toolPose);
         toolVel = std::move(path.toolVel);
         elapsedTime = std::move(path.elapsedTime);
+        throwTime = std::move(path.throwTime);
 
         return *this;
 
@@ -104,10 +108,13 @@ public:
 
     std::vector<double> getElapsedTime() const              {return elapsedTime;}
     void addElapsedTime(const double &value)                {elapsedTime.push_back(value);}
+    void addThrowTime(const double &value)                  {throwTime = value;}
+    double getThrowTime() const                             {return throwTime;}
 
 private:
     std::vector<std::vector<double>> jointPoses, jointVel, toolPose, toolVel;
     std::vector<double> elapsedTime;
+    double throwTime;
     const unsigned int reservedMem = 80;
 };
 

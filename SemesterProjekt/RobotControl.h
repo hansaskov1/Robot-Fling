@@ -164,18 +164,18 @@ public:
 
             RobotMove Robot(msInterval, &gripper, &rtdeControl, &rtdeRecive, speed, acceleration);
 
-            mThrow.addPath(Robot.moveRobotJ(qHome));
-            mThrow.addPath(Robot.moveRobotJ(qSafeGrib));
-            mThrow.addPath(Robot.moveRobotL(posGribReadyR, rpyGribReady));
+            Robot.moveRobotJ(qHome);
+            Robot.moveRobotJ(qSafeGrib);
+            Robot.moveRobotL(posGribReadyR, rpyGribReady);
             Robot.setSpeedAcc(0.1, 0.05);
-            mThrow.addPath(Robot.moveRobotL(posBallR, rpyBall));
+            Robot.moveRobotL(posBallR, rpyBall);
             Robot.setSpeedAcc(speed, acceleration);
             gripper.close();
-            std::this_thread::sleep_for(std::chrono::milliseconds(2000));
-            //while(!gripper.hasGripped());
-            mThrow.addPath(Robot.moveRobotL(posGribReadyR, rpyGribReady));
-            mThrow.addPath(Robot.moveRobotL(qSafeGrib));
-            mThrow.addPath(Robot.moveRobotJ(qHome));
+            //std::this_thread::sleep_for(std::chrono::milliseconds(2000));
+            while(!gripper.hasGripped());
+            Robot.moveRobotL(posGribReadyR, rpyGribReady);
+            Robot.moveRobotL(qSafeGrib);
+            Robot.moveRobotJ(qHome);
 
     } else
         {
@@ -219,10 +219,11 @@ public:
     Throw getThrow() {
         mThrow.setThrowID(1);
         mThrow.setObject("Bold");
-        mThrow.setAngle(45);
-        mThrow.setSpeed(200);
-        mThrow.setSuccess(1);
         return mThrow;
+    }
+
+    void resetThrow() {
+        mThrow.resetPaths();
     }
 
     double speed(double vinkel, rw::math::Vector3D<> throwPose, rw::math::Vector3D<> cupPose)
@@ -303,7 +304,9 @@ public:
 
     }
 
-    void circleThrow(rw::math::Vector3D<> cupPosition, double angle){
+    void circleThrow(rw::math::Vector3D<> cupPosition, double angle) {
+        mThrow.setAngle(angle);
+        mThrow.setSpeed(mThrowSpeed);
         double degrees = 0.0174532925;
         DetectCollision coli(scenePath);
         //Base Q[0] er roteret til center!
@@ -311,24 +314,26 @@ public:
         rw::math::Q qHome(-1.151,-3.1415/2,0,-3.1415/2,0,0); // Home pos
         rw::math::Q qSafeGrib(-1.151, -2.202, -0.935, -1.574, 1.571, -0.003);   // Hardcoded safe gripping position
         std::cout << "Angle is : " << angle << std::endl;
-        //                                  Base         Shoulder                        Elbow                         Wrist1                           Wrist 2    Wrist 3
-        rw::math::Q qReleaseBall            ((-1.1847) , (-angle*degrees)                  , (0)                          , (0*degrees)                , (1.5708) , (0-3.1415/2));
-        rw::math::Q qReleaseBallBeforeRotate((-1.1847) , (-angle*degrees)                  , (0)                          , (0*degrees)                , (1.5708) , (0-3.1415/2));
-        rw::math::Q qStartPoseTiltAngle     ((-1.1847) , ((45-angle)*degrees)              , (45*degrees)                 , (45*degrees)               , (1.5708) , (0-3.1415/2));
-        rw::math::Q qStopPoseTiltAngle      ((-1.1847) , ((-135+90-angle)*degrees)         , (-45*degrees)                , (-45*degrees)              , (1.5708) , (0-3.1415/2));
+        //                                  Base         Shoulder                        Elbow                         Wrist1                           Wrist 2 1.5708   Wrist 3
+        rw::math::Q qReleaseBall            ((-1.1847) , (-angle*degrees)                  , (0)                          , (0*degrees)                , (111*degrees) , (0-3.1415/2));
+        rw::math::Q qReleaseBallBeforeRotate((-1.1847) , (-angle*degrees)                  , (0)                          , (0*degrees)                , (111*degrees) , (0-3.1415/2));
+        rw::math::Q qStartPoseTiltAngle     ((-1.1847) , ((45-angle)*degrees)              , (45*degrees)                 , (45*degrees)               , (111*degrees) , (0-3.1415/2));
+        rw::math::Q qStopPoseTiltAngle      ((-1.1847) , ((-135+90-angle)*degrees)         , (-45*degrees)                , (-45*degrees)              , (111*degrees) , (0-3.1415/2));
 
         rw::math::Vector3D<>robotPosition (0.40,0.90,0);
 
         //Rotate base to target
-        qReleaseBall[0] -= rotateBaseToCupAngle(cupPosition,robotPosition);
-        qStartPoseTiltAngle[0] -= rotateBaseToCupAngle(cupPosition,robotPosition);
-        qStopPoseTiltAngle[0] -= rotateBaseToCupAngle(cupPosition,robotPosition);
+        qReleaseBall[0] += rotateBaseToCupAngle(cupPosition,robotPosition);
+        qStartPoseTiltAngle[0] += rotateBaseToCupAngle(cupPosition,robotPosition);
+        qStopPoseTiltAngle[0] += rotateBaseToCupAngle(cupPosition,robotPosition);
 
         // Get tcp coords from q value
         coli.setState(qReleaseBall);
         rw::math::Transform3D<> tcpTrans = coli.getTransform();
         rw::math::Vector3D<> tcpPosRobot = tcpTrans.P();
+        std::cout << "TCPPOSROBOT: " << tcpPosRobot << std::endl;
         rw::math::Vector3D<> tcpPosWorld = robot2World(tcpPosRobot);
+        std::cout << "TCPPOSWORLD: " << tcpPosWorld << std::endl;
         double throwSpeed = speed(angle,tcpPosWorld,cupPosition);
         std::cout << "Joint speed at throw is : " << throwSpeed << std::endl;
 
@@ -360,25 +365,33 @@ public:
 
          if(!dc.getHasCollided() && isNormalMode){
 
-             double speed = 1;
+             double Speed = 1;
              double acc = 0.5;
              double msInterval = 5;
              ur_rtde::RTDEControlInterface rtdeControl(mIpAdress);
              ur_rtde::RTDEReceiveInterface rtdeRecive(mIpAdress);
 
-             RobotMove Robot(msInterval,&gripper,&rtdeControl,&rtdeRecive,speed,acc);
+             RobotMove Robot(msInterval,&gripper,&rtdeControl,&rtdeRecive,Speed,acc);
 
              mThrow.addPath(Robot.moveRobotJ(qHome));
              mThrow.addPath(Robot.moveRobotJ(qReleaseBallBeforeRotate));
              mThrow.addPath(Robot.moveRobotJ(qReleaseBall));
+             std::vector<double> throwPos = rtdeRecive.getActualTCPPose();
+             rw::math::Vector3D<> rwThrowR(throwPos[0],throwPos[1],throwPos[2]);
+             rw::math::Vector3D<> rwThrowW = robot2World(rwThrowR);
+             Speed = speed(angle, rwThrowW, cupPosition);
+             std::cout << "TCP throw speed: " << Speed <<std::endl;
              mThrow.addPath(Robot.moveRobotJ(qStartPoseTiltAngle));
              Robot.setSpeedAcc(mThrowSpeed, mThrowAcc);
              mThrow.addPath(Robot.moveRobotJRelease(qStopPoseTiltAngle,qReleaseBall,0.015));
              std::cout << mThrow.getPaths().back();
-             Robot.setSpeedAcc(speed, acc);
+             Robot.setSpeedAcc(mThrowSpeed, acc);
              mThrow.addPath(Robot.moveRobotJ(qSafeGrib));
              mThrow.addPath(Robot.moveRobotJ(qHome));
+             mThrow.setSuccess(1);
         }
+         else
+             mThrow.setSuccess(0);
     }
 
 

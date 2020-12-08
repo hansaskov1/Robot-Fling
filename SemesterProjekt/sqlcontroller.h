@@ -5,6 +5,7 @@
 #include <iostream>
 #include <QtSql>
 #include <QSqlDatabase>
+#include <thread>
 
 
 class SQLController

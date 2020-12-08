@@ -10,12 +10,12 @@ MainWindow::MainWindow(QWidget *parent)
     ui->setupUi(this);
 
     mBallPosition = rw::math::Vector3D<>(0.2, 0.2, 0.1);
-    mCupPosition = rw::math::Vector3D<>(0.55, 0.5, 0.1);
+    mCupPosition = rw::math::Vector3D<>(0.55, -0.7, 0);
     mReleasePosition = rw::math::Vector3D<>(0.6, 0.95, 0.7);
-    mAngle = 3.1415/8;
+    mAngle = 80;
     mOffset = 0.5;
-    mAcceleration = 3;
-    mSpeed = 3;
+    mAcceleration = 3.14;
+    mSpeed = 3.14;
 
     ui->lXValue->setText(QString::number(mBallPosition[0]));
     ui->lYValue->setText(QString::number(mBallPosition[1]));
@@ -211,15 +211,42 @@ void MainWindow::on_pbManualStart_clicked()
         RCthread = std::thread([=] {RC.circleThrow(mCupPosition, mAngle);});
 
     if (ui->cbDB->currentIndex()) {
-        SQLThread = std::thread([=] {RCthread.join(); sql.insert(RC.getThrow());});
+        SQLThread = std::thread([=] {RCthread.join(); sql.insert(RC.getThrow()); std::cout << "Done" << std::endl; RC.resetThrow();});
     }
 }
 
 void MainWindow::on_pbGetBall_clicked()
 {
+    if (cameraConnect.joinable())
+        cameraConnect.join();
+
+    cv::Point ballPos;
+    cv::Mat camToBall;
+
+    switch (ui->cbMethod->currentIndex()) {
+    case 0:
+        image = c.getImage();
+        ballPos = o.colorMorphLineByLine(image);
+        camToBall = c.calcTransMatCamToWorld(ballPos);
+        std::cout << camToBall << std::endl;
+        break;
+    case 1:
+        image = c.getImage();
+        ballPos = o.hcBallCenterPosition(image,10,30);
+        camToBall = c.calcTransMatCamToWorld(ballPos);
+        std::cout << camToBall << std::endl;
+        break;
+    }
+
     if (RCthread.joinable())
         RCthread.join();
-    RCthread = std::thread([=] {RC.getBall(mBallPosition, 0.05);});
+    if (ballPos.x && ballPos.y)
+    {
+        rw::math::Vector3D<> ballPosition(camToBall.at<float>(0,3)*0.01,camToBall.at<float>(1,3)*0.01,0.01);
+        RCthread = std::thread([=] {RC.getBall(ballPosition, 0.05);});
+    }
+    else
+        RCthread = std::thread([=] {RC.getBall(mBallPosition, 0.05);});
 }
 
 void MainWindow::on_pbOpenClose_clicked()
