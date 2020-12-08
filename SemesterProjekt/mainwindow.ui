@@ -301,27 +301,68 @@
            </widget>
           </item>
           <item>
-           <widget class="QSpinBox" name="sbAngle">
+           <widget class="QLabel" name="label">
+            <property name="text">
+             <string>Angle</string>
+            </property>
+           </widget>
+          </item>
+          <item>
+           <widget class="QComboBox" name="cbAuto">
+            <property name="currentIndex">
+             <number>1</number>
+            </property>
+            <item>
+             <property name="text">
+              <string>70</string>
+             </property>
+            </item>
+            <item>
+             <property name="text">
+              <string>80</string>
+             </property>
+            </item>
+            <item>
+             <property name="text">
+              <string>90</string>
+             </property>
+            </item>
+           </widget>
+          </item>
+          <item>
+           <widget class="QLabel" name="label_2">
+            <property name="text">
+             <string>Cup position</string>
+            </property>
+           </widget>
+          </item>
+          <item>
+           <widget class="QLineEdit" name="lAutoX">
             <property name="sizePolicy">
              <sizepolicy hsizetype="Minimum" vsizetype="Fixed">
               <horstretch>0</horstretch>
               <verstretch>0</verstretch>
              </sizepolicy>
             </property>
-            <property name="sizeIncrement">
-             <size>
-              <width>0</width>
-              <height>0</height>
-             </size>
+           </widget>
+          </item>
+          <item>
+           <widget class="QLineEdit" name="lAutoY">
+            <property name="sizePolicy">
+             <sizepolicy hsizetype="Minimum" vsizetype="Fixed">
+              <horstretch>0</horstretch>
+              <verstretch>0</verstretch>
+             </sizepolicy>
             </property>
-            <property name="minimum">
-             <number>70</number>
-            </property>
-            <property name="maximum">
-             <number>90</number>
-            </property>
-            <property name="value">
-             <number>80</number>
+           </widget>
+          </item>
+          <item>
+           <widget class="QLineEdit" name="lAutoZ">
+            <property name="sizePolicy">
+             <sizepolicy hsizetype="Minimum" vsizetype="Fixed">
+              <horstretch>0</horstretch>
+              <verstretch>0</verstretch>
+             </sizepolicy>
             </property>
            </widget>
           </item>

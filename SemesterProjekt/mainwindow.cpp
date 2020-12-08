@@ -10,8 +10,9 @@ MainWindow::MainWindow(QWidget *parent)
     ui->setupUi(this);
 
     mBallPosition = rw::math::Vector3D<>(0.2, 0.2, 0.1);
-    mCupPosition = rw::math::Vector3D<>(0.55, -0.7, 0);
+    mCupPosition = rw::math::Vector3D<>(0.4, -0.7, 0);
     mReleasePosition = rw::math::Vector3D<>(0.6, 0.95, 0.7);
+    mAutoAngle = ui->cbAuto->currentText().toDouble();
     mAngle = 80;
     mOffset = 0.5;
     mAcceleration = 3.14;
@@ -20,6 +21,10 @@ MainWindow::MainWindow(QWidget *parent)
     ui->lXValue->setText(QString::number(mBallPosition[0]));
     ui->lYValue->setText(QString::number(mBallPosition[1]));
     ui->lZValue->setText(QString::number(mBallPosition[2]));
+
+    ui->lAutoX->setText(QString::number(mCupPosition[0]));
+    ui->lAutoY->setText(QString::number(mCupPosition[1]));
+    ui->lAutoZ->setText(QString::number(mCupPosition[2]));
 }
 
 MainWindow::~MainWindow()
@@ -66,11 +71,12 @@ void MainWindow::on_bSend_clicked()
         if (SQLThread.joinable())
             SQLThread.join();
         rw::math::Vector3D<> ballPosition(camToBall.at<float>(0,3)*0.01,camToBall.at<float>(1,3)*0.01,0.01);  //camToBall.at<float>(2,3)*0.01
+        rw::math::Vector3D<> cupPosition(ui->lAutoX->text().toDouble(), ui->lAutoY->text().toDouble(), ui->lAutoZ->text().toDouble());
 
-        RCthread = std::thread([=] {RC.getBall(ballPosition); RC.circleThrow(rw::math::Vector3D<>(0.4, 0.2, 0.05), ui->sbAngle->value());});
+        RCthread = std::thread([=] {RC.getBall(ballPosition); RC.CalcAndSetThrowSpeed(cupPosition, (int)mAutoAngle); RC.circleThrow(cupPosition, mAutoAngle);});
 
         if (ui->cbDB->currentIndex()) {
-            SQLThread = std::thread([=] {RCthread.join(); sql.insert(RC.getThrow());});
+            SQLThread = std::thread([=] {RCthread.join(); sql.insert(RC.getThrow()); RC.resetThrow();});
         }
     }
 }
@@ -254,4 +260,9 @@ void MainWindow::on_pbOpenClose_clicked()
     if (RCthread.joinable())
         RCthread.join();
     RCthread = std::thread([=] {RC.toggleGripper();});
+}
+
+void MainWindow::on_cbAuto_currentIndexChanged(const QString &arg1)
+{
+    mAutoAngle = ui->cbAuto->currentText().toDouble();
 }

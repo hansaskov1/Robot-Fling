@@ -319,7 +319,7 @@ public:
         return angleA;
     }
 
-    void CalcAndSetThrowSpeed(rw::math::Vector3D<> cupPosition){
+    void CalcAndSetThrowSpeed(rw::math::Vector3D<> cupPosition, int angle){
 
         rw::math::Vector3D<>robotPosition (0.40,0.90,0);
 

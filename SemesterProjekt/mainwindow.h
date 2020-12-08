@@ -51,6 +51,8 @@ private slots:
 
     void on_pbOpenClose_clicked();
 
+    void on_cbAuto_currentIndexChanged(const QString &arg1);
+
 private:
     Ui::MainWindow *ui;
     Calibration c;
@@ -66,6 +68,7 @@ private:
     rw::math::Vector3D<> mCupPosition;
     rw::math::Vector3D<> mReleasePosition;
     double mAngle;
+    double mAutoAngle;
     double mOffset;
     double mAcceleration;
     double mSpeed;
