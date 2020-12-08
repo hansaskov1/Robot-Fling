@@ -317,6 +317,29 @@ public:
         return angleA;
     }
 
+    void CalcAndSetThrowSpeed(rw::math::Vector3D<> cupPosition){
+
+        rw::math::Vector3D<>robotPosition (0.40,0.90,0);
+
+        rw::math::Vector3D<> diffPos = robotPosition - cupPosition;
+
+        double length = std::sqrt(diffPos[0]*diffPos[0] + diffPos[1]*diffPos[1]);
+
+        switch(angle){
+        case 70:
+           mThrowSpeed =  0.92795 * length + 0.36211;
+            break;
+        case 80:
+            mThrowSpeed =  1.1191 * length + 0.020886;
+            break;
+        case 90:
+            mThrowSpeed =  1.3789 * length - 0.3914;
+            break;
+        default:
+            std::cout << "Error Can only use 70, 80 or 90 degrees throws" << std::endl;
+        }
+    }
+
     void rotateThrow(rw::math::Vector3D<> cupPosition){
 
     }
