@@ -228,15 +228,17 @@ public:
 
     double speed(double vinkel, rw::math::Vector3D<> throwPose, rw::math::Vector3D<> cupPose)
     {
+        std::cout << vinkel << std::endl;
 
         double xDistanceToCup = cupPose[0] - throwPose[0];
         double yDistanceToCup = cupPose[1] - throwPose[1];
         double zDistanceToCup = cupPose[2] - throwPose[2];
 
-        double den = 9.82*(pow(xDistanceToCup,2)+pow(yDistanceToCup,2));
-        double num = 2 * pow(cos(vinkel),2) * tan(vinkel) * (sqrt(pow(xDistanceToCup,2)+pow(yDistanceToCup,2))) - zDistanceToCup;
+        double den = 9.82*(pow(xDistanceToCup,2) + pow(yDistanceToCup,2));
+        double num = 2 * pow(cos(vinkel),2) * tan(vinkel) * (sqrt(pow(xDistanceToCup,2) + pow(yDistanceToCup,2))) - zDistanceToCup;
 
         double speed = sqrt(den/num);
+
         return speed;
     }
 
@@ -348,8 +350,9 @@ public:
         rw::math::Vector3D<> tcpPosRobot = tcpTrans.P();
         std::cout << "TCPPOSROBOT: " << tcpPosRobot << std::endl;
         rw::math::Vector3D<> tcpPosWorld = robot2World(tcpPosRobot);
-        std::cout << "TCPPOSWORLD: " << tcpPosWorld << std::endl;
-        double throwSpeed = speed(angle,tcpPosWorld,cupPosition);
+
+        double throwSpeed = speed(((90-angle)*degrees),tcpPosWorld,cupPosition);
+
         std::cout << "Joint speed at throw is : " << throwSpeed << std::endl;
 
         DetectCollision dc(scenePath);
@@ -394,12 +397,12 @@ public:
              std::vector<double> throwPos = rtdeRecive.getActualTCPPose();
              rw::math::Vector3D<> rwThrowR(throwPos[0],throwPos[1],throwPos[2]);
              rw::math::Vector3D<> rwThrowW = robot2World(rwThrowR);
-             Speed = speed(angle, rwThrowW, cupPosition);
-             std::cout << "TCP throw speed: " << Speed <<std::endl;
+             Speed = speed(((90-angle)*degrees), rwThrowW, cupPosition);
+             std::cout << "TCP throw speed: " << Speed  << "  Release position: " << rwThrowW << " Cup position " << cupPosition  <<std::endl;
              mThrow.addPath(Robot.moveRobotJ(qStartPoseTiltAngle));
              Robot.setSpeedAcc(mThrowSpeed, mThrowAcc);
              mThrow.addPath(Robot.moveRobotJRelease(qStopPoseTiltAngle,qReleaseBall,0.015));
-             std::cout << mThrow.getPaths().back();
+             //std::cout << mThrow.getPaths().back();
              Robot.setSpeedAcc(mThrowSpeed, acc);
              mThrow.addPath(Robot.moveRobotJ(qSafeGrib));
              mThrow.addPath(Robot.moveRobotJ(qHome));
