@@ -290,6 +290,21 @@ public:
         return startPose;
     }
 
+    double tcpV2JointV(double tcpSpeed){
+
+        double a42 = 0.4234;
+        double a43 = 0.2528;
+        double a44 = 0.0953;
+        double a52 = -0.9486;
+        double a53 = -0.5664;
+        double a54 = -0.2136;
+        double a62 = -0.2793;
+        double a63 = -0.2055;
+        double a64 = -0.1374;
+
+        return tcpSpeed / std::sqrt((a42 + a43 + a44)*(a42 + a43 + a44) + (a52 + a53 + a54)*(a52 + a53 + a54) + (a62 + a63 + a64)*(a62 + a63 + a64));
+    }
+
     double rotateBaseToCupAngle(rw::math::Vector3D<> cupPosition, rw::math::Vector3D<> robotBasePosition){
         // robot base = x = 40 , y = 90
         rw::math::Vector3D<> lengthFromCupToBase = robotBasePosition-cupPosition;
