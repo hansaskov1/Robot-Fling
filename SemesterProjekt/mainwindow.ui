@@ -176,6 +176,16 @@
               <string>ReleaseOffset</string>
              </property>
             </item>
+            <item>
+             <property name="text">
+              <string>Acceleration</string>
+             </property>
+            </item>
+            <item>
+             <property name="text">
+              <string>Hastighed</string>
+             </property>
+            </item>
            </widget>
           </item>
           <item>
@@ -220,6 +230,20 @@
             <property name="text">
              <string>Manuel Grib</string>
             </property>
+           </widget>
+          </item>
+          <item>
+           <widget class="QComboBox" name="cbThrow">
+            <item>
+             <property name="text">
+              <string>Kenneth</string>
+             </property>
+            </item>
+            <item>
+             <property name="text">
+              <string>Hans</string>
+             </property>
+            </item>
            </widget>
           </item>
           <item>
