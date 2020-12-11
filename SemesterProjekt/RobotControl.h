@@ -573,7 +573,7 @@ public:
             std::cout << "running robot" << std::endl;
             double moveSpeed = 1;
             double acceleration = 0.3;
-            double throwAcc = 3;
+            //double throwAcc = 3;
             double msInterval = 10;
             ur_rtde::RTDEControlInterface rtdeControl(mIpAdress);
             ur_rtde::RTDEReceiveInterface rtdeRecive(mIpAdress);
