@@ -34,7 +34,7 @@ void RobotMove::fetchPath(std::promise<Path> && returnPath ,std::atomic<bool>& s
         path.addJointVel(mReceive->getActualQd());
         path.addToolPose(mReceive->getActualTCPPose());
         path.addToolVel(mReceive->getActualTCPSpeed());
-        std::this_thread::sleep_for(std::chrono::milliseconds(mMsInterval*3));
+        std::this_thread::sleep_for(std::chrono::milliseconds(mMsInterval*4));
 
         auto stop = std::chrono::system_clock::now();
         std::chrono::duration<double> elapsedTime = stop-start;

@@ -157,7 +157,7 @@ public:
 
     bool isCollision(unsigned int checks,rw::math::Q endJointPose)
     {
-        isCollision(checks, mDevice->getQ(mState) , endJointPose);
+        return isCollision(checks, mDevice->getQ(mState) , endJointPose);
     }
 
     bool isCollision(const std::vector<std::vector<double>>& qVec)
@@ -222,7 +222,7 @@ private:
     bool checkCollision(const rw::math::Q& q)
     {
         setState(q);
-        checkCollision();
+        return checkCollision();
     }
 
     rw::models::SerialDevice::Ptr mSerialDevice;

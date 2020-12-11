@@ -107,7 +107,7 @@ private slots:
             {
                 if (mySocket->readAll() == "FIN GRIP\n")
                     gripped = true;
-                qDebug(mySocket->readAll());
+                //qDebug(mySocket->readAll());
             }
         }
 
