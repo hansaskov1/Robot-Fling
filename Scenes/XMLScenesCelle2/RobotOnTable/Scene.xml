@@ -50,6 +50,15 @@
 	</Frame>
 	<Include file="../../XMLDevices/UR5_2017/wsg50/wsg50.xml" />
 
-
+	<Frame name="Cup" refframe="WORLD" >
+		<RPY> 0 0 0 </RPY>
+		<Pos>-0.025 0.225 0 </Pos>
+	</Frame>
+	<Drawable name="Cup" refframe="Cup">
+		<RPY> 0 0 0 </RPY>
+		<Pos> 0 0 0 </Pos>
+    <RGB> 1.0 0 0 </RGB>
+		<Tube radius="0.05" thickness="0.01" z="0.02" />
+	</Drawable>
 
 </WorkCell>
