@@ -340,6 +340,7 @@ public:
         default:
             std::cout << "Error Can only use 70, 80 or 90 degrees throws" << std::endl;
         }
+        std::cout << "Throwspeed: " << mThrowSpeed << std::endl;
     }
 
     void rotateThrow(rw::math::Vector3D<> cupPosition){
