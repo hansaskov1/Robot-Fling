@@ -59,7 +59,6 @@ void RobotMove::fetchPathLRelease(std::promise<Path> &&returnPath, std::atomic<b
         path.addJointVel(toolV);
         path.addToolPose(tcpP);
         path.addToolVel(tcpV);
-        std::this_thread::sleep_for(std::chrono::milliseconds(mMsInterval));
 
         auto stop = std::chrono::system_clock::now();
         std::chrono::duration<double> elapsedTime = stop-start;
@@ -82,6 +81,7 @@ void RobotMove::fetchPathLRelease(std::promise<Path> &&returnPath, std::atomic<b
            hasThrown = true;
            std::cout << "Diffrence: " << vecDiff << "Estimated: " << estimatedPos << "Diffrence from " << releasePos << std::endl;
        }
+       std::this_thread::sleep_for(std::chrono::milliseconds(mMsInterval));
     }
     returnPath.set_value(std::move(path));
 }
